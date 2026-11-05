@@ -249,31 +249,39 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
               disabled={countdown !== null}
               className="group card-cream rounded-3xl overflow-hidden text-left flex flex-col justify-between transition-all duration-200 hover:-translate-y-2 hover:shadow-card-hover active:translate-y-1 animate-pop-in"
             >
-              {/* Copertina fotografica reale */}
-              <div className="relative h-40 w-full bg-[#e9e1cf] overflow-hidden border-b-[3px] border-ink">
+              {/* Copertina fotografica reale: sfondo d'atmosfera sfocato + soggetto intero mai mozzato o decapitato */}
+              <div className="relative h-44 sm:h-48 w-full bg-[#181226] overflow-hidden border-b-[3px] border-ink flex items-center justify-center">
                 {cover && (
-                  <img
-                    src={cover}
-                    alt={cat.name}
-                    onError={(e) => {
-                      const img = e.currentTarget;
-                      if (!img.dataset.fallback) {
-                        img.dataset.fallback = '1';
-                        img.src = getBackupImageUrl(cover);
-                      }
-                    }}
-                    className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-300"
-                  />
+                  <>
+                    <img
+                      src={cover}
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute inset-0 w-full h-full object-cover blur-md scale-110 opacity-35 pointer-events-none"
+                    />
+                    <img
+                      src={cover}
+                      alt={cat.name}
+                      onError={(e) => {
+                        const img = e.currentTarget;
+                        if (!img.dataset.fallback) {
+                          img.dataset.fallback = '1';
+                          img.src = getBackupImageUrl(cover);
+                        }
+                      }}
+                      className="relative z-10 max-h-full max-w-full w-auto h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
+                    />
+                  </>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none z-10" />
 
                 {/* Icona giocosa nell'angolo */}
-                <div className="absolute top-3 left-3 w-11 h-11 rounded-2xl bg-cream border-[2.5px] border-ink shadow-chunky-sm flex items-center justify-center text-2xl">
+                <div className="absolute top-3 left-3 w-10 h-10 rounded-2xl bg-cream border-[2.5px] border-ink shadow-chunky-sm flex items-center justify-center text-xl z-20">
                   {cat.icon}
                 </div>
 
                 {/* Conteggio foto */}
-                <span className="absolute bottom-2.5 right-3 px-2.5 py-0.5 rounded-full bg-ink/85 text-cream text-[11px] font-bold">
+                <span className="absolute bottom-2.5 right-3 px-2.5 py-0.5 rounded-full bg-ink/90 text-cream text-[11px] font-bold z-20 border border-cream/20 shadow-sm">
                   {cat.items.length} foto
                 </span>
               </div>
