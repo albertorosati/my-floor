@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Mic, FastForward, Wifi, WifiOff } from 'lucide-react';
 import { DiscordClientPeer } from '../engine/discordMicSync';
 import { SmartSpeechRecognizer } from '../engine/speechRecognition';
+import { APP_VERSION } from '../config/version';
 import { PlayerId, RemoteMicPacket } from '../types/game';
 
 interface RemoteMicScreenProps {
@@ -178,8 +179,9 @@ export const RemoteMicScreen: React.FC<RemoteMicScreenProps> = ({
         </button>
       </main>
 
-      <footer className="text-xs text-cream/60">
-        Guarda le foto sullo schermo condiviso su Discord!
+      <footer className="text-xs text-cream/60 flex flex-col items-center gap-1">
+        <span>Guarda le foto sullo schermo condiviso su Discord!</span>
+        <span className="font-mono text-[11px] text-cream/40">v{APP_VERSION}</span>
       </footer>
     </div>
   );

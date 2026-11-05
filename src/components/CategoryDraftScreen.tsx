@@ -20,6 +20,7 @@ import {
   preloadCategoryImages,
 } from '../data/categories';
 import { gameConfig } from '../services/configService';
+import { APP_VERSION } from '../config/version';
 import { soundEngine } from '../engine/soundEffects';
 
 interface CategoryDraftScreenProps {
@@ -304,24 +305,30 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
       </main>
 
       {/* Azioni in basso: Cambia le 4 proposte oppure Apri tutto il mazzo */}
-      <footer className="max-w-4xl w-full mx-auto mt-5 flex flex-wrap items-center justify-center gap-3">
-        <button
-          onClick={handleReroll}
-          disabled={countdown !== null}
-          className="btn-push px-5 py-3 rounded-2xl bg-gold text-ink font-display font-bold text-sm flex items-center gap-2"
-        >
-          <Shuffle className="w-4 h-4" />
-          <span>Cambia le 4 proposte</span>
-        </button>
+      <footer className="max-w-4xl w-full mx-auto mt-5 flex flex-col items-center gap-3">
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <button
+            onClick={handleReroll}
+            disabled={countdown !== null}
+            className="btn-push px-5 py-3 rounded-2xl bg-gold text-ink font-display font-bold text-sm flex items-center gap-2"
+          >
+            <Shuffle className="w-4 h-4" />
+            <span>Cambia le 4 proposte</span>
+          </button>
 
-        <button
-          onClick={() => setShowAllModal(true)}
-          disabled={countdown !== null}
-          className="btn-push px-5 py-3 rounded-2xl bg-cream text-ink font-display font-bold text-sm flex items-center gap-2"
-        >
-          <Grid className="w-4 h-4 text-p1" />
-          <span>Sfoglia tutte le {categories.length} categorie</span>
-        </button>
+          <button
+            onClick={() => setShowAllModal(true)}
+            disabled={countdown !== null}
+            className="btn-push px-5 py-3 rounded-2xl bg-cream text-ink font-display font-bold text-sm flex items-center gap-2"
+          >
+            <Grid className="w-4 h-4 text-p1" />
+            <span>Sfoglia tutte le {categories.length} categorie</span>
+          </button>
+        </div>
+
+        <span className="font-mono text-[11px] text-cream/40">
+          v{APP_VERSION}
+        </span>
       </footer>
 
       {/* Finestra Scelta Libera da tutte le 36 categorie */}

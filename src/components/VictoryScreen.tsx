@@ -3,6 +3,7 @@ import confetti from 'canvas-confetti';
 import { RotateCcw, Home, Trophy } from 'lucide-react';
 import { DuelSummary, PlayerConfig, PlayerId } from '../types/game';
 import { soundEngine } from '../engine/soundEffects';
+import { APP_VERSION } from '../config/version';
 
 interface VictoryScreenProps {
   winnerId: PlayerId;
@@ -143,6 +144,10 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
             <Home className="w-5 h-5" />
             <span>Torna al Menu</span>
           </button>
+        </div>
+
+        <div className="text-[11px] font-mono text-ink/40 pt-1">
+          v{APP_VERSION}
         </div>
       </div>
     </div>

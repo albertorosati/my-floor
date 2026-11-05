@@ -18,6 +18,7 @@ import {
 } from '../types/game';
 import { SmartSpeechRecognizer } from '../engine/speechRecognition';
 import { gameConfig } from '../services/configService';
+import { APP_VERSION } from '../config/version';
 
 interface LobbyScreenProps {
   p1: PlayerConfig;
@@ -428,8 +429,18 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
         </div>
       </main>
 
-      <footer className="max-w-5xl w-full mx-auto text-center text-xs text-cream/55">
-        A turno si sceglie una categoria tra 4 carte proposte • Di’ <strong className="text-gold">“Passo”</strong> (o premi Spazio) per cambiare foto con 3 secondi di penalità
+      <footer className="max-w-5xl w-full mx-auto flex flex-col sm:flex-row items-center justify-between gap-2.5 text-xs text-cream/55 pt-3 border-t border-cream/10">
+        <p className="text-center sm:text-left">
+          A turno si sceglie una categoria tra 4 carte proposte • Di’ <strong className="text-gold">“Passo”</strong> (o premi Spazio) per cambiare foto con 3 secondi di penalità
+        </p>
+        <div className="flex items-center gap-1.5 shrink-0">
+          <span
+            title={`The Floor Game Show — Versione build ${APP_VERSION}`}
+            className="px-2.5 py-1 rounded-lg bg-black/30 border border-cream/15 text-cream/80 font-mono font-bold text-[11px] shadow-sm select-all cursor-default"
+          >
+            v{APP_VERSION}
+          </span>
+        </div>
       </footer>
     </div>
   );

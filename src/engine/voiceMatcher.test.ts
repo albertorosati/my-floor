@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { evaluateVoiceInput, normalizeText, phoneticSkeleton } from './voiceMatcher';
 import { DEFAULT_CATEGORIES } from '../data/categories';
+import { APP_VERSION } from '../config/version';
 import { DuelItem } from '../types/game';
 
 describe('voiceMatcher Engine & Real-Photo Catalog', () => {
@@ -82,5 +83,9 @@ describe('voiceMatcher Engine & Real-Photo Catalog', () => {
       }
     }
     expect(totalPhotos).toBeGreaterThan(2100);
+  });
+
+  it('ha un formato di versione semver valido (es. 1.0.0, 1.0.1)', () => {
+    expect(APP_VERSION).toMatch(/^\d+\.\d+\.\d+$/);
   });
 });

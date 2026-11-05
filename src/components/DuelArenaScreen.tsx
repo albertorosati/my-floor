@@ -21,6 +21,7 @@ import { SmartSpeechRecognizer } from '../engine/speechRecognition';
 import { soundEngine } from '../engine/soundEffects';
 import { getBackupImageUrl } from '../data/categories';
 import { gameConfig } from '../services/configService';
+import { APP_VERSION } from '../config/version';
 
 interface DuelArenaScreenProps {
   roundNumber: number;
@@ -741,8 +742,9 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         </div>
       )}
 
-      <footer className="max-w-6xl w-full mx-auto text-center text-xs text-cream/45">
-        Spazio = Passo • Invio = Buona • P = Pausa
+      <footer className="max-w-6xl w-full mx-auto flex items-center justify-between text-xs text-cream/45 px-2">
+        <span>Spazio = Passo • Invio = Buona • P = Pausa</span>
+        <span className="font-mono text-[11px] text-cream/40">v{APP_VERSION}</span>
       </footer>
     </div>
   );
