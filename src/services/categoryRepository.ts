@@ -71,16 +71,65 @@ export class CategoryRepository {
     );
   }
 
+  private static decodedCache = new Map<string, HTMLImageElement>();
+
+  public static isImageCached(url: string): boolean {
+    if (!url) return false;
+    return this.decodedCache.has(url);
+  }
+
+  public static primeImage(url: string): Promise<void> {
+    if (!url || typeof window === 'undefined') return Promise.resolve();
+    if (this.decodedCache.has(url)) return Promise.resolve();
+
+    return new Promise((resolve) => {
+      const cleanUrl = url.split('?')[0];
+      const img = new Image();
+      img.decoding = 'async';
+
+      const finish = () => {
+        CategoryRepository.decodedCache.set(url, img);
+        if ('decode' in img && typeof img.decode === 'function') {
+          img.decode().then(() => resolve()).catch(() => resolve());
+        } else {
+          resolve();
+        }
+      };
+
+      img.onload = finish;
+      img.onerror = () => {
+        // Tenta subito con il proxy WebP
+        const backup = CategoryRepository.getBackupImageUrl(cleanUrl);
+        if (backup && backup !== cleanUrl) {
+          const img2 = new Image();
+          img2.decoding = 'async';
+          img2.onload = () => {
+            CategoryRepository.decodedCache.set(url, img2);
+            if ('decode' in img2 && typeof img2.decode === 'function') {
+              img2.decode().then(() => resolve()).catch(() => resolve());
+            } else {
+              resolve();
+            }
+          };
+          img2.onerror = () => resolve();
+          img2.src = backup;
+        } else {
+          resolve();
+        }
+      };
+      img.src = cleanUrl;
+    });
+  }
+
   public static preloadCategoryImages(
     category: Category,
     count = gameConfig.options.preloaderWindowSize * 2
   ): void {
     if (typeof window === 'undefined') return;
-    category.items.slice(0, count).forEach((item) => {
+    const targets = category.items.slice(0, count);
+    targets.forEach((item) => {
       if (item.imageUrl) {
-        const img = new Image();
-        img.decoding = 'async';
-        img.src = item.imageUrl;
+        CategoryRepository.primeImage(item.imageUrl).catch(() => {});
       }
     });
   }

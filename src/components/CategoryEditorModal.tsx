@@ -305,11 +305,19 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
                                 src={cover}
                                 alt=""
                                 aria-hidden="true"
+                                decoding="async"
+                                loading="lazy"
                                 className="absolute inset-0 w-full h-full object-cover blur-sm scale-110 opacity-40 pointer-events-none"
                               />
                               <img
                                 src={cover}
                                 alt=""
+                                decoding="async"
+                                loading="lazy"
+                                onLoad={(e) => {
+                                  e.currentTarget.classList.remove('opacity-0');
+                                  e.currentTarget.classList.add('opacity-100');
+                                }}
                                 onError={(e) => {
                                   const img = e.currentTarget;
                                   if (!img.dataset.fallback) {
@@ -317,7 +325,7 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
                                     img.src = getBackupImageUrl(cover);
                                   }
                                 }}
-                                className="relative z-10 max-w-full max-h-full object-contain p-0.5"
+                                className="relative z-10 max-w-full max-h-full object-contain p-0.5 transition-opacity duration-200 opacity-0"
                               />
                             </>
                           )}

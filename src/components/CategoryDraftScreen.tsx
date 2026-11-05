@@ -18,6 +18,7 @@ import {
 import {
   getBackupImageUrl,
   preloadCategoryImages,
+  primeImage,
 } from '../data/categories';
 import { gameConfig } from '../services/configService';
 import { APP_VERSION } from '../config/version';
@@ -92,12 +93,12 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
   const chooser = chooserId === 'p1' ? p1 : p2;
   const opponent = chooserId === 'p1' ? p2 : p1;
 
-  // Precarica le copertine delle 4 carte proposte
+  // Precarica e decodifica via GPU le copertine delle 4 carte proposte
   useEffect(() => {
     offered.forEach((cat) => {
-      if (cat.coverImage) {
-        const img = new Image();
-        img.src = cat.coverImage;
+      const cover = cat.coverImage || cat.items[0]?.imageUrl;
+      if (cover) {
+        primeImage(cover).catch(() => {});
       }
     });
   }, [offered]);
@@ -257,11 +258,18 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
                       src={cover}
                       alt=""
                       aria-hidden="true"
+                      decoding="async"
                       className="absolute inset-0 w-full h-full object-cover blur-md scale-110 opacity-35 pointer-events-none"
                     />
                     <img
                       src={cover}
                       alt={cat.name}
+                      decoding="async"
+                      loading="eager"
+                      onLoad={(e) => {
+                        e.currentTarget.classList.remove('opacity-0');
+                        e.currentTarget.classList.add('opacity-100');
+                      }}
                       onError={(e) => {
                         const img = e.currentTarget;
                         if (!img.dataset.fallback) {
@@ -269,7 +277,7 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
                           img.src = getBackupImageUrl(cover);
                         }
                       }}
-                      className="relative z-10 max-h-full max-w-full w-auto h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
+                      className="relative z-10 max-h-full max-w-full w-auto h-full object-contain p-2 group-hover:scale-105 transition-all duration-300 drop-shadow-md opacity-0"
                     />
                   </>
                 )}
@@ -389,11 +397,19 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
                             src={cover}
                             alt=""
                             aria-hidden="true"
+                            decoding="async"
+                            loading="lazy"
                             className="absolute inset-0 w-full h-full object-cover blur-sm scale-110 opacity-35 pointer-events-none"
                           />
                           <img
                             src={cover}
                             alt=""
+                            decoding="async"
+                            loading="lazy"
+                            onLoad={(e) => {
+                              e.currentTarget.classList.remove('opacity-0');
+                              e.currentTarget.classList.add('opacity-100');
+                            }}
                             onError={(e) => {
                               const img = e.currentTarget;
                               if (!img.dataset.fallback) {
@@ -401,7 +417,7 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
                                 img.src = getBackupImageUrl(cover);
                               }
                             }}
-                            className="relative z-10 max-w-full max-h-full object-contain p-1 group-hover:scale-105 transition-transform"
+                            className="relative z-10 max-w-full max-h-full object-contain p-1 group-hover:scale-105 transition-all duration-200 opacity-0"
                           />
                         </>
                       )}

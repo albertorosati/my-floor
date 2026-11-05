@@ -22,6 +22,14 @@ export function getBackupImageUrl(originalUrl: string): string {
   return CategoryRepository.getBackupImageUrl(originalUrl);
 }
 
+export function isImageCached(url: string): boolean {
+  return CategoryRepository.isImageCached(url);
+}
+
+export function primeImage(url: string): Promise<void> {
+  return CategoryRepository.primeImage(url);
+}
+
 export function preloadCategoryImages(category: Category, count = 20): void {
   CategoryRepository.preloadCategoryImages(category, count);
 }

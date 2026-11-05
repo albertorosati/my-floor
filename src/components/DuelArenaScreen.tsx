@@ -24,7 +24,11 @@ import {
 import { evaluateVoiceInput } from '../engine/voiceMatcher';
 import { SmartSpeechRecognizer } from '../engine/speechRecognition';
 import { soundEngine } from '../engine/soundEffects';
-import { getBackupImageUrl } from '../data/categories';
+import {
+  getBackupImageUrl,
+  isImageCached,
+  primeImage,
+} from '../data/categories';
 import { gameConfig } from '../services/configService';
 import { APP_VERSION } from '../config/version';
 
@@ -108,7 +112,24 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     ? getBackupImageUrl(currentItem.imageUrl)
     : resolvedUrlsRef.current.get(currentItem.id) || currentItem.imageUrl;
 
-  // Preloader rolling: mantiene sempre pre-caricate in RAM le prossime fotografie configurate
+  const [imageLoaded, setImageLoaded] = useState(() => isImageCached(displaySrc));
+
+  // Quando cambia l'immagine corrente, controlla se è già in cache GPU o ne forza la decodifica istantanea
+  useEffect(() => {
+    const cached = isImageCached(displaySrc);
+    setImageLoaded(cached);
+    if (!cached) {
+      primeImage(displaySrc)
+        .then(() => {
+          setImageLoaded(true);
+        })
+        .catch(() => {
+          // In caso di errore interverrà onError dell'elemento img
+        });
+    }
+  }, [displaySrc]);
+
+  // Preloader rolling: decodifica offscreen via GPU le prossime fotografie configurate
   useEffect(() => {
     const preloadCount = gameConfig.options.preloaderWindowSize;
     for (let offset = 1; offset <= preloadCount; offset++) {
@@ -116,29 +137,26 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
       if (
         !candidate ||
         brokenIdsRef.current.has(candidate.id) ||
-        resolvedUrlsRef.current.has(candidate.id)
+        isImageCached(candidate.imageUrl)
       ) {
         continue;
       }
 
-      const img = new Image();
-      img.decoding = 'async';
-      img.onload = () => {
-        resolvedUrlsRef.current.set(candidate.id, candidate.imageUrl);
-      };
-      img.onerror = () => {
-        // Prova subito il proxy WebP di emergenza
-        const backup = getBackupImageUrl(candidate.imageUrl);
-        const img2 = new Image();
-        img2.onload = () => {
-          resolvedUrlsRef.current.set(candidate.id, backup);
-        };
-        img2.onerror = () => {
-          brokenIdsRef.current.add(candidate.id);
-        };
-        img2.src = backup;
-      };
-      img.src = candidate.imageUrl;
+      primeImage(candidate.imageUrl)
+        .then(() => {
+          resolvedUrlsRef.current.set(candidate.id, candidate.imageUrl);
+        })
+        .catch(() => {
+          // Prova subito il proxy WebP di emergenza
+          const backup = getBackupImageUrl(candidate.imageUrl);
+          primeImage(backup)
+            .then(() => {
+              resolvedUrlsRef.current.set(candidate.id, backup);
+            })
+            .catch(() => {
+              brokenIdsRef.current.add(candidate.id);
+            });
+        });
     }
   }, [deck, itemIndex]);
 
@@ -728,13 +746,32 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
                   src={displaySrc}
                   alt=""
                   aria-hidden="true"
-                  className="absolute inset-0 w-full h-full object-cover blur-3xl scale-110 opacity-20 pointer-events-none"
+                  decoding="async"
+                  className={`absolute inset-0 w-full h-full object-cover blur-3xl scale-110 pointer-events-none transition-opacity duration-300 ${
+                    imageLoaded ? 'opacity-25' : 'opacity-0'
+                  }`}
                 />
+
+                {/* Shimmer / Skeleton fluido prima della comparsa (zero scanlines o rendering a fette progressivo) */}
+                {!imageLoaded && (
+                  <div className="absolute inset-4 rounded-2xl bg-black/5 animate-pulse flex flex-col items-center justify-center gap-3 z-0 pointer-events-none">
+                    <div className="w-10 h-10 rounded-full border-4 border-ink/20 border-t-ink animate-spin" />
+                    <span className="font-display font-semibold text-xs text-ink/40 tracking-wider uppercase">
+                      Caricamento foto...
+                    </span>
+                  </div>
+                )}
+
                 <div className="relative z-10 w-full h-full p-3 sm:p-4 flex items-center justify-center">
                   <img
                     key={`${currentItem.id}-${usingBackupUrl ? 'b' : 'p'}`}
                     src={displaySrc}
                     alt="Cosa vedi nella foto?"
+                    decoding="async"
+                    loading="eager"
+                    onLoad={() => {
+                      setImageLoaded(true);
+                    }}
                     onError={() => {
                       if (!usingBackupUrl) {
                         setUsingBackupUrl(true);
@@ -743,7 +780,9 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
                         advanceToNextImage();
                       }
                     }}
-                    className="max-w-full max-h-full w-auto h-auto object-contain rounded-2xl drop-shadow-[0_10px_22px_rgba(24,18,38,0.22)]"
+                    className={`max-w-full max-h-full w-auto h-auto object-contain rounded-2xl drop-shadow-[0_10px_22px_rgba(24,18,38,0.22)] transition-all duration-200 ease-out ${
+                      imageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                    }`}
                   />
                 </div>
               </>
