@@ -1,0 +1,57 @@
+{
+  "appTitle": "The Floor",
+  "appSubtitle": "Sfida a Voce",
+  "defaults": {
+    "targetWins": 3,
+    "duelDurationSeconds": 45,
+    "passPenaltySeconds": 3,
+    "micMode": "local-shared",
+    "soundEnabled": true,
+    "announcerEnabled": true
+  },
+  "options": {
+    "targetWins": [3, 5, 7, 0],
+    "duelDurations": [30, 45, 60],
+    "draftCardsCount": 4,
+    "preloaderWindowSize": 10,
+    "correctFlashDurationMs": 520,
+    "voiceCooldownMs": 650,
+    "urgentThresholdSeconds": 10
+  },
+  "players": {
+    "defaultP1": {
+      "id": "p1",
+      "name": "Giocatore 1",
+      "avatar": "🦊"
+    },
+    "defaultP2": {
+      "id": "p2",
+      "name": "Giocatore 2",
+      "avatar": "🐯"
+    },
+    "avatars": [
+      "🦊",
+      "🐯",
+      "🐼",
+      "🐸",
+      "🐙",
+      "🦖",
+      "😎",
+      "🤠",
+      "👻",
+      "🍕",
+      "⚡",
+      "🔥",
+      "🦁",
+      "🐶",
+      "🐱",
+      "🚀"
+    ]
+  },
+  "network": {
+    "peerPrefix": "floor-arena-v1-",
+    "roomCodeLength": 4,
+    "roomCodeAlphabet": "ABCDEFGHJKLMNPQRSTUVWXYZ23456789",
+    "imageBackupProxyTemplate": "https://wsrv.nl/?url={url}&w=960&output=webp&q=85"
+  }
+}

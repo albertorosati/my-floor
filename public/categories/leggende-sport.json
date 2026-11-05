@@ -1,0 +1,348 @@
+{
+  "id": "leggende-sport",
+  "name": "Leggende dello Sport",
+  "subtitle": "Tennis, Formula 1, MotoGP, NBA, atletica e grandi campioni",
+  "icon": "🏆",
+  "themeHex": "#F59E0B",
+  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Jannik_Sinner_2025_US_Open.jpg/960px-Jannik_Sinner_2025_US_Open.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "previewImages": [
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Jannik_Sinner_2025_US_Open.jpg/960px-Jannik_Sinner_2025_US_Open.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://upload.wikimedia.org/wikipedia/commons/0/0d/Matteo_Berrettini_at_2025_Miami_Open_01_%28cropped%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Roger_Federer_2015_%28cropped%29.jpg/960px-Roger_Federer_2015_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Rafael_Nadal_en_2024_%28cropped%29.jpg/960px-Rafael_Nadal_en_2024_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  ],
+  "items": [
+    {
+      "id": "leggende-sport-1",
+      "answer": "Jannik Sinner",
+      "aliases": [
+        "sinner"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Jannik_Sinner_2025_US_Open.jpg/960px-Jannik_Sinner_2025_US_Open.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-2",
+      "answer": "Matteo Berrettini",
+      "aliases": [
+        "berrettini"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Matteo_Berrettini_at_2025_Miami_Open_01_%28cropped%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "leggende-sport-3",
+      "answer": "Roger Federer",
+      "aliases": [
+        "federer"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Roger_Federer_2015_%28cropped%29.jpg/960px-Roger_Federer_2015_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-4",
+      "answer": "Rafael Nadal",
+      "aliases": [
+        "nadal",
+        "rafa nadal"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Rafael_Nadal_en_2024_%28cropped%29.jpg/960px-Rafael_Nadal_en_2024_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-5",
+      "answer": "Novak Djokovic",
+      "aliases": [
+        "djokovic",
+        "nole"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Novak_Djokovic_Paris_2024_Olympic_Games_%28cropped%29.jpg/960px-Novak_Djokovic_Paris_2024_Olympic_Games_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-6",
+      "answer": "Carlos Alcaraz",
+      "aliases": [
+        "alcaraz"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Carlos_Alcaraz_-_240422_192324_%28cropped%29.jpg/960px-25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Carlos_Alcaraz_-_240422_192324_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-7",
+      "answer": "Serena Williams",
+      "aliases": [
+        "williams"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Serena-Smiling-2020.png/960px-Serena-Smiling-2020.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-8",
+      "answer": "Valentino Rossi",
+      "aliases": [
+        "rossi",
+        "il dottore"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/17/Valentino_Rossi_2024_WEC_Fuji_6.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "leggende-sport-9",
+      "answer": "Marc Márquez",
+      "aliases": [
+        "marquez"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Marc_Marquez_at_the_2026_Spanish_Grand_Prix_%28cropped%29.jpg/960px-Marc_Marquez_at_the_2026_Spanish_Grand_Prix_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-10",
+      "answer": "Francesco Bagnaia",
+      "aliases": [
+        "pecco bagnaia",
+        "bagnaia",
+        "pecco"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Pecco_Bagnaia_at_the_2026_Spanish_Grand_Prix.jpg/960px-Pecco_Bagnaia_at_the_2026_Spanish_Grand_Prix.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-11",
+      "answer": "Michael Schumacher",
+      "aliases": [
+        "schumacher",
+        "schumi"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Michael_Schumacher%2C_September_2005.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "leggende-sport-12",
+      "answer": "Ayrton Senna",
+      "aliases": [
+        "senna"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/Ayrton_Senna_9_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "leggende-sport-13",
+      "answer": "Lewis Hamilton",
+      "aliases": [
+        "hamilton"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Prime_Minister_Keir_Starmer_meets_Sir_Lewis_Hamilton_%2854566928382%29_%28cropped%29.jpg/960px-Prime_Minister_Keir_Starmer_meets_Sir_Lewis_Hamilton_%2854566928382%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-14",
+      "answer": "Max Verstappen",
+      "aliases": [
+        "verstappen"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/2024-08-25_Motorsport%2C_Formel_1%2C_Gro%C3%9Fer_Preis_der_Niederlande_2024_STP_3973_by_Stepro_%28medium_crop%29.jpg/960px-2024-08-25_Motorsport%2C_Formel_1%2C_Gro%C3%9Fer_Preis_der_Niederlande_2024_STP_3973_by_Stepro_%28medium_crop%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-15",
+      "answer": "Charles Leclerc",
+      "aliases": [
+        "leclerc"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Charles_Leclerc_at_the_2026_Cannes_Film_Festival_%28cropped%29.jpg/960px-Charles_Leclerc_at_the_2026_Cannes_Film_Festival_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-16",
+      "answer": "Fernando Alonso",
+      "aliases": [
+        "alonso"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Alonso-68_%2824710447098%29.jpg/960px-Alonso-68_%2824710447098%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-17",
+      "answer": "LeBron James",
+      "aliases": [
+        "lebron"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/LeBron_James_%2851959977144%29_%28cropped2%29.jpg/960px-LeBron_James_%2851959977144%29_%28cropped2%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-18",
+      "answer": "Michael Jordan",
+      "aliases": [
+        "jordan"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Michael_jordan_admad_rashad_%2851276390562%29_%28cropped%29.jpg/960px-Michael_jordan_admad_rashad_%2851276390562%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-19",
+      "answer": "Kobe Bryant",
+      "aliases": [
+        "kobe",
+        "black mamba"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Kobe_Bryant_Dec_2014.jpg/960px-Kobe_Bryant_Dec_2014.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-20",
+      "answer": "Stephen Curry",
+      "aliases": [
+        "curry",
+        "steph curry"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a6/P20230117CS-0446_%2852636052820%29_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "leggende-sport-21",
+      "answer": "Shaquille O’Neal",
+      "aliases": [
+        "shaq",
+        "shaquille oneal"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/TechCrunch_Disrupt_2023_-_Day_1_%28cropped%29.jpg/960px-TechCrunch_Disrupt_2023_-_Day_1_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-22",
+      "answer": "Usain Bolt",
+      "aliases": [
+        "bolt"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Usain_Bolt_smiling_Berlin_2009.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "leggende-sport-23",
+      "answer": "Marcell Jacobs",
+      "aliases": [
+        "jacobs"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Marcell_Jacobs_2021.jpg/960px-Marcell_Jacobs_2021.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-24",
+      "answer": "Gianmarco Tamberi",
+      "aliases": [
+        "tamberi",
+        "gimbo"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Gimbo_Tamberi_%28Roma_2024%29.jpg/960px-Gimbo_Tamberi_%28Roma_2024%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-25",
+      "answer": "Federica Pellegrini",
+      "aliases": [
+        "pellegrini"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Federica_Pellegrini_e_Luca_Marin_%28cropped%29.jpg/960px-Federica_Pellegrini_e_Luca_Marin_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-26",
+      "answer": "Bebe Vio",
+      "aliases": [
+        "beatrice vio"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Beatrice_Vio_2018_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "leggende-sport-27",
+      "answer": "Alberto Tomba",
+      "aliases": [
+        "tomba"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Alberto_Tomba_-_240422_185233.jpg/960px-25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Alberto_Tomba_-_240422_185233.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-28",
+      "answer": "Sofia Goggia",
+      "aliases": [
+        "goggia"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Sofia_Goggia.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "leggende-sport-29",
+      "answer": "Marco Pantani",
+      "aliases": [
+        "pantani",
+        "il pirata"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Marco_Pantani%2C_1997.jpg/960px-Marco_Pantani%2C_1997.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-30",
+      "answer": "Tadej Pogačar",
+      "aliases": [
+        "pogacar"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/2022_Tour_of_Slovenia_%28Stage_3%2C_Tadej_Poga%C4%8Dar_celebrating_victory_on_Celje_Castle_v2%29.jpg/960px-2022_Tour_of_Slovenia_%28Stage_3%2C_Tadej_Poga%C4%8Dar_celebrating_victory_on_Celje_Castle_v2%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-31",
+      "answer": "Mike Tyson",
+      "aliases": [
+        "tyson"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Mike_Tyson_Photo_Op_GalaxyCon_Austin_2023.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "leggende-sport-32",
+      "answer": "Muhammad Ali",
+      "aliases": [
+        "cassius clay",
+        "ali"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Muhammad_Ali_NYWTS.jpg/960px-Muhammad_Ali_NYWTS.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-33",
+      "answer": "Conor McGregor",
+      "aliases": [
+        "mcgregor"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Conor_McGregor_2025.jpeg/960px-Conor_McGregor_2025.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-34",
+      "answer": "Tiger Woods",
+      "aliases": [
+        "woods"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/President_Donald_Trump_hosts_a_reception_honoring_Black_History_Month_%2854341713089%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "leggende-sport-35",
+      "answer": "Simone Biles",
+      "aliases": [
+        "biles"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Simone_Biles_National_Team_2024.jpg/960px-Simone_Biles_National_Team_2024.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-36",
+      "answer": "Michael Phelps",
+      "aliases": [
+        "phelps"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Michael_Phelps_Rio_Olympics_2016.jpg/960px-Michael_Phelps_Rio_Olympics_2016.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-37",
+      "answer": "Tony Hawk",
+      "aliases": [
+        "hawk"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Tony_Hawk_2026.jpg/960px-Tony_Hawk_2026.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-38",
+      "answer": "Hulk Hogan",
+      "aliases": [
+        "hogan"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Hulk_Hogan%2C_circa_1985.jpg/960px-Hulk_Hogan%2C_circa_1985.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-39",
+      "answer": "John Cena",
+      "aliases": [
+        "cena"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/John_Cena_by_Gage_Skidmore.jpg/960px-John_Cena_by_Gage_Skidmore.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "leggende-sport-40",
+      "answer": "Rey Mysterio",
+      "aliases": [
+        "mysterio"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Rey_Mysterio_at_San_Diego_Comic_Con_2026_%283x4_cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    }
+  ]
+}

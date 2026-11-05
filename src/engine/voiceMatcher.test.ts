@@ -70,8 +70,8 @@ describe('voiceMatcher Engine & Real-Photo Catalog', () => {
     expect(phoneticSkeleton('smartphone')).toBe('smartfone');
   });
 
-  it('contiene 36 categorie con oltre 1400 fotografie vere e zero emoji-svg nei duelli', () => {
-    expect(DEFAULT_CATEGORIES.length).toBe(36);
+  it('contiene 56 categorie modulari con oltre 2100 fotografie HD validate e zero emoji-svg nei duelli', () => {
+    expect(DEFAULT_CATEGORIES.length).toBe(56);
     let totalPhotos = 0;
     for (const cat of DEFAULT_CATEGORIES) {
       expect(cat.items.length).toBeGreaterThanOrEqual(30);
@@ -81,6 +81,6 @@ describe('voiceMatcher Engine & Real-Photo Catalog', () => {
         totalPhotos++;
       }
     }
-    expect(totalPhotos).toBeGreaterThan(1400);
+    expect(totalPhotos).toBeGreaterThan(2100);
   });
 });

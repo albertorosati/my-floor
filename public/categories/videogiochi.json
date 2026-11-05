@@ -1,0 +1,405 @@
+{
+  "id": "videogiochi",
+  "name": "Videogiochi Famosi",
+  "subtitle": "Riconosci il videogioco dall’immagine senza leggere il titolo!",
+  "icon": "🎮",
+  "themeHex": "#6366F1",
+  "coverImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/library_hero.jpg",
+  "previewImages": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/library_hero.jpg",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/library_hero.jpg",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/library_hero.jpg",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/library_hero.jpg"
+  ],
+  "items": [
+    {
+      "id": "videogiochi-1",
+      "answer": "Grand Theft Auto V",
+      "aliases": [
+        "gta",
+        "gta 5",
+        "gta v",
+        "grand theft auto"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-2",
+      "answer": "Red Dead Redemption 2",
+      "aliases": [
+        "red dead",
+        "red dead redemption",
+        "arthur morgan"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-3",
+      "answer": "Elden Ring",
+      "aliases": [
+        "elden"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-4",
+      "answer": "Cyberpunk 2077",
+      "aliases": [
+        "cyberpunk"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-5",
+      "answer": "The Witcher 3",
+      "aliases": [
+        "the witcher",
+        "geralt",
+        "witcher"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-6",
+      "answer": "Skyrim",
+      "aliases": [
+        "the elder scrolls",
+        "elder scrolls"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/489830/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-7",
+      "answer": "Counter-Strike",
+      "aliases": [
+        "csgo",
+        "cs2",
+        "counter strike"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-8",
+      "answer": "Portal 2",
+      "aliases": [
+        "portal"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/620/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-9",
+      "answer": "Subnautica",
+      "aliases": [
+        "subnautica"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-10",
+      "answer": "Terraria",
+      "aliases": [
+        "terraria"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-11",
+      "answer": "Stardew Valley",
+      "aliases": [
+        "stardew"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-12",
+      "answer": "Cuphead",
+      "aliases": [
+        "cup head"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/268910/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-13",
+      "answer": "Hollow Knight",
+      "aliases": [
+        "hollow"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-14",
+      "answer": "Among Us",
+      "aliases": [
+        "impostore",
+        "amogus"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-15",
+      "answer": "Fall Guys",
+      "aliases": [
+        "fall guy"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1097150/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-16",
+      "answer": "Dead by Daylight",
+      "aliases": [
+        "dbd"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/381210/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-17",
+      "answer": "Baldur’s Gate 3",
+      "aliases": [
+        "baldurs gate",
+        "baldur gate"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-18",
+      "answer": "Resident Evil 4",
+      "aliases": [
+        "resident evil",
+        "leon kennedy"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-19",
+      "answer": "God of War",
+      "aliases": [
+        "kratos"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1593500/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-20",
+      "answer": "Horizon Zero Dawn",
+      "aliases": [
+        "horizon",
+        "aloy"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1151640/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-21",
+      "answer": "Tekken 8",
+      "aliases": [
+        "tekken",
+        "jin kazama"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1778820/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-22",
+      "answer": "Street Fighter 6",
+      "aliases": [
+        "street fighter",
+        "ryu",
+        "chun li"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-23",
+      "answer": "DOOM Eternal",
+      "aliases": [
+        "doom",
+        "doomguy"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/782330/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-24",
+      "answer": "Halo",
+      "aliases": [
+        "master chief",
+        "halo infinite"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/976730/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-25",
+      "answer": "Fallout 4",
+      "aliases": [
+        "fallout",
+        "vault boy"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/377160/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-26",
+      "answer": "The Sims 4",
+      "aliases": [
+        "the sims",
+        "sims"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222670/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-27",
+      "answer": "Euro Truck Simulator 2",
+      "aliases": [
+        "euro truck",
+        "camion simulatore"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-28",
+      "answer": "Rust",
+      "aliases": [
+        "rust gioco"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-29",
+      "answer": "Sea of Thieves",
+      "aliases": [
+        "pirati gioco"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1172620/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-30",
+      "answer": "Apex Legends",
+      "aliases": [
+        "apex"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1172470/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-31",
+      "answer": "Dota 2",
+      "aliases": [
+        "dota"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-32",
+      "answer": "Destiny 2",
+      "aliases": [
+        "destiny"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1085660/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-33",
+      "answer": "Hades",
+      "aliases": [
+        "zagreus"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145360/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-34",
+      "answer": "Undertale",
+      "aliases": [
+        "sans"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/391540/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-35",
+      "answer": "Dark Souls III",
+      "aliases": [
+        "dark souls",
+        "souls"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/374320/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-36",
+      "answer": "Sekiro",
+      "aliases": [
+        "sekiro shadows die twice"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/814380/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-37",
+      "answer": "Monster Hunter: World",
+      "aliases": [
+        "monster hunter"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582010/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-38",
+      "answer": "Rainbow Six Siege",
+      "aliases": [
+        "rainbow six",
+        "r6"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/359550/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-39",
+      "answer": "Left 4 Dead 2",
+      "aliases": [
+        "left 4 dead",
+        "left for dead"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-40",
+      "answer": "Team Fortress 2",
+      "aliases": [
+        "team fortress",
+        "tf2"
+      ],
+      "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/440/library_hero.jpg"
+    },
+    {
+      "id": "videogiochi-41",
+      "answer": "Minecraft",
+      "aliases": [
+        "steve minecraft",
+        "blocchi"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/0/0e/Minecraft_%28film%29.png/960px-Minecraft_%28film%29.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "videogiochi-42",
+      "answer": "Super Mario",
+      "aliases": [
+        "mario bros",
+        "idraulico"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/5/50/Mario_Nintendo.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "videogiochi-43",
+      "answer": "The Legend of Zelda",
+      "aliases": [
+        "zelda",
+        "link"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/e/ec/Twilight_Princess_-_Link_05.jpg/960px-Twilight_Princess_-_Link_05.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "videogiochi-44",
+      "answer": "Sonic",
+      "aliases": [
+        "sonic il riccio"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/f4/Sonic_modern_and_classic_designs.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "videogiochi-45",
+      "answer": "Pac-Man",
+      "aliases": [
+        "pacman"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Pac-Man_ingame_and_2D_alternative_design.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    }
+  ]
+}

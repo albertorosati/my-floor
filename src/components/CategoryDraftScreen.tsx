@@ -19,6 +19,7 @@ import {
   getBackupImageUrl,
   preloadCategoryImages,
 } from '../data/categories';
+import { gameConfig } from '../services/configService';
 import { soundEngine } from '../engine/soundEffects';
 
 interface CategoryDraftScreenProps {
@@ -45,13 +46,14 @@ function pickFourRandom(
   const playedSet = new Set(playedIds);
   const excludeSet = new Set(excludeCurrentIds);
 
+  const offeredCount = gameConfig.options.draftCardsCount;
   let pool = all.filter(
     (c) => !playedSet.has(c.id) && !excludeSet.has(c.id)
   );
-  if (pool.length < 4) {
+  if (pool.length < offeredCount) {
     pool = all.filter((c) => !playedSet.has(c.id));
   }
-  if (pool.length < 4) {
+  if (pool.length < offeredCount) {
     pool = [...all];
   }
 
@@ -60,7 +62,7 @@ function pickFourRandom(
     const j = Math.floor(Math.random() * (i + 1));
     [copy[i], copy[j]] = [copy[j], copy[i]];
   }
-  return copy.slice(0, 4);
+  return copy.slice(0, offeredCount);
 }
 
 export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
@@ -247,7 +249,7 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
               className="group card-cream rounded-3xl overflow-hidden text-left flex flex-col justify-between transition-all duration-200 hover:-translate-y-2 hover:shadow-card-hover active:translate-y-1 animate-pop-in"
             >
               {/* Copertina fotografica reale */}
-              <div className="relative h-40 w-full bg-ink overflow-hidden border-b-[3px] border-ink">
+              <div className="relative h-40 w-full bg-[#e9e1cf] overflow-hidden border-b-[3px] border-ink">
                 {cover && (
                   <img
                     src={cover}

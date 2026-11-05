@@ -1,0 +1,319 @@
+{
+  "id": "anime-manga",
+  "name": "Personaggi Anime & Manga",
+  "subtitle": "Eroi e rivali leggendari dell’animazione giapponese",
+  "icon": "🍥",
+  "themeHex": "#F97316",
+  "coverImage": "https://thumb.wikimedia.org/wikipedia/it/thumb/4/48/Son_Goku_-_Dragon_Ball_Kai.png/960px-Son_Goku_-_Dragon_Ball_Kai.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "previewImages": [
+    "https://thumb.wikimedia.org/wikipedia/it/thumb/4/48/Son_Goku_-_Dragon_Ball_Kai.png/960px-Son_Goku_-_Dragon_Ball_Kai.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/it/thumb/f/ff/Vegeta_-_Dragon_Ball_Kai.png/960px-Vegeta_-_Dragon_Ball_Kai.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://upload.wikimedia.org/wikipedia/en/6/68/Dragon_Ball_Cast.PNG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "https://thumb.wikimedia.org/wikipedia/it/thumb/c/ce/Gohan.jpg/960px-Gohan.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  ],
+  "items": [
+    {
+      "id": "anime-manga-1",
+      "answer": "Goku",
+      "aliases": [
+        "son goku",
+        "kakaroth",
+        "dragon ball"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/4/48/Son_Goku_-_Dragon_Ball_Kai.png/960px-Son_Goku_-_Dragon_Ball_Kai.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-2",
+      "answer": "Vegeta",
+      "aliases": [
+        "principe dei saiyan"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/f/ff/Vegeta_-_Dragon_Ball_Kai.png/960px-Vegeta_-_Dragon_Ball_Kai.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-3",
+      "answer": "Freezer",
+      "aliases": [
+        "frieza"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/68/Dragon_Ball_Cast.PNG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "anime-manga-4",
+      "answer": "Gohan",
+      "aliases": [
+        "son gohan"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/c/ce/Gohan.jpg/960px-Gohan.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-5",
+      "answer": "Junior",
+      "aliases": [
+        "piccolo"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/0/00/Piccolo_Dragon_Ball.png/960px-Piccolo_Dragon_Ball.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-6",
+      "answer": "Naruto",
+      "aliases": [
+        "naruto uzumaki"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/d/db/Uzumaki_Naruto.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "anime-manga-7",
+      "answer": "Sasuke",
+      "aliases": [
+        "sasuke uchiha"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/0/08/Sasuke_Uchiha_shippuuden.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "anime-manga-8",
+      "answer": "Kakashi",
+      "aliases": [
+        "kakashi hatake"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/2/27/Kakashi_Hatake.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "anime-manga-9",
+      "answer": "Itachi",
+      "aliases": [
+        "itachi uchiha"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/8/88/Uitachi5.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "anime-manga-10",
+      "answer": "Rufy",
+      "aliases": [
+        "luffy",
+        "monkey d luffy",
+        "cappello di paglia",
+        "one piece"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/3/32/Monkey_D._Rufy.png/960px-Monkey_D._Rufy.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-11",
+      "answer": "Zoro",
+      "aliases": [
+        "roronoa zoro"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/5/50/Roronoa_Zoro.png/960px-Roronoa_Zoro.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-12",
+      "answer": "Sanji",
+      "aliases": [
+        "vinsmoke sanji"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/5/5e/One_Piece_vol_1.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "anime-manga-13",
+      "answer": "Nami",
+      "aliases": [],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/5/5e/One_Piece_vol_1.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "anime-manga-14",
+      "answer": "Light Yagami",
+      "aliases": [
+        "kira",
+        "death note"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/4/4f/Yagami_light.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "anime-manga-15",
+      "answer": "L",
+      "aliases": [
+        "elle",
+        "elle death note"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/0/08/Death_Note_volume_01.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "anime-manga-16",
+      "answer": "Ryuk",
+      "aliases": [
+        "shinigami"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/0/08/Death_Note_volume_01.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "anime-manga-17",
+      "answer": "Eren Jaeger",
+      "aliases": [
+        "eren",
+        "attacco dei giganti"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/a/a7/Eren_jaeger.png/960px-Eren_jaeger.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-18",
+      "answer": "Levi Ackerman",
+      "aliases": [
+        "capitano levi",
+        "levi"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Matthew_Mercer_-_IGN_Live_2024.jpg/960px-Matthew_Mercer_-_IGN_Live_2024.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-19",
+      "answer": "Mikasa",
+      "aliases": [
+        "mikasa ackerman"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Jurassic_World_Fallen_Kingdom_Japan_Premiere_Red_Carpet_Ishikawa_Yui_%2843101892301%29.jpg/960px-Jurassic_World_Fallen_Kingdom_Japan_Premiere_Red_Carpet_Ishikawa_Yui_%2843101892301%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-20",
+      "answer": "Saitama",
+      "aliases": [
+        "one punch man"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/b/b4/Saitama_%28One-Punch_Man%29.jpg/960px-Saitama_%28One-Punch_Man%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-21",
+      "answer": "Tanjiro",
+      "aliases": [
+        "demon slayer",
+        "tanjiro kamado"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/4/45/Demon_Slayer_-_Kimetsu_no_yaiba.jpg/960px-Demon_Slayer_-_Kimetsu_no_yaiba.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-22",
+      "answer": "Nezuko",
+      "aliases": [
+        "nezuko kamado"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/4/45/Demon_Slayer_-_Kimetsu_no_yaiba.jpg/960px-Demon_Slayer_-_Kimetsu_no_yaiba.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-23",
+      "answer": "Satoru Gojo",
+      "aliases": [
+        "gojo",
+        "jujutsu kaisen"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/7/77/Satoru_Gojo.jpg/960px-Satoru_Gojo.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-24",
+      "answer": "Izuku Midoriya",
+      "aliases": [
+        "deku",
+        "my hero academia"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/3/3c/Katsuki_Bakugo.jpg/960px-Katsuki_Bakugo.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-25",
+      "answer": "Ichigo Kurosaki",
+      "aliases": [
+        "ichigo",
+        "bleach"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/a/a2/Ichigo_Kurosaki.png/960px-Ichigo_Kurosaki.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-26",
+      "answer": "Edward Elric",
+      "aliases": [
+        "fullmetal alchemist"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/b/bc/Edward_Elric.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "anime-manga-27",
+      "answer": "Doraemon",
+      "aliases": [
+        "gatto spaziale"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/2/20/Doraemon_2005.png/960px-Doraemon_2005.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-28",
+      "answer": "Conan Edogawa",
+      "aliases": [
+        "detective conan",
+        "conan",
+        "shinichi kudo"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Jerry_Jewell_by_Gage_Skidmore.jpg/960px-Jerry_Jewell_by_Gage_Skidmore.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-29",
+      "answer": "Sailor Moon",
+      "aliases": [
+        "bunny",
+        "usagi"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/0/08/Sailor_Moon_Cofanetto_DVD-1.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "anime-manga-30",
+      "answer": "Inuyasha",
+      "aliases": [],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/6/6d/Inuyasha_wide_edition.jpg/960px-Inuyasha_wide_edition.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-31",
+      "answer": "Lupin III",
+      "aliases": [
+        "lupin",
+        "arsenio lupin"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Arsene_Lupin_art_Pierre_La_Fit.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "anime-manga-32",
+      "answer": "Ken il Guerriero",
+      "aliases": [
+        "kenshiro",
+        "ken"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/b/b9/Kenleggenda.png/960px-Kenleggenda.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-33",
+      "answer": "Astro Boy",
+      "aliases": [
+        "atom"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Nintendo-Game-Boy-Advance-Purple-FL.jpg/960px-Nintendo-Game-Boy-Advance-Purple-FL.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-34",
+      "answer": "Guts",
+      "aliases": [
+        "gatsu",
+        "berserk"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/4/44/Berserk.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "anime-manga-35",
+      "answer": "Ash Ketchum",
+      "aliases": [
+        "ash"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Sarah_Natochenny_GalaxyCon_Des_Moines_September%2C12%2C2026_0961.jpg/960px-Sarah_Natochenny_GalaxyCon_Des_Moines_September%2C12%2C2026_0961.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "anime-manga-36",
+      "answer": "Totoro",
+      "aliases": [
+        "il mio vicino totoro"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Eoperipatus_totoro.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    }
+  ]
+}

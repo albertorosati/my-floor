@@ -1,0 +1,318 @@
+{
+  "id": "icone-musica-70-80-90",
+  "name": "Leggende della Musica ’70-’80-’90",
+  "subtitle": "Le icone immortali del rock, del pop e della disco",
+  "icon": "🕺",
+  "themeHex": "#EC4899",
+  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Bob_Marley_circa_1976_%28cropped%29.jpg/960px-Bob_Marley_circa_1976_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "previewImages": [
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Bob_Marley_circa_1976_%28cropped%29.jpg/960px-Bob_Marley_circa_1976_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/KurtCobainHouse.jpg/960px-KurtCobainHouse.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://upload.wikimedia.org/wikipedia/commons/5/52/Whitney_Houston_%28cropped3%29.JPEG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/George_Michael.jpeg/960px-George_Michael.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  ],
+  "items": [
+    {
+      "id": "icone-musica-70-80-90-1",
+      "answer": "Bob Marley",
+      "aliases": [
+        "marley"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Bob_Marley_circa_1976_%28cropped%29.jpg/960px-Bob_Marley_circa_1976_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-2",
+      "answer": "Kurt Cobain",
+      "aliases": [
+        "cobain",
+        "nirvana"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/KurtCobainHouse.jpg/960px-KurtCobainHouse.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-3",
+      "answer": "Whitney Houston",
+      "aliases": [
+        "houston"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/52/Whitney_Houston_%28cropped3%29.JPEG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "icone-musica-70-80-90-4",
+      "answer": "George Michael",
+      "aliases": [
+        "wham"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/George_Michael.jpeg/960px-George_Michael.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-5",
+      "answer": "Prince",
+      "aliases": [],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Prince_promo_picture_%281988%3B_cropped_and_retouched%29.png/960px-Prince_promo_picture_%281988%3B_cropped_and_retouched%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-6",
+      "answer": "Tina Turner",
+      "aliases": [
+        "turner"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Tina_Turner_Breaks_All_the_Rules.png/960px-Tina_Turner_Breaks_All_the_Rules.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-7",
+      "answer": "Céline Dion",
+      "aliases": [
+        "celine dion",
+        "dion"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f5/C%C3%A9line_Dion_2012.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "icone-musica-70-80-90-8",
+      "answer": "Bruce Springsteen",
+      "aliases": [
+        "springsteen",
+        "the boss"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Bruce_Springsteen_Springsteen-79_%28cropped%29.jpg/960px-Bruce_Springsteen_Springsteen-79_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-9",
+      "answer": "Mick Jagger",
+      "aliases": [
+        "jagger",
+        "rolling stones"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/RStonesHydePark030722_%2849_of_125%29_%2852193656268%29_%28cropped%29.jpg/960px-RStonesHydePark030722_%2849_of_125%29_%2852193656268%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-10",
+      "answer": "John Lennon",
+      "aliases": [
+        "lennon",
+        "beatles"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/John_Lennon_%22Walls_and_Bridges%22_1974_press_photo_2_%28color%29_%28cropped%29.jpg/960px-John_Lennon_%22Walls_and_Bridges%22_1974_press_photo_2_%28color%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-11",
+      "answer": "Paul McCartney",
+      "aliases": [
+        "mccartney"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/MaccaLyricsRFH051121_%2815_of_18%29_%28updated%29_%28cropped%29.jpg/960px-MaccaLyricsRFH051121_%2815_of_18%29_%28updated%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-12",
+      "answer": "Bono",
+      "aliases": [
+        "u2"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Bono_singing_in_Indianapolis_on_Joshua_Tree_Tour_2017_9-10-17.jpg/960px-Bono_singing_in_Indianapolis_on_Joshua_Tree_Tour_2017_9-10-17.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-13",
+      "answer": "Liam Gallagher",
+      "aliases": [
+        "gallagher",
+        "oasis"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/OasisCardiff040725-88_-_54640244776_%28landscape_crop%29_%28cropped%29.jpg/960px-OasisCardiff040725-88_-_54640244776_%28landscape_crop%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-14",
+      "answer": "Axl Rose",
+      "aliases": [
+        "guns n roses"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Glasto2023_%28239_of_468%29_%2853009325175%29_%28cropped%29.jpg/960px-Glasto2023_%28239_of_468%29_%2853009325175%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-15",
+      "answer": "Slash",
+      "aliases": [
+        "saul hudson"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Slash_live_in_London_2022_%28Cropped_-_upright%29.jpg/960px-Slash_live_in_London_2022_%28Cropped_-_upright%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-16",
+      "answer": "Ozzy Osbourne",
+      "aliases": [
+        "osbourne",
+        "black sabbath"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Ozzy_Osbourne_in_1970_%28medium-sized_crop%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "icone-musica-70-80-90-17",
+      "answer": "Jon Bon Jovi",
+      "aliases": [
+        "bon jovi"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/NEG_0062-2_%2854119957209%29.jpg/960px-NEG_0062-2_%2854119957209%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-18",
+      "answer": "Sting",
+      "aliases": [
+        "the police"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Sting_at_2026_Montreux_Jazz_Festival-12-CA_%28cropped%29.jpg/960px-Sting_at_2026_Montreux_Jazz_Festival-12-CA_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-19",
+      "answer": "Phil Collins",
+      "aliases": [
+        "collins",
+        "genesis"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Phil_Collins%2C_2025_for_%22Eras%22_%28cropped%29.jpg/960px-Phil_Collins%2C_2025_for_%22Eras%22_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-20",
+      "answer": "Annie Lennox",
+      "aliases": [
+        "eurythmics"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Annie_Lennox_March_2023.jpg/960px-Annie_Lennox_March_2023.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-21",
+      "answer": "Cyndi Lauper",
+      "aliases": [
+        "lauper"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/CyndiLauperRAH260624_%2842_of_51%29_%2853819380830%29_%28cropped%29.jpg/960px-CyndiLauperRAH260624_%2842_of_51%29_%2853819380830%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-22",
+      "answer": "Cher",
+      "aliases": [],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Cher_in_2019_cropped.jpg/960px-Cher_in_2019_cropped.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-23",
+      "answer": "Diana Ross",
+      "aliases": [
+        "ross"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/DRossLongleat010722_%289_of_43%29_%2852189231585%29_%28cropped%29.jpg/960px-DRossLongleat010722_%289_of_43%29_%2852189231585%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-24",
+      "answer": "Stevie Wonder",
+      "aliases": [
+        "wonder"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/SWonderBSTHyde060719-72_%28cropped%29.jpg/960px-SWonderBSTHyde060719-72_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-25",
+      "answer": "Ray Charles",
+      "aliases": [
+        "charles"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Ray_Charles_classic_piano_pose.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "icone-musica-70-80-90-26",
+      "answer": "James Brown",
+      "aliases": [],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/James_Brown_1996_%28HQ%29.jpg/960px-James_Brown_1996_%28HQ%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-27",
+      "answer": "Aretha Franklin",
+      "aliases": [
+        "franklin"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Aretha_Franklin_1968.jpg/960px-Aretha_Franklin_1968.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-28",
+      "answer": "Frank Sinatra",
+      "aliases": [
+        "sinatra",
+        "the voice"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Frank_Sinatra_%281957_studio_portrait_close-up%29.jpg/960px-Frank_Sinatra_%281957_studio_portrait_close-up%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-29",
+      "answer": "Jimi Hendrix",
+      "aliases": [
+        "hendrix"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Jimi_Hendrix_%281967%29_%28cropped%29.jpg/960px-Jimi_Hendrix_%281967%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-30",
+      "answer": "Jim Morrison",
+      "aliases": [
+        "morrison",
+        "the doors"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Jim_Morrison_-_Young_Lion_%281967%29_%281%29.jpg/960px-Jim_Morrison_-_Young_Lion_%281967%29_%281%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-31",
+      "answer": "Janis Joplin",
+      "aliases": [
+        "joplin"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/Janis_Joplin_1970.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "icone-musica-70-80-90-32",
+      "answer": "Eric Clapton",
+      "aliases": [
+        "clapton"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fa/JeffBeckTribute1RAH220523_%28106_of_136%29_%2852920038844%29_%28Eric_Clapton%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "icone-musica-70-80-90-33",
+      "answer": "Carlos Santana",
+      "aliases": [
+        "santana"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Santana_Acer_Arena_%285558151833%29_%28cropped%29.jpg/960px-Santana_Acer_Arena_%285558151833%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-34",
+      "answer": "Bob Dylan",
+      "aliases": [
+        "dylan"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/DylanYoungKilkenny140719v2_%2850_of_52%29_%2852246124397%29_%28cropped%29.jpg/960px-DylanYoungKilkenny140719v2_%2850_of_52%29_%2852246124397%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "icone-musica-70-80-90-35",
+      "answer": "Johnny Cash",
+      "aliases": [
+        "cash"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Johnny_Cash_1977.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "icone-musica-70-80-90-36",
+      "answer": "Tupac Shakur",
+      "aliases": [
+        "tupac",
+        "2pac"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Tupac_Shakur_in_1995.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "icone-musica-70-80-90-37",
+      "answer": "Notorious B.I.G.",
+      "aliases": [
+        "biggie",
+        "notorious big"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/PetersonMuseum_01.jpg/960px-PetersonMuseum_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    }
+  ]
+}

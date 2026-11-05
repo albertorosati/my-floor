@@ -1,0 +1,391 @@
+{
+  "id": "artisti-pop",
+  "name": "Artisti Pop Mondiali",
+  "subtitle": "Riconosci le superstar della musica internazionale dalla foto",
+  "icon": "🎤",
+  "themeHex": "#FF4D8D",
+  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Taylor_Swift_at_the_2023_MTV_Video_Music_Awards_%283%29.png/960px-Taylor_Swift_at_the_2023_MTV_Video_Music_Awards_%283%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "previewImages": [
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Taylor_Swift_at_the_2023_MTV_Video_Music_Awards_%283%29.png/960px-Taylor_Swift_at_the_2023_MTV_Video_Music_Awards_%283%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/The_Weeknd_Portrait_by_Brian_Ziff.jpg/960px-The_Weeknd_Portrait_by_Brian_Ziff.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://upload.wikimedia.org/wikipedia/commons/c/c7/BillieEilishO2140725-39_-_54665577407_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Dua_Lipa-69798_%28cropped%29.jpg/960px-Dua_Lipa-69798_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  ],
+  "items": [
+    {
+      "id": "artisti-pop-1",
+      "answer": "Taylor Swift",
+      "aliases": [
+        "taylor",
+        "swift"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Taylor_Swift_at_the_2023_MTV_Video_Music_Awards_%283%29.png/960px-Taylor_Swift_at_the_2023_MTV_Video_Music_Awards_%283%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-2",
+      "answer": "The Weeknd",
+      "aliases": [
+        "weeknd",
+        "abel tesfaye",
+        "the weekend"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/The_Weeknd_Portrait_by_Brian_Ziff.jpg/960px-The_Weeknd_Portrait_by_Brian_Ziff.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-3",
+      "answer": "Billie Eilish",
+      "aliases": [
+        "billie",
+        "eilish"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/BillieEilishO2140725-39_-_54665577407_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "artisti-pop-4",
+      "answer": "Dua Lipa",
+      "aliases": [
+        "dua"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Dua_Lipa-69798_%28cropped%29.jpg/960px-Dua_Lipa-69798_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-5",
+      "answer": "Rihanna",
+      "aliases": [
+        "rianna"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Rihanna_Fenty_2018.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "artisti-pop-6",
+      "answer": "Lady Gaga",
+      "aliases": [
+        "gaga"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Lady_Gaga_at_Joe_Biden%27s_inauguration_%28cropped_5%29.jpg/960px-Lady_Gaga_at_Joe_Biden%27s_inauguration_%28cropped_5%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-7",
+      "answer": "Bruno Mars",
+      "aliases": [
+        "bruno"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/BrunoMars24KMagicWorldTourLive_%28cropped%29.jpg/960px-BrunoMars24KMagicWorldTourLive_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-8",
+      "answer": "Beyoncé",
+      "aliases": [
+        "beyonce",
+        "beionce"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Beyonc%C3%A9_-_Tottenham_Hotspur_Stadium_-_1st_June_2023_%2810_of_118%29_%2852946364598%29_%28best_crop%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "artisti-pop-9",
+      "answer": "Ariana Grande",
+      "aliases": [
+        "ariana"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Ariana_Grande_promoting_Wicked_%282024%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "artisti-pop-10",
+      "answer": "Justin Bieber",
+      "aliases": [
+        "bieber",
+        "justin"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Justin_Bieber_in_2015.jpg/960px-Justin_Bieber_in_2015.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-11",
+      "answer": "Ed Sheeran",
+      "aliases": [
+        "sheeran",
+        "ed sciran"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/03/Ed_Sheeran_2022_%283x4_crop%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "artisti-pop-12",
+      "answer": "Harry Styles",
+      "aliases": [
+        "styles",
+        "one direction"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/HarryStylesWembley170623_%2865_of_93%29_%2852982678051%29_%28cropped_2%29.jpg/960px-HarryStylesWembley170623_%2865_of_93%29_%2852982678051%29_%28cropped_2%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-13",
+      "answer": "Shakira",
+      "aliases": [
+        "sciacchira"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/2023-11-16_Gala_de_los_Latin_Grammy%2C_03_%28cropped%2902.jpg/960px-2023-11-16_Gala_de_los_Latin_Grammy%2C_03_%28cropped%2902.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-14",
+      "answer": "Bad Bunny",
+      "aliases": [
+        "benito"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Bad_Bunny_2019_by_Glenn_Francis_%28cropped%29.jpg/960px-Bad_Bunny_2019_by_Glenn_Francis_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-15",
+      "answer": "Eminem",
+      "aliases": [
+        "slim shady",
+        "marshall mathers"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Eminem_2021_Color_Corrected.jpg/960px-Eminem_2021_Color_Corrected.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-16",
+      "answer": "Madonna",
+      "aliases": [
+        "ciccone"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/MadonnaO2171023_%2897_of_133%29_%2853269593787%29_%28cropped%29.jpg/960px-MadonnaO2171023_%2897_of_133%29_%2853269593787%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-17",
+      "answer": "Michael Jackson",
+      "aliases": [
+        "jackson",
+        "re del pop"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Michael_Jackson_1983_%283x4_cropped%29_%28contrast%29.jpg/960px-Michael_Jackson_1983_%283x4_cropped%29_%28contrast%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-18",
+      "answer": "Adele",
+      "aliases": [
+        "adele cantautrice"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Adele_2016.jpg/960px-Adele_2016.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-19",
+      "answer": "Miley Cyrus",
+      "aliases": [
+        "hannah montana",
+        "miley"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Miley_Cyrus_Primavera19_-226_%2848986293772%29_%28cropped%29.jpg/960px-Miley_Cyrus_Primavera19_-226_%2848986293772%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-20",
+      "answer": "Katy Perry",
+      "aliases": [
+        "cati perry"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Katy_Perry_2026_Tribeca_Film_Festival_%28cropped_1%29.jpg/960px-Katy_Perry_2026_Tribeca_Film_Festival_%28cropped_1%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-21",
+      "answer": "Post Malone",
+      "aliases": [
+        "malone"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Post_Malone_July_2021_%28cropped%29.jpg/960px-Post_Malone_July_2021_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-22",
+      "answer": "Drake",
+      "aliases": [
+        "drizzy"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/15/Drake_at_The_Carter_Effect_2017_%2836818935200%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "artisti-pop-23",
+      "answer": "Lana Del Rey",
+      "aliases": [
+        "lana"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/LanaDRPrimavera310524_%2832_of_147%29_%2853765476960%29_%28cropped%29.jpg/960px-LanaDRPrimavera310524_%2832_of_147%29_%2853765476960%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-24",
+      "answer": "Olivia Rodrigo",
+      "aliases": [
+        "rodrigo"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Glasto2025-546_%28cropped%29_2.jpg/960px-Glasto2025-546_%28cropped%29_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-25",
+      "answer": "Sabrina Carpenter",
+      "aliases": [
+        "carpenter"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Sabrina_Carpenter_-_O2_Arena_2025_-_086_%28cropped_2%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "artisti-pop-26",
+      "answer": "Selena Gomez",
+      "aliases": [
+        "selena"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Selena_Gomez_at_the_2024_Toronto_International_Film_Festival_10_%28cropped%29.jpg/960px-Selena_Gomez_at_the_2024_Toronto_International_Film_Festival_10_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-27",
+      "answer": "Shawn Mendes",
+      "aliases": [
+        "mendes"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/191125_Shawn_Mendes_at_the_2019_American_Music_Awards.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "artisti-pop-28",
+      "answer": "Britney Spears",
+      "aliases": [
+        "britney"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/da/Britney_Spears_2013_%28Straighten_Crop%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "artisti-pop-29",
+      "answer": "Elton John",
+      "aliases": [
+        "elton"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/EltonDocBFILFF101024_%284_of_17%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "artisti-pop-30",
+      "answer": "Freddie Mercury",
+      "aliases": [
+        "queen",
+        "mercury"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Freddie_Mercury_performing_in_New_Haven%2C_CT%2C_November_1977.jpg/960px-Freddie_Mercury_performing_in_New_Haven%2C_CT%2C_November_1977.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-31",
+      "answer": "David Bowie",
+      "aliases": [
+        "bowie"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/David_Bowie_at_the_2009_Tribeca_Film_Festival.jpg/960px-David_Bowie_at_the_2009_Tribeca_Film_Festival.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-32",
+      "answer": "Travis Scott",
+      "aliases": [
+        "travis"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/2025-0120_Cole_Gahagan_Michael_Rubin_Travis_Scott_%28cropped%29.jpg/960px-2025-0120_Cole_Gahagan_Michael_Rubin_Travis_Scott_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-33",
+      "answer": "Kendrick Lamar",
+      "aliases": [
+        "kendrick"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/KendrickSZASPurs230725-144_%28cropped%29_desaturated.jpg/960px-KendrickSZASPurs230725-144_%28cropped%29_desaturated.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-34",
+      "answer": "Snoop Dogg",
+      "aliases": [
+        "snoop",
+        "snoop dog"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Snoop_Dogg%2C_WrestleMania_XL_%28cropped%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "artisti-pop-35",
+      "answer": "50 Cent",
+      "aliases": [
+        "fifty cent",
+        "cinquanta cent"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Curtis_%2250_Cent%22_Jackson_visits_Barksdale_AFB_%285%29_%28cropped%29.jpg/960px-Curtis_%2250_Cent%22_Jackson_visits_Barksdale_AFB_%285%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-36",
+      "answer": "Doja Cat",
+      "aliases": [
+        "doja"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Doja_Cat_x_Amazon1.1_%28cropped%29.jpg/960px-Doja_Cat_x_Amazon1.1_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-37",
+      "answer": "Nicki Minaj",
+      "aliases": [
+        "minaj"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Nicki_Minaj_%2855022495106%29_%28cropped%29.jpg/960px-Nicki_Minaj_%2855022495106%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-38",
+      "answer": "Cardi B",
+      "aliases": [
+        "cardi"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Cardi_B_at_2026_Essence_Festival_of_Culture_02_%28cropped%29_%28cropped%29.jpg/960px-Cardi_B_at_2026_Essence_Festival_of_Culture_02_%28cropped%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-39",
+      "answer": "Rosalía",
+      "aliases": [
+        "rosalia"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/2023-11-16_Gala_de_los_Latin_Grammy%2C_27_%28cropped%29.jpg/960px-2023-11-16_Gala_de_los_Latin_Grammy%2C_27_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-40",
+      "answer": "Karol G",
+      "aliases": [
+        "karol"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/2023-11-16_Gala_de_los_Latin_Grammy%2C_15.jpg/960px-2023-11-16_Gala_de_los_Latin_Grammy%2C_15.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-41",
+      "answer": "Coldplay",
+      "aliases": [
+        "chris martin"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/ChrisMartinManch030623_%28cropped%29.jpg/960px-ChrisMartinManch030623_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-42",
+      "answer": "Justin Timberlake",
+      "aliases": [
+        "timberlake"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Justin_Timberlake_by_Gage_Skidmore.jpg/960px-Justin_Timberlake_by_Gage_Skidmore.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-43",
+      "answer": "Jennifer Lopez",
+      "aliases": [
+        "jlo",
+        "j lo"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Jennifer_Lopez_at_the_2025_Sundance_Film_Festival_%28cropped_3%29.jpg/960px-Jennifer_Lopez_at_the_2025_Sundance_Film_Festival_%28cropped_3%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "artisti-pop-44",
+      "answer": "Christina Aguilera",
+      "aliases": [
+        "aguilera"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/88/Christina_Aguilera_2019_Disney_Legends_Awards_Ceremony_D23_EXPO_2019_%2851440742748%29_%28cropped3%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "artisti-pop-45",
+      "answer": "Robbie Williams",
+      "aliases": [
+        "williams"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Robbie_Williams_at_the_2024_Toronto_International_Film_Festival_%28cropped%29.jpg/960px-Robbie_Williams_at_the_2024_Toronto_International_Film_Festival_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    }
+  ]
+}

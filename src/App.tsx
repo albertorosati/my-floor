@@ -8,6 +8,8 @@ import {
   RemoteMicPacket,
 } from './types/game';
 import { loadAllCategories } from './data/categories';
+import { gameConfig } from './services/configService';
+import { CategoryRepository } from './services/categoryRepository';
 import { DiscordHostPeer, generateRoomCode } from './engine/discordMicSync';
 import { soundEngine } from './engine/soundEffects';
 import { LobbyScreen } from './components/LobbyScreen';
@@ -34,23 +36,23 @@ export const App: React.FC = () => {
 
   const [p1, setP1] = useState<PlayerConfig>({
     id: 'p1',
-    name: 'Giocatore 1',
-    avatar: '🦊',
+    name: gameConfig.players.defaultP1.name,
+    avatar: gameConfig.players.defaultP1.avatar,
   });
 
   const [p2, setP2] = useState<PlayerConfig>({
     id: 'p2',
-    name: 'Giocatore 2',
-    avatar: '🐯',
+    name: gameConfig.players.defaultP2.name,
+    avatar: gameConfig.players.defaultP2.avatar,
   });
 
   const [settings, setSettings] = useState<GameSettings>({
-    targetWins: 3,
-    duelDurationSeconds: 45,
-    passPenaltySeconds: 3,
-    micMode: 'local-shared',
-    soundEnabled: true,
-    announcerEnabled: true,
+    targetWins: gameConfig.defaults.targetWins,
+    duelDurationSeconds: gameConfig.defaults.duelDurationSeconds,
+    passPenaltySeconds: gameConfig.defaults.passPenaltySeconds,
+    micMode: gameConfig.defaults.micMode,
+    soundEnabled: gameConfig.defaults.soundEnabled,
+    announcerEnabled: gameConfig.defaults.announcerEnabled,
   });
 
   // Stato Match a Round con scelta categoria alternata
@@ -139,8 +141,9 @@ export const App: React.FC = () => {
     setScreen('draft');
   };
 
-  const handleSelectCategory = (cat: Category) => {
-    setActiveCategory(cat);
+  const handleSelectCategory = async (cat: Category) => {
+    const freshCat = await CategoryRepository.fetchCategoryById(cat.id);
+    setActiveCategory(freshCat || cat);
     setPlayedCategoryIds((prev) => [...prev, cat.id]);
     setScreen('duel');
   };

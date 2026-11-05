@@ -1,12 +1,13 @@
 import Peer, { DataConnection } from 'peerjs';
 import { RemoteMicPacket } from '../types/game';
+import { gameConfig } from '../services/configService';
 
-const PEER_PREFIX = 'floor-arena-v1-';
+const PEER_PREFIX = gameConfig.network.peerPrefix;
 
 export function generateRoomCode(): string {
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  const chars = gameConfig.network.roomCodeAlphabet;
   let code = '';
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < gameConfig.network.roomCodeLength; i++) {
     code += chars.charAt(Math.floor(Math.random() * chars.length));
   }
   return code;
@@ -104,12 +105,18 @@ export class DiscordClientPeer {
   private connection: DataConnection | null = null;
   private roomCode: string;
   private onStatePacket: (packet: RemoteMicPacket) => void;
-  private onStatusChange: (status: 'connecting' | 'connected' | 'disconnected', msg?: string) => void;
+  private onStatusChange: (
+    status: 'connecting' | 'connected' | 'disconnected',
+    msg?: string
+  ) => void;
 
   constructor(
     roomCode: string,
     onStatePacket: (packet: RemoteMicPacket) => void,
-    onStatusChange: (status: 'connecting' | 'connected' | 'disconnected', msg?: string) => void
+    onStatusChange: (
+      status: 'connecting' | 'connected' | 'disconnected',
+      msg?: string
+    ) => void
   ) {
     this.roomCode = roomCode.toUpperCase().trim();
     this.onStatePacket = onStatePacket;
@@ -118,7 +125,10 @@ export class DiscordClientPeer {
 
   public connect(): void {
     this.destroy();
-    this.onStatusChange('connecting', `Connessione alla stanza ${this.roomCode}...`);
+    this.onStatusChange(
+      'connecting',
+      `Connessione alla stanza ${this.roomCode}...`
+    );
 
     const peer = new Peer();
     this.peer = peer;
@@ -139,7 +149,7 @@ export class DiscordClientPeer {
       });
 
       conn.on('close', () => {
-        this.onStatusChange('disconnected', 'Connessione chiusa dall\'host.');
+        this.onStatusChange('disconnected', "Connessione chiusa dall'host.");
       });
 
       conn.on('error', () => {

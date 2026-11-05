@@ -1,0 +1,324 @@
+{
+  "id": "personaggi-storici",
+  "name": "Personaggi Storici & Geni",
+  "subtitle": "Scienziati, leader, inventori e figure che hanno cambiato la storia",
+  "icon": "🧠",
+  "themeHex": "#8B5CF6",
+  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Albert_Einstein_Head_cleaned.jpg/960px-Albert_Einstein_Head_cleaned.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "previewImages": [
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Albert_Einstein_Head_cleaned.jpg/960px-Albert_Einstein_Head_cleaned.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png/960px-Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Justus_Sustermans_-_Portrait_of_Galileo_Galilei_%28Uffizi%29.jpg/960px-Justus_Sustermans_-_Portrait_of_Galileo_Galilei_%28Uffizi%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Retrato_de_Julio_C%C3%A9sar_%2826724093101%29_%28cropped%29.jpg/960px-Retrato_de_Julio_C%C3%A9sar_%2826724093101%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  ],
+  "items": [
+    {
+      "id": "personaggi-storici-1",
+      "answer": "Albert Einstein",
+      "aliases": [
+        "einstein"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Albert_Einstein_Head_cleaned.jpg/960px-Albert_Einstein_Head_cleaned.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-2",
+      "answer": "Leonardo da Vinci",
+      "aliases": [
+        "leonardo"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png/960px-Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-3",
+      "answer": "Galileo Galilei",
+      "aliases": [
+        "galileo"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Justus_Sustermans_-_Portrait_of_Galileo_Galilei_%28Uffizi%29.jpg/960px-Justus_Sustermans_-_Portrait_of_Galileo_Galilei_%28Uffizi%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-4",
+      "answer": "Giulio Cesare",
+      "aliases": [
+        "cesare"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Retrato_de_Julio_C%C3%A9sar_%2826724093101%29_%28cropped%29.jpg/960px-Retrato_de_Julio_C%C3%A9sar_%2826724093101%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-5",
+      "answer": "Napoleone Bonaparte",
+      "aliases": [
+        "napoleone"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Alexandre_Cabanel_002.jpg/960px-Alexandre_Cabanel_002.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-6",
+      "answer": "Dante Alighieri",
+      "aliases": [
+        "dante"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Bargello_-_Kapelle_Fresko_2a.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "personaggi-storici-7",
+      "answer": "Giuseppe Garibaldi",
+      "aliases": [
+        "garibaldi"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Giuseppe_Garibaldi_1861.jpg/960px-Giuseppe_Garibaldi_1861.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-8",
+      "answer": "Abraham Lincoln",
+      "aliases": [
+        "lincoln",
+        "abramo lincoln"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Abraham_Lincoln_O-77_matte_collodion_print.jpg/960px-Abraham_Lincoln_O-77_matte_collodion_print.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-9",
+      "answer": "Winston Churchill",
+      "aliases": [
+        "churchill"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Sir_Winston_Churchill_-_19086236948_%28restored%29.jpg/960px-Sir_Winston_Churchill_-_19086236948_%28restored%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-10",
+      "answer": "Nelson Mandela",
+      "aliases": [
+        "mandela"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Nelson_Mandela_1994.jpg/960px-Nelson_Mandela_1994.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-11",
+      "answer": "Mahatma Gandhi",
+      "aliases": [
+        "gandhi"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Mahatma-Gandhi%2C_studio%2C_1931.jpg/960px-Mahatma-Gandhi%2C_studio%2C_1931.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-12",
+      "answer": "Martin Luther King",
+      "aliases": [
+        "luther king"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Martin_Luther_King%2C_Jr._and_Lyndon_Johnson_%28cropped%29.jpg/960px-Martin_Luther_King%2C_Jr._and_Lyndon_Johnson_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-13",
+      "answer": "Regina Elisabetta II",
+      "aliases": [
+        "elisabetta",
+        "regina elisabetta"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Queen_Elizabeth_II_official_portrait_for_1959_tour_%28retouched%29_%28cropped%29_%283-to-4_aspect_ratio%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "personaggi-storici-14",
+      "answer": "Lady Diana",
+      "aliases": [
+        "principessa diana",
+        "diana"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Diana%2C_Princess_of_Wales_1997_%282%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "personaggi-storici-15",
+      "answer": "Papa Francesco",
+      "aliases": [
+        "bergoglio"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Pope_Francis_Korea_Haemi_Castle_19_%284x5_cropped%29.jpg/960px-Pope_Francis_Korea_Haemi_Castle_19_%284x5_cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-16",
+      "answer": "Giovanni Paolo II",
+      "aliases": [
+        "wojtyla"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9c/ADAMELLO_-_PAPA_-_Giovanni_Paolo_II_-_panoramio_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "personaggi-storici-17",
+      "answer": "Madre Teresa",
+      "aliases": [
+        "madre teresa di calcutta"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Mother_Teresa_1.jpg/960px-Mother_Teresa_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-18",
+      "answer": "Frida Kahlo",
+      "aliases": [
+        "frida"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg/960px-Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-19",
+      "answer": "Pablo Picasso",
+      "aliases": [
+        "picasso"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Pablo_picasso_1.jpg/960px-Pablo_picasso_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-20",
+      "answer": "Vincent van Gogh",
+      "aliases": [
+        "van gogh"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg/960px-Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-21",
+      "answer": "Salvador Dalí",
+      "aliases": [
+        "dali"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Salvador_Dal%C3%AD_1939.jpg/960px-Salvador_Dal%C3%AD_1939.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-22",
+      "answer": "Mozart",
+      "aliases": [
+        "wolfgang amadeus mozart"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/The_Mozart_Family_-_Wolfgang_Amadeus_Mozart_headshot.jpg/960px-The_Mozart_Family_-_Wolfgang_Amadeus_Mozart_headshot.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-23",
+      "answer": "Beethoven",
+      "aliases": [
+        "ludwig van beethoven"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Joseph_Karl_Stieler%27s_Beethoven_mit_dem_Manuskript_der_Missa_solemnis.jpg/960px-Joseph_Karl_Stieler%27s_Beethoven_mit_dem_Manuskript_der_Missa_solemnis.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-24",
+      "answer": "Nikola Tesla",
+      "aliases": [
+        "tesla"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/Tesla_circa_1890.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "personaggi-storici-25",
+      "answer": "Marie Curie",
+      "aliases": [
+        "curie"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Marie_Curie_c._1920s.jpg/960px-Marie_Curie_c._1920s.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-26",
+      "answer": "Stephen Hawking",
+      "aliases": [
+        "hawking"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Hawking.PNG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "personaggi-storici-27",
+      "answer": "Steve Jobs",
+      "aliases": [
+        "jobs"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Steve_Jobs_Headshot_2010_%28cropped_6%29.jpg/960px-Steve_Jobs_Headshot_2010_%28cropped_6%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-28",
+      "answer": "Elon Musk",
+      "aliases": [
+        "musk"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Elon_Musk_-_54820081119_%283x4_cropped%2C_Rule_of_thirds%29.jpg/960px-Elon_Musk_-_54820081119_%283x4_cropped%2C_Rule_of_thirds%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-29",
+      "answer": "Bill Gates",
+      "aliases": [
+        "gates"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg/960px-Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-30",
+      "answer": "Mark Zuckerberg",
+      "aliases": [
+        "zuckerberg"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/P20260929DT-1655_%2855561811540%29_%28cropped_2%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "personaggi-storici-31",
+      "answer": "Jeff Bezos",
+      "aliases": [
+        "bezos"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/260202-D-PM193-2205_SECWAR_Arsenal_of_Freedom_Tour_-_Florida_%283x4_cropped_on_Bezos_and_rotated%29.jpg/960px-260202-D-PM193-2205_SECWAR_Arsenal_of_Freedom_Tour_-_Florida_%283x4_cropped_on_Bezos_and_rotated%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-32",
+      "answer": "Neil Armstrong",
+      "aliases": [
+        "armstrong"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Neil_Armstrong_pose.jpg/960px-Neil_Armstrong_pose.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-33",
+      "answer": "Che Guevara",
+      "aliases": [
+        "ernesto guevara"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Che_Guevara_-_Guerrillero_Heroico_by_Alberto_Korda.jpg/960px-Che_Guevara_-_Guerrillero_Heroico_by_Alberto_Korda.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-34",
+      "answer": "Marilyn Monroe",
+      "aliases": [
+        "monroe"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Monroecirca1953.jpg/960px-Monroecirca1953.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-35",
+      "answer": "Elvis Presley",
+      "aliases": [
+        "elvis"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Elvis_Presley_promoting_Jailhouse_Rock.jpg/960px-Elvis_Presley_promoting_Jailhouse_Rock.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-36",
+      "answer": "John F. Kennedy",
+      "aliases": [
+        "jfk",
+        "kennedy"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/John_F._Kennedy%2C_White_House_color_photo_portrait.jpg/960px-John_F._Kennedy%2C_White_House_color_photo_portrait.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-37",
+      "answer": "Barack Obama",
+      "aliases": [
+        "obama"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/960px-President_Barack_Obama.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "personaggi-storici-38",
+      "answer": "Donald Trump",
+      "aliases": [
+        "trump"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29.jpg/960px-Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    }
+  ]
+}

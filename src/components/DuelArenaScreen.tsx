@@ -20,6 +20,7 @@ import { evaluateVoiceInput } from '../engine/voiceMatcher';
 import { SmartSpeechRecognizer } from '../engine/speechRecognition';
 import { soundEngine } from '../engine/soundEffects';
 import { getBackupImageUrl } from '../data/categories';
+import { gameConfig } from '../services/configService';
 
 interface DuelArenaScreenProps {
   roundNumber: number;
@@ -90,9 +91,10 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     ? getBackupImageUrl(currentItem.imageUrl)
     : resolvedUrlsRef.current.get(currentItem.id) || currentItem.imageUrl;
 
-  // Preloader rolling: mantiene sempre pre-caricate in RAM le prossime 10 fotografie
+  // Preloader rolling: mantiene sempre pre-caricate in RAM le prossime fotografie configurate
   useEffect(() => {
-    for (let offset = 1; offset <= 10; offset++) {
+    const preloadCount = gameConfig.options.preloaderWindowSize;
+    for (let offset = 1; offset <= preloadCount; offset++) {
       const candidate = deck[(itemIndex + offset) % deck.length];
       if (
         !candidate ||
@@ -194,7 +196,8 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         return;
       }
 
-      ignoreVoiceUntilRef.current = performance.now() + 650;
+      ignoreVoiceUntilRef.current =
+        performance.now() + gameConfig.options.voiceCooldownMs;
       recognizerRef.current?.consumeCurrentBuffer();
 
       const newStreak = st.streak + 1;
@@ -222,7 +225,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         setLiveTranscript('');
         setActivePlayer((prev) => (prev === 'p1' ? 'p2' : 'p1'));
         advanceToNextImage();
-      }, 520);
+      }, gameConfig.options.correctFlashDurationMs);
     },
     [advanceToNextImage]
   );
@@ -238,7 +241,8 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
       return;
     }
 
-    ignoreVoiceUntilRef.current = performance.now() + 650;
+    ignoreVoiceUntilRef.current =
+      performance.now() + gameConfig.options.voiceCooldownMs;
     recognizerRef.current?.consumeCurrentBuffer();
 
     soundEngine.playPassPenalty();
@@ -405,7 +409,9 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         const wholeSec = Math.ceil(nextP1);
         if (wholeSec !== lastSecondBeepRef.current && nextP1 > 0) {
           lastSecondBeepRef.current = wholeSec;
-          soundEngine.playClockTick(nextP1 <= 10);
+          soundEngine.playClockTick(
+            nextP1 <= gameConfig.options.urgentThresholdSeconds
+          );
         }
 
         if (nextP1 <= 0) {
@@ -432,7 +438,9 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         const wholeSec = Math.ceil(nextP2);
         if (wholeSec !== lastSecondBeepRef.current && nextP2 > 0) {
           lastSecondBeepRef.current = wholeSec;
-          soundEngine.playClockTick(nextP2 <= 10);
+          soundEngine.playClockTick(
+            nextP2 <= gameConfig.options.urgentThresholdSeconds
+          );
         }
 
         if (nextP2 <= 0) {
@@ -465,8 +473,9 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     roundNumber,
   ]);
 
-  const p1Urgent = activePlayer === 'p1' && timeP1 <= 10;
-  const p2Urgent = activePlayer === 'p2' && timeP2 <= 10;
+  const urgentLimit = gameConfig.options.urgentThresholdSeconds;
+  const p1Urgent = activePlayer === 'p1' && timeP1 <= urgentLimit;
+  const p2Urgent = activePlayer === 'p2' && timeP2 <= urgentLimit;
 
   return (
     <div className="min-h-screen party-stage-bg flex flex-col justify-between p-4 sm:p-6 select-none">
@@ -544,15 +553,15 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
           </div>
         </div>
 
-        {/* Cornice Centrale della Fotografia Vera */}
+        {/* Cornice Centrale della Fotografia Vera (Sfondo Studio Chiaro ad alto contrasto anche per PNG trasparenti!) */}
         <div className="lg:col-span-6 flex flex-col gap-3.5">
           <div
-            className={`relative w-full h-[340px] sm:h-[430px] rounded-3xl border-[4px] border-ink shadow-chunky-lg overflow-hidden flex items-center justify-center transition-colors duration-150 ${
+            className={`relative w-full h-[350px] sm:h-[440px] rounded-3xl border-[4px] border-ink shadow-chunky-lg overflow-hidden flex items-center justify-center transition-colors duration-150 ${
               correctFlash
                 ? 'bg-mint'
                 : passPenaltyLeft > 0
                 ? 'bg-gold'
-                : 'bg-[#110d1b]'
+                : 'bg-[radial-gradient(circle,#ffffff_0%,#f7f2e7_68%,#e6decb_100%)]'
             }`}
           >
             {/* Flash Risposta Indovinata */}
@@ -585,29 +594,31 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
               </div>
             )}
 
-            {/* Fotografia Reale (con sfondo sfocato morbido per non tagliare mai volti o dettagli!) */}
+            {/* Fotografia Reale HD su passepartout chiaro (visibilità 100% sia per foto piene sia per PNG trasparenti/scontornati!) */}
             {!correctFlash && passPenaltyLeft === 0 && (
               <>
                 <img
                   src={displaySrc}
                   alt=""
                   aria-hidden="true"
-                  className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110 opacity-40 pointer-events-none"
+                  className="absolute inset-0 w-full h-full object-cover blur-3xl scale-110 opacity-20 pointer-events-none"
                 />
-                <img
-                  key={`${currentItem.id}-${usingBackupUrl ? 'b' : 'p'}`}
-                  src={displaySrc}
-                  alt="Cosa vedi nella foto?"
-                  onError={() => {
-                    if (!usingBackupUrl) {
-                      setUsingBackupUrl(true);
-                    } else {
-                      brokenIdsRef.current.add(currentItem.id);
-                      advanceToNextImage();
-                    }
-                  }}
-                  className="relative z-10 max-w-full max-h-full w-full h-full object-contain p-2 sm:p-3 drop-shadow-xl"
-                />
+                <div className="relative z-10 w-full h-full p-3 sm:p-4 flex items-center justify-center">
+                  <img
+                    key={`${currentItem.id}-${usingBackupUrl ? 'b' : 'p'}`}
+                    src={displaySrc}
+                    alt="Cosa vedi nella foto?"
+                    onError={() => {
+                      if (!usingBackupUrl) {
+                        setUsingBackupUrl(true);
+                      } else {
+                        brokenIdsRef.current.add(currentItem.id);
+                        advanceToNextImage();
+                      }
+                    }}
+                    className="max-w-full max-h-full w-auto h-auto object-contain rounded-2xl drop-shadow-[0_10px_22px_rgba(24,18,38,0.22)]"
+                  />
+                </div>
               </>
             )}
           </div>

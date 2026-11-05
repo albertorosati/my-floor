@@ -1,0 +1,342 @@
+{
+  "id": "nostalgia-90-00",
+  "name": "Nostalgia Anni ’90 & 2000",
+  "subtitle": "Oggetti mitici con cui siamo cresciuti prima degli smartphone",
+  "icon": "📼",
+  "themeHex": "#A855F7",
+  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Game-Boy-FL.png/960px-Game-Boy-FL.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "previewImages": [
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Game-Boy-FL.png/960px-Game-Boy-FL.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://upload.wikimedia.org/wikipedia/commons/f/f2/Tamagotchi_0124_ubt.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "https://upload.wikimedia.org/wikipedia/commons/1/18/Cgasnake.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/SonyWalkmanFamily.JPG/960px-SonyWalkmanFamily.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  ],
+  "items": [
+    {
+      "id": "nostalgia-90-00-1",
+      "answer": "Game Boy",
+      "aliases": [
+        "gameboy",
+        "nintendo game boy"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Game-Boy-FL.png/960px-Game-Boy-FL.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-2",
+      "answer": "Tamagotchi",
+      "aliases": [
+        "tamagoci"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Tamagotchi_0124_ubt.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "nostalgia-90-00-3",
+      "answer": "Nokia 3310",
+      "aliases": [
+        "nokia",
+        "trentatre dieci"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/Cgasnake.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "nostalgia-90-00-4",
+      "answer": "Walkman",
+      "aliases": [
+        "lettore cassette"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/SonyWalkmanFamily.JPG/960px-SonyWalkmanFamily.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-5",
+      "answer": "Videocassetta VHS",
+      "aliases": [
+        "videocassetta",
+        "vhs",
+        "cassetta video"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Victor_XG180_S-VHS_videocassette.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "nostalgia-90-00-6",
+      "answer": "Musicassetta",
+      "aliases": [
+        "audiocassetta",
+        "cassetta musicale"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Compactcassette.jpg/960px-Compactcassette.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-7",
+      "answer": "Floppy Disk",
+      "aliases": [
+        "floppy",
+        "dischetto"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Floppy_disk_2009_G1.jpg/960px-Floppy_disk_2009_G1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-8",
+      "answer": "iPod",
+      "aliases": [
+        "ipod classic",
+        "lettore mp3"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/IPod_family.png/960px-IPod_family.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-9",
+      "answer": "Furby",
+      "aliases": [
+        "farbi"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/LOOK_MUM_NO_COMPUTER_representing_United_Kingdom_on_the_Turquoise_Carpet_at_the_2026_Eurovision_Song_Contest_in_Vienna_3_%28cropped%29.jpg/960px-LOOK_MUM_NO_COMPUTER_representing_United_Kingdom_on_the_Turquoise_Carpet_at_the_2026_Eurovision_Song_Contest_in_Vienna_3_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-10",
+      "answer": "Beyblade",
+      "aliases": [
+        "trottola beyblade"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/8/8b/Beyblade14.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "nostalgia-90-00-11",
+      "answer": "Subbuteo",
+      "aliases": [
+        "calcio in miniatura"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Subbuteo_playersP1010292.JPG/960px-Subbuteo_playersP1010292.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-12",
+      "answer": "Ciao Piaggio",
+      "aliases": [
+        "motorino ciao",
+        "ciao"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Ciao_PX.jpg/960px-Ciao_PX.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-13",
+      "answer": "Pattini in Linea",
+      "aliases": [
+        "rollerblade",
+        "pattini a rotelle"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Roces_Impala_2023_Lightspeed_Fairy_Floss_inline_skates_w_70mm_84A_wheels-IMG_6848-bg-FRD.png/960px-Roces_Impala_2023_Lightspeed_Fairy_Floss_inline_skates_w_70mm_84A_wheels-IMG_6848-bg-FRD.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-14",
+      "answer": "Yo-Yo",
+      "aliases": [
+        "yoyo",
+        "ioio"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Yo-Yo-Plastic-Toy-Green.jpg/960px-Yo-Yo-Plastic-Toy-Green.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-15",
+      "answer": "Flipper",
+      "aliases": [
+        "pinball"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/A_rebuilt_Terminator_2_pinball_machine_by_Wayne_Patrick_Finn_Melbourne_Australia._38.jpg/960px-A_rebuilt_Terminator_2_pinball_machine_by_Wayne_Patrick_Finn_Melbourne_Australia._38.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-16",
+      "answer": "Jukebox",
+      "aliases": [
+        "juke box"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Edison_Phonograph_in_the_Phono_Museum.jpg/960px-Edison_Phonograph_in_the_Phono_Museum.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-17",
+      "answer": "Televisore a Tubo Catodico",
+      "aliases": [
+        "tubo catodico",
+        "vecchia tv"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Cyclotron_motion_smaller_view.jpg/960px-Cyclotron_motion_smaller_view.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-18",
+      "answer": "CD-ROM",
+      "aliases": [
+        "compact disc",
+        "cd",
+        "disco"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Panasonic_SL-S250C_with_Philips_LC0305_20110106.jpg/960px-Panasonic_SL-S250C_with_Philips_LC0305_20110106.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-19",
+      "answer": "Rullino Fotografico",
+      "aliases": [
+        "pellicola fotografica",
+        "rullino",
+        "kodak"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Undeveloped_35_mm_film.jpg/960px-Undeveloped_35_mm_film.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-20",
+      "answer": "Calciobalilla",
+      "aliases": [
+        "biliardino",
+        "calcetto"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Baby_foot_artlibre_jnl.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "nostalgia-90-00-21",
+      "answer": "Cubo di Rubik",
+      "aliases": [
+        "rubik",
+        "cubo magico"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Rubiks_cube_solved.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "nostalgia-90-00-22",
+      "answer": "Cabina Telefonica",
+      "aliases": [
+        "cabina",
+        "telefono pubblico"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Lightmatter_phonebooths_%28_South_Lake%2C_Pasadena%2C_California%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "nostalgia-90-00-23",
+      "answer": "Gettone Telefonico",
+      "aliases": [
+        "gettone"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/%D7%90%D7%A1%D7%99%D7%9E%D7%95%D7%9F_%D7%99%D7%A9%D7%A8%D7%90%D7%9C%D7%99.jpg/960px-%D7%90%D7%A1%D7%99%D7%9E%D7%95%D7%9F_%D7%99%D7%A9%D7%A8%D7%90%D7%9C%D7%99.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-24",
+      "answer": "Macchina per Scrivere",
+      "aliases": [
+        "olivetti",
+        "macchina da scrivere"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/MEK_II-371.jpg/960px-MEK_II-371.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-25",
+      "answer": "PlayStation 1",
+      "aliases": [
+        "ps1",
+        "prima playstation"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Sony_PlayStation_2.png/960px-Sony_PlayStation_2.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-26",
+      "answer": "PlayStation 2",
+      "aliases": [
+        "ps2"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Sony_PlayStation_2.png/960px-Sony_PlayStation_2.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-27",
+      "answer": "Nintendo 64",
+      "aliases": [
+        "n64"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/N64-Console-Set.png/960px-N64-Console-Set.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-28",
+      "answer": "Nintendo DS",
+      "aliases": [
+        "ds"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Nintendo-DS-Fat-Blue.png/960px-Nintendo-DS-Fat-Blue.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-29",
+      "answer": "GameCube",
+      "aliases": [
+        "nintendo gamecube"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/GameCube-Console-Set.png/960px-GameCube-Console-Set.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-30",
+      "answer": "PSP",
+      "aliases": [
+        "playstation portable"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/PSP-1000.png/960px-PSP-1000.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-31",
+      "answer": "Wii",
+      "aliases": [
+        "nintendo wii"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Wii-Console.png/960px-Wii-Console.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-32",
+      "answer": "Lava Lamp",
+      "aliases": [
+        "lampada lava"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Lava_lamps_%2816136876840%29.jpg/960px-Lava_lamps_%2816136876840%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-33",
+      "answer": "Biglie di Vetro",
+      "aliases": [
+        "biglie",
+        "biglia"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Marble_collector_-_Flickr_-_smkybear.jpg/960px-Marble_collector_-_Flickr_-_smkybear.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-34",
+      "answer": "Slinky",
+      "aliases": [
+        "molla magica",
+        "molla scendi scale"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/2006-02-04_Metal_spiral.jpg/960px-2006-02-04_Metal_spiral.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-35",
+      "answer": "Frisbee",
+      "aliases": [
+        "disco volante"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Frisbee_090719.jpg/960px-Frisbee_090719.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-36",
+      "answer": "Hula Hoop",
+      "aliases": [
+        "cerchio hula hoop"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Girl_twirling_Hula_Hoop%2C_1958.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "nostalgia-90-00-37",
+      "answer": "Lego",
+      "aliases": [
+        "mattoncini lego"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Kladno_CZ_LEGO_factory_from_NE_007.jpg/960px-Kladno_CZ_LEGO_factory_from_NE_007.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "nostalgia-90-00-38",
+      "answer": "Meccano",
+      "aliases": [
+        "costruzioni metallo"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Munich_-_Deutsches_Museum_-_07-0647.jpg/960px-Munich_-_Deutsches_Museum_-_07-0647.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    }
+  ]
+}

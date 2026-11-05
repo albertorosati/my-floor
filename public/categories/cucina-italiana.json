@@ -1,0 +1,347 @@
+{
+  "id": "cucina-italiana",
+  "name": "Piatti della Tradizione Italiana",
+  "subtitle": "Dalla Carbonara al Cannolo: i capolavori della nostra tavola",
+  "icon": "🍝",
+  "themeHex": "#EF4444",
+  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Espaguetis_carbonara.jpg/960px-Espaguetis_carbonara.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "previewImages": [
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Espaguetis_carbonara.jpg/960px-Espaguetis_carbonara.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Lasagne_-_stonesoup.jpg/960px-Lasagne_-_stonesoup.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Neapolitan_pizza_at_Trappica_%2848701940197%29.jpg/960px-Neapolitan_pizza_at_Trappica_%2848701940197%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Tiramisu_-_Raffaele_Diomede.jpg/960px-Tiramisu_-_Raffaele_Diomede.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  ],
+  "items": [
+    {
+      "id": "cucina-italiana-1",
+      "answer": "Carbonara",
+      "aliases": [
+        "pasta alla carbonara",
+        "spaghetti alla carbonara"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Espaguetis_carbonara.jpg/960px-Espaguetis_carbonara.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-2",
+      "answer": "Lasagna",
+      "aliases": [
+        "lasagne",
+        "lasagne al forno"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Lasagne_-_stonesoup.jpg/960px-Lasagne_-_stonesoup.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-3",
+      "answer": "Pizza Margherita",
+      "aliases": [
+        "pizza",
+        "pizza napoletana"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Neapolitan_pizza_at_Trappica_%2848701940197%29.jpg/960px-Neapolitan_pizza_at_Trappica_%2848701940197%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-4",
+      "answer": "Tiramisù",
+      "aliases": [
+        "tiramisu"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Tiramisu_-_Raffaele_Diomede.jpg/960px-Tiramisu_-_Raffaele_Diomede.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-5",
+      "answer": "Cannolo Siciliano",
+      "aliases": [
+        "cannolo",
+        "cannoli"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Cannoli_siciliani_al_Caff%C3%A8_Impero%2C_ad_Alcamo.jpg/960px-Cannoli_siciliani_al_Caff%C3%A8_Impero%2C_ad_Alcamo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-6",
+      "answer": "Arancino",
+      "aliases": [
+        "arancina",
+        "arancini"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Arancini_002.jpg/960px-Arancini_002.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-7",
+      "answer": "Tortellini",
+      "aliases": [
+        "tortellini in brodo",
+        "cappelletti"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Tortellini_Bolognesi.jpg/960px-Tortellini_Bolognesi.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-8",
+      "answer": "Risotto alla Milanese",
+      "aliases": [
+        "risotto allo zafferano",
+        "risotto"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Risotto_with_speck_and_goat_cheese_%286101067436%29.jpg/960px-Risotto_with_speck_and_goat_cheese_%286101067436%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-9",
+      "answer": "Cotoletta alla Milanese",
+      "aliases": [
+        "cotoletta",
+        "orecchia di elefante"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Cotoletta_e_patate_al_forno.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "cucina-italiana-10",
+      "answer": "Polenta",
+      "aliases": [],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Cotechino-Servito-Polenta-Lenticchie.jpg/960px-Cotechino-Servito-Polenta-Lenticchie.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-11",
+      "answer": "Gnocchi",
+      "aliases": [
+        "gnocchi di patate"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/Gnocchi_di_ricotta_burro_e_salvia.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "cucina-italiana-12",
+      "answer": "Pasta al Pesto",
+      "aliases": [
+        "pesto alla genovese",
+        "trofie al pesto",
+        "pesto"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/BasilPesto.JPG/960px-BasilPesto.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-13",
+      "answer": "Focaccia",
+      "aliases": [
+        "focaccia genovese",
+        "schiacciata"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Focaccia_with_Crumb.jpg/960px-Focaccia_with_Crumb.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-14",
+      "answer": "Piadina Romagnola",
+      "aliases": [
+        "piadina",
+        "piada"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Piadina_romagnola_2.jpg/960px-Piadina_romagnola_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-15",
+      "answer": "Parmigiana di Melanzane",
+      "aliases": [
+        "parmigiana",
+        "melanzane alla parmigiana"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Parmigiana_di_melanzane.jpg/960px-Parmigiana_di_melanzane.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-16",
+      "answer": "Insalata Caprese",
+      "aliases": [
+        "caprese",
+        "pomodoro e mozzarella"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Caprese-1_%28tigher_crop%29.jpg/960px-Caprese-1_%28tigher_crop%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-17",
+      "answer": "Bruschetta",
+      "aliases": [
+        "pane e pomodoro"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/2014_Bruschetta_The_Larder_Chiang_Mai.jpg/960px-2014_Bruschetta_The_Larder_Chiang_Mai.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-18",
+      "answer": "Ossobuco",
+      "aliases": [
+        "osso buco"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Ossobuco.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "cucina-italiana-19",
+      "answer": "Bistecca alla Fiorentina",
+      "aliases": [
+        "fiorentina",
+        "bistecca"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Bistecca_alla_fiorentina-01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "cucina-italiana-20",
+      "answer": "Orecchiette",
+      "aliases": [
+        "orecchiette alle cime di rapa"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Orecchiette_carbonara.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "cucina-italiana-21",
+      "answer": "Babà",
+      "aliases": [
+        "baba napoletano",
+        "baba al rum"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/BabaRum.jpg/960px-BabaRum.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-22",
+      "answer": "Sfogliatella",
+      "aliases": [
+        "sfogliatella riccia"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Sfogliatelle_ricce_e_frolle.jpg/960px-Sfogliatelle_ricce_e_frolle.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-23",
+      "answer": "Cassata Siciliana",
+      "aliases": [
+        "cassata"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Cassatasiciliana.jpg/960px-Cassatasiciliana.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-24",
+      "answer": "Panettone",
+      "aliases": [],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Panettone_-_Nicolettone_2017_-_IMG_7085_%2831752542285%29.jpg/960px-Panettone_-_Nicolettone_2017_-_IMG_7085_%2831752542285%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-25",
+      "answer": "Pandoro",
+      "aliases": [],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Pandoro_with_slice.jpg/960px-Pandoro_with_slice.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-26",
+      "answer": "Gelato",
+      "aliases": [
+        "cono gelato",
+        "coppetta gelato"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Delicious_Gelato_on_display.jpg/960px-Delicious_Gelato_on_display.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-27",
+      "answer": "Granita",
+      "aliases": [
+        "granita siciliana"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Granita_originelle_au_citron_de_Sicile.jpg/960px-Granita_originelle_au_citron_de_Sicile.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-28",
+      "answer": "Porchetta",
+      "aliases": [
+        "panino con porchetta"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Porchetta_%283168207946%29.jpg/960px-Porchetta_%283168207946%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-29",
+      "answer": "Burrata",
+      "aliases": [
+        "mozzarella burrata"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Burrata2.jpg/960px-Burrata2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-30",
+      "answer": "Mozzarella di Bufala",
+      "aliases": [
+        "mozzarella"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Mozzarella_di_bufala3.jpg/960px-Mozzarella_di_bufala3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-31",
+      "answer": "Spaghetti alle Vongole",
+      "aliases": [
+        "pasta alle vongole"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/59/Spaghetti_vongole_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "cucina-italiana-32",
+      "answer": "Vitello Tonnato",
+      "aliases": [
+        "vitel tonne"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Vitello_tonnato.jpg/960px-Vitello_tonnato.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-33",
+      "answer": "Cacio e Pepe",
+      "aliases": [
+        "pasta cacio e pepe"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Cacio_e_pepe.jpg/960px-Cacio_e_pepe.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-34",
+      "answer": "Amatriciana",
+      "aliases": [
+        "bucatini all amatriciana"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Bucatini_allamatriciana.jpg/960px-Bucatini_allamatriciana.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-35",
+      "answer": "Panna Cotta",
+      "aliases": [],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Panna_Cotta_with_cream_and_garnish.jpg/960px-Panna_Cotta_with_cream_and_garnish.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-36",
+      "answer": "Ravioli",
+      "aliases": [
+        "agnolotti"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Flickr_-_cyclonebill_-_Ravioli_med_skinke_og_asparges_i_mascarponecreme.jpg/960px-Flickr_-_cyclonebill_-_Ravioli_med_skinke_og_asparges_i_mascarponecreme.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-37",
+      "answer": "Tagliatelle al Ragù",
+      "aliases": [
+        "ragu",
+        "pasta al ragu",
+        "bolognese"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Tagliatelle_al_rag%C3%B9_%28image_modified%29.jpg/960px-Tagliatelle_al_rag%C3%B9_%28image_modified%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-38",
+      "answer": "Supplì",
+      "aliases": [
+        "suppli al telefono"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Suppl%C3%AC.jpg/960px-Suppl%C3%AC.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-39",
+      "answer": "Olive Ascolane",
+      "aliases": [
+        "olive fritte"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Olive_all%27ascolana.jpg/960px-Olive_all%27ascolana.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "cucina-italiana-40",
+      "answer": "Prosciutto e Melone",
+      "aliases": [
+        "prosciutto crudo"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Prosciutto_di_Parma%2C_ham_producing.jpg/960px-Prosciutto_di_Parma%2C_ham_producing.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    }
+  ]
+}

@@ -1,0 +1,392 @@
+{
+  "id": "musica-italiana",
+  "name": "Cantanti & Rapper Italiani",
+  "subtitle": "Da Sanremo alla scena urban e ai grandi classici italiani",
+  "icon": "🇮🇹",
+  "themeHex": "#00C48C",
+  "coverImage": "https://upload.wikimedia.org/wikipedia/commons/d/db/Ghali_%28Feb_2024%29_%28cropped%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "previewImages": [
+    "https://upload.wikimedia.org/wikipedia/commons/d/db/Ghali_%28Feb_2024%29_%28cropped%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "https://upload.wikimedia.org/wikipedia/commons/b/b5/Geolier_RadioBruno_Sanremo_2024_%282%29.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "https://upload.wikimedia.org/wikipedia/commons/7/79/Lazza_during_an_interview_for_Radio_Bruno_in_2023.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Marracash_m2o.jpg/960px-Marracash_m2o.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  ],
+  "items": [
+    {
+      "id": "musica-italiana-1",
+      "answer": "Sfera Ebbasta",
+      "aliases": [
+        "sfera"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/Ghali_%28Feb_2024%29_%28cropped%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-2",
+      "answer": "Geolier",
+      "aliases": [
+        "emanuele palumbo"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Geolier_RadioBruno_Sanremo_2024_%282%29.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-3",
+      "answer": "Lazza",
+      "aliases": [
+        "jacopo lazzarini"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/Lazza_during_an_interview_for_Radio_Bruno_in_2023.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-4",
+      "answer": "Marracash",
+      "aliases": [
+        "marra",
+        "fabio bartolo rizzo"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Marracash_m2o.jpg/960px-Marracash_m2o.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "musica-italiana-5",
+      "answer": "Blanco",
+      "aliases": [
+        "blanchito"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/Blanco_during_an_interview_for_Radio_Bruno_in_2022.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-6",
+      "answer": "Mahmood",
+      "aliases": [
+        "mamud",
+        "alessandro mahmood"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Mahmood_%28Feb_2024%3B_02%29_%28cropped%29.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-7",
+      "answer": "Annalisa",
+      "aliases": [
+        "nali"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Sarah_Toscano_%28Mondov%C3%AC_-_August_2025_-_1%29_%28cropped%29.webp?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-8",
+      "answer": "Elodie",
+      "aliases": [
+        "elodi"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Elodie-7993.jpg/960px-Elodie-7993.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "musica-italiana-9",
+      "answer": "Marco Mengoni",
+      "aliases": [
+        "mengoni"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Daniele_Magro_con_Marco_Mengoni_in_studio_nel_2021_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-10",
+      "answer": "Ultimo",
+      "aliases": [
+        "niccolo moriconi"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/UltimoIMG_4813_%28cropped%29.JPG/960px-UltimoIMG_4813_%28cropped%29.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "musica-italiana-11",
+      "answer": "Ghali",
+      "aliases": [
+        "gali"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/Ghali_%28Feb_2024%29_%28cropped%29.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-12",
+      "answer": "Salmo",
+      "aliases": [
+        "maurizio pisciottu"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Salmo_%2813267007173%29.jpg/960px-Salmo_%2813267007173%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "musica-italiana-13",
+      "answer": "Achille Lauro",
+      "aliases": [
+        "lauro"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Achille_Lauro_%28Feb_2025%29.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-14",
+      "answer": "Angelina Mango",
+      "aliases": [
+        "angelina",
+        "mango"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Angelina_Mango_01_%28cropped%29.jpg/960px-Angelina_Mango_01_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "musica-italiana-15",
+      "answer": "Tananai",
+      "aliases": [
+        "alberto cotta ramusino"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/Tananai_%28Feb_2023%29_%28cropped%29.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-16",
+      "answer": "Damiano David",
+      "aliases": [
+        "maneskin",
+        "måneskin",
+        "damiano"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/48/Damiano_David_interview_with_Musica_e_TV_2.0_in_2025.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-17",
+      "answer": "Fedez",
+      "aliases": [
+        "federico lucia"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Fedez_%28Feb_2025%29.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-18",
+      "answer": "Guè",
+      "aliases": [
+        "gue pequeno",
+        "gue"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Gu%C3%A8_Celebrity_Hunted_4_2024.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-19",
+      "answer": "Fabri Fibra",
+      "aliases": [
+        "fibra"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Fabri_Fibra-1_%28cropped%29.jpg/960px-Fabri_Fibra-1_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "musica-italiana-20",
+      "answer": "Caparezza",
+      "aliases": [
+        "michele salvemini"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Orbit_Orbit_tour_-_Caparezza_live_in_Bari_4_09_2026_01.jpg/960px-Orbit_Orbit_tour_-_Caparezza_live_in_Bari_4_09_2026_01.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "musica-italiana-21",
+      "answer": "Tedua",
+      "aliases": [
+        "mario molinari"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Tedua_2024.jpg/960px-Tedua_2024.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "musica-italiana-22",
+      "answer": "Rose Villain",
+      "aliases": [
+        "rose"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Rose_Villain_%28Feb_2025%29.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-23",
+      "answer": "Madame",
+      "aliases": [
+        "francesca caleandro"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Madame_RadioBruno_Festival_di_Sanremo_2023.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-24",
+      "answer": "Irama",
+      "aliases": [
+        "filippo maria fanti"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/91/Irama_Musica_e_Tv_2.0_2026.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-25",
+      "answer": "Vasco Rossi",
+      "aliases": [
+        "vasco",
+        "blasco"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Vasco_Rossi.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-26",
+      "answer": "Ligabue",
+      "aliases": [
+        "luciano ligabue",
+        "liga"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Luciano_Ligabue%2C_portrait%2C_october_2012.jpg/960px-Luciano_Ligabue%2C_portrait%2C_october_2012.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "musica-italiana-27",
+      "answer": "Jovanotti",
+      "aliases": [
+        "lorenzo cherubini"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/Jovanotti_Aracataca.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-28",
+      "answer": "Cesare Cremonini",
+      "aliases": [
+        "cremonini",
+        "lunapop"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Cesare_Cremonini_m2o_2024_%28cropped%29.jpg/960px-Cesare_Cremonini_m2o_2024_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "musica-italiana-29",
+      "answer": "Laura Pausini",
+      "aliases": [
+        "pausini"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Laura_Pausini_a_Sanremo_2026_%28headshot%29_%28cropped%29.jpg/960px-Laura_Pausini_a_Sanremo_2026_%28headshot%29_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "musica-italiana-30",
+      "answer": "Eros Ramazzotti",
+      "aliases": [
+        "ramazzotti",
+        "eros"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Eros_Ramazzotti_%2821738687382%29_%28cropped%29.jpg/960px-Eros_Ramazzotti_%2821738687382%29_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "musica-italiana-31",
+      "answer": "Tiziano Ferro",
+      "aliases": [
+        "ferro"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Tiziano_Ferro_in_Schwyz_%281%29_%28cropped_2%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-32",
+      "answer": "Giorgia",
+      "aliases": [
+        "giorgia todarni"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Giorgia_%28Feb_2025%3B_2%29.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-33",
+      "answer": "Elisa",
+      "aliases": [
+        "elisa toffoli"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Elisa-5292-Adriana.Tedeschi.jpg/960px-Elisa-5292-Adriana.Tedeschi.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "musica-italiana-34",
+      "answer": "Alessandra Amoroso",
+      "aliases": [
+        "amoroso"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Alessandra_Amoroso_-_Amore_Puro_Tour%2C_Firenze_9_aprile_2014_2_%28cropped%29.jpg/960px-Alessandra_Amoroso_-_Amore_Puro_Tour%2C_Firenze_9_aprile_2014_2_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "musica-italiana-35",
+      "answer": "Emma Marrone",
+      "aliases": [
+        "emma"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Emma_%28Oct_2023%29_%28cropped%29.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-36",
+      "answer": "Max Pezzali",
+      "aliases": [
+        "pezzali",
+        "883",
+        "otto otto tre"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Max_Pezzali_at_Cartoomics_2013-1_%28cropped%29.jpg/960px-Max_Pezzali_at_Cartoomics_2013-1_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "musica-italiana-37",
+      "answer": "Claudio Baglioni",
+      "aliases": [
+        "baglioni"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Claudio_Baglioni_2000.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-38",
+      "answer": "Gianni Morandi",
+      "aliases": [
+        "morandi"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Gianni_Morandi_2023_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-39",
+      "answer": "Adriano Celentano",
+      "aliases": [
+        "celentano",
+        "molleggiato"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Celentano_1961_Salsomaggiore_Terme.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-40",
+      "answer": "Raffaella Carrà",
+      "aliases": [
+        "carra",
+        "raffaella"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Raffaella_Carr%C3%A0_Grand_H%C3%B4tel_1971.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-41",
+      "answer": "Lucio Battisti",
+      "aliases": [
+        "battisti"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Mina_Epoca_1972.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-42",
+      "answer": "Fabrizio De André",
+      "aliases": [
+        "de andre",
+        "faber"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/9/9f/De_Andr%C3%A9_backstage.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "musica-italiana-43",
+      "answer": "Lucio Dalla",
+      "aliases": [
+        "dalla"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Lucio_Dalla_1.JPG/960px-Lucio_Dalla_1.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "musica-italiana-44",
+      "answer": "Pino Daniele",
+      "aliases": [
+        "daniele"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/1982_Pino_Daniele_10_%28cropped%29.jpg/960px-1982_Pino_Daniele_10_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "musica-italiana-45",
+      "answer": "Al Bano",
+      "aliases": [
+        "albano",
+        "albano carrisi"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Albano_2014.jpg/960px-Albano_2014.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    }
+  ]
+}

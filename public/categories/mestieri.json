@@ -1,0 +1,288 @@
+{
+  "id": "mestieri",
+  "name": "Mestieri & Professioni",
+  "subtitle": "Divise, caschi e lavori in azione: indovina la professione!",
+  "icon": "👨‍🚒",
+  "themeHex": "#F59E0B",
+  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/FiremenFightBurningBarn.jpg/960px-FiremenFightBurningBarn.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "previewImages": [
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/FiremenFightBurningBarn.jpg/960px-FiremenFightBurningBarn.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Bruce_McCandless_II_during_EVA_in_1984.jpg/960px-Bruce_McCandless_II_during_EVA_in_1984.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Cardiac_surgery_operating_room.jpg/960px-Cardiac_surgery_operating_room.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://upload.wikimedia.org/wikipedia/commons/b/ba/Ribot_Theodule_The_Cook_And_The_Cat-1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  ],
+  "items": [
+    {
+      "id": "mestieri-1",
+      "answer": "Vigile del Fuoco",
+      "aliases": [
+        "pompiere",
+        "pompieri"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/FiremenFightBurningBarn.jpg/960px-FiremenFightBurningBarn.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-2",
+      "answer": "Astronauta",
+      "aliases": [
+        "cosmonauta"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Bruce_McCandless_II_during_EVA_in_1984.jpg/960px-Bruce_McCandless_II_during_EVA_in_1984.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-3",
+      "answer": "Chirurgo",
+      "aliases": [
+        "medico",
+        "dottore",
+        "sala operatoria"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Cardiac_surgery_operating_room.jpg/960px-Cardiac_surgery_operating_room.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-4",
+      "answer": "Chef",
+      "aliases": [
+        "cuoco"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Ribot_Theodule_The_Cook_And_The_Cat-1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "mestieri-5",
+      "answer": "Pilota d’Aereo",
+      "aliases": [
+        "pilota",
+        "comandante"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Lt_Mike_Hunter_1.jpg/960px-Lt_Mike_Hunter_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-6",
+      "answer": "Giudice",
+      "aliases": [
+        "magistrato"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/ICJ-CJI_hearing_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "mestieri-7",
+      "answer": "Arbitro",
+      "aliases": [
+        "arbitro di calcio"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Clemens_Sch%C3%BCttengruber%2C_Fu%C3%9Fballschiedsrichter_%2803%29.jpg/960px-Clemens_Sch%C3%BCttengruber%2C_Fu%C3%9Fballschiedsrichter_%2803%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-8",
+      "answer": "Sommozzatore",
+      "aliases": [
+        "sub",
+        "subacqueo"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Diving_stage.jpg/960px-Diving_stage.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-9",
+      "answer": "Saldatore",
+      "aliases": [],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/AlfredPalmerwelder1.jpg/960px-AlfredPalmerwelder1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-10",
+      "answer": "Falegname",
+      "aliases": [
+        "carpentiere"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/PalmercarpenterA.jpg/960px-PalmercarpenterA.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-11",
+      "answer": "Meccanico",
+      "aliases": [
+        "autoriparatore"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/2008-04-17_1989_Saab_900_Turbo_getting_new_tyres.jpg/960px-2008-04-17_1989_Saab_900_Turbo_getting_new_tyres.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-12",
+      "answer": "Fotografo",
+      "aliases": [],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Photograph_of_a_Photographer.jpg/960px-Photograph_of_a_Photographer.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-13",
+      "answer": "Direttore d’Orchestra",
+      "aliases": [
+        "maestro d orchestra"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Leonard_Bernstein_-_1950s.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "mestieri-14",
+      "answer": "Ballerina",
+      "aliases": [
+        "danza classica"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Corsaire_-Le_Jardin_Anime_-Pierina_Legnani_-Olga_Preobrajenska_-1899.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "mestieri-15",
+      "answer": "Apicoltore",
+      "aliases": [
+        "api"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Beekeeper_keeping_bees.jpg/960px-Beekeeper_keeping_bees.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-16",
+      "answer": "Barbiere",
+      "aliases": [
+        "parrucchiere"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Iranian_barber.jpg/960px-Iranian_barber.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-17",
+      "answer": "Tatuatore",
+      "aliases": [],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Florence_Tattoo_Convention_%285158061891%29.jpg/960px-Florence_Tattoo_Convention_%285158061891%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-18",
+      "answer": "Dentista",
+      "aliases": [
+        "odontoiatra"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/US_Navy_030124-N-1328C-510_Navy_dentist_treats_patients_aboard_ship.jpg/960px-US_Navy_030124-N-1328C-510_Navy_dentist_treats_patients_aboard_ship.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-19",
+      "answer": "Veterinario",
+      "aliases": [],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Surgery_performed_on_a_domestic_cat.jpg/960px-Surgery_performed_on_a_domestic_cat.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-20",
+      "answer": "Bagnino",
+      "aliases": [
+        "salvataggio"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Lifeguard_jumping_into_action%2C_Ocean_City%2C_June_27_%2C2007.jpg/960px-Lifeguard_jumping_into_action%2C_Ocean_City%2C_June_27_%2C2007.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-21",
+      "answer": "Muratore",
+      "aliases": [
+        "cantiere"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Kuben_murer.jpg/960px-Kuben_murer.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-22",
+      "answer": "fabbro",
+      "aliases": [
+        "maniscalco"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/A_blacksmith_at_work.jpg/960px-A_blacksmith_at_work.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-23",
+      "answer": "Pescatore",
+      "aliases": [],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Belgian_Fishermen_in_the_British_Fishing_Village_of_Brixham%2C_Devon_in_1944_TR1868.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "mestieri-24",
+      "answer": "Contadino",
+      "aliases": [
+        "agricoltore"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Woman_at_work%2C_Gujarat.jpg/960px-Woman_at_work%2C_Gujarat.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-25",
+      "answer": "Panettiere",
+      "aliases": [
+        "fornaio"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/USS_John_C._Stennis_baker.jpg/960px-USS_John_C._Stennis_baker.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-26",
+      "answer": "Macellaio",
+      "aliases": [],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Wiki_Loves_Mett_P1020898.JPG/960px-Wiki_Loves_Mett_P1020898.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-27",
+      "answer": "Fioraio",
+      "aliases": [
+        "fiorista"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/A_Parisian_Flower_Market.jpg/960px-A_Parisian_Flower_Market.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-28",
+      "answer": "Orologiaio",
+      "aliases": [],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Fertigung_Bruno_S%C3%B6hnle_03.jpg/960px-Fertigung_Bruno_S%C3%B6hnle_03.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-29",
+      "answer": "Archeologo",
+      "aliases": [
+        "scavi archeologici"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Dolina-Pano-3_%28cropped%29.jpg/960px-Dolina-Pano-3_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-30",
+      "answer": "Chimico",
+      "aliases": [
+        "scienziato",
+        "ricercatore"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Metsu%2C_Gabri%C3%ABl_-_L%27Apothicaire_-_c._1651-1667.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "mestieri-31",
+      "answer": "DJ",
+      "aliases": [
+        "deejay"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Pete_Rock_%40_The_Brookyln_Bowl_in_2016.jpg/960px-Pete_Rock_%40_The_Brookyln_Bowl_in_2016.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-32",
+      "answer": "Cameriere",
+      "aliases": [
+        "sala"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Annie_O%27Black_1973.jpg/960px-Annie_O%27Black_1973.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-33",
+      "answer": "Barman",
+      "aliases": [
+        "barista"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Our_bartender_at_Superior%2C_New_Orleans_2016.jpg/960px-Our_bartender_at_Superior%2C_New_Orleans_2016.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-34",
+      "answer": "Gondoliere",
+      "aliases": [
+        "venezia gondola"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Gondola_Ride.jpg/960px-Gondola_Ride.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mestieri-35",
+      "answer": "Guardia Svizzera",
+      "aliases": [
+        "guardie svizzere"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Guards_at_Buckingham_Palace_%2832629261244%29.jpg/960px-Guards_at_Buckingham_Palace_%2832629261244%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    }
+  ]
+}

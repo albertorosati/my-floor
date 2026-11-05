@@ -1,0 +1,340 @@
+{
+  "id": "supereroi",
+  "name": "Supereroi & Villain",
+  "subtitle": "Marvel, DC Comics e i personaggi più iconici dei fumetti",
+  "icon": "🦸",
+  "themeHex": "#EF4444",
+  "coverImage": "https://upload.wikimedia.org/wikipedia/it/8/82/Copertina_Uomo_Ragno_MI_430.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "previewImages": [
+    "https://upload.wikimedia.org/wikipedia/it/8/82/Copertina_Uomo_Ragno_MI_430.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "https://upload.wikimedia.org/wikipedia/it/1/19/Batman_3_variant.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "https://upload.wikimedia.org/wikipedia/it/1/13/DC_Absolute_Superman_per_il_Domani.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "https://upload.wikimedia.org/wikipedia/it/6/61/Wonder_Woman_%28Adam_Hughes%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  ],
+  "items": [
+    {
+      "id": "supereroi-1",
+      "answer": "Spider-Man",
+      "aliases": [
+        "uomo ragno",
+        "spiderman",
+        "peter parker"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/8/82/Copertina_Uomo_Ragno_MI_430.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-2",
+      "answer": "Batman",
+      "aliases": [
+        "uomo pipistrello",
+        "bruce wayne"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/1/19/Batman_3_variant.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-3",
+      "answer": "Superman",
+      "aliases": [
+        "clark kent"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/1/13/DC_Absolute_Superman_per_il_Domani.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-4",
+      "answer": "Wonder Woman",
+      "aliases": [
+        "diana prince"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/6/61/Wonder_Woman_%28Adam_Hughes%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-5",
+      "answer": "Iron Man",
+      "aliases": [
+        "tony stark",
+        "ironman"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/7/7c/Iron_Man_Extremis.jpg/960px-Iron_Man_Extremis.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "supereroi-6",
+      "answer": "Captain America",
+      "aliases": [
+        "capitan america",
+        "steve rogers"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/f/f3/Capitan_America_%28Maguire%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-7",
+      "answer": "Thor",
+      "aliases": [
+        "dio del tuono"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/e/e0/Thor_%28Alan_Davis%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-8",
+      "answer": "Hulk",
+      "aliases": [
+        "incredibile hulk",
+        "bruce banner"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/9/90/Hulk_%28Dale_Keown%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-9",
+      "answer": "Vedova Nera",
+      "aliases": [
+        "black widow",
+        "natasha romanoff"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/1/1b/Vedova_Nera_%28Natasha_Romanoff%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-10",
+      "answer": "Thanos",
+      "aliases": [],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/c/c2/Thanos.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-11",
+      "answer": "Loki",
+      "aliases": [],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/6/64/Loki_%28Jay_Anacleto%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-12",
+      "answer": "Doctor Strange",
+      "aliases": [
+        "dottor strange"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/5/53/Dottor_Strange.webp?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-13",
+      "answer": "Black Panther",
+      "aliases": [
+        "pantera nera",
+        "tchalla"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Chadwick_Boseman_by_Gage_Skidmore_July_2017_%28cropped%29.jpg/960px-Chadwick_Boseman_by_Gage_Skidmore_July_2017_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "supereroi-14",
+      "answer": "Deadpool",
+      "aliases": [
+        "wade wilson"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/b/b1/Marvel-Verse_Deadpool.webp?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-15",
+      "answer": "Wolverine",
+      "aliases": [
+        "logan"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Hugh_Jackman_as_Wolverine.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-16",
+      "answer": "Magneto",
+      "aliases": [],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/a/ac/MarvelMix21.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-17",
+      "answer": "Venom",
+      "aliases": [
+        "simbionte"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/5/52/Batman_contro_bane.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-18",
+      "answer": "Daredevil",
+      "aliases": [
+        "matt murdock"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/5/54/The_Punisher_One_Last_Kill.logo.jpeg/960px-The_Punisher_One_Last_Kill.logo.jpeg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "supereroi-19",
+      "answer": "Punisher",
+      "aliases": [
+        "il punitore",
+        "frank castle"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/4/49/Punisher_Barracuda.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-20",
+      "answer": "Flash",
+      "aliases": [
+        "barry allen"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/c/ce/TheFlashMovie.png/960px-TheFlashMovie.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "supereroi-21",
+      "answer": "Aquaman",
+      "aliases": [
+        "arthur curry"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/f/f5/M1ANTO013ISBN_0.webp?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-22",
+      "answer": "Harley Quinn",
+      "aliases": [
+        "harley"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/1/1d/Harley_Quinn_%28Terry_Dodson%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-23",
+      "answer": "Catwoman",
+      "aliases": [
+        "donna gatto",
+        "selina kyle"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/4/46/Catwoman_4.webp?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-24",
+      "answer": "Il Pinguino",
+      "aliases": [
+        "pinguino batman",
+        "oswald cobblepot"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/South_Shetland-2016-Deception_Island%E2%80%93Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg/960px-South_Shetland-2016-Deception_Island%E2%80%93Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "supereroi-25",
+      "answer": "Enigmista",
+      "aliases": [
+        "the riddler"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/4/4b/Batman-_L%27Ultimo_Halloween_3.webp?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-26",
+      "answer": "Green Goblin",
+      "aliases": [
+        "goblin",
+        "norman osborn"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/e/ef/Goblin.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-27",
+      "answer": "Dottor Octopus",
+      "aliases": [
+        "doc ock",
+        "octopus"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/19/Sinister_Six.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-28",
+      "answer": "Groot",
+      "aliases": [
+        "io sono groot"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/3/3d/Groot_-_Sradicato.webp?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-29",
+      "answer": "Rocket Raccoon",
+      "aliases": [
+        "rocket"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/4/4c/Rocket_Raccoon_%28Joe_Quesada%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-30",
+      "answer": "Ant-Man",
+      "aliases": [
+        "antman",
+        "uomo formica"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/e/e4/Ant-Man_film.jpg/960px-Ant-Man_film.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "supereroi-31",
+      "answer": "Scarlet Witch",
+      "aliases": [
+        "wanda"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/7/72/Scarlet_%28Alex_Ross%29.jpg/960px-Scarlet_%28Alex_Ross%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "supereroi-32",
+      "answer": "Capitan Marvel",
+      "aliases": [
+        "carol danvers"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/f/f3/Generations_Captain_Marvel_%26_Captain_Mar-Vell.webp?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-33",
+      "answer": "Joker",
+      "aliases": [
+        "il joker"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/f/f2/Joker_%28film_2019%29.png/960px-Joker_%28film_2019%29.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "supereroi-34",
+      "answer": "Lex Luthor",
+      "aliases": [
+        "luthor"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/0/06/Luthor.webp?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-35",
+      "answer": "Due Facce",
+      "aliases": [
+        "harvey dent"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/3/30/Batman-_L%27Ultimo_Halloween_10.webp?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-36",
+      "answer": "Fantastici Quattro",
+      "aliases": [
+        "la cosa",
+        "ben grimm"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/b/bd/X_swamp_thing_1.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-37",
+      "answer": "Silver Surfer",
+      "aliases": [],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/2/2a/Silver_Surfer_%28John_Buscema%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-38",
+      "answer": "Hellboy",
+      "aliases": [],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/2/2c/Hellboy_038.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-39",
+      "answer": "Spawn",
+      "aliases": [],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/a/a3/Spawn_75.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "supereroi-40",
+      "answer": "Tartarughe Ninja",
+      "aliases": [
+        "ninja turtles",
+        "leonardo donatello"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/6/66/Tartarughe_Ninja.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    }
+  ]
+}

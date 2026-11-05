@@ -17,6 +17,7 @@ import {
   TargetWinsOption,
 } from '../types/game';
 import { SmartSpeechRecognizer } from '../engine/speechRecognition';
+import { gameConfig } from '../services/configService';
 
 interface LobbyScreenProps {
   p1: PlayerConfig;
@@ -31,8 +32,6 @@ interface LobbyScreenProps {
   onOpenCategoryEditor: () => void;
   onStartGame: () => void;
 }
-
-const AVATARS = ['🦊', '🐯', '🐼', '🐸', '🐙', '🦖', '😎', '🤠', '👻', '🍕', '⚡', '🔥'];
 
 export const LobbyScreen: React.FC<LobbyScreenProps> = ({
   p1,
@@ -56,6 +55,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
 
   const speechSupported = SmartSpeechRecognizer.isSupported();
   const totalPhotos = categories.reduce((acc, c) => acc + c.items.length, 0);
+  const avatars = gameConfig.players.avatars;
 
   useEffect(() => {
     return () => {
@@ -100,7 +100,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
 
   return (
     <div className="min-h-screen party-stage-bg flex flex-col justify-between p-4 sm:p-6 md:p-8 select-none">
-      {/* Header Caldo e Pulito */}
+      {/* Header */}
       <header className="max-w-5xl w-full mx-auto flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3.5">
           <div className="w-14 h-14 rounded-2xl bg-gold border-[3px] border-ink shadow-chunky-sm grid grid-cols-2 gap-1 p-2 rotate-[-3deg]">
@@ -111,10 +111,10 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
           </div>
           <div>
             <h1 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-cream leading-none">
-              The Floor
+              {gameConfig.appTitle}
             </h1>
             <p className="text-sm text-cream/70 font-medium mt-0.5">
-              {categories.length} categorie • {totalPhotos.toLocaleString('it-IT')} foto vere
+              {categories.length} categorie • {totalPhotos.toLocaleString('it-IT')} foto HD
             </p>
           </div>
         </div>
@@ -154,9 +154,9 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
         </div>
       )}
 
-      {/* Corpo Centrale */}
+      {/* Main Content */}
       <main className="max-w-5xl w-full mx-auto my-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        {/* Colonna Giocatori */}
+        {/* Giocatori */}
         <div className="lg:col-span-5 flex flex-col gap-5">
           {/* Card Giocatore 1 */}
           <div className="card-cream rounded-3xl overflow-hidden">
@@ -176,7 +176,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                 className="w-full px-4 py-2.5 rounded-xl bg-paper border-2 border-ink/25 focus:border-p1 text-ink font-display text-xl font-bold focus:outline-none"
               />
               <div className="flex flex-wrap gap-1.5">
-                {AVATARS.map((av) => (
+                {avatars.map((av) => (
                   <button
                     key={`p1-${av}`}
                     onClick={() => onUpdatePlayer('p1', p1.name, av)}
@@ -211,7 +211,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                 className="w-full px-4 py-2.5 rounded-xl bg-paper border-2 border-ink/25 focus:border-p2 text-ink font-display text-xl font-bold focus:outline-none"
               />
               <div className="flex flex-wrap gap-1.5">
-                {AVATARS.map((av) => (
+                {avatars.map((av) => (
                   <button
                     key={`p2-${av}`}
                     onClick={() => onUpdatePlayer('p2', p2.name, av)}
@@ -229,9 +229,8 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
           </div>
         </div>
 
-        {/* Colonna Impostazioni & Avvio */}
+        {/* Impostazioni Partita */}
         <div className="lg:col-span-7 card-cream rounded-3xl p-6 flex flex-col gap-6">
-          {/* Dove giocate */}
           <div>
             <h2 className="font-display font-bold text-lg text-ink mb-2.5">
               Come giocate?
@@ -329,17 +328,19 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
             )}
           </div>
 
-          {/* Punti Vittoria & Secondi Duello */}
+          {/* Traguardo & Secondi */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <h3 className="font-display font-bold text-sm text-ink/80 mb-2">
                 Traguardo vittoria
               </h3>
               <div className="grid grid-cols-4 gap-1.5">
-                {([3, 5, 7, 0] as TargetWinsOption[]).map((pts) => (
+                {gameConfig.options.targetWins.map((pts) => (
                   <button
                     key={pts}
-                    onClick={() => onUpdateSettings({ targetWins: pts })}
+                    onClick={() =>
+                      onUpdateSettings({ targetWins: pts as TargetWinsOption })
+                    }
                     className={`py-2.5 px-2 rounded-xl font-display font-bold text-sm border-2 transition-all ${
                       settings.targetWins === pts
                         ? 'bg-ink text-cream border-ink'
@@ -357,7 +358,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                 Tempo per giocatore
               </h3>
               <div className="grid grid-cols-3 gap-2">
-                {[30, 45, 60].map((sec) => (
+                {gameConfig.options.duelDurations.map((sec) => (
                   <button
                     key={sec}
                     onClick={() =>
@@ -376,7 +377,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
             </div>
           </div>
 
-          {/* Prova microfono discreta */}
+          {/* Prova microfono */}
           <div className="p-3.5 rounded-2xl bg-paper border-2 border-ink/15 flex flex-col gap-2">
             <div className="flex items-center justify-between gap-2">
               <span className="text-xs font-bold text-ink/75 flex items-center gap-1.5">
@@ -413,7 +414,6 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
             )}
           </div>
 
-          {/* Pulsante Gioca! */}
           <button
             onClick={() => {
               recognizerRef.current?.stop();
@@ -428,7 +428,6 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
         </div>
       </main>
 
-      {/* Footer semplice e umano */}
       <footer className="max-w-5xl w-full mx-auto text-center text-xs text-cream/55">
         A turno si sceglie una categoria tra 4 carte proposte • Di’ <strong className="text-gold">“Passo”</strong> (o premi Spazio) per cambiare foto con 3 secondi di penalità
       </footer>

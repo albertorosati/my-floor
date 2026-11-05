@@ -1,0 +1,345 @@
+{
+  "id": "auto-moto",
+  "name": "Auto, Supercar & Moto",
+  "subtitle": "Dalla mitica Panda alle Ferrari, Porsche e moto leggendarie",
+  "icon": "🏎️",
+  "themeHex": "#EF4444",
+  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/2018_Fiat_Panda_Easy_1.2.jpg/960px-2018_Fiat_Panda_Easy_1.2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "previewImages": [
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/2018_Fiat_Panda_Easy_1.2.jpg/960px-2018_Fiat_Panda_Easy_1.2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/1970_Fiat_500_L_--_2011_DC_1.jpg/960px-1970_Fiat_500_L_--_2011_DC_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/PerthVespa.jpg/960px-PerthVespa.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Piaggio_Vespacar_APE_P400V_MPF.dsc01304.jpg/960px-Piaggio_Vespacar_APE_P400V_MPF.dsc01304.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  ],
+  "items": [
+    {
+      "id": "auto-moto-1",
+      "answer": "Fiat Panda",
+      "aliases": [
+        "panda",
+        "pandino"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/2018_Fiat_Panda_Easy_1.2.jpg/960px-2018_Fiat_Panda_Easy_1.2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-2",
+      "answer": "Fiat 500",
+      "aliases": [
+        "cinquecento"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/1970_Fiat_500_L_--_2011_DC_1.jpg/960px-1970_Fiat_500_L_--_2011_DC_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-3",
+      "answer": "Vespa",
+      "aliases": [
+        "vespa piaggio"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/PerthVespa.jpg/960px-PerthVespa.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-4",
+      "answer": "Ape Piaggio",
+      "aliases": [
+        "apecar",
+        "ape"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Piaggio_Vespacar_APE_P400V_MPF.dsc01304.jpg/960px-Piaggio_Vespacar_APE_P400V_MPF.dsc01304.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-5",
+      "answer": "Ferrari F40",
+      "aliases": [
+        "ferrari"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/F40_Ferrari_20090509.jpg/960px-F40_Ferrari_20090509.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-6",
+      "answer": "Lamborghini Countach",
+      "aliases": [
+        "lamborghini"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Lamborghini_Countach_-_Flickr_-_exfordy_%282%29_%28cropped-2%29.jpg/960px-Lamborghini_Countach_-_Flickr_-_exfordy_%282%29_%28cropped-2%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-7",
+      "answer": "Porsche 911",
+      "aliases": [
+        "porsche"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Porsche_911_No_1000000%2C_70_Years_Porsche_Sports_Car%2C_Berlin_%281X7A3888%29.jpg/960px-Porsche_911_No_1000000%2C_70_Years_Porsche_Sports_Car%2C_Berlin_%281X7A3888%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-8",
+      "answer": "Bugatti Chiron",
+      "aliases": [
+        "bugatti"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Bugatti_Chiron_1.jpg/960px-Bugatti_Chiron_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-9",
+      "answer": "Lancia Delta Integrale",
+      "aliases": [
+        "lancia delta",
+        "delta integrale"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Lancia_Delta_LX_2012_02.jpg/960px-Lancia_Delta_LX_2012_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-10",
+      "answer": "Alfa Romeo Giulia",
+      "aliases": [
+        "alfa romeo",
+        "giulia"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Alfa_Romeo_Giulia_Super_%28cropped%29.jpg/960px-Alfa_Romeo_Giulia_Super_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-11",
+      "answer": "Jeep Wrangler",
+      "aliases": [
+        "jeep",
+        "fuoristrada"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/2018_Jeep_Wrangler_Sahara_Unlimited_Multijet_2.1_Front.jpg/960px-2018_Jeep_Wrangler_Sahara_Unlimited_Multijet_2.1_Front.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-12",
+      "answer": "Land Rover Defender",
+      "aliases": [
+        "defender",
+        "land rover"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/2015_Land_Rover_Defender_%28L316_MY15%29_90_3-door_wagon_%282015-10-24%29_01.jpg/960px-2015_Land_Rover_Defender_%28L316_MY15%29_90_3-door_wagon_%282015-10-24%29_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-13",
+      "answer": "Mercedes Classe G",
+      "aliases": [
+        "classe g",
+        "g wagon",
+        "mercedes"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Mercedes-Benz_W463_G_350_BlueTEC_01.jpg/960px-Mercedes-Benz_W463_G_350_BlueTEC_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-14",
+      "answer": "Volkswagen Maggiolino",
+      "aliases": [
+        "maggiolino",
+        "maggiolone"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/VW_K%C3%A4fer_Baujahr_1966.jpg/960px-VW_K%C3%A4fer_Baujahr_1966.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-15",
+      "answer": "Pulmino Volkswagen",
+      "aliases": [
+        "furgoncino hippy",
+        "bulli",
+        "pulmino"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/0385_Porsche_Diesel_Bus_blau.jpg/960px-0385_Porsche_Diesel_Bus_blau.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-16",
+      "answer": "Mini Cooper",
+      "aliases": [
+        "mini"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Mini_One_%28R50%29_%E2%80%93_Frontansicht%2C_12._Juni_2011%2C_D%C3%BCsseldorf.jpg/960px-Mini_One_%28R50%29_%E2%80%93_Frontansicht%2C_12._Juni_2011%2C_D%C3%BCsseldorf.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-17",
+      "answer": "Citroën 2CV",
+      "aliases": [
+        "due cavalli",
+        "2cv"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Citroen_2CV_1X7A7979.jpg/960px-Citroen_2CV_1X7A7979.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-18",
+      "answer": "Smart",
+      "aliases": [
+        "smart fortwo"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/2016_Smart_Fortwo_Passion_Automatic_1.0_Front.jpg/960px-2016_Smart_Fortwo_Passion_Automatic_1.0_Front.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-19",
+      "answer": "Tesla Cybertruck",
+      "aliases": [
+        "cybertruck",
+        "tesla"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/2024_Tesla_Cybertruck_Foundation_Series%2C_front_left_%28Greenwich%29.jpg/960px-2024_Tesla_Cybertruck_Foundation_Series%2C_front_left_%28Greenwich%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-20",
+      "answer": "Ford Mustang",
+      "aliases": [
+        "mustang"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Ford_Mustang_VII_GT_Rutesheimer_Autoschau_2025_DSC_9234.jpg/960px-Ford_Mustang_VII_GT_Rutesheimer_Autoschau_2025_DSC_9234.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-21",
+      "answer": "Chevrolet Corvette",
+      "aliases": [
+        "corvette"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/2021_Chevrolet_Corvette_C8.jpg/960px-2021_Chevrolet_Corvette_C8.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-22",
+      "answer": "Dodge Charger",
+      "aliases": [
+        "dodge"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/1969_Dodge_Charger_R-T%2C_front_right_%282022_Ellwood_City_Fall_Fest_%26_Car_Cruise%29.jpg/960px-1969_Dodge_Charger_R-T%2C_front_right_%282022_Ellwood_City_Fall_Fest_%26_Car_Cruise%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-23",
+      "answer": "DeLorean",
+      "aliases": [
+        "delorean"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Delorean_DMC-12_side.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "auto-moto-24",
+      "answer": "Hummer",
+      "aliases": [
+        "hummer"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Hummer_H2_%2852891415542%29_%28cropped%29.jpg/960px-Hummer_H2_%2852891415542%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-25",
+      "answer": "Rolls-Royce",
+      "aliases": [
+        "rolls royce"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/2019_Rolls-Royce_Phantom_V12_Automatic_6.75.jpg/960px-2019_Rolls-Royce_Phantom_V12_Automatic_6.75.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-26",
+      "answer": "Aston Martin",
+      "aliases": [
+        "aston martin"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Aston_Martin_DB5_%28Skyfall%29.jpg/960px-Aston_Martin_DB5_%28Skyfall%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-27",
+      "answer": "McLaren",
+      "aliases": [
+        "mclaren"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/McLaren_P1.jpg/960px-McLaren_P1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-28",
+      "answer": "Audi R8",
+      "aliases": [
+        "audi"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Audi_R8_-_Flickr_-_The_Car_Spy.jpg/960px-Audi_R8_-_Flickr_-_The_Car_Spy.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-29",
+      "answer": "BMW M3",
+      "aliases": [
+        "bmw"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/BMW_M3_Competition_%28G80%29_IMG_4041.jpg/960px-BMW_M3_Competition_%28G80%29_IMG_4041.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-30",
+      "answer": "Toyota Supra",
+      "aliases": [
+        "supra"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/2020_Toyota_GR_Supra_%28United_States%29.png/960px-2020_Toyota_GR_Supra_%28United_States%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-31",
+      "answer": "Nissan GT-R",
+      "aliases": [
+        "skyline",
+        "gtr"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Nissan_GT-R_01.JPG/960px-Nissan_GT-R_01.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-32",
+      "answer": "Subaru Impreza",
+      "aliases": [
+        "subaru"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/2024_Subaru_Impreza_Base%2C_front_right%2C_03-02-2024.jpg/960px-2024_Subaru_Impreza_Base%2C_front_right%2C_03-02-2024.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-33",
+      "answer": "Ducati Monster",
+      "aliases": [
+        "ducati"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/2003_Ducati_Monster_S4R.jpg/960px-2003_Ducati_Monster_S4R.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-34",
+      "answer": "Harley-Davidson",
+      "aliases": [
+        "harley",
+        "chopper"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Panhead.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "auto-moto-35",
+      "answer": "Quad",
+      "aliases": [
+        "atv"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Four_wheeler.jpg/960px-Four_wheeler.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-36",
+      "answer": "Motoslitta",
+      "aliases": [
+        "slitta a motore"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/SnowmobilesYellowstone.jpg/960px-SnowmobilesYellowstone.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-37",
+      "answer": "Moto d’Acqua",
+      "aliases": [
+        "jet ski",
+        "acquascooter"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Couple_of_teenagers_riding_a_jetski_splashing_on_the_Mekong_in_Laos.jpg/960px-Couple_of_teenagers_riding_a_jetski_splashing_on_the_Mekong_in_Laos.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "auto-moto-38",
+      "answer": "Limousine",
+      "aliases": [
+        "limo"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/06/1908StudeLimo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "auto-moto-39",
+      "answer": "Camper",
+      "aliases": [
+        "roulotte",
+        "autocaravan"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Dodge-based_recreational_vehicle_in_Munich.JPG/960px-Dodge-based_recreational_vehicle_in_Munich.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    }
+  ]
+}

@@ -1,0 +1,307 @@
+{
+  "id": "youtuber-streamer",
+  "name": "YouTuber & Streamer",
+  "subtitle": "I re di YouTube, Twitch e dell’intrattenimento sul web",
+  "icon": "📱",
+  "themeHex": "#FF3B30",
+  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/MrBeast_in_2026_%28cropped_4%29.png/960px-MrBeast_in_2026_%28cropped_4%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "previewImages": [
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/MrBeast_in_2026_%28cropped_4%29.png/960px-MrBeast_in_2026_%28cropped_4%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://upload.wikimedia.org/wikipedia/commons/5/53/Pewdiepie_head_shot.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/IShowSpeed_at_Chinatown_%28Portrait%29_04.jpg/960px-IShowSpeed_at_Chinatown_%28Portrait%29_04.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://upload.wikimedia.org/wikipedia/commons/7/79/Kai_Cenat_July_2025.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  ],
+  "items": [
+    {
+      "id": "youtuber-streamer-1",
+      "answer": "MrBeast",
+      "aliases": [
+        "mister beast",
+        "jimmy donaldson"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/MrBeast_in_2026_%28cropped_4%29.png/960px-MrBeast_in_2026_%28cropped_4%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "youtuber-streamer-2",
+      "answer": "PewDiePie",
+      "aliases": [
+        "felix kjellberg",
+        "pewdie"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/Pewdiepie_head_shot.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "youtuber-streamer-3",
+      "answer": "IShowSpeed",
+      "aliases": [
+        "speed",
+        "ishowspeed"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/IShowSpeed_at_Chinatown_%28Portrait%29_04.jpg/960px-IShowSpeed_at_Chinatown_%28Portrait%29_04.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "youtuber-streamer-4",
+      "answer": "Kai Cenat",
+      "aliases": [
+        "kai"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/Kai_Cenat_July_2025.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "youtuber-streamer-5",
+      "answer": "Khaby Lame",
+      "aliases": [
+        "khaby",
+        "cabi lame"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Khaby_Lame%2C_Nov_2025_%28cropped1%29.jpg/960px-Khaby_Lame%2C_Nov_2025_%28cropped1%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "youtuber-streamer-6",
+      "answer": "Logan Paul",
+      "aliases": [
+        "logan"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Logan_Paul_in_2026_%28crop%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "youtuber-streamer-7",
+      "answer": "Jake Paul",
+      "aliases": [
+        "jake"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/33/Jake_Paul_March_2026_%283x4_cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "youtuber-streamer-8",
+      "answer": "KSI",
+      "aliases": [
+        "jj olatunji"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/KSI_in_2024_%282%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "youtuber-streamer-9",
+      "answer": "Ninja",
+      "aliases": [
+        "tyler blevins"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/3/35/Last_Ninja_2.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "youtuber-streamer-10",
+      "answer": "Pokimane",
+      "aliases": [
+        "imane anys"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/Kai_Cenat_July_2025.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "youtuber-streamer-11",
+      "answer": "xQc",
+      "aliases": [
+        "felix lengyel"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/XQc_July_4_2023.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "youtuber-streamer-12",
+      "answer": "Markiplier",
+      "aliases": [
+        "mark fischbach"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/Markiplier_in_Markiplier_Covered_Me_In_His_Glue_at_01_15.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "youtuber-streamer-13",
+      "answer": "Jacksepticeye",
+      "aliases": [
+        "sean mcloughlin"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Jacksepticeye_by_Gage_Skidmore_%283x4_cropped%29.jpg/960px-Jacksepticeye_by_Gage_Skidmore_%283x4_cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "youtuber-streamer-14",
+      "answer": "Vsauce",
+      "aliases": [
+        "michael stevens"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/31/Michael_Stevens_VidCon_2016_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "youtuber-streamer-15",
+      "answer": "Marques Brownlee",
+      "aliases": [
+        "mkbhd"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Marques_Brownlee_cropped.jpg/960px-Marques_Brownlee_cropped.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "youtuber-streamer-16",
+      "answer": "Linus Tech Tips",
+      "aliases": [
+        "linus"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Linus_Sebastian_Seated_Portrait.jpg/960px-Linus_Sebastian_Seated_Portrait.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "youtuber-streamer-17",
+      "answer": "Zach King",
+      "aliases": [
+        "re della magia"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Zach_King_Photo.jpg/960px-Zach_King_Photo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "youtuber-streamer-18",
+      "answer": "Charli D’Amelio",
+      "aliases": [
+        "charli damelio"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Charli_D%27Amelio_at_KCA_2022.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "youtuber-streamer-19",
+      "answer": "Addison Rae",
+      "aliases": [
+        "addison"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/LanaWembley030725-3_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "youtuber-streamer-20",
+      "answer": "Bella Poarch",
+      "aliases": [
+        "poarch"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/59/Bella_Poarch_-_Pink_Aura_Tour.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "youtuber-streamer-21",
+      "answer": "Favij",
+      "aliases": [
+        "lorenzo ostuni",
+        "favi j"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Lorenzo_Ostuni_%28cropped%29.jpg/960px-Lorenzo_Ostuni_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "youtuber-streamer-22",
+      "answer": "CiccioGamer89",
+      "aliases": [
+        "cicciogamer",
+        "ciccio",
+        "mirko alessandrini"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Lodovica_Comello.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "youtuber-streamer-23",
+      "answer": "Yotobi",
+      "aliases": [
+        "karim musa"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Cecil_Beaton_Photographs-_Political_and_Military_Personalities%3B_Abdullah%2C_King_of_Jordan%3B_Abdullah%2C_King_of_Jordan_CBM1666.jpg/960px-Cecil_Beaton_Photographs-_Political_and_Military_Personalities%3B_Abdullah%2C_King_of_Jordan%3B_Abdullah%2C_King_of_Jordan_CBM1666.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "youtuber-streamer-24",
+      "answer": "Luis Sal",
+      "aliases": [
+        "luis"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Sal_mineo_Allan_Warren.jpg/960px-Sal_mineo_Allan_Warren.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "youtuber-streamer-25",
+      "answer": "Chiara Ferragni",
+      "aliases": [
+        "ferragni"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Goyas_2025_-_Chiara_Ferragni_%28cropped%29.jpg/960px-Goyas_2025_-_Chiara_Ferragni_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "youtuber-streamer-26",
+      "answer": "ClioMakeUp",
+      "aliases": [
+        "clio",
+        "clio make up"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/ClioMakeUp.jpg/960px-ClioMakeUp.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "youtuber-streamer-27",
+      "answer": "Benedetta Rossi",
+      "aliases": [
+        "fatto in casa da benedetta",
+        "benedetta"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Alessandro_Borghese_Celebrity_Chef_2024.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "youtuber-streamer-28",
+      "answer": "Barbascura X",
+      "aliases": [
+        "barbascura",
+        "scienza brutta"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/BarbascuraX-teatro.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "youtuber-streamer-29",
+      "answer": "Frank Matano",
+      "aliases": [
+        "matano"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Frank_Matano_Funweek.it_2024.png/960px-Frank_Matano_Funweek.it_2024.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "youtuber-streamer-30",
+      "answer": "Guglielmo Scilla",
+      "aliases": [
+        "willwoosh"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Gugliemo_Scilla.jpg/960px-Gugliemo_Scilla.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "youtuber-streamer-31",
+      "answer": "The Jackal",
+      "aliases": [
+        "ciro priello",
+        "fru"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Carlos_the_Jackal_%28fake_Peruvian_passport_photo_-_%22Carlos_Andres_Martinez_Torres%22%29.jpg/960px-Carlos_the_Jackal_%28fake_Peruvian_passport_photo_-_%22Carlos_Andres_Martinez_Torres%22%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "youtuber-streamer-32",
+      "answer": "Casa Surace",
+      "aliases": [
+        "surace"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Etna_Comics_2013_Cosplay_of_My_Little_Pony_Friendship_Is_Magic.jpg/960px-Etna_Comics_2013_Cosplay_of_My_Little_Pony_Friendship_Is_Magic.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "youtuber-streamer-33",
+      "answer": "Dario Bressanini",
+      "aliases": [
+        "bressanini"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Dario_bressanini.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "youtuber-streamer-34",
+      "answer": "Casey Neistat",
+      "aliases": [
+        "neistat"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Casey_Neistat.jpg/960px-Casey_Neistat.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "youtuber-streamer-35",
+      "answer": "Asmongold",
+      "aliases": [
+        "zackrawrr"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Asmongold_in_2022.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    }
+  ]
+}

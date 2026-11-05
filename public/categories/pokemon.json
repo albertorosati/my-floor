@@ -1,0 +1,399 @@
+{
+  "id": "pokemon",
+  "name": "Pokémon",
+  "subtitle": "Acchiappali tutti: riconosci il Pokémon dal disegno ufficiale!",
+  "icon": "⚡",
+  "themeHex": "#FACC15",
+  "coverImage": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+  "previewImages": [
+    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
+  ],
+  "items": [
+    {
+      "id": "pokemon-1",
+      "answer": "Pikachu",
+      "aliases": [
+        "pika"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+    },
+    {
+      "id": "pokemon-2",
+      "answer": "Charizard",
+      "aliases": [
+        "ciarizard"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"
+    },
+    {
+      "id": "pokemon-3",
+      "answer": "Bulbasaur",
+      "aliases": [
+        "bulbasauro"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+    },
+    {
+      "id": "pokemon-4",
+      "answer": "Squirtle",
+      "aliases": [
+        "squirtol"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
+    },
+    {
+      "id": "pokemon-5",
+      "answer": "Charmander",
+      "aliases": [
+        "ciarmander"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
+    },
+    {
+      "id": "pokemon-6",
+      "answer": "Blastoise",
+      "aliases": [
+        "blastois"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"
+    },
+    {
+      "id": "pokemon-7",
+      "answer": "Venusaur",
+      "aliases": [
+        "venusauro"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png"
+    },
+    {
+      "id": "pokemon-8",
+      "answer": "Eevee",
+      "aliases": [
+        "ivi",
+        "evee"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png"
+    },
+    {
+      "id": "pokemon-9",
+      "answer": "Mewtwo",
+      "aliases": [
+        "miutu",
+        "mew two"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png"
+    },
+    {
+      "id": "pokemon-10",
+      "answer": "Mew",
+      "aliases": [
+        "miu"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png"
+    },
+    {
+      "id": "pokemon-11",
+      "answer": "Snorlax",
+      "aliases": [
+        "snorlacs"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png"
+    },
+    {
+      "id": "pokemon-12",
+      "answer": "Gengar",
+      "aliases": [
+        "ghengar"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png"
+    },
+    {
+      "id": "pokemon-13",
+      "answer": "Gyarados",
+      "aliases": [
+        "ghiarados",
+        "garados"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png"
+    },
+    {
+      "id": "pokemon-14",
+      "answer": "Dragonite",
+      "aliases": [
+        "dragonait"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png"
+    },
+    {
+      "id": "pokemon-15",
+      "answer": "Jigglypuff",
+      "aliases": [
+        "jiglipaf",
+        "jiggly"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png"
+    },
+    {
+      "id": "pokemon-16",
+      "answer": "Psyduck",
+      "aliases": [
+        "saidac",
+        "psiduck"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png"
+    },
+    {
+      "id": "pokemon-17",
+      "answer": "Meowth",
+      "aliases": [
+        "miaut",
+        "meow"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/52.png"
+    },
+    {
+      "id": "pokemon-18",
+      "answer": "Magikarp",
+      "aliases": [
+        "magicarp"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/129.png"
+    },
+    {
+      "id": "pokemon-19",
+      "answer": "Lapras",
+      "aliases": [],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png"
+    },
+    {
+      "id": "pokemon-20",
+      "answer": "Arcanine",
+      "aliases": [
+        "arcanain"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png"
+    },
+    {
+      "id": "pokemon-21",
+      "answer": "Alakazam",
+      "aliases": [],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png"
+    },
+    {
+      "id": "pokemon-22",
+      "answer": "Machamp",
+      "aliases": [
+        "maciamp"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/68.png"
+    },
+    {
+      "id": "pokemon-23",
+      "answer": "Vulpix",
+      "aliases": [],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png"
+    },
+    {
+      "id": "pokemon-24",
+      "answer": "Ninetales",
+      "aliases": [
+        "nainteils"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png"
+    },
+    {
+      "id": "pokemon-25",
+      "answer": "Zubat",
+      "aliases": [],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png"
+    },
+    {
+      "id": "pokemon-26",
+      "answer": "Diglett",
+      "aliases": [
+        "diglet"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/50.png"
+    },
+    {
+      "id": "pokemon-27",
+      "answer": "Slowpoke",
+      "aliases": [
+        "sloupoc"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png"
+    },
+    {
+      "id": "pokemon-28",
+      "answer": "Onix",
+      "aliases": [
+        "onics"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png"
+    },
+    {
+      "id": "pokemon-29",
+      "answer": "Cubone",
+      "aliases": [
+        "chiubon"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/104.png"
+    },
+    {
+      "id": "pokemon-30",
+      "answer": "Ditto",
+      "aliases": [],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png"
+    },
+    {
+      "id": "pokemon-31",
+      "answer": "Vaporeon",
+      "aliases": [],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png"
+    },
+    {
+      "id": "pokemon-32",
+      "answer": "Jolteon",
+      "aliases": [],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png"
+    },
+    {
+      "id": "pokemon-33",
+      "answer": "Flareon",
+      "aliases": [],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png"
+    },
+    {
+      "id": "pokemon-34",
+      "answer": "Articuno",
+      "aliases": [],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/144.png"
+    },
+    {
+      "id": "pokemon-35",
+      "answer": "Zapdos",
+      "aliases": [],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/145.png"
+    },
+    {
+      "id": "pokemon-36",
+      "answer": "Moltres",
+      "aliases": [],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png"
+    },
+    {
+      "id": "pokemon-37",
+      "answer": "Pidgeot",
+      "aliases": [
+        "pidgeotto"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png"
+    },
+    {
+      "id": "pokemon-38",
+      "answer": "Caterpie",
+      "aliases": [
+        "caterpi"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png"
+    },
+    {
+      "id": "pokemon-39",
+      "answer": "Butterfree",
+      "aliases": [
+        "batterfri"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/12.png"
+    },
+    {
+      "id": "pokemon-40",
+      "answer": "Raichu",
+      "aliases": [
+        "raiciu"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png"
+    },
+    {
+      "id": "pokemon-41",
+      "answer": "Clefairy",
+      "aliases": [
+        "cleferi"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png"
+    },
+    {
+      "id": "pokemon-42",
+      "answer": "Growlithe",
+      "aliases": [
+        "graulit"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png"
+    },
+    {
+      "id": "pokemon-43",
+      "answer": "Poliwhirl",
+      "aliases": [
+        "poliwag",
+        "poliwrath"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/61.png"
+    },
+    {
+      "id": "pokemon-44",
+      "answer": "Geodude",
+      "aliases": [
+        "geodud"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png"
+    },
+    {
+      "id": "pokemon-45",
+      "answer": "Ponyta",
+      "aliases": [
+        "ponita"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png"
+    },
+    {
+      "id": "pokemon-46",
+      "answer": "Scyther",
+      "aliases": [
+        "saiter"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/123.png"
+    },
+    {
+      "id": "pokemon-47",
+      "answer": "Togepi",
+      "aliases": [
+        "toghepi"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/175.png"
+    },
+    {
+      "id": "pokemon-48",
+      "answer": "Lugia",
+      "aliases": [
+        "lughia"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/249.png"
+    },
+    {
+      "id": "pokemon-49",
+      "answer": "Rayquaza",
+      "aliases": [
+        "raiquaza"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/384.png"
+    },
+    {
+      "id": "pokemon-50",
+      "answer": "Lucario",
+      "aliases": [],
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png"
+    }
+  ]
+}

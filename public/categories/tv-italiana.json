@@ -1,0 +1,346 @@
+{
+  "id": "tv-italiana",
+  "name": "Volti della TV Italiana",
+  "subtitle": "Conduttori, chef stellati, giornalisti e icone del piccolo schermo",
+  "icon": "🎙️",
+  "themeHex": "#3B82F6",
+  "coverImage": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Gerry_Scotti_2010.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "previewImages": [
+    "https://upload.wikimedia.org/wikipedia/commons/1/1a/Gerry_Scotti_2010.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Amadeus_Carnevale_di_Putignano_2024.png/960px-Amadeus_Carnevale_di_Putignano_2024.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://upload.wikimedia.org/wikipedia/commons/d/de/Paolo_Bonolis_1.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "https://upload.wikimedia.org/wikipedia/commons/1/18/Luca_Laurenti_a_Sanremo_2009_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  ],
+  "items": [
+    {
+      "id": "tv-italiana-1",
+      "answer": "Gerry Scotti",
+      "aliases": [
+        "scotti",
+        "zio gerry"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Gerry_Scotti_2010.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-2",
+      "answer": "Amadeus",
+      "aliases": [
+        "amedeo sebastiani"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Amadeus_Carnevale_di_Putignano_2024.png/960px-Amadeus_Carnevale_di_Putignano_2024.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "tv-italiana-3",
+      "answer": "Paolo Bonolis",
+      "aliases": [
+        "bonolis"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/Paolo_Bonolis_1.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-4",
+      "answer": "Luca Laurenti",
+      "aliases": [
+        "laurenti"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/Luca_Laurenti_a_Sanremo_2009_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-5",
+      "answer": "Carlo Conti",
+      "aliases": [
+        "conti"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Carlo_Conti_al_Festival_di_Sanremo_2026_%28headshot%29.jpg/960px-Carlo_Conti_al_Festival_di_Sanremo_2026_%28headshot%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "tv-italiana-6",
+      "answer": "Maria De Filippi",
+      "aliases": [
+        "de filippi"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/Maria_De_Filippi_a_Sanremo_2009.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-7",
+      "answer": "Fiorello",
+      "aliases": [
+        "rosario fiorello"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/La_Guardia_by_NYT_Studios_circa_1934%E2%80%931945_Trim_Edit.jpg/960px-La_Guardia_by_NYT_Studios_circa_1934%E2%80%931945_Trim_Edit.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "tv-italiana-8",
+      "answer": "Antonella Clerici",
+      "aliases": [
+        "clerici"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Antonella_Clerici_%28cropped%29.jpg/960px-Antonella_Clerici_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "tv-italiana-9",
+      "answer": "Michelle Hunziker",
+      "aliases": [
+        "hunziker"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Hosts%2C_ESC_2025_grand_final_02_%28cropped%29.jpg/960px-Hosts%2C_ESC_2025_grand_final_02_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "tv-italiana-10",
+      "answer": "Alessia Marcuzzi",
+      "aliases": [
+        "marcuzzi"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Alessia_Marcuzzi_Funweek.it_2025.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-11",
+      "answer": "Ilary Blasi",
+      "aliases": [
+        "blasi"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Ilary_blasi_%28cropped%29.jpg/960px-Ilary_blasi_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "tv-italiana-12",
+      "answer": "Belén Rodríguez",
+      "aliases": [
+        "belen"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Bel%C3%A9n_Rodr%C3%ADguez_Celebrity_Hunted_4_2024.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-13",
+      "answer": "Stefano De Martino",
+      "aliases": [
+        "de martino"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Stefano_De_Martino_2024_Funweek.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-14",
+      "answer": "Alessandro Borghese",
+      "aliases": [
+        "borghese",
+        "quattro ristoranti"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Alessandro_Borghese_Celebrity_Chef_2024.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-15",
+      "answer": "Antonino Cannavacciuolo",
+      "aliases": [
+        "cannavacciuolo"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Antonino_Cannavacciuolo_2017.jpg/960px-Antonino_Cannavacciuolo_2017.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "tv-italiana-16",
+      "answer": "Bruno Barbieri",
+      "aliases": [
+        "barbieri"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Bruno_Barbieri_%28cropped%29.jpg/960px-Bruno_Barbieri_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "tv-italiana-17",
+      "answer": "Carlo Cracco",
+      "aliases": [
+        "cracco"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Carlo_Cracco_by_Giovanna_Ortugno_-_International_Journalism_Festival_2014_1.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-18",
+      "answer": "Joe Bastianich",
+      "aliases": [
+        "bastianich"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Lidia_bastianich_2014.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-19",
+      "answer": "Alberto Angela",
+      "aliases": [
+        "ulisse"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Firma_Alberto_Angela.png/960px-Firma_Alberto_Angela.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "tv-italiana-20",
+      "answer": "Piero Angela",
+      "aliases": [
+        "quark",
+        "superquark"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Piero_Angela2.jpg/960px-Piero_Angela2.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "tv-italiana-21",
+      "answer": "Pippo Baudo",
+      "aliases": [
+        "baudo"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Pippo_Baudo_1987.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-22",
+      "answer": "Mike Bongiorno",
+      "aliases": [
+        "bongiorno",
+        "allegria"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Mike_Bongiorno.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-23",
+      "answer": "Maurizio Costanzo",
+      "aliases": [
+        "costanzo"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Natalie_Guetta-ph_Mattia_Passeri.jpg/960px-Natalie_Guetta-ph_Mattia_Passeri.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "tv-italiana-24",
+      "answer": "Mara Venier",
+      "aliases": [
+        "venier",
+        "zia mara"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Mara_Venier_at_82nd_Venice_International_Film_Festival_%281_of_1%29.jpg/960px-Mara_Venier_at_82nd_Venice_International_Film_Festival_%281_of_1%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "tv-italiana-25",
+      "answer": "Barbara d’Urso",
+      "aliases": [
+        "barbara durso",
+        "durso"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Barbara_D%27Urso_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-26",
+      "answer": "Fabio Fazio",
+      "aliases": [
+        "fazio"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Fabio_Fazio_cropped.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-27",
+      "answer": "Luciana Littizzetto",
+      "aliases": [
+        "littizzetto"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/20/Littizzetto.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-28",
+      "answer": "Enrico Mentana",
+      "aliases": [
+        "mentana",
+        "maratona mentana"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Enrico_Mentana_2016.jpg/960px-Enrico_Mentana_2016.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "tv-italiana-29",
+      "answer": "Lilli Gruber",
+      "aliases": [
+        "gruber"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Dietlinde_Gruber_2_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-30",
+      "answer": "Claudio Bisio",
+      "aliases": [
+        "bisio",
+        "zelig"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Claudio_Bisio.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-31",
+      "answer": "Vanessa Incontrada",
+      "aliases": [
+        "incontrada"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Carlo_Conti%2C_Vanessa_Incontrada_%28edited%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-32",
+      "answer": "Alessandro Cattelan",
+      "aliases": [
+        "cattelan"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Alessandro_Cattelan%2C_2017.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-33",
+      "answer": "Ezio Greggio",
+      "aliases": [
+        "greggio",
+        "striscia"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Ezio_Greggio_cropped.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-34",
+      "answer": "Enzo Iacchetti",
+      "aliases": [
+        "iacchetti",
+        "enzino"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Eva_Murati_at_82nd_Venice_International_Film_Festival_%28close-up%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-35",
+      "answer": "Alfonso Signorini",
+      "aliases": [
+        "signorini"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Alfonso_Signorini_2017_%28cropped%29_3.jpg/960px-Alfonso_Signorini_2017_%28cropped%29_3.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "tv-italiana-36",
+      "answer": "Cristiano Malgioglio",
+      "aliases": [
+        "malgioglio"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/7/7c/Tale_e_Quale_Show.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-37",
+      "answer": "Giancarlo Magalli",
+      "aliases": [
+        "magalli"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Giancarlo_Magalli_al_Festival_di_Sanremo_2026_%28cropped%29.jpg/960px-Giancarlo_Magalli_al_Festival_di_Sanremo_2026_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "tv-italiana-38",
+      "answer": "Flavio Insinna",
+      "aliases": [
+        "insinna"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Flavio_Insinna_2022_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-39",
+      "answer": "Marco Liorni",
+      "aliases": [
+        "liorni"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Marco_Liorni_Padre_Pio_TV_2023.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tv-italiana-40",
+      "answer": "Simona Ventura",
+      "aliases": [
+        "ventura"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Simona_Ventura_al_Festival_di_Sanremo_2026.jpg/960px-Simona_Ventura_al_Festival_di_Sanremo_2026.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+{
+  "id": "attori-italiani",
+  "name": "Attori & Attrici Italiani",
+  "subtitle": "I grandi interpreti del cinema italiano di ieri e di oggi",
+  "icon": "🎭",
+  "themeHex": "#10B981",
+  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Marcello_Mastroianni_02.jpg/960px-Marcello_Mastroianni_02.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "previewImages": [
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Marcello_Mastroianni_02.jpg/960px-Marcello_Mastroianni_02.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://upload.wikimedia.org/wikipedia/commons/a/af/Sophia_Loren_-_1959.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "https://upload.wikimedia.org/wikipedia/commons/8/81/Vittorio_Gassman.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "https://upload.wikimedia.org/wikipedia/commons/2/2e/Catalina_Sandino_Moreno_at_the_61st_Cannes_Film_Festival%2C_May_2008.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  ],
+  "items": [
+    {
+      "id": "attori-italiani-1",
+      "answer": "Marcello Mastroianni",
+      "aliases": [
+        "mastroianni"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Marcello_Mastroianni_02.jpg/960px-Marcello_Mastroianni_02.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "attori-italiani-2",
+      "answer": "Sophia Loren",
+      "aliases": [
+        "sofia loren",
+        "loren"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/af/Sophia_Loren_-_1959.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-3",
+      "answer": "Vittorio Gassman",
+      "aliases": [
+        "gassman"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Vittorio_Gassman.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-4",
+      "answer": "Anna Magnani",
+      "aliases": [
+        "magnani"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Catalina_Sandino_Moreno_at_the_61st_Cannes_Film_Festival%2C_May_2008.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-5",
+      "answer": "Monica Bellucci",
+      "aliases": [
+        "bellucci"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Monica_Bellucci_at_the_79th_Locarno_Film_Festival_2026_04_%28cropped%29.jpg/960px-Monica_Bellucci_at_the_79th_Locarno_Film_Festival_2026_04_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "attori-italiani-6",
+      "answer": "Toni Servillo",
+      "aliases": [
+        "servillo",
+        "jepp gambardella"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Toni_Servillo_at_82nd_Venice_International_Film_Festival-1_%28cropped%29.jpg/960px-Toni_Servillo_at_82nd_Venice_International_Film_Festival-1_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "attori-italiani-7",
+      "answer": "Pierfrancesco Favino",
+      "aliases": [
+        "favino"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Pierfrancesco_Favino-64487.jpg/960px-Pierfrancesco_Favino-64487.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "attori-italiani-8",
+      "answer": "Paola Cortellesi",
+      "aliases": [
+        "cortellesi"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Laura_Pausini_a_Sanremo_2026_%28headshot%29.jpg/960px-Laura_Pausini_a_Sanremo_2026_%28headshot%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "attori-italiani-9",
+      "answer": "Valerio Mastandrea",
+      "aliases": [
+        "mastandrea"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Valerio_Mastandrea.jpg/960px-Valerio_Mastandrea.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "attori-italiani-10",
+      "answer": "Elio Germano",
+      "aliases": [
+        "germano"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/MJK_70936_Elio_Germano_%28Favolacce%2C_Berlinale_2020%29.jpg/960px-MJK_70936_Elio_Germano_%28Favolacce%2C_Berlinale_2020%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "attori-italiani-11",
+      "answer": "Luca Marinelli",
+      "aliases": [
+        "marinelli"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/MKr373118_Luca_Marinelli_%28Berlinale_2025%29.jpg/960px-MKr373118_Luca_Marinelli_%28Berlinale_2025%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "attori-italiani-12",
+      "answer": "Alessandro Borghi",
+      "aliases": [
+        "borghi"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Alessandro_Borghi_at_83rd_Venice_International_Film_Festival-33_%28cropped%29.jpg/960px-Alessandro_Borghi_at_83rd_Venice_International_Film_Festival-33_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "attori-italiani-13",
+      "answer": "Sabrina Ferilli",
+      "aliases": [
+        "ferilli"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/Sabrina_Ferilli_at_the_David_di_Donatello%2C_2022_15_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-14",
+      "answer": "Margherita Buy",
+      "aliases": [
+        "buy"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Margherita_Buy_cropped.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-15",
+      "answer": "Claudia Cardinale",
+      "aliases": [
+        "cardinale"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Claudia_Cardinale-signed.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-16",
+      "answer": "Gina Lollobrigida",
+      "aliases": [
+        "lollobrigida"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/Ivo_Lollobrigida_2.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-17",
+      "answer": "Ugo Tognazzi",
+      "aliases": [
+        "tognazzi"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/8/89/Magnifico-Tognazzi.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-18",
+      "answer": "Nino Manfredi",
+      "aliases": [
+        "manfredi"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Nino_Manfredi%2C_1990.jpg/960px-Nino_Manfredi%2C_1990.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "attori-italiani-19",
+      "answer": "Mariangela Melato",
+      "aliases": [
+        "melato"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Mariangela_Melato_1972.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-20",
+      "answer": "Monica Vitti",
+      "aliases": [
+        "vitti"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/Monica_Vitti.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-21",
+      "answer": "Giancarlo Giannini",
+      "aliases": [
+        "giannini"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/15/Giancarlo_Giannini.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-22",
+      "answer": "Diego Abatantuono",
+      "aliases": [
+        "abatantuono"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/Diego_Abatantuono_Funweek_2024.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-23",
+      "answer": "Sergio Castellitto",
+      "aliases": [
+        "castellitto"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Sergio_Castellitto_Venezia_2009.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-24",
+      "answer": "Silvio Orlando",
+      "aliases": [
+        "orlando"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Silvio_Orlando_FCI_Tokyo.jpg/960px-Silvio_Orlando_FCI_Tokyo.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "attori-italiani-25",
+      "answer": "Marco Giallini",
+      "aliases": [
+        "giallini",
+        "rocco schiavone"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/1/1c/Loro_chi_-_Edoardo_Leo_Marco_Giallini.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-26",
+      "answer": "Edoardo Leo",
+      "aliases": [
+        "leo"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Edoardo_Leo_D%C3%A9luge_2023.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-27",
+      "answer": "Raoul Bova",
+      "aliases": [
+        "bova"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/LizSolari016_%28cropped%29.jpg/960px-LizSolari016_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "attori-italiani-28",
+      "answer": "Stefano Accorsi",
+      "aliases": [
+        "accorsi"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/Stefano_Accorsi%2C_May_2017.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-29",
+      "answer": "Kim Rossi Stuart",
+      "aliases": [
+        "rossi stuart"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Kim_Rossi_Stuart_FCI_Tokyo.jpg/960px-Kim_Rossi_Stuart_FCI_Tokyo.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "attori-italiani-30",
+      "answer": "Miriam Leone",
+      "aliases": [
+        "leone"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Miriam_Leone_Santoni_2025.png/960px-Miriam_Leone_Santoni_2025.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "attori-italiani-31",
+      "answer": "Matilda De Angelis",
+      "aliases": [
+        "de angelis"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Matilda_De_Angelis-7948_%28cropped%29.jpg/960px-Matilda_De_Angelis-7948_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "attori-italiani-32",
+      "answer": "Benedetta Porcaroli",
+      "aliases": [
+        "porcaroli"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Benedetta_Porcaroli_at_82nd_Venice_International_Film_Festival-4_%28cropped%29.jpg/960px-Benedetta_Porcaroli_at_82nd_Venice_International_Film_Festival-4_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "attori-italiani-33",
+      "answer": "Alba Rohrwacher",
+      "aliases": [
+        "rohrwacher"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Alba_Rohrwacher_at_the_2025_Cannes_Film_Festival_42.jpg/960px-Alba_Rohrwacher_at_the_2025_Cannes_Film_Festival_42.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "attori-italiani-34",
+      "answer": "Lino Banfi",
+      "aliases": [
+        "banfi",
+        "nonno libero",
+        "oronzo cana"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/49/Lino_Banfi_at_83rd_Venice_International_Film_Festival-1_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-35",
+      "answer": "Renato Pozzetto",
+      "aliases": [
+        "pozzetto",
+        "ragazzo di campagna"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Renato_Pozzetto_%282020%29.webp?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-36",
+      "answer": "Jerry Calà",
+      "aliases": [
+        "jerry cala"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Jerry_Cal%C3%A0_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-37",
+      "answer": "Massimo Boldi",
+      "aliases": [
+        "boldi",
+        "cipollino"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Massimo_Boldi_official_photo.JPG?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "attori-italiani-38",
+      "answer": "Tomas Milian",
+      "aliases": [
+        "er monnezza",
+        "milian"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/58/Tomas_Milian_1974_cropped.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "id": "meme-tiktok",
+  "name": "Meme & Trend Virali",
+  "subtitle": "Immagini leggendarie della cultura internet e dei social",
+  "icon": "😂",
+  "themeHex": "#F59E0B",
+  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Doge_meme_example.jpg/960px-Doge_meme_example.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "previewImages": [
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Doge_meme_example.jpg/960px-Doge_meme_example.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/David_Garrick_Between_Tragedy_and_Comedy.jpg/960px-David_Garrick_Between_Tragedy_and_Comedy.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Internet_map_1024_-_transparent%2C_inverted.png/960px-Internet_map_1024_-_transparent%2C_inverted.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://upload.wikimedia.org/wikipedia/commons/9/97/Salt_Bae.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  ],
+  "items": [
+    {
+      "id": "meme-tiktok-1",
+      "answer": "Doge",
+      "aliases": [
+        "shiba meme",
+        "kabosu"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Doge_meme_example.jpg/960px-Doge_meme_example.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-2",
+      "answer": "Distracted Boyfriend",
+      "aliases": [
+        "fidanzato distratto",
+        "ragazzo che si gira"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/David_Garrick_Between_Tragedy_and_Comedy.jpg/960px-David_Garrick_Between_Tragedy_and_Comedy.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-3",
+      "answer": "Hide the Pain Harold",
+      "aliases": [
+        "harold",
+        "vecchio che sorride"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Internet_map_1024_-_transparent%2C_inverted.png/960px-Internet_map_1024_-_transparent%2C_inverted.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-4",
+      "answer": "Salt Bae",
+      "aliases": [
+        "nusret",
+        "macellaio sale"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/Salt_Bae.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "meme-tiktok-5",
+      "answer": "Hasbulla",
+      "aliases": [
+        "asbulla"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/09/Abdu-Rozik-attend-the-Midday-India-International-Influencer-Awards-2022.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "meme-tiktok-6",
+      "answer": "Rickroll",
+      "aliases": [
+        "rick astley",
+        "never gonna give you up"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Glasto2023_%28149_of_468%29_%2853009108914%29_%28cropped%29.jpg/960px-Glasto2023_%28149_of_468%29_%2853009108914%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-7",
+      "answer": "Grumpy Cat",
+      "aliases": [
+        "gatto scontroso",
+        "tardar sauce"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Grumpy_Cat_%2814556024763%29_%28cropped%29.jpg/960px-Grumpy_Cat_%2814556024763%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-8",
+      "answer": "Success Kid",
+      "aliases": [
+        "bambino pugno"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/The_White_House_-_54424144094_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "meme-tiktok-9",
+      "answer": "Disaster Girl",
+      "aliases": [
+        "bambina incendio"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Union_Carbide_pesticide_factory%2C_Bhopal%2C_India%2C_1985.jpg/960px-Union_Carbide_pesticide_factory%2C_Bhopal%2C_India%2C_1985.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-10",
+      "answer": "Pepe the Frog",
+      "aliases": [
+        "pepe",
+        "rana pepe"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Pyrkon_2022_-_Pepe_the_Frog.jpg/960px-Pyrkon_2022_-_Pepe_the_Frog.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-11",
+      "answer": "Wojak",
+      "aliases": [
+        "feels guy",
+        "doomer"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Dr._Irmtrud_Wojak.png/960px-Dr._Irmtrud_Wojak.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-12",
+      "answer": "Nyan Cat",
+      "aliases": [
+        "gatto arcobaleno"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/White_cat_watching_Wikipedia.jpg/960px-White_cat_watching_Wikipedia.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-13",
+      "answer": "Trollface",
+      "aliases": [
+        "troll face",
+        "problem"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Real_life_Trollface_%28cropped%29.jpg/500px-Real_life_Trollface_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-14",
+      "answer": "Harambe",
+      "aliases": [
+        "gorilla harambe"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Memorial_to_Harambe.jpg/960px-Memorial_to_Harambe.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-15",
+      "answer": "Coffin Dance",
+      "aliases": [
+        "becchini che ballano",
+        "meme bara"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Undertakers_01.jpg/960px-Undertakers_01.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-16",
+      "answer": "El Risitas",
+      "aliases": [
+        "uomo che ride",
+        "juan joya borja",
+        "risitas"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Sevilla_Cathedral_-_Southeast.jpg/960px-Sevilla_Cathedral_-_Southeast.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-17",
+      "answer": "Patrick Bateman",
+      "aliases": [
+        "sigma",
+        "american psycho"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Ellis.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "meme-tiktok-18",
+      "answer": "Chuck Norris",
+      "aliases": [
+        "walker texas ranger"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Chuck_Norris%2C_The_Delta_Force_1986_%28slight_cropped%29.jpg/960px-Chuck_Norris%2C_The_Delta_Force_1986_%28slight_cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-19",
+      "answer": "Kermit la Rana",
+      "aliases": [
+        "kermit"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Kermit_puppet.jpg/960px-Kermit_puppet.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-20",
+      "answer": "Capibara",
+      "aliases": [
+        "ok i pull up",
+        "capybara"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Capybaracropped.jpg/960px-Capybaracropped.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-21",
+      "answer": "Surprised Pikachu",
+      "aliases": [
+        "pikachu sorpreso"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/7/77/Pikachu.png/960px-Pikachu.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-22",
+      "answer": "Nicolas Cage",
+      "aliases": [
+        "you dont say"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/9/99/Stress_da_vampir%D0%BE.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "meme-tiktok-23",
+      "answer": "Keanu Triste",
+      "aliases": [
+        "sad keanu"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Keanu_Reeves_at_TIFF_2025_02_%28Cropped%29.jpg/960px-Keanu_Reeves_at_TIFF_2025_02_%28Cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-24",
+      "answer": "Blinking White Guy",
+      "aliases": [
+        "ragazzo che sbatte gli occhi"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Dan_ryckert_tga_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "meme-tiktok-25",
+      "answer": "GigaChad",
+      "aliases": [
+        "gigachad",
+        "chad"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Coronavirus._SARS-CoV-2.png/960px-Coronavirus._SARS-CoV-2.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-26",
+      "answer": "Big Chungus",
+      "aliases": [
+        "chungus"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/a/aa/Super_Bunny_in_orbita.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "meme-tiktok-27",
+      "answer": "Dab",
+      "aliases": [
+        "mossa dab"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Do_the_Dab.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "meme-tiktok-28",
+      "answer": "Flossing",
+      "aliases": [
+        "ballo zainetto",
+        "floss"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Juliano_Floss_em_2026.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "meme-tiktok-29",
+      "answer": "Ice Bucket Challenge",
+      "aliases": [
+        "secchiata ghiacciata"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Doing_the_ALS_Ice_Bucket_Challenge_%2814927191426%29.jpg/960px-Doing_the_ALS_Ice_Bucket_Challenge_%2814927191426%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-30",
+      "answer": "Mannequin Challenge",
+      "aliases": [
+        "sfida manichini"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/JU_Mannequin_challenge_01.jpg/960px-JU_Mannequin_challenge_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-31",
+      "answer": "Gangnam Style",
+      "aliases": [
+        "psy",
+        "oppa gangnam style"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Psy_Gangnam_Style_performs_at_Marquee%2C_The_Star%2C_Sydney%2C_Australia_%281%29.jpg/960px-Psy_Gangnam_Style_performs_at_Marquee%2C_The_Star%2C_Sydney%2C_Australia_%281%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-32",
+      "answer": "Rebecca Black",
+      "aliases": [
+        "friday"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Rebecca_Black_%40_El_Rey_05_20_2023_%2853047678286%29_%28cropped%29.jpg/960px-Rebecca_Black_%40_El_Rey_05_20_2023_%2853047678286%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-33",
+      "answer": "leave Britney Alone",
+      "aliases": [
+        "chris crocker"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Onch_on_RealTVfilms.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "meme-tiktok-34",
+      "answer": "Keyboard Cat",
+      "aliases": [
+        "gatto tastiera"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/White_cat_watching_Wikipedia.jpg/960px-White_cat_watching_Wikipedia.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "meme-tiktok-35",
+      "answer": "DogeCoin",
+      "aliases": [
+        "moneta doge"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Dogecoin_gold_coin_black_background_1_-_tails.jpg/960px-Dogecoin_gold_coin_black_background_1_-_tails.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    }
+  ]
+}

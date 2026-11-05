@@ -4,12 +4,47 @@ import { fileURLToPath } from 'node:url';
 import { SEED_PART_1 } from './seed-part1.mjs';
 import { SEED_PART_2 } from './seed-part2.mjs';
 import { SEED_PART_3 } from './seed-part3.mjs';
+import { SEED_PART_4 } from './seed-part4.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT_FILE = path.resolve(__dirname, '../src/data/generatedCatalog.json');
+const PUBLIC_CAT_DIR = path.resolve(__dirname, '../public/categories');
 
 const USER_AGENT =
-  'FloorArenaCatalogBuilder/2.0 (https://github.com/albertorosati/my-floor; educational trivia game)';
+  'TheFloorCatalogBuilder/3.0 (https://github.com/albertorosati/my-floor; educational trivia game)';
+
+const FORBIDDEN_KEYWORDS = [
+  '.svg',
+  '.ogg',
+  '.webm',
+  '.ogv',
+  '.pdf',
+  '.tif',
+  '.tiff',
+  '.gif',
+  'question_book',
+  'no_free_image',
+  'replace_this_image',
+  'disambig',
+  'commons-logo',
+  'flag_of_',
+  '_wordmark',
+  '_logo',
+  'logo_',
+  '_poster',
+  'poster_',
+  'title_card',
+  'intertitle',
+  'album_cover',
+  'box_art',
+  'locandina',
+  'stemma',
+  'coat_of_arms',
+  'signature',
+  'autograph',
+  'map_of_',
+  'locator_map',
+];
 
 async function fetchJson(url) {
   for (let attempt = 0; attempt < 3; attempt++) {
@@ -30,47 +65,47 @@ async function fetchJson(url) {
   return null;
 }
 
-function isGoodPhotoUrl(url) {
-  if (!url || typeof url !== 'string') return false;
-  const lower = url.toLowerCase();
-  if (lower.endsWith('.svg') || lower.includes('.svg.png')) return false;
-  if (lower.endsWith('.ogg') || lower.endsWith('.webm') || lower.endsWith('.ogv') || lower.endsWith('.pdf') || lower.endsWith('.tif') || lower.endsWith('.tiff')) {
-    return false;
+/**
+ * Verifica che l'immagine sia una vera fotografia di alta qualità, senza loghi/scritte/poster
+ * e con proporzioni equilibrate (0.65 <= width/height <= 2.05).
+ */
+function isHighQualityPhoto(thumbObj, pageImageName = '') {
+  if (!thumbObj || typeof thumbObj.source !== 'string') return false;
+  const url = thumbObj.source;
+  const combined = `${url} ${pageImageName}`.toLowerCase();
+
+  for (const bad of FORBIDDEN_KEYWORDS) {
+    if (combined.includes(bad)) return false;
   }
-  if (
-    lower.includes('question_book') ||
-    lower.includes('no_free_image') ||
-    lower.includes('replace_this_image') ||
-    lower.includes('disambig') ||
-    lower.includes('commons-logo') ||
-    lower.includes('flag_of_') ||
-    lower.includes('_wordmark') ||
-    lower.includes('_logo')
-  ) {
-    return false;
+
+  const w = thumbObj.width || 0;
+  const h = thumbObj.height || 0;
+  if (w > 0 && h > 0) {
+    if (w < 360 || h < 260) return false;
+    const ratio = w / h;
+    if (ratio < 0.62 || ratio > 2.15) return false;
   }
+
   return true;
 }
 
 /**
- * Risolve in batch fino a 40 titoli su Wikipedia (EN o IT) usando `pithumbsize=500` (bucket Varnish standard).
+ * Risolve in batch fino a 40 titoli su Wikipedia (EN o IT) usando `pithumbsize=960` (HD Varnish step).
  */
-async function resolveWikiBatch(titles, lang = 'en') {
+async function resolveWikiBatch(titles, lang = 'en', pilicense = 'free') {
   const resultMap = new Map();
   if (titles.length === 0) return resultMap;
 
   const batchSize = 40;
   for (let i = 0; i < titles.length; i += batchSize) {
     const chunk = titles.slice(i, i + batchSize);
-    const encoded = chunk.map((t) => encodeURIComponent(t)).join('|');
-    // Note: MediaWiki expects raw '|' between encoded titles OR single encoded param:
     const params = new URLSearchParams({
       action: 'query',
       titles: chunk.join('|'),
       prop: 'pageimages',
-      piprop: 'thumbnail|original',
-      pithumbsize: '500',
-      pilicense: 'any',
+      piprop: 'thumbnail|name',
+      pithumbsize: '960',
+      pilicense,
       redirects: '1',
       format: 'json',
     });
@@ -79,7 +114,6 @@ async function resolveWikiBatch(titles, lang = 'en') {
     const data = await fetchJson(apiUrl);
     if (!data?.query) continue;
 
-    // Mappa normalizzazioni e redirect per ricollegare il titolo richiesto alla pagina finale
     const normMap = new Map();
     for (const n of data.query.normalized || []) {
       normMap.set(n.from, n.to);
@@ -104,15 +138,8 @@ async function resolveWikiBatch(titles, lang = 'en') {
         guard++;
       }
       const page = pagesByTitle.get(cur);
-      const thumb = page?.thumbnail?.source;
-      const orig = page?.original?.source;
-      const candidate = isGoodPhotoUrl(thumb)
-        ? thumb
-        : isGoodPhotoUrl(orig)
-        ? orig
-        : null;
-      if (candidate) {
-        resultMap.set(origTitle, candidate);
+      if (isHighQualityPhoto(page?.thumbnail, page?.pageimage)) {
+        resultMap.set(origTitle, page.thumbnail.source);
       }
     }
   }
@@ -120,19 +147,20 @@ async function resolveWikiBatch(titles, lang = 'en') {
 }
 
 /**
- * Fallback singolo: cerca su Wikipedia IT/EN tramite generator=search oppure su Wikimedia Commons (filetype:bitmap)
+ * Fallback singolo: cerca su Wikipedia IT/EN oppure su Wikimedia Commons (filetype:bitmap HD 960px)
+ * verificando risoluzione e aspect ratio.
  */
-async function resolveFallbackSingle(query, answer) {
-  for (const lang of ['it', 'en']) {
+async function resolveFallbackSingle(query, answer, pilicense = 'any') {
+  for (const lang of ['en', 'it']) {
     const params = new URLSearchParams({
       action: 'query',
       generator: 'search',
       gsrsearch: query,
-      gsrlimit: '4',
+      gsrlimit: '6',
       prop: 'pageimages',
-      piprop: 'thumbnail',
-      pithumbsize: '500',
-      pilicense: 'any',
+      piprop: 'thumbnail|name',
+      pithumbsize: '960',
+      pilicense,
       format: 'json',
     });
     const data = await fetchJson(
@@ -142,46 +170,59 @@ async function resolveFallbackSingle(query, answer) {
       (a, b) => (a.index ?? 99) - (b.index ?? 99)
     );
     for (const p of pages) {
-      if (isGoodPhotoUrl(p?.thumbnail?.source)) {
+      if (isHighQualityPhoto(p?.thumbnail, p?.pageimage)) {
         return p.thumbnail.source;
       }
     }
   }
 
-  // Fallback finale su Wikimedia Commons cercando esplicitamente una fotografia bitmap
   const commonsParams = new URLSearchParams({
     action: 'query',
     generator: 'search',
     gsrnamespace: '6',
-    gsrsearch: `filetype:bitmap ${query || answer}`,
-    gsrlimit: '5',
+    gsrsearch: `filetype:bitmap ${query || answer} -logo -poster -map`,
+    gsrlimit: '8',
     prop: 'imageinfo',
-    iiprop: 'url',
-    iiurlwidth: '500',
+    iiprop: 'url|dimensions',
+    iiurlwidth: '960',
     format: 'json',
   });
   const cData = await fetchJson(
     `https://commons.wikimedia.org/w/api.php?${commonsParams.toString()}`
   );
   for (const p of Object.values(cData?.query?.pages || {})) {
-    const thumbUrl = p?.imageinfo?.[0]?.thumburl || p?.imageinfo?.[0]?.url;
-    if (isGoodPhotoUrl(thumbUrl)) {
-      return thumbUrl;
+    const info = p?.imageinfo?.[0];
+    if (!info) continue;
+    const candidateObj = {
+      source: info.thumburl || info.url,
+      width: info.thumbwidth || info.width,
+      height: info.thumbheight || info.height,
+    };
+    if (isHighQualityPhoto(candidateObj, p?.title)) {
+      return candidateObj.source;
     }
   }
   return null;
 }
 
 async function main() {
-  const allSeeds = [...SEED_PART_1, ...SEED_PART_2, ...SEED_PART_3];
+  const allSeeds = [
+    ...SEED_PART_1,
+    ...SEED_PART_2,
+    ...SEED_PART_3,
+    ...SEED_PART_4,
+  ];
   const outputCategories = [];
+  const manifestCategories = [];
   let totalItems = 0;
 
-  console.log(`Avvio generazione di ${allSeeds.length} categorie...`);
+  await fs.mkdir(PUBLIC_CAT_DIR, { recursive: true });
+  console.log(`Avvio generazione HD di ${allSeeds.length} categorie modulari...`);
 
   for (const cat of allSeeds) {
     const primaryLang = cat.lang || 'en';
     const secondaryLang = primaryLang === 'en' ? 'it' : 'en';
+    const licenseMode = cat.pilicense || 'free';
 
     const normalizedEntries = cat.entries.map((raw, idx) => {
       if (Array.isArray(raw)) {
@@ -207,10 +248,17 @@ async function main() {
       .filter((e) => !e.steamAppId && !e.pokeId && !e.flagCode)
       .map((e) => e.wikiQuery);
 
-    const primaryMap = await resolveWikiBatch(wikiNeeded, primaryLang);
-
+    const primaryMap = await resolveWikiBatch(
+      wikiNeeded,
+      primaryLang,
+      licenseMode
+    );
     const stillMissing = wikiNeeded.filter((q) => !primaryMap.has(q));
-    const secondaryMap = await resolveWikiBatch(stillMissing, secondaryLang);
+    const secondaryMap = await resolveWikiBatch(
+      stillMissing,
+      secondaryLang,
+      licenseMode
+    );
 
     const items = [];
     for (const entry of normalizedEntries) {
@@ -226,7 +274,11 @@ async function main() {
         imageUrl =
           primaryMap.get(entry.wikiQuery) ||
           secondaryMap.get(entry.wikiQuery) ||
-          (await resolveFallbackSingle(entry.wikiQuery, entry.answer));
+          (await resolveFallbackSingle(
+            entry.wikiQuery,
+            entry.answer,
+            licenseMode
+          ));
       }
 
       if (imageUrl) {
@@ -242,7 +294,7 @@ async function main() {
     const coverImage = items[0]?.imageUrl || '';
     const previewImages = items.slice(0, 4).map((i) => i.imageUrl);
 
-    outputCategories.push({
+    const categoryData = {
       id: cat.id,
       name: cat.name,
       subtitle: cat.subtitle,
@@ -251,18 +303,50 @@ async function main() {
       coverImage,
       previewImages,
       items,
+    };
+
+    outputCategories.push(categoryData);
+    manifestCategories.push({
+      id: cat.id,
+      name: cat.name,
+      subtitle: cat.subtitle,
+      icon: cat.icon,
+      themeHex: cat.accent,
+      coverImage,
+      itemCount: items.length,
+      dataUrl: `./categories/${cat.id}.json`,
     });
+
+    // Salva il file JSON singolo modulare per questa categoria
+    await fs.writeFile(
+      path.join(PUBLIC_CAT_DIR, `${cat.id}.json`),
+      JSON.stringify(categoryData, null, 2),
+      'utf8'
+    );
 
     totalItems += items.length;
     console.log(
-      `✓ [${outputCategories.length}/${allSeeds.length}] ${cat.icon} ${cat.name}: ${items.length}/${normalizedEntries.length} foto reali pronte`
+      `✓ [${outputCategories.length}/${allSeeds.length}] ${cat.icon} ${cat.name}: ${items.length}/${normalizedEntries.length} foto HD validate`
     );
   }
 
+  // Salva il manifesto index.json in public/categories/index.json
+  await fs.writeFile(
+    path.join(PUBLIC_CAT_DIR, 'index.json'),
+    JSON.stringify({ totalCategories: manifestCategories.length, totalPhotos: totalItems, categories: manifestCategories }, null, 2),
+    'utf8'
+  );
+
+  // Salva il catalogo aggregato per import sincrono / unit test
   await fs.mkdir(path.dirname(OUT_FILE), { recursive: true });
-  await fs.writeFile(OUT_FILE, JSON.stringify(outputCategories, null, 2), 'utf8');
+  await fs.writeFile(
+    OUT_FILE,
+    JSON.stringify(outputCategories, null, 2),
+    'utf8'
+  );
+
   console.log(
-    `\nCOMPLETATO! Salvate ${outputCategories.length} categorie per un totale di ${totalItems} fotografie reali in ${OUT_FILE}`
+    `\nCOMPLETATO! Salvate ${outputCategories.length} categorie modulari (${totalItems} fotografie HD) in public/categories/*.json e ${OUT_FILE}`
   );
 }
 

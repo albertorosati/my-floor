@@ -1,0 +1,303 @@
+{
+  "id": "registi-cinema",
+  "name": "Grandi Registi del Cinema",
+  "subtitle": "I maestri dietro la macchina da presa dei film più amati",
+  "icon": "🎥",
+  "themeHex": "#6366F1",
+  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/MKr25402_Steven_Spielberg_%28Berlinale_2023%29_%283x4_cropped%29.jpg/960px-MKr25402_Steven_Spielberg_%28Berlinale_2023%29_%283x4_cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "previewImages": [
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/MKr25402_Steven_Spielberg_%28Berlinale_2023%29_%283x4_cropped%29.jpg/960px-MKr25402_Steven_Spielberg_%28Berlinale_2023%29_%283x4_cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Quentin_Tarantino_by_Gage_Skidmore.jpg/960px-Quentin_Tarantino_by_Gage_Skidmore.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Martin_Scorsese-68749.jpg/960px-Martin_Scorsese-68749.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Stanley_Kubrick_in_Dr._Strangelove_Trailer_%284%29_Cropped.jpg/960px-Stanley_Kubrick_in_Dr._Strangelove_Trailer_%284%29_Cropped.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  ],
+  "items": [
+    {
+      "id": "registi-cinema-1",
+      "answer": "Steven Spielberg",
+      "aliases": [
+        "spielberg"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/MKr25402_Steven_Spielberg_%28Berlinale_2023%29_%283x4_cropped%29.jpg/960px-MKr25402_Steven_Spielberg_%28Berlinale_2023%29_%283x4_cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-2",
+      "answer": "Quentin Tarantino",
+      "aliases": [
+        "tarantino"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Quentin_Tarantino_by_Gage_Skidmore.jpg/960px-Quentin_Tarantino_by_Gage_Skidmore.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-3",
+      "answer": "Martin Scorsese",
+      "aliases": [
+        "scorsese"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Martin_Scorsese-68749.jpg/960px-Martin_Scorsese-68749.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-4",
+      "answer": "Stanley Kubrick",
+      "aliases": [
+        "kubrick"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Stanley_Kubrick_in_Dr._Strangelove_Trailer_%284%29_Cropped.jpg/960px-Stanley_Kubrick_in_Dr._Strangelove_Trailer_%284%29_Cropped.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-5",
+      "answer": "Alfred Hitchcock",
+      "aliases": [
+        "hitchcock"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/Hitchcock%2C_Alfred_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "registi-cinema-6",
+      "answer": "Christopher Nolan",
+      "aliases": [
+        "nolan"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/ChristopherNolan-byPhilipRomano_%28cropped%29.jpg/960px-ChristopherNolan-byPhilipRomano_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-7",
+      "answer": "Tim Burton",
+      "aliases": [
+        "burton"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Tim_Burton-63605.jpg/960px-Tim_Burton-63605.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-8",
+      "answer": "Hayao Miyazaki",
+      "aliases": [
+        "miyazaki",
+        "studio ghibli"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Studio_Ghibli_studio_3.jpg/960px-Studio_Ghibli_studio_3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-9",
+      "answer": "Federico Fellini",
+      "aliases": [
+        "fellini"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Federico_Fellini_010.jpg/960px-Federico_Fellini_010.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-10",
+      "answer": "Sergio Leone",
+      "aliases": [
+        "leone"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Sergio_Leone_1975.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "registi-cinema-11",
+      "answer": "Paolo Sorrentino",
+      "aliases": [
+        "sorrentino"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Paolo_Sorrentino_2018.jpg/960px-Paolo_Sorrentino_2018.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-12",
+      "answer": "Francis Ford Coppola",
+      "aliases": [
+        "coppola"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Lena_Herzog_Francis_Ford_Coppola_Wernder_Herzog_Venice_Film_Festival_%28cropped%29.jpg/960px-Lena_Herzog_Francis_Ford_Coppola_Wernder_Herzog_Venice_Film_Festival_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-13",
+      "answer": "James Cameron",
+      "aliases": [
+        "cameron"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/James_Cameron_at_53rd_Saturn_Awards_2026-01_%28cropped%29.jpg/960px-James_Cameron_at_53rd_Saturn_Awards_2026-01_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-14",
+      "answer": "Guillermo del Toro",
+      "aliases": [
+        "del toro"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Guillermo_del_Toro_at_the_2026_Sundance_Film_Festival_01_%28cropped%29.jpg/960px-Guillermo_del_Toro_at_the_2026_Sundance_Film_Festival_01_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-15",
+      "answer": "Ridley Scott",
+      "aliases": [
+        "scott"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Ridley_Scott_At_BFI_-_BFI_Southbank_-_Saturday_4th_October_2025.jpg/960px-Ridley_Scott_At_BFI_-_BFI_Southbank_-_Saturday_4th_October_2025.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-16",
+      "answer": "George Lucas",
+      "aliases": [
+        "lucas"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/George_Lucas_by_Gage_Skidmore.jpg/960px-George_Lucas_by_Gage_Skidmore.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-17",
+      "answer": "Peter Jackson",
+      "aliases": [
+        "jackson"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Peter_Jackson_SDCC_2014.jpg/960px-Peter_Jackson_SDCC_2014.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-18",
+      "answer": "David Fincher",
+      "aliases": [
+        "fincher"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/TheKillerBFILFF051023_%288_of_22%29_%2853255176376%29_%28cropped2%29.jpg/960px-TheKillerBFILFF051023_%288_of_22%29_%2853255176376%29_%28cropped2%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-19",
+      "answer": "Denis Villeneuve",
+      "aliases": [
+        "villeneuve"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/DVilleneuveRFH121024_%2812_of_23%29_%2854061976489%29_%28cropped%29.jpg/960px-DVilleneuveRFH121024_%2812_of_23%29_%2854061976489%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-20",
+      "answer": "Wes Anderson",
+      "aliases": [
+        "anderson"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Wes_Anderson-7541_%28cropped%29.jpg/960px-Wes_Anderson-7541_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-21",
+      "answer": "David Lynch",
+      "aliases": [
+        "lynch"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/David_Lynch_%281990%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "registi-cinema-22",
+      "answer": "Clint Eastwood",
+      "aliases": [
+        "eastwood"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Clint_Eastwood_visits_MCB_Camp_Pendleton_%281%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "registi-cinema-23",
+      "answer": "Woody Allen",
+      "aliases": [
+        "allen"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Woody_Allen_Cannes_2016.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "registi-cinema-24",
+      "answer": "Spike Lee",
+      "aliases": [
+        "lee"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Neil_Grabosky_-_Spike_Lee_-_NEG_0876_%2854865282335%29.jpg/960px-Neil_Grabosky_-_Spike_Lee_-_NEG_0876_%2854865282335%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-25",
+      "answer": "Alfonso Cuarón",
+      "aliases": [
+        "cuaron"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/DisclaimerBFILFF101024_%2888_of_113%29_%2854062275143%29_%28cropped%29.jpg/960px-DisclaimerBFILFF101024_%2888_of_113%29_%2854062275143%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-26",
+      "answer": "Bong Joon-ho",
+      "aliases": [
+        "parasite regista"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Bong_Joon_Ho_at_Busan_Film_Festival%2C_smaller.jpg/960px-Bong_Joon_Ho_at_Busan_Film_Festival%2C_smaller.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-27",
+      "answer": "Pedro Almodóvar",
+      "aliases": [
+        "almodovar"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Pedro_Almod%C3%B3var-69720_%28cropped%29.jpg/960px-Pedro_Almod%C3%B3var-69720_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-28",
+      "answer": "Roberto Rossellini",
+      "aliases": [
+        "rossellini"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Isabella_Rossellini_at_the_2026_Locarno_Film_Festival_06_%28cropped%29.jpg/960px-Isabella_Rossellini_at_the_2026_Locarno_Film_Festival_06_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-29",
+      "answer": "Vittorio De Sica",
+      "aliases": [],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/S_Kragujevic%2C_Vittorio_De_Sica%2C_1959.JPG/960px-S_Kragujevic%2C_Vittorio_De_Sica%2C_1959.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-30",
+      "answer": "Luchino Visconti",
+      "aliases": [
+        "visconti"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Luchino_Visconti_1972b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "registi-cinema-31",
+      "answer": "Pier Paolo Pasolini",
+      "aliases": [
+        "pasolini"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/PierPaoloPasolini_%28crop%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "registi-cinema-32",
+      "answer": "Bernardo Bertolucci",
+      "aliases": [
+        "bertolucci"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Bernardo_Bertolucci%2C_film_director.jpg/960px-Bernardo_Bertolucci%2C_film_director.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-33",
+      "answer": "Dario Argento",
+      "aliases": [
+        "argento"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Dario_Argento_2014.jpg/960px-Dario_Argento_2014.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-34",
+      "answer": "Matteo Garrone",
+      "aliases": [
+        "garrone"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Matteo_Garrone-5903.jpg/960px-Matteo_Garrone-5903.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-35",
+      "answer": "Luca Guadagnino",
+      "aliases": [
+        "guadagnino"
+      ],
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Luca_Guadagnino_at_the_2026_New_York_Film_Festival-40.jpg/960px-Luca_Guadagnino_at_the_2026_New_York_Film_Festival-40.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "registi-cinema-36",
+      "answer": "Nanni Moretti",
+      "aliases": [
+        "moretti"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Nanni_Moretti_Cannes_2011.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    }
+  ]
+}
