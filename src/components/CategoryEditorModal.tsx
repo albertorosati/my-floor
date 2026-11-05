@@ -11,6 +11,7 @@ import { Category, DuelItem } from '../types/game';
 import {
   getCustomCategoriesOnly,
   saveCustomCategories,
+  getBackupImageUrl,
 } from '../data/categories';
 
 interface CategoryEditorModalProps {
@@ -288,35 +289,66 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
               </div>
 
               <div className="max-h-[380px] overflow-y-auto grid grid-cols-1 sm:grid-cols-2 gap-2.5 pr-1">
-                {allCategories.map((cat) => (
-                  <div
-                    key={cat.id}
-                    className="p-3 rounded-xl bg-paper border-2 border-ink/20 flex items-center justify-between gap-2"
-                  >
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <span className="text-2xl">{cat.icon}</span>
-                      <div className="min-w-0">
-                        <div className="font-display font-bold text-sm text-ink truncate">
-                          {cat.name}
-                        </div>
-                        <div className="text-[11px] font-semibold text-ink/60">
-                          {cat.items.length} foto{' '}
-                          {cat.isCustom && (
-                            <span className="text-p1 font-bold">• Tua</span>
+                {allCategories.map((cat) => {
+                  const cover = cat.coverImage || cat.items[0]?.imageUrl;
+                  return (
+                    <div
+                      key={cat.id}
+                      className="p-2.5 rounded-xl bg-paper border-2 border-ink/20 flex items-center justify-between gap-2.5 shadow-sm"
+                    >
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        {/* Thumbnail tematico */}
+                        <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-[#181226] border border-ink/30 shrink-0 flex items-center justify-center">
+                          {cover && (
+                            <>
+                              <img
+                                src={cover}
+                                alt=""
+                                aria-hidden="true"
+                                className="absolute inset-0 w-full h-full object-cover blur-sm scale-110 opacity-40 pointer-events-none"
+                              />
+                              <img
+                                src={cover}
+                                alt=""
+                                onError={(e) => {
+                                  const img = e.currentTarget;
+                                  if (!img.dataset.fallback) {
+                                    img.dataset.fallback = '1';
+                                    img.src = getBackupImageUrl(cover);
+                                  }
+                                }}
+                                className="relative z-10 max-w-full max-h-full object-contain p-0.5"
+                              />
+                            </>
                           )}
+                          <div className="absolute top-0.5 left-0.5 w-4 h-4 rounded-md bg-cream/90 border border-ink/40 flex items-center justify-center text-[10px] z-20">
+                            {cat.icon}
+                          </div>
+                        </div>
+
+                        <div className="min-w-0">
+                          <div className="font-display font-bold text-xs sm:text-sm text-ink truncate">
+                            {cat.name}
+                          </div>
+                          <div className="text-[10px] font-semibold text-ink/60">
+                            {cat.items.length} foto{' '}
+                            {cat.isCustom && (
+                              <span className="text-p1 font-bold">• Tua</span>
+                            )}
+                          </div>
                         </div>
                       </div>
+                      {cat.isCustom && (
+                        <button
+                          onClick={() => handleDeleteCustomCategory(cat.id)}
+                          className="p-1.5 text-p2 hover:bg-p2Light rounded-lg shrink-0"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      )}
                     </div>
-                    {cat.isCustom && (
-                      <button
-                        onClick={() => handleDeleteCustomCategory(cat.id)}
-                        className="p-1.5 text-p2 hover:bg-p2Light rounded-lg"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
-                    )}
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 

@@ -367,27 +367,66 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
               </div>
             </div>
 
-            <div className="p-5 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            <div className="p-5 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 max-h-[70vh]">
               {filteredCatalog.map((cat) => {
+                const cover = cat.coverImage || cat.items[0]?.imageUrl;
                 const alreadyPlayed = playedCategoryIds.includes(cat.id);
                 return (
                   <button
                     key={cat.id}
                     onClick={() => handleChooseCard(cat)}
-                    className={`p-3.5 rounded-2xl border-2 border-ink text-left flex items-center gap-3 transition-all hover:-translate-y-0.5 ${
+                    className={`group p-2.5 rounded-2xl border-2 border-ink text-left flex items-center gap-3 transition-all hover:-translate-y-1 hover:shadow-card-hover ${
                       alreadyPlayed
-                        ? 'bg-paper/60 opacity-65'
-                        : 'bg-white hover:bg-gold/20 shadow-chunky-sm'
+                        ? 'bg-paper/50 opacity-60'
+                        : 'bg-white hover:bg-gold/15 shadow-chunky-sm'
                     }`}
                   >
-                    <span className="text-3xl shrink-0">{cat.icon}</span>
-                    <div className="min-w-0">
-                      <div className="font-display font-bold text-sm text-ink truncate">
+                    {/* Thumbnail fotografico reale con sfondo d'atmosfera sfocato e badge emoji */}
+                    <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-xl overflow-hidden bg-[#181226] border-2 border-ink shrink-0 flex items-center justify-center">
+                      {cover && (
+                        <>
+                          <img
+                            src={cover}
+                            alt=""
+                            aria-hidden="true"
+                            className="absolute inset-0 w-full h-full object-cover blur-sm scale-110 opacity-35 pointer-events-none"
+                          />
+                          <img
+                            src={cover}
+                            alt=""
+                            onError={(e) => {
+                              const img = e.currentTarget;
+                              if (!img.dataset.fallback) {
+                                img.dataset.fallback = '1';
+                                img.src = getBackupImageUrl(cover);
+                              }
+                            }}
+                            className="relative z-10 max-w-full max-h-full object-contain p-1 group-hover:scale-105 transition-transform"
+                          />
+                        </>
+                      )}
+                      <div className="absolute top-1 left-1 w-6 h-6 rounded-lg bg-cream/90 backdrop-blur-sm border border-ink flex items-center justify-center text-xs shadow-sm z-20">
+                        {cat.icon}
+                      </div>
+                    </div>
+
+                    {/* Dettagli tematici della categoria (zero spoiler sul nome dell'immagine) */}
+                    <div className="min-w-0 flex-1">
+                      <div className="font-display font-bold text-sm text-ink truncate group-hover:text-p1 transition-colors">
                         {cat.name}
                       </div>
-                      <div className="text-[11px] font-semibold text-ink/60">
-                        {cat.items.length} foto{' '}
-                        {alreadyPlayed && '• Già giocata'}
+                      <div className="text-[11px] text-ink/65 line-clamp-1 font-medium mt-0.5">
+                        {cat.subtitle}
+                      </div>
+                      <div className="flex items-center gap-1.5 mt-1.5">
+                        <span className="px-2 py-0.5 rounded-full bg-paper border border-ink/20 text-[10px] font-bold text-ink/75">
+                          {cat.items.length} foto
+                        </span>
+                        {alreadyPlayed && (
+                          <span className="text-[10px] font-bold text-p2">
+                            • Già giocata
+                          </span>
+                        )}
                       </div>
                     </div>
                   </button>
