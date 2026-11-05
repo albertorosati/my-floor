@@ -60,7 +60,7 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
   const totalP2Correct = history.reduce((acc, h) => acc + h.p2Correct, 0);
 
   return (
-    <div className="min-h-screen party-stage-bg flex flex-col items-center justify-center p-6 text-center select-none">
+    <div className="h-[100dvh] max-h-[100dvh] w-full party-stage-bg flex flex-col items-center justify-center p-4 sm:p-6 text-center select-none overflow-hidden touch-none">
       <div className="card-cream max-w-xl w-full rounded-3xl p-8 sm:p-10 flex flex-col items-center gap-6 animate-pop-in">
         <div className="w-24 h-24 rounded-3xl bg-gold border-[3px] border-ink shadow-chunky flex items-center justify-center text-5xl animate-bounce-soft">
           <Trophy className="w-12 h-12 text-ink" />

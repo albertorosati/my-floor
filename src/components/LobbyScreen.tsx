@@ -150,7 +150,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
 
       {!speechSupported && (
         <div className="max-w-5xl w-full mx-auto mt-4 p-4 rounded-2xl bg-gold text-ink border-[3px] border-ink shadow-chunky-sm font-semibold text-sm">
-          Per giocare con la voce apri questa pagina su <strong>Chrome, Edge o Brave</strong>.
+          Per giocare con la voce consenti l’accesso al microfono su <strong>Chrome, Safari, Edge o Brave</strong> (anche su mobile).
         </div>
       )}
 

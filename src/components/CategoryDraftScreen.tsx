@@ -150,49 +150,49 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
   );
 
   return (
-    <div className="min-h-screen party-stage-bg flex flex-col justify-between p-4 sm:p-6 md:p-8 select-none">
+    <div className="h-[100dvh] max-h-[100dvh] w-full party-stage-bg flex flex-col justify-between p-2.5 sm:p-4 md:p-6 select-none overflow-hidden touch-none">
       {/* Top Bar con Punteggio dei due Giocatori */}
-      <header className="max-w-6xl w-full mx-auto flex flex-col gap-3">
-        <div className="flex flex-wrap items-center justify-between gap-3">
+      <header className="max-w-6xl w-full mx-auto flex flex-col gap-1.5 sm:gap-2 shrink-0">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <button
             onClick={onBackToLobby}
-            className="btn-push px-3.5 py-2 rounded-xl bg-cream text-ink font-display font-bold text-xs flex items-center gap-1.5"
+            className="btn-push px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-cream text-ink font-display font-bold text-xs flex items-center gap-1.5"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Menu</span>
           </button>
 
           {/* Tabellone Punteggio Centrale */}
-          <div className="card-cream rounded-2xl px-4 py-2 flex items-center gap-4 sm:gap-6">
-            <div className="flex items-center gap-2">
-              <span className="text-2xl">{p1.avatar}</span>
-              <span className="font-display font-bold text-sm sm:text-base text-ink max-w-[110px] truncate">
+          <div className="card-cream rounded-2xl px-3 py-1.5 sm:px-4 sm:py-2 flex items-center gap-3 sm:gap-6 shadow-chunky-sm">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="text-xl sm:text-2xl">{p1.avatar}</span>
+              <span className="font-display font-bold text-xs sm:text-base text-ink max-w-[85px] sm:max-w-[110px] truncate">
                 {p1.name}
               </span>
-              <span className="px-3 py-0.5 rounded-xl bg-p1 text-white font-display font-bold text-lg border-2 border-ink">
+              <span className="px-2.5 py-0.5 rounded-xl bg-p1 text-white font-display font-bold text-sm sm:text-lg border-2 border-ink">
                 {p1Score}
               </span>
             </div>
 
-            <div className="text-xs font-display font-bold text-ink/50 uppercase">
+            <div className="text-[10px] sm:text-xs font-display font-bold text-ink/50 uppercase">
               {targetWins > 0 ? `A ${targetWins}` : `Round ${roundNumber}`}
             </div>
 
-            <div className="flex items-center gap-2">
-              <span className="px-3 py-0.5 rounded-xl bg-p2 text-white font-display font-bold text-lg border-2 border-ink">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="px-2.5 py-0.5 rounded-xl bg-p2 text-white font-display font-bold text-sm sm:text-lg border-2 border-ink">
                 {p2Score}
               </span>
-              <span className="font-display font-bold text-sm sm:text-base text-ink max-w-[110px] truncate">
+              <span className="font-display font-bold text-xs sm:text-base text-ink max-w-[85px] sm:max-w-[110px] truncate">
                 {p2.name}
               </span>
-              <span className="text-2xl">{p2.avatar}</span>
+              <span className="text-xl sm:text-2xl">{p2.avatar}</span>
             </div>
           </div>
 
           {p1Score + p2Score > 0 ? (
             <button
               onClick={onFinishMatchEarly}
-              className="btn-push px-3.5 py-2 rounded-xl bg-gold text-ink font-display font-bold text-xs flex items-center gap-1.5"
+              className="btn-push px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-gold text-ink font-display font-bold text-xs flex items-center gap-1.5"
             >
               <Flag className="w-3.5 h-3.5" />
               <span>Concludi</span>
@@ -204,23 +204,23 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
 
         {/* Riepilogo dell'ultimo duello appena concluso */}
         {lastSummary && (
-          <div className="max-w-3xl mx-auto w-full px-4 py-2.5 rounded-2xl bg-[#2a2142] border-2 border-gold/60 text-cream text-xs sm:text-sm flex flex-wrap items-center justify-center gap-2 text-center">
-            <Trophy className="w-4 h-4 text-gold shrink-0" />
-            <span>
-              Round precedente (<strong>{lastSummary.categoryIcon} {lastSummary.categoryName}</strong>): punto a{' '}
+          <div className="max-w-3xl mx-auto w-full px-3 py-1.5 rounded-xl bg-[#2a2142] border border-gold/60 text-cream text-[11px] sm:text-xs flex items-center justify-center gap-1.5 text-center truncate">
+            <Trophy className="w-3.5 h-3.5 text-gold shrink-0" />
+            <span className="truncate">
+              Punto a{' '}
               <strong className="text-gold">
                 {lastSummary.winner === 'p1' ? p1.name : p2.name}
               </strong>{' '}
-              con <strong>{lastSummary.winnerTimeLeft.toFixed(1)}s</strong> rimasti!
+              ({lastSummary.categoryIcon} {lastSummary.categoryName}) con {lastSummary.winnerTimeLeft.toFixed(1)}s!
             </span>
           </div>
         )}
       </header>
 
       {/* Titolo Turno di Scelta */}
-      <div className="max-w-4xl w-full mx-auto text-center my-4">
+      <div className="max-w-4xl w-full mx-auto text-center my-1 sm:my-2 shrink-0">
         <div
-          className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border-[3px] border-ink font-display font-bold text-sm shadow-chunky-sm mb-3 ${
+          className={`inline-flex items-center gap-1.5 px-3 py-0.5 sm:px-4 sm:py-1 rounded-full border-2 sm:border-[3px] border-ink font-display font-bold text-xs sm:text-sm shadow-chunky-sm mb-1 ${
             chooserId === 'p1'
               ? 'bg-p1 text-white'
               : 'bg-p2 text-white'
@@ -231,16 +231,16 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
           <span>Scelta categoria</span>
         </div>
 
-        <h1 className="font-display text-2xl sm:text-4xl font-bold text-cream">
+        <h1 className="font-display text-lg sm:text-2xl lg:text-3xl font-bold text-cream leading-tight">
           Tocca a <span className="text-gold">{chooser.avatar} {chooser.name}</span> scegliere!
         </h1>
-        <p className="text-sm text-cream/70 mt-1">
-          Scegli una delle 4 categorie qui sotto per sfidare {opponent.name} (al prossimo giro sceglierà {opponent.name})
+        <p className="text-[10px] sm:text-xs text-cream/70 mt-0.5 line-clamp-1">
+          Scegli una delle 4 categorie qui sotto per sfidare {opponent.name}
         </p>
       </div>
 
-      {/* Le 4 Carte Categoria Proposte */}
-      <main className="max-w-6xl w-full mx-auto my-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {/* Le 4 Carte Categoria Proposte (Griglia 2x2 su mobile per visualizzare tutto senza scroll!) */}
+      <main className="max-w-6xl w-full mx-auto my-1 flex-1 min-h-0 grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 items-stretch">
         {offered.map((cat) => {
           const cover = cat.coverImage || cat.items[0]?.imageUrl;
           return (
@@ -248,10 +248,10 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
               key={cat.id}
               onClick={() => handleChooseCard(cat)}
               disabled={countdown !== null}
-              className="group card-cream rounded-3xl overflow-hidden text-left flex flex-col justify-between transition-all duration-200 hover:-translate-y-2 hover:shadow-card-hover active:translate-y-1 animate-pop-in"
+              className="group card-cream rounded-2xl sm:rounded-3xl overflow-hidden text-left flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 hover:shadow-card-hover active:translate-y-1 animate-pop-in min-h-0"
             >
-              {/* Copertina fotografica reale: sfondo d'atmosfera sfocato + soggetto intero mai mozzato o decapitato */}
-              <div className="relative h-44 sm:h-48 w-full bg-[#181226] overflow-hidden border-b-[3px] border-ink flex items-center justify-center">
+              {/* Copertina fotografica reale */}
+              <div className="relative h-20 sm:h-36 lg:h-44 w-full bg-[#181226] overflow-hidden border-b-2 sm:border-b-[3px] border-ink flex items-center justify-center shrink-0">
                 {cover && (
                   <>
                     <img
@@ -277,42 +277,42 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
                           img.src = getBackupImageUrl(cover);
                         }
                       }}
-                      className="relative z-10 max-h-full max-w-full w-auto h-full object-contain p-2 group-hover:scale-105 transition-all duration-300 drop-shadow-md opacity-0"
+                      className="relative z-10 max-h-full max-w-full w-auto h-full object-contain p-1.5 sm:p-2 group-hover:scale-105 transition-all duration-300 drop-shadow-md opacity-0"
                     />
                   </>
                 )}
-                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-x-0 bottom-0 h-8 sm:h-16 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none z-10" />
 
                 {/* Icona giocosa nell'angolo */}
-                <div className="absolute top-3 left-3 w-10 h-10 rounded-2xl bg-cream border-[2.5px] border-ink shadow-chunky-sm flex items-center justify-center text-xl z-20">
+                <div className="absolute top-1.5 left-1.5 sm:top-2.5 sm:left-2.5 w-6 h-6 sm:w-9 sm:h-9 rounded-xl bg-cream border-2 border-ink shadow-chunky-sm flex items-center justify-center text-xs sm:text-lg z-20">
                   {cat.icon}
                 </div>
 
                 {/* Conteggio foto */}
-                <span className="absolute bottom-2.5 right-3 px-2.5 py-0.5 rounded-full bg-ink/90 text-cream text-[11px] font-bold z-20 border border-cream/20 shadow-sm">
+                <span className="absolute bottom-1 right-1.5 sm:bottom-2 sm:right-2.5 px-1.5 sm:px-2 py-0.5 rounded-full bg-ink/90 text-cream text-[9px] sm:text-[10px] font-bold z-20 border border-cream/20 shadow-sm">
                   {cat.items.length} foto
                 </span>
               </div>
 
               {/* Testo Carta */}
-              <div className="p-4 flex-1 flex flex-col justify-between gap-3">
+              <div className="p-2 sm:p-3 flex-1 flex flex-col justify-between gap-1 sm:gap-2 min-h-0">
                 <div>
-                  <h2 className="font-display font-bold text-xl text-ink leading-snug group-hover:text-p1 transition-colors">
+                  <h2 className="font-display font-bold text-xs sm:text-base lg:text-lg text-ink leading-tight truncate sm:line-clamp-2 group-hover:text-p1 transition-colors">
                     {cat.name}
                   </h2>
-                  <p className="text-xs text-ink/70 mt-1 line-clamp-2 leading-relaxed">
+                  <p className="text-[10px] sm:text-xs text-ink/70 mt-0.5 line-clamp-1 sm:line-clamp-2 leading-tight">
                     {cat.subtitle}
                   </p>
                 </div>
 
                 <div
-                  className={`w-full py-2 px-3 rounded-xl font-display font-bold text-xs text-center border-2 border-ink transition-colors ${
+                  className={`w-full py-1 sm:py-1.5 px-1.5 sm:px-2.5 rounded-lg sm:rounded-xl font-display font-bold text-[10px] sm:text-xs text-center border border-ink sm:border-2 transition-colors leading-tight ${
                     chooserId === 'p1'
                       ? 'bg-p1Light text-ink group-hover:bg-p1 group-hover:text-white'
                       : 'bg-p2Light text-ink group-hover:bg-p2 group-hover:text-white'
                   }`}
                 >
-                  Scegli questa categoria →
+                  Scegli →
                 </div>
               </div>
             </button>
@@ -321,28 +321,28 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
       </main>
 
       {/* Azioni in basso: Cambia le 4 proposte oppure Apri tutto il mazzo */}
-      <footer className="max-w-4xl w-full mx-auto mt-5 flex flex-col items-center gap-3">
-        <div className="flex flex-wrap items-center justify-center gap-3">
+      <footer className="max-w-4xl w-full mx-auto mt-1 sm:mt-2 flex flex-col items-center gap-1 shrink-0">
+        <div className="flex flex-wrap items-center justify-center gap-2">
           <button
             onClick={handleReroll}
             disabled={countdown !== null}
-            className="btn-push px-5 py-3 rounded-2xl bg-gold text-ink font-display font-bold text-sm flex items-center gap-2"
+            className="btn-push px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-2xl bg-gold text-ink font-display font-bold text-xs sm:text-sm flex items-center gap-1.5"
           >
-            <Shuffle className="w-4 h-4" />
-            <span>Cambia le 4 proposte</span>
+            <Shuffle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <span>Altre 4 proposte</span>
           </button>
 
           <button
             onClick={() => setShowAllModal(true)}
             disabled={countdown !== null}
-            className="btn-push px-5 py-3 rounded-2xl bg-cream text-ink font-display font-bold text-sm flex items-center gap-2"
+            className="btn-push px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-2xl bg-cream text-ink font-display font-bold text-xs sm:text-sm flex items-center gap-1.5"
           >
-            <Grid className="w-4 h-4 text-p1" />
-            <span>Sfoglia tutte le {categories.length} categorie</span>
+            <Grid className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-p1" />
+            <span>Tutte le {categories.length}</span>
           </button>
         </div>
 
-        <span className="font-mono text-[11px] text-cream/40">
+        <span className="font-mono text-[9px] sm:text-[10px] text-cream/40">
           v{APP_VERSION}
         </span>
       </footer>

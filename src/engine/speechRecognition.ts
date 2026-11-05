@@ -10,20 +10,17 @@ interface IWindowSpeech extends Window {
 export class SmartSpeechRecognizer {
   private recognition: any = null;
   private shouldBeRunning = false;
+  private isListening = false;
   private onSpeech: SpeechCallback;
   private onStatus: StatusCallback;
   private onVolume?: VolumeCallback;
+  private restartTimer: ReturnType<typeof setTimeout> | null = null;
+  private volumeDecayTimer: ReturnType<typeof setTimeout> | null = null;
 
   // Tracciamento per tagliare le parole già consumate nella stessa frase continua
   private activeResultIndex = 0;
   private consumedCharLength = 0;
   private latestRawTranscript = '';
-
-  // Audio Meter (Web Audio API) per feedback visivo onde sonore
-  private audioContext: AudioContext | null = null;
-  private mediaStream: MediaStream | null = null;
-  private analyser: AnalyserNode | null = null;
-  private volumeRafId: number | null = null;
 
   constructor(
     onSpeech: SpeechCallback,
@@ -36,11 +33,40 @@ export class SmartSpeechRecognizer {
   }
 
   public static isSupported(): boolean {
+    if (typeof window === 'undefined') return false;
     const win = window as unknown as IWindowSpeech;
     return Boolean(win.SpeechRecognition || win.webkitSpeechRecognition);
   }
 
-  public start(deviceId?: string): void {
+  public start(): void {
+    this.shouldBeRunning = true;
+    this.consumedCharLength = 0;
+    this.activeResultIndex = 0;
+    this.createAndStartSession();
+  }
+
+  private createAndStartSession(): void {
+    if (!this.shouldBeRunning) return;
+    if (typeof window === 'undefined') return;
+
+    if (this.restartTimer) {
+      clearTimeout(this.restartTimer);
+      this.restartTimer = null;
+    }
+
+    if (this.recognition) {
+      try {
+        this.recognition.onstart = null;
+        this.recognition.onresult = null;
+        this.recognition.onerror = null;
+        this.recognition.onend = null;
+        this.recognition.abort();
+      } catch {
+        // Ignora
+      }
+      this.recognition = null;
+    }
+
     const win = window as unknown as IWindowSpeech;
     const SpeechConstructor =
       win.SpeechRecognition || win.webkitSpeechRecognition;
@@ -48,118 +74,132 @@ export class SmartSpeechRecognizer {
     if (!SpeechConstructor) {
       this.onStatus(
         false,
-        'Browser non supportato per il riconoscimento vocale (Usa Chrome, Edge o Brave).'
+        'Riconoscimento vocale non supportato da questo browser (Usa Chrome, Safari o Edge).'
       );
       return;
     }
 
-    this.shouldBeRunning = true;
-    this.consumedCharLength = 0;
-    this.activeResultIndex = 0;
-
-    if (this.recognition) {
-      try {
-        this.recognition.stop();
-      } catch {
-        // Ignora
-      }
-    }
-
-    const rec = new SpeechConstructor();
-    rec.lang = 'it-IT';
-    rec.continuous = true;
-    rec.interimResults = true;
-    rec.maxAlternatives = 5;
-
-    rec.onstart = () => {
-      this.onStatus(true);
-    };
-
-    rec.onresult = (event: any) => {
-      const idx = event.resultIndex;
-      const result = event.results[idx];
-      if (!result) return;
-
-      if (idx !== this.activeResultIndex) {
-        this.activeResultIndex = idx;
-        this.consumedCharLength = 0;
-      }
-
-      const alternatives: string[] = [];
-      for (let i = 0; i < result.length; i++) {
-        const fullTranscript: string = result[i].transcript || '';
-        if (i === 0) {
-          this.latestRawTranscript = fullTranscript;
-        }
-        // Taglia la parte della frase continua già usata per la risposta precedente
-        const sliced =
-          this.consumedCharLength > 0 &&
-          fullTranscript.length >= this.consumedCharLength
-            ? fullTranscript.slice(this.consumedCharLength).trim()
-            : fullTranscript.trim();
-
-        if (sliced.length > 0) {
-          alternatives.push(sliced);
-        }
-      }
-
-      if (alternatives.length > 0) {
-        this.onSpeech(alternatives, Boolean(result.isFinal));
-      }
-
-      if (result.isFinal) {
-        this.consumedCharLength = 0;
-      }
-    };
-
-    rec.onerror = (event: any) => {
-      const err = event?.error;
-      if (err === 'no-speech' || err === 'aborted') {
-        // Normale durante brevi silenzi, il watchdog in onend lo riavvia subito
-        return;
-      }
-      if (err === 'not-allowed' || err === 'service-not-allowed') {
-        this.shouldBeRunning = false;
-        this.onStatus(
-          false,
-          'Permesso microfono negato. Consenti il microfono nella barra degli indirizzi.'
-        );
-      } else {
-        this.onStatus(true, `Avviso mic: ${err}`);
-      }
-    };
-
-    rec.onend = () => {
-      if (this.shouldBeRunning) {
-        // Riavvio istantaneo continuo per non perdere neanche un decimo di secondo
-        try {
-          this.consumedCharLength = 0;
-          rec.start();
-        } catch {
-          setTimeout(() => {
-            if (this.shouldBeRunning) {
-              try {
-                rec.start();
-              } catch {
-                // Ignora
-              }
-            }
-          }, 120);
-        }
-      } else {
-        this.onStatus(false);
-      }
-    };
-
-    this.recognition = rec;
     try {
+      const rec = new SpeechConstructor();
+      rec.lang = 'it-IT';
+
+      // Su iOS Safari il flag continuous: true provoca spesso l'abort immediato dell'audio engine
+      const isIOS =
+        typeof navigator !== 'undefined' &&
+        (/iPad|iPhone|iPod/.test(navigator.userAgent) ||
+          (navigator.platform === 'MacIntel' &&
+            Boolean((navigator as any).maxTouchPoints && (navigator as any).maxTouchPoints > 1)));
+
+      rec.continuous = !isIOS;
+      rec.interimResults = true;
+      rec.maxAlternatives = 5;
+
+      rec.onstart = () => {
+        this.isListening = true;
+        this.onStatus(true);
+      };
+
+      rec.onspeechstart = () => {
+        this.pulseVolume(0.8);
+      };
+
+      rec.onspeechend = () => {
+        this.pulseVolume(0);
+      };
+
+      rec.onresult = (event: any) => {
+        this.pulseVolume(1.0);
+        const idx = event.resultIndex;
+        const result = event.results[idx];
+        if (!result) return;
+
+        if (idx !== this.activeResultIndex) {
+          this.activeResultIndex = idx;
+          this.consumedCharLength = 0;
+        }
+
+        const alternatives: string[] = [];
+        for (let i = 0; i < result.length; i++) {
+          const fullTranscript: string = result[i].transcript || '';
+          if (i === 0) {
+            this.latestRawTranscript = fullTranscript;
+          }
+          const sliced =
+            this.consumedCharLength > 0 &&
+            fullTranscript.length >= this.consumedCharLength
+              ? fullTranscript.slice(this.consumedCharLength).trim()
+              : fullTranscript.trim();
+
+          if (sliced.length > 0) {
+            alternatives.push(sliced);
+          }
+        }
+
+        if (alternatives.length > 0) {
+          this.onSpeech(alternatives, Boolean(result.isFinal));
+        }
+
+        if (result.isFinal) {
+          this.consumedCharLength = 0;
+        }
+      };
+
+      rec.onerror = (event: any) => {
+        const err = event?.error;
+        if (err === 'no-speech' || err === 'aborted') {
+          // Normale durante brevi silenzi, non bloccare il loop
+          return;
+        }
+        if (err === 'not-allowed' || err === 'service-not-allowed') {
+          this.shouldBeRunning = false;
+          this.isListening = false;
+          this.onStatus(
+            false,
+            'Permesso microfono negato. Tocca l’icona del lucchetto nella barra per abilitarlo.'
+          );
+        } else {
+          this.onStatus(this.isListening, `Avviso mic: ${err}`);
+        }
+      };
+
+      rec.onend = () => {
+        this.isListening = false;
+        if (this.shouldBeRunning) {
+          this.consumedCharLength = 0;
+          // Ricrea una NUOVA istanza fresca (evita InvalidStateError su Chrome/Safari dopo il primo stop)
+          this.restartTimer = setTimeout(() => {
+            if (this.shouldBeRunning) {
+              this.createAndStartSession();
+            }
+          }, 80);
+        } else {
+          this.onStatus(false);
+        }
+      };
+
+      this.recognition = rec;
       rec.start();
     } catch {
-      // Se già attivo
+      if (this.shouldBeRunning) {
+        this.restartTimer = setTimeout(() => {
+          if (this.shouldBeRunning) {
+            this.createAndStartSession();
+          }
+        }, 300);
+      }
     }
+  }
 
-    if (this.onVolume) {
-      this.startVolumeMeter(deviceId);
+  private pulseVolume(target: number): void {
+    if (!this.onVolume) return;
+    this.onVolume(target);
+    if (this.volumeDecayTimer) {
+      clearTimeout(this.volumeDecayTimer);
+    }
+    if (target > 0) {
+      this.volumeDecayTimer = setTimeout(() => {
+        this.onVolume?.(0);
+      }, 450);
     }
   }
 
@@ -173,69 +213,27 @@ export class SmartSpeechRecognizer {
 
   public stop(): void {
     this.shouldBeRunning = false;
+    this.isListening = false;
+    if (this.restartTimer) {
+      clearTimeout(this.restartTimer);
+      this.restartTimer = null;
+    }
+    if (this.volumeDecayTimer) {
+      clearTimeout(this.volumeDecayTimer);
+      this.volumeDecayTimer = null;
+    }
     if (this.recognition) {
       try {
-        this.recognition.stop();
+        this.recognition.onstart = null;
+        this.recognition.onresult = null;
+        this.recognition.onerror = null;
+        this.recognition.onend = null;
+        this.recognition.abort();
       } catch {
         // Ignora
       }
       this.recognition = null;
     }
-    this.stopVolumeMeter();
     this.onStatus(false);
-  }
-
-  private async startVolumeMeter(deviceId?: string): Promise<void> {
-    try {
-      this.stopVolumeMeter();
-      const constraints: MediaStreamConstraints = {
-        audio: deviceId
-          ? { deviceId: { exact: deviceId }, echoCancellation: true, noiseSuppression: true }
-          : { echoCancellation: true, noiseSuppression: true },
-      };
-      const stream = await navigator.mediaDevices.getUserMedia(constraints);
-      this.mediaStream = stream;
-      const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
-      const ctx = new AudioCtx();
-      this.audioContext = ctx;
-      const source = ctx.createMediaStreamSource(stream);
-      const analyser = ctx.createAnalyser();
-      analyser.fftSize = 256;
-      source.connect(analyser);
-      this.analyser = analyser;
-
-      const dataArray = new Uint8Array(analyser.frequencyBinCount);
-      const updateVolume = () => {
-        if (!this.analyser || !this.shouldBeRunning) return;
-        this.analyser.getByteFrequencyData(dataArray);
-        let sum = 0;
-        for (let i = 0; i < dataArray.length; i++) {
-          sum += dataArray[i];
-        }
-        const avg = sum / dataArray.length;
-        const normalized = Math.min(1, avg / 65);
-        this.onVolume?.(normalized);
-        this.volumeRafId = requestAnimationFrame(updateVolume);
-      };
-      this.volumeRafId = requestAnimationFrame(updateVolume);
-    } catch {
-      // Il meter visivo è opzionale
-    }
-  }
-
-  private stopVolumeMeter(): void {
-    if (this.volumeRafId !== null) {
-      cancelAnimationFrame(this.volumeRafId);
-      this.volumeRafId = null;
-    }
-    if (this.mediaStream) {
-      this.mediaStream.getTracks().forEach((t) => t.stop());
-      this.mediaStream = null;
-    }
-    if (this.audioContext) {
-      this.audioContext.close().catch(() => {});
-      this.audioContext = null;
-    }
-    this.analyser = null;
   }
 }
