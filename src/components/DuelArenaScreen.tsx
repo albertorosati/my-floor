@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import confetti from 'canvas-confetti';
 import {
   Mic,
   FastForward,
@@ -6,6 +7,10 @@ import {
   Pause,
   Play,
   Radio,
+  AlertTriangle,
+  Trophy,
+  ArrowRight,
+  Sparkles,
 } from 'lucide-react';
 import {
   Category,
@@ -83,6 +88,17 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
   const [micVolume, setMicVolume] = useState(0);
   const [micListening, setMicListening] = useState(false);
   const [usingBackupUrl, setUsingBackupUrl] = useState(false);
+
+  // Sequenza di fine duello super animata:
+  const [duelFinishPhase, setDuelFinishPhase] = useState<'reveal' | 'winner' | null>(null);
+  const [duelFinishData, setDuelFinishData] = useState<{
+    winner: PlayerId;
+    loser: PlayerId;
+    lastItem: DuelItem;
+    summary: DuelSummary;
+  } | null>(null);
+  const [screenShake, setScreenShake] = useState(false);
+  const finishTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const brokenIdsRef = useRef<Set<string>>(new Set());
   const resolvedUrlsRef = useRef<Map<string, string>>(new Map());
@@ -366,8 +382,123 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     onSendRemoteState,
   ]);
 
+  const handleProceedToDraft = useCallback(() => {
+    if (finishTimerRef.current) {
+      clearTimeout(finishTimerRef.current);
+    }
+    soundEngine.stopAnnouncements();
+    if (duelFinishData) {
+      onDuelFinished(duelFinishData.summary);
+    }
+  }, [duelFinishData, onDuelFinished]);
+
+  const handleTimeExpired = useCallback(
+    (loser: PlayerId) => {
+      const st = stateRef.current;
+      if (st.duelEnded) return;
+      st.duelEnded = true;
+
+      recognizerRef.current?.stop();
+      soundEngine.stopAnnouncements();
+
+      const winner: PlayerId = loser === 'p1' ? 'p2' : 'p1';
+      const summary: DuelSummary = {
+        roundNumber,
+        winner,
+        loser,
+        categoryId: category.id,
+        categoryName: category.name,
+        categoryIcon: category.icon,
+        winnerTimeLeft: winner === 'p1' ? st.timeP1 : st.timeP2,
+        p1Correct: st.p1Correct,
+        p2Correct: st.p2Correct,
+        p1Passes: st.p1Passes,
+        p2Passes: st.p2Passes,
+      };
+
+      setDuelFinishData({
+        winner,
+        loser,
+        lastItem: st.currentItem,
+        summary,
+      });
+
+      // 1. Schock visivo e svelamento dell'ultima risposta non data
+      setScreenShake(true);
+      soundEngine.playTimeOutBuzzer();
+      soundEngine.playRevealAnswer();
+      soundEngine.speakAnnouncement(
+        `Tempo scaduto! L'ultima risposta era: ${st.currentItem.answer}!`
+      );
+      setDuelFinishPhase('reveal');
+
+      setTimeout(() => {
+        setScreenShake(false);
+      }, 550);
+
+      // 2. Dopo 2.4 secondi, passa alla celebrazione del vincitore
+      setTimeout(() => {
+        setDuelFinishPhase('winner');
+        soundEngine.playGrandFanfare();
+        soundEngine.playDuelVictory();
+
+        const winPlayer = winner === 'p1' ? p1 : p2;
+        soundEngine.speakAnnouncement(
+          `Ha vinto ${winPlayer.name}! Punto conquistato!`
+        );
+
+        // Coriandoli e scintille dorate
+        confetti({
+          particleCount: 90,
+          spread: 80,
+          origin: { y: 0.55 },
+          colors: ['#FFB800', '#FF4757', '#2563EB', '#10B981', '#FFFFFF'],
+        });
+
+        setTimeout(() => {
+          confetti({
+            particleCount: 50,
+            angle: 60,
+            spread: 60,
+            origin: { x: 0.1, y: 0.7 },
+            colors: ['#FFB800', '#FF007A', '#00F0FF'],
+          });
+          confetti({
+            particleCount: 50,
+            angle: 120,
+            spread: 60,
+            origin: { x: 0.9, y: 0.7 },
+            colors: ['#FFB800', '#FF007A', '#00F0FF'],
+          });
+        }, 280);
+
+        // 3. Procede alla selezione della categoria successiva
+        finishTimerRef.current = setTimeout(() => {
+          onDuelFinished(summary);
+        }, 3600);
+      }, 2400);
+    },
+    [
+      category.id,
+      category.icon,
+      category.name,
+      onDuelFinished,
+      p1,
+      p2,
+      roundNumber,
+    ]
+  );
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (duelFinishPhase !== null) {
+        if (e.code === 'Enter' || e.code === 'Space') {
+          e.preventDefault();
+          handleProceedToDraft();
+        }
+        return;
+      }
+
       if (e.code === 'Space') {
         e.preventDefault();
         triggerPass();
@@ -381,7 +512,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [triggerPass, triggerCorrectGuess]);
+  }, [triggerPass, triggerCorrectGuess, duelFinishPhase, handleProceedToDraft]);
 
   useEffect(() => {
     let lastTick = performance.now();
@@ -416,21 +547,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         }
 
         if (nextP1 <= 0) {
-          stateRef.current.duelEnded = true;
-          soundEngine.playDuelVictory();
-          onDuelFinished({
-            roundNumber,
-            winner: 'p2',
-            loser: 'p1',
-            categoryId: category.id,
-            categoryName: category.name,
-            categoryIcon: category.icon,
-            winnerTimeLeft: st.timeP2,
-            p1Correct: st.p1Correct,
-            p2Correct: st.p2Correct,
-            p1Passes: st.p1Passes,
-            p2Passes: st.p2Passes,
-          });
+          handleTimeExpired('p1');
         }
       } else {
         const nextP2 = Math.max(0, st.timeP2 - dt);
@@ -445,21 +562,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         }
 
         if (nextP2 <= 0) {
-          stateRef.current.duelEnded = true;
-          soundEngine.playDuelVictory();
-          onDuelFinished({
-            roundNumber,
-            winner: 'p1',
-            loser: 'p2',
-            categoryId: category.id,
-            categoryName: category.name,
-            categoryIcon: category.icon,
-            winnerTimeLeft: st.timeP1,
-            p1Correct: st.p1Correct,
-            p2Correct: st.p2Correct,
-            p1Passes: st.p1Passes,
-            p2Passes: st.p2Passes,
-          });
+          handleTimeExpired('p2');
         }
       }
     }, 50);
@@ -479,7 +582,11 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
   const p2Urgent = activePlayer === 'p2' && timeP2 <= urgentLimit;
 
   return (
-    <div className="min-h-screen party-stage-bg flex flex-col justify-between p-4 sm:p-6 select-none">
+    <div
+      className={`min-h-screen party-stage-bg flex flex-col justify-between p-4 sm:p-6 select-none ${
+        screenShake ? 'animate-screen-shake' : ''
+      }`}
+    >
       {/* Barra Superiore: Categoria & Pausa */}
       <header className="max-w-6xl w-full mx-auto flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -565,6 +672,25 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
                 : 'bg-[radial-gradient(circle,#ffffff_0%,#f7f2e7_68%,#e6decb_100%)]'
             }`}
           >
+            {/* Schermata Svelamento Ultima Risposta non data a tempo scaduto */}
+            {duelFinishPhase === 'reveal' && duelFinishData && (
+              <div className="absolute inset-0 bg-black/75 backdrop-blur-md z-30 flex flex-col items-center justify-center p-6 text-center animate-reveal-pop">
+                <div className="px-4 py-1.5 rounded-full bg-p2 text-white border-[2.5px] border-ink font-display font-bold text-xs uppercase tracking-wider shadow-chunky-sm mb-3.5 flex items-center gap-1.5 animate-bounce">
+                  <AlertTriangle className="w-4 h-4" />
+                  <span>Tempo Scaduto!</span>
+                </div>
+                <span className="text-xs uppercase tracking-widest font-bold text-cream/70 mb-1">
+                  L’ultima risposta corretta era:
+                </span>
+                <h3 className="font-display font-black text-3xl sm:text-5xl text-gold drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)] max-w-lg leading-tight animate-reveal-pop">
+                  {duelFinishData.lastItem.answer}
+                </h3>
+                <div className="mt-4 px-4 py-1.5 rounded-xl bg-white/10 text-cream/90 text-xs font-semibold backdrop-blur-sm border border-white/15">
+                  Assegnazione vittoria in corso...
+                </div>
+              </div>
+            )}
+
             {/* Flash Risposta Indovinata */}
             {correctFlash && (
               <div className="p-6 text-center text-ink flex flex-col items-center gap-3 animate-pop-in z-20">
@@ -721,6 +847,81 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
           </div>
         </div>
       </main>
+
+      {/* Schermata di Celebrazione Vincitore del Duello */}
+      {duelFinishPhase === 'winner' && duelFinishData && (
+        <div className="fixed inset-0 z-50 bg-[#140e24]/92 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-hidden">
+          {/* Raggi luminosi rotanti da game show */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-25">
+            <div className="w-[850px] h-[850px] rounded-full bg-[conic-gradient(from_0deg,#FFB800_0deg,transparent_60deg,#FF007A_120deg,transparent_180deg,#00F0FF_240deg,transparent_300deg,#FFB800_360deg)] animate-spin-slow" />
+          </div>
+
+          <div className="relative card-cream max-w-lg w-full rounded-3xl p-6 sm:p-8 text-center flex flex-col items-center gap-4 animate-reveal-pop border-[4px] border-ink shadow-card-hover z-10">
+            {/* Avatar del vincitore con corona */}
+            <div className="relative">
+              <div
+                className={`w-24 h-24 sm:w-28 sm:h-28 rounded-3xl border-[3.5px] border-ink shadow-chunky flex items-center justify-center text-6xl sm:text-7xl animate-bounce ${
+                  duelFinishData.winner === 'p1'
+                    ? 'bg-p1 text-white'
+                    : 'bg-p2 text-white'
+                }`}
+              >
+                {duelFinishData.winner === 'p1' ? p1.avatar : p2.avatar}
+              </div>
+              <div className="absolute -top-4 -right-3 text-4xl animate-pulse">
+                👑
+              </div>
+            </div>
+
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gold text-ink font-display font-bold text-xs uppercase tracking-wider border-2 border-ink shadow-chunky-sm mb-2">
+                <Trophy className="w-3.5 h-3.5" />
+                <span>Punto Conquistato!</span>
+              </div>
+              <h2 className="font-display font-bold text-3xl sm:text-5xl text-ink leading-tight">
+                Ha vinto {duelFinishData.winner === 'p1' ? p1.name : p2.name}!
+              </h2>
+              <p className="text-sm font-semibold text-ink/70 mt-1">
+                {duelFinishData.loser === 'p1' ? p1.name : p2.name} ha esaurito il
+                tempo su &ldquo;{category.name}&rdquo;
+              </p>
+            </div>
+
+            {/* Statistiche del Round */}
+            <div className="w-full grid grid-cols-2 gap-3 bg-paper p-3.5 rounded-2xl border-2 border-ink">
+              <div>
+                <span className="text-[11px] font-bold text-ink/60 uppercase block">
+                  Tempo Rimasto
+                </span>
+                <span className="font-mono font-extrabold text-2xl text-mint">
+                  {duelFinishData.summary.winnerTimeLeft.toFixed(1)}s
+                </span>
+              </div>
+              <div>
+                <span className="text-[11px] font-bold text-ink/60 uppercase block">
+                  Foto Indovinate
+                </span>
+                <span className="font-display font-bold text-2xl text-ink">
+                  {duelFinishData.winner === 'p1'
+                    ? duelFinishData.summary.p1Correct
+                    : duelFinishData.summary.p2Correct}{' '}
+                  foto
+                </span>
+              </div>
+            </div>
+
+            {/* Pulsante Prossima Categoria */}
+            <button
+              onClick={handleProceedToDraft}
+              className="btn-push w-full py-4 px-6 rounded-2xl bg-gold text-ink font-display font-bold text-lg flex items-center justify-center gap-2 mt-1 animate-bounce-soft"
+            >
+              <Sparkles className="w-5 h-5 text-ink" />
+              <span>Scegli la Prossima Categoria</span>
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Modale Pausa */}
       {isPaused && (

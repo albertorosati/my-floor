@@ -136,6 +136,101 @@ class SoundEngine {
     osc.stop(now + 0.32);
   }
 
+  /** Buzzer drammatico da Game Show TV per TEMPO SCADUTO */
+  public playTimeOutBuzzer(): void {
+    const ctx = this.getContext();
+    if (!ctx) return;
+
+    const now = ctx.currentTime;
+    // Doppio oscillatore sawtooth scordato per il classico buzz TV
+    [135, 142].forEach((freq) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(freq, now);
+      osc.frequency.linearRampToValueAtTime(freq * 0.75, now + 0.55);
+
+      gain.gain.setValueAtTime(0.26, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.58);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.6);
+    });
+
+    // Sub-bass hit per dare peso e impatto
+    const subOsc = ctx.createOscillator();
+    const subGain = ctx.createGain();
+    subOsc.type = 'sine';
+    subOsc.frequency.setValueAtTime(85, now);
+    subOsc.frequency.exponentialRampToValueAtTime(35, now + 0.5);
+    subGain.gain.setValueAtTime(0.35, now);
+    subGain.gain.exponentialRampToValueAtTime(0.001, now + 0.52);
+
+    subOsc.connect(subGain);
+    subGain.connect(ctx.destination);
+    subOsc.start(now);
+    subOsc.stop(now + 0.55);
+  }
+
+  /** Jingle di svelamento dell'ultima risposta non data */
+  public playRevealAnswer(): void {
+    const ctx = this.getContext();
+    if (!ctx) return;
+
+    const now = ctx.currentTime;
+    const revealNotes = [349.23, 440.0, 523.25, 698.46, 880.0];
+    revealNotes.forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      const start = now + i * 0.06;
+      osc.frequency.setValueAtTime(freq, start);
+
+      gain.gain.setValueAtTime(0.18, start);
+      gain.gain.exponentialRampToValueAtTime(0.001, start + 0.45);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(start);
+      osc.stop(start + 0.48);
+    });
+  }
+
+  /** Grande fanfara trionfale per la vittoria del giocatore nel duello */
+  public playGrandFanfare(): void {
+    const ctx = this.getContext();
+    if (!ctx) return;
+
+    const now = ctx.currentTime;
+    // Riff trionfale da ottoni di Game Show: C4 - E4 - G4 - C5 tenuto
+    const melody = [
+      { f: 261.63, t: 0.0, d: 0.12 },
+      { f: 329.63, t: 0.13, d: 0.12 },
+      { f: 392.0, t: 0.26, d: 0.14 },
+      { f: 523.25, t: 0.42, d: 0.55 },
+      { f: 659.25, t: 0.42, d: 0.55 },
+      { f: 783.99, t: 0.42, d: 0.55 },
+    ];
+
+    melody.forEach(({ f, t, d }) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      const start = now + t;
+      osc.frequency.setValueAtTime(f, start);
+
+      gain.gain.setValueAtTime(0.19, start);
+      gain.gain.exponentialRampToValueAtTime(0.001, start + d);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(start);
+      osc.stop(start + d + 0.02);
+    });
+  }
+
   /** Ticchettio dell'orologio durante il duello (più incalzante sotto i 10 secondi) */
   public playClockTick(urgent = false): void {
     const ctx = this.getContext();
