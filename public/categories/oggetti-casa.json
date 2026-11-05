@@ -4,7 +4,7 @@
   "subtitle": "Utensili da cucina, elettrodomestici e attrezzi della cassetta",
   "icon": "🛠️",
   "themeHex": "#0EA5E9",
-  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Moka_Express_Bialetti.png/960px-Moka_Express_Bialetti.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Moka_Express_Bialetti.png/960px-Moka_Express_Bialetti.png",
   "previewImages": [
     "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Moka_Express_Bialetti.png/960px-Moka_Express_Bialetti.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Chapaticooking.jpg/960px-Chapaticooking.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -19,7 +19,7 @@
         "caffettiera",
         "bialetti"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Moka_Express_Bialetti.png/960px-Moka_Express_Bialetti.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Moka_Express_Bialetti.png/960px-Moka_Express_Bialetti.png"
     },
     {
       "id": "oggetti-casa-2",
@@ -27,13 +27,13 @@
       "aliases": [
         "stendipasta"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Chapaticooking.jpg/960px-Chapaticooking.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Chapaticooking.jpg/960px-Chapaticooking.jpg"
     },
     {
       "id": "oggetti-casa-3",
       "answer": "Grattugia",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Kuechenreibe_%28fcm%29.jpg/960px-Kuechenreibe_%28fcm%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Kuechenreibe_%28fcm%29.jpg/960px-Kuechenreibe_%28fcm%29.jpg"
     },
     {
       "id": "oggetti-casa-4",
@@ -41,7 +41,7 @@
       "aliases": [
         "colino"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Ge%C3%ABmailleerd_vergiet_-_INDUS_V08877.jpg/960px-Ge%C3%ABmailleerd_vergiet_-_INDUS_V08877.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Ge%C3%ABmailleerd_vergiet_-_INDUS_V08877.jpg/960px-Ge%C3%ABmailleerd_vergiet_-_INDUS_V08877.jpg"
     },
     {
       "id": "oggetti-casa-5",
@@ -49,13 +49,13 @@
       "aliases": [
         "apribottiglie"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Corkscrews_December_2014-1.jpg/960px-Corkscrews_December_2014-1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Corkscrews_December_2014-1.jpg/960px-Corkscrews_December_2014-1.jpg"
     },
     {
       "id": "oggetti-casa-6",
       "answer": "Schiaccianoci",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Tschaikowsky_EBieber_1888.jpg/960px-Tschaikowsky_EBieber_1888.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Tschaikowsky_EBieber_1888.jpg/960px-Tschaikowsky_EBieber_1888.jpg"
     },
     {
       "id": "oggetti-casa-7",
@@ -63,7 +63,7 @@
       "aliases": [
         "frusta"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/Schneebesen1.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/Schneebesen1.JPG"
     },
     {
       "id": "oggetti-casa-8",
@@ -71,13 +71,13 @@
       "aliases": [
         "sbucciapatate"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Peeler_01_Pengo.jpg/960px-Peeler_01_Pengo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Peeler_01_Pengo.jpg/960px-Peeler_01_Pengo.jpg"
     },
     {
       "id": "oggetti-casa-9",
       "answer": "Tagliere",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Chopping_Board.jpg/960px-Chopping_Board.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Chopping_Board.jpg/960px-Chopping_Board.jpg"
     },
     {
       "id": "oggetti-casa-10",
@@ -85,13 +85,13 @@
       "aliases": [
         "padella"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Wok_cooking.jpg/960px-Wok_cooking.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Wok_cooking.jpg/960px-Wok_cooking.jpg"
     },
     {
       "id": "oggetti-casa-11",
       "answer": "Pentola a Pressione",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Pressure_cooker.jpg/960px-Pressure_cooker.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Pressure_cooker.jpg/960px-Pressure_cooker.jpg"
     },
     {
       "id": "oggetti-casa-12",
@@ -99,13 +99,13 @@
       "aliases": [
         "mixer"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Blender_4.5.1_startup_screen.png/960px-Blender_4.5.1_startup_screen.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Blender_4.5.1_startup_screen.png/960px-Blender_4.5.1_startup_screen.png"
     },
     {
       "id": "oggetti-casa-13",
       "answer": "Tostapane",
       "aliases": [],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/Edgar_allan_poes_grave.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/Edgar_allan_poes_grave.jpg"
     },
     {
       "id": "oggetti-casa-14",
@@ -113,13 +113,13 @@
       "aliases": [
         "ramaiolo"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dc/PINK_spoon_rest_-_JAPAN_-_Places_for_3_spoons.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dc/PINK_spoon_rest_-_JAPAN_-_Places_for_3_spoons.jpg"
     },
     {
       "id": "oggetti-casa-15",
       "answer": "Spremiagrumi",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Zitronenpresse2.jpg/960px-Zitronenpresse2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Zitronenpresse2.jpg/960px-Zitronenpresse2.jpg"
     },
     {
       "id": "oggetti-casa-16",
@@ -127,13 +127,13 @@
       "aliases": [
         "rotella pizza"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Pizza-slicer.jpg/960px-Pizza-slicer.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Pizza-slicer.jpg/960px-Pizza-slicer.jpg"
     },
     {
       "id": "oggetti-casa-17",
       "answer": "Ferro da Stiro",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Teal_and_white_electric_steam_iron_-_side_view.jpg/960px-Teal_and_white_electric_steam_iron_-_side_view.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Teal_and_white_electric_steam_iron_-_side_view.jpg/960px-Teal_and_white_electric_steam_iron_-_side_view.jpg"
     },
     {
       "id": "oggetti-casa-18",
@@ -141,7 +141,7 @@
       "aliases": [
         "folletto"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Numatic_Henry_vacuum_cleaner_%283308986870%29_%28cropped%29.jpg/960px-Numatic_Henry_vacuum_cleaner_%283308986870%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Numatic_Henry_vacuum_cleaner_%283308986870%29_%28cropped%29.jpg/960px-Numatic_Henry_vacuum_cleaner_%283308986870%29_%28cropped%29.jpg"
     },
     {
       "id": "oggetti-casa-19",
@@ -150,13 +150,13 @@
         "phon",
         "fon"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Hairdryer_20101109.jpg/960px-Hairdryer_20101109.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Hairdryer_20101109.jpg/960px-Hairdryer_20101109.jpg"
     },
     {
       "id": "oggetti-casa-20",
       "answer": "Lavatrice",
       "aliases": [],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/LG_%EB%93%9C%EB%9F%BC%EC%84%B8%ED%83%81%EA%B8%B0%EC%99%80_%EC%8B%9D%EA%B8%B0%EC%84%B8%EC%B2%99%EA%B8%B0%2C_%EC%98%81%EA%B5%AD%EC%84%9C_%EB%AC%BC%EC%82%AC%EC%9A%A9_%ED%9A%A8%EC%9C%A8_%EC%B5%9C%EC%9A%B0%EC%88%98_%EC%A0%9C%ED%92%88_%EC%88%98%EC%83%81.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/LG_%EB%93%9C%EB%9F%BC%EC%84%B8%ED%83%81%EA%B8%B0%EC%99%80_%EC%8B%9D%EA%B8%B0%EC%84%B8%EC%B2%99%EA%B8%B0%2C_%EC%98%81%EA%B5%AD%EC%84%9C_%EB%AC%BC%EC%82%AC%EC%9A%A9_%ED%9A%A8%EC%9C%A8_%EC%B5%9C%EC%9A%B0%EC%88%98_%EC%A0%9C%ED%92%88_%EC%88%98%EC%83%81.jpg"
     },
     {
       "id": "oggetti-casa-21",
@@ -165,7 +165,7 @@
         "molletta",
         "mollette"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Clothes_pegs_2016-05-25_02.jpg/960px-Clothes_pegs_2016-05-25_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Clothes_pegs_2016-05-25_02.jpg/960px-Clothes_pegs_2016-05-25_02.jpg"
     },
     {
       "id": "oggetti-casa-22",
@@ -173,7 +173,7 @@
       "aliases": [
         "innaffiatoio"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/MetalwateringcansDec08.jpg/960px-MetalwateringcansDec08.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/MetalwateringcansDec08.jpg/960px-MetalwateringcansDec08.jpg"
     },
     {
       "id": "oggetti-casa-23",
@@ -181,7 +181,7 @@
       "aliases": [
         "avvitatore"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Drillbits.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Drillbits.jpg"
     },
     {
       "id": "oggetti-casa-24",
@@ -190,7 +190,7 @@
         "flessometro",
         "metro"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Tape_Measure_25%27_Klein_Tools.jpg/960px-Tape_Measure_25%27_Klein_Tools.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Tape_Measure_25%27_Klein_Tools.jpg/960px-Tape_Measure_25%27_Klein_Tools.jpg"
     },
     {
       "id": "oggetti-casa-25",
@@ -199,7 +199,7 @@
         "bolla",
         "livella"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/DetalleNivelDeBurbuja.jpg/960px-DetalleNivelDeBurbuja.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/DetalleNivelDeBurbuja.jpg/960px-DetalleNivelDeBurbuja.jpg"
     },
     {
       "id": "oggetti-casa-26",
@@ -208,7 +208,7 @@
         "tenaglia",
         "pinze"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Ferreiro_ou_metal%C3%BArgico_tradicional.jpg/960px-Ferreiro_ou_metal%C3%BArgico_tradicional.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Ferreiro_ou_metal%C3%BArgico_tradicional.jpg/960px-Ferreiro_ou_metal%C3%BArgico_tradicional.jpg"
     },
     {
       "id": "oggetti-casa-27",
@@ -216,7 +216,7 @@
       "aliases": [
         "chiave fissa"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Adjustablewrenches.jpg/960px-Adjustablewrenches.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Adjustablewrenches.jpg/960px-Adjustablewrenches.jpg"
     },
     {
       "id": "oggetti-casa-28",
@@ -224,13 +224,13 @@
       "aliases": [
         "giravite"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/2023_Bity.jpg/960px-2023_Bity.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/2023_Bity.jpg/960px-2023_Bity.jpg"
     },
     {
       "id": "oggetti-casa-29",
       "answer": "Martello",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/OHM_-_Streithammer.jpg/960px-OHM_-_Streithammer.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/OHM_-_Streithammer.jpg/960px-OHM_-_Streithammer.jpg"
     },
     {
       "id": "oggetti-casa-30",
@@ -238,7 +238,7 @@
       "aliases": [
         "seghetto"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Pily_rozplatnice.jpg/960px-Pily_rozplatnice.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Pily_rozplatnice.jpg/960px-Pily_rozplatnice.jpg"
     },
     {
       "id": "oggetti-casa-31",
@@ -246,13 +246,13 @@
       "aliases": [
         "catenaccio"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/48/Padlock_kl%C3%B3dka_ubt.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/48/Padlock_kl%C3%B3dka_ubt.JPG"
     },
     {
       "id": "oggetti-casa-32",
       "answer": "Carriola",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/2008-07-15_Construction_wheelbarrow_at_Duke.jpg/960px-2008-07-15_Construction_wheelbarrow_at_Duke.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/2008-07-15_Construction_wheelbarrow_at_Duke.jpg/960px-2008-07-15_Construction_wheelbarrow_at_Duke.jpg"
     },
     {
       "id": "oggetti-casa-33",
@@ -261,7 +261,7 @@
         "rullo pittura",
         "pennello"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Farbroller.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Farbroller.jpg"
     },
     {
       "id": "oggetti-casa-34",
@@ -269,7 +269,7 @@
       "aliases": [
         "cutter"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Aaknife2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Aaknife2.jpg"
     },
     {
       "id": "oggetti-casa-35",
@@ -277,7 +277,7 @@
       "aliases": [
         "saldatore"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Soldering_gun.jpg/960px-Soldering_gun.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Soldering_gun.jpg/960px-Soldering_gun.jpg"
     },
     {
       "id": "oggetti-casa-36",
@@ -285,7 +285,7 @@
       "aliases": [
         "morsa"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Vajco.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Vajco.png"
     },
     {
       "id": "oggetti-casa-37",
@@ -293,25 +293,25 @@
       "aliases": [
         "scala"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/LZB_in_Flensburg_-_Niederdeutsche_Lutherbibel_von_1574-1580%2C_Bild_11B.JPG/960px-LZB_in_Flensburg_-_Niederdeutsche_Lutherbibel_von_1574-1580%2C_Bild_11B.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/LZB_in_Flensburg_-_Niederdeutsche_Lutherbibel_von_1574-1580%2C_Bild_11B.JPG/960px-LZB_in_Flensburg_-_Niederdeutsche_Lutherbibel_von_1574-1580%2C_Bild_11B.JPG"
     },
     {
       "id": "oggetti-casa-38",
       "answer": "Estintore",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Wheeled_fire_extinguisher.jpg/960px-Wheeled_fire_extinguisher.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Wheeled_fire_extinguisher.jpg/960px-Wheeled_fire_extinguisher.jpg"
     },
     {
       "id": "oggetti-casa-39",
       "answer": "Ventilatore",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Hatari_18_inch_fan.jpg/960px-Hatari_18_inch_fan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Hatari_18_inch_fan.jpg/960px-Hatari_18_inch_fan.jpg"
     },
     {
       "id": "oggetti-casa-40",
       "answer": "Lampadina",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Energiesparlampe_01_retouched.jpg/960px-Energiesparlampe_01_retouched.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Energiesparlampe_01_retouched.jpg/960px-Energiesparlampe_01_retouched.jpg"
     }
   ]
 }

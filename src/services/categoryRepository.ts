@@ -64,9 +64,10 @@ export class CategoryRepository {
 
   public static getBackupImageUrl(originalUrl: string): string {
     if (!originalUrl || originalUrl.startsWith('data:')) return originalUrl;
+    const cleanUrl = originalUrl.split('?')[0];
     return gameConfig.network.imageBackupProxyTemplate.replace(
       '{url}',
-      encodeURIComponent(originalUrl)
+      encodeURIComponent(cleanUrl)
     );
   }
 

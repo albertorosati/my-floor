@@ -4,7 +4,7 @@
   "subtitle": "Torte, pasticcini e dessert irresistibili della tradizione mondiale",
   "icon": "🍰",
   "themeHex": "#F43F5E",
-  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Tiramisu_-_Raffaele_Diomede.jpg/960px-Tiramisu_-_Raffaele_Diomede.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Tiramisu_-_Raffaele_Diomede.jpg/960px-Tiramisu_-_Raffaele_Diomede.jpg",
   "previewImages": [
     "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Tiramisu_-_Raffaele_Diomede.jpg/960px-Tiramisu_-_Raffaele_Diomede.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Cannoli_siciliani_al_Caff%C3%A8_Impero%2C_ad_Alcamo.jpg/960px-Cannoli_siciliani_al_Caff%C3%A8_Impero%2C_ad_Alcamo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -18,7 +18,7 @@
       "aliases": [
         "tiramisu"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Tiramisu_-_Raffaele_Diomede.jpg/960px-Tiramisu_-_Raffaele_Diomede.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Tiramisu_-_Raffaele_Diomede.jpg/960px-Tiramisu_-_Raffaele_Diomede.jpg"
     },
     {
       "id": "dolci-pasticceria-2",
@@ -26,7 +26,7 @@
       "aliases": [
         "cannolo"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Cannoli_siciliani_al_Caff%C3%A8_Impero%2C_ad_Alcamo.jpg/960px-Cannoli_siciliani_al_Caff%C3%A8_Impero%2C_ad_Alcamo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Cannoli_siciliani_al_Caff%C3%A8_Impero%2C_ad_Alcamo.jpg/960px-Cannoli_siciliani_al_Caff%C3%A8_Impero%2C_ad_Alcamo.jpg"
     },
     {
       "id": "dolci-pasticceria-3",
@@ -34,19 +34,19 @@
       "aliases": [
         "baba"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/BabaRum.jpg/960px-BabaRum.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/BabaRum.jpg/960px-BabaRum.jpg"
     },
     {
       "id": "dolci-pasticceria-4",
       "answer": "Sfogliatella",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Sfogliatelle_ricce_e_frolle.jpg/960px-Sfogliatelle_ricce_e_frolle.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Sfogliatelle_ricce_e_frolle.jpg/960px-Sfogliatelle_ricce_e_frolle.jpg"
     },
     {
       "id": "dolci-pasticceria-5",
       "answer": "Cassata",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Cassatasiciliana.jpg/960px-Cassatasiciliana.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Cassatasiciliana.jpg/960px-Cassatasiciliana.jpg"
     },
     {
       "id": "dolci-pasticceria-6",
@@ -54,7 +54,7 @@
       "aliases": [
         "maritozzo con la panna"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Maritozzo_presso_Caff%C3%A8_delle_colline%2C_Reggio_Emilia.jpg/960px-Maritozzo_presso_Caff%C3%A8_delle_colline%2C_Reggio_Emilia.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Maritozzo_presso_Caff%C3%A8_delle_colline%2C_Reggio_Emilia.jpg/960px-Maritozzo_presso_Caff%C3%A8_delle_colline%2C_Reggio_Emilia.jpg"
     },
     {
       "id": "dolci-pasticceria-7",
@@ -62,7 +62,7 @@
       "aliases": [
         "bigne al cioccolato"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Paris_2e_-_Rue_Vivienne_-_Restaurant_Le_Vaudeville_-_Profiteroles_au_chocolat.jpg/960px-Paris_2e_-_Rue_Vivienne_-_Restaurant_Le_Vaudeville_-_Profiteroles_au_chocolat.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Paris_2e_-_Rue_Vivienne_-_Restaurant_Le_Vaudeville_-_Profiteroles_au_chocolat.jpg/960px-Paris_2e_-_Rue_Vivienne_-_Restaurant_Le_Vaudeville_-_Profiteroles_au_chocolat.jpg"
     },
     {
       "id": "dolci-pasticceria-8",
@@ -70,7 +70,7 @@
       "aliases": [
         "diplomatico"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Mille-feuille_fran%C3%A7ais_1.jpg/960px-Mille-feuille_fran%C3%A7ais_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Mille-feuille_fran%C3%A7ais_1.jpg/960px-Mille-feuille_fran%C3%A7ais_1.jpg"
     },
     {
       "id": "dolci-pasticceria-9",
@@ -78,7 +78,7 @@
       "aliases": [
         "crostata di marmellata"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Crostata_di_albicocche.jpg/960px-Crostata_di_albicocche.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Crostata_di_albicocche.jpg/960px-Crostata_di_albicocche.jpg"
     },
     {
       "id": "dolci-pasticceria-10",
@@ -86,7 +86,7 @@
       "aliases": [
         "pastiera"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Pastiera_Napoletana.JPG/960px-Pastiera_Napoletana.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Pastiera_Napoletana.JPG/960px-Pastiera_Napoletana.JPG"
     },
     {
       "id": "dolci-pasticceria-11",
@@ -94,7 +94,7 @@
       "aliases": [
         "strudel"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Strudel.jpg/960px-Strudel.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Strudel.jpg/960px-Strudel.jpg"
     },
     {
       "id": "dolci-pasticceria-12",
@@ -103,7 +103,7 @@
         "sachertorte",
         "sacher"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Sachertorte_DSC03027.JPG/960px-Sachertorte_DSC03027.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Sachertorte_DSC03027.JPG/960px-Sachertorte_DSC03027.JPG"
     },
     {
       "id": "dolci-pasticceria-13",
@@ -111,13 +111,13 @@
       "aliases": [
         "torta foresta nera"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Black_Forest_gateau.jpg/960px-Black_Forest_gateau.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Black_Forest_gateau.jpg/960px-Black_Forest_gateau.jpg"
     },
     {
       "id": "dolci-pasticceria-14",
       "answer": "Cheesecake",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Baked_cheesecake_with_raspberries_and_blueberries.jpg/960px-Baked_cheesecake_with_raspberries_and_blueberries.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Baked_cheesecake_with_raspberries_and_blueberries.jpg/960px-Baked_cheesecake_with_raspberries_and_blueberries.jpg"
     },
     {
       "id": "dolci-pasticceria-15",
@@ -125,7 +125,7 @@
       "aliases": [
         "apple pie"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Apple_pie_14.jpg/960px-Apple_pie_14.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Apple_pie_14.jpg/960px-Apple_pie_14.jpg"
     },
     {
       "id": "dolci-pasticceria-16",
@@ -133,7 +133,7 @@
       "aliases": [
         "torta red velvet"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Red_Velvet_Cake_Waldorf_Astoria.jpg/960px-Red_Velvet_Cake_Waldorf_Astoria.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Red_Velvet_Cake_Waldorf_Astoria.jpg/960px-Red_Velvet_Cake_Waldorf_Astoria.jpg"
     },
     {
       "id": "dolci-pasticceria-17",
@@ -141,7 +141,7 @@
       "aliases": [
         "macarons"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/VanillaMacaron.jpg/960px-VanillaMacaron.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/VanillaMacaron.jpg/960px-VanillaMacaron.jpg"
     },
     {
       "id": "dolci-pasticceria-18",
@@ -149,7 +149,7 @@
       "aliases": [
         "eclair"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Two_Safeway_Chocolate_Eclairs_%2819043880936%29.jpg/960px-Two_Safeway_Chocolate_Eclairs_%2819043880936%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Two_Safeway_Chocolate_Eclairs_%2819043880936%29.jpg/960px-Two_Safeway_Chocolate_Eclairs_%2819043880936%29.jpg"
     },
     {
       "id": "dolci-pasticceria-19",
@@ -158,13 +158,13 @@
         "creme brulee",
         "crema catalana"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/2014_0531_Cr%C3%A8me_br%C3%BBl%C3%A9e_Doi_Mae_Salong_%28cropped%29.jpg/960px-2014_0531_Cr%C3%A8me_br%C3%BBl%C3%A9e_Doi_Mae_Salong_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/2014_0531_Cr%C3%A8me_br%C3%BBl%C3%A9e_Doi_Mae_Salong_%28cropped%29.jpg/960px-2014_0531_Cr%C3%A8me_br%C3%BBl%C3%A9e_Doi_Mae_Salong_%28cropped%29.jpg"
     },
     {
       "id": "dolci-pasticceria-20",
       "answer": "Panna Cotta",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Panna_Cotta_with_cream_and_garnish.jpg/960px-Panna_Cotta_with_cream_and_garnish.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Panna_Cotta_with_cream_and_garnish.jpg/960px-Panna_Cotta_with_cream_and_garnish.jpg"
     },
     {
       "id": "dolci-pasticceria-21",
@@ -172,19 +172,19 @@
       "aliases": [
         "spumiglia"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Meringues_9027.jpg/960px-Meringues_9027.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Meringues_9027.jpg/960px-Meringues_9027.jpg"
     },
     {
       "id": "dolci-pasticceria-22",
       "answer": "Muffin",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/NCI_Visuals_Food_Muffins.jpg/960px-NCI_Visuals_Food_Muffins.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/NCI_Visuals_Food_Muffins.jpg/960px-NCI_Visuals_Food_Muffins.jpg"
     },
     {
       "id": "dolci-pasticceria-23",
       "answer": "Cupcake",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Cupcakes%2C_chocolate_and_strawberry_flavour.jpg/960px-Cupcakes%2C_chocolate_and_strawberry_flavour.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Cupcakes%2C_chocolate_and_strawberry_flavour.jpg/960px-Cupcakes%2C_chocolate_and_strawberry_flavour.jpg"
     },
     {
       "id": "dolci-pasticceria-24",
@@ -192,19 +192,19 @@
       "aliases": [
         "girella alla cannella"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Cinnamon_roll_in_Stockholm.jpg/960px-Cinnamon_roll_in_Stockholm.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Cinnamon_roll_in_Stockholm.jpg/960px-Cinnamon_roll_in_Stockholm.jpg"
     },
     {
       "id": "dolci-pasticceria-25",
       "answer": "Baklava",
       "aliases": [],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Baklava%281%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Baklava%281%29.png"
     },
     {
       "id": "dolci-pasticceria-26",
       "answer": "Churros",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Chocolate_con_churros_%2827343655726%29.jpg/960px-Chocolate_con_churros_%2827343655726%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Chocolate_con_churros_%2827343655726%29.jpg/960px-Chocolate_con_churros_%2827343655726%29.jpg"
     },
     {
       "id": "dolci-pasticceria-27",
@@ -212,13 +212,13 @@
       "aliases": [
         "gaufre"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Waffle_with_strawberries_and_confectioner%27s_sugar.jpg/960px-Waffle_with_strawberries_and_confectioner%27s_sugar.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Waffle_with_strawberries_and_confectioner%27s_sugar.jpg/960px-Waffle_with_strawberries_and_confectioner%27s_sugar.jpg"
     },
     {
       "id": "dolci-pasticceria-28",
       "answer": "Pancake",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Foodiesfeed.com_pouring-honey-on-pancakes-with-walnuts.jpg/960px-Foodiesfeed.com_pouring-honey-on-pancakes-with-walnuts.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Foodiesfeed.com_pouring-honey-on-pancakes-with-walnuts.jpg/960px-Foodiesfeed.com_pouring-honey-on-pancakes-with-walnuts.jpg"
     },
     {
       "id": "dolci-pasticceria-29",
@@ -226,13 +226,13 @@
       "aliases": [
         "donut"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Glazed-Donut.jpg/960px-Glazed-Donut.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Glazed-Donut.jpg/960px-Glazed-Donut.jpg"
     },
     {
       "id": "dolci-pasticceria-30",
       "answer": "Brownie",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Chocolatebrownie.JPG/960px-Chocolatebrownie.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Chocolatebrownie.JPG/960px-Chocolatebrownie.JPG"
     },
     {
       "id": "dolci-pasticceria-31",
@@ -241,7 +241,7 @@
         "cookie",
         "cookies"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Choco_chip_cookie.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Choco_chip_cookie.png"
     },
     {
       "id": "dolci-pasticceria-32",
@@ -249,7 +249,7 @@
       "aliases": [
         "omino di pan di zenzero"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Gingerbread_men.jpg/960px-Gingerbread_men.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Gingerbread_men.jpg/960px-Gingerbread_men.jpg"
     },
     {
       "id": "dolci-pasticceria-33",
@@ -257,7 +257,7 @@
       "aliases": [
         "mandorlato"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Turr%C3%B3n_de_Alicante_%28Casa_Mira%29.jpg/960px-Turr%C3%B3n_de_Alicante_%28Casa_Mira%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Turr%C3%B3n_de_Alicante_%28Casa_Mira%29.jpg/960px-Turr%C3%B3n_de_Alicante_%28Casa_Mira%29.jpg"
     },
     {
       "id": "dolci-pasticceria-34",
@@ -265,7 +265,7 @@
       "aliases": [
         "trifle"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/3_Zuppa_inglese.jpg/960px-3_Zuppa_inglese.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/3_Zuppa_inglese.jpg/960px-3_Zuppa_inglese.jpg"
     },
     {
       "id": "dolci-pasticceria-35",
@@ -273,7 +273,7 @@
       "aliases": [
         "gelato tartufo"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Tartofu_von_innen.jpg/960px-Tartofu_von_innen.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Tartofu_von_innen.jpg/960px-Tartofu_von_innen.jpg"
     },
     {
       "id": "dolci-pasticceria-36",
@@ -282,7 +282,7 @@
         "tortino cuore caldo",
         "souffle"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Bacon_and_Cheddar_Cheese_Souffl%C3%A9.jpg/960px-Bacon_and_Cheddar_Cheese_Souffl%C3%A9.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Bacon_and_Cheddar_Cheese_Souffl%C3%A9.jpg/960px-Bacon_and_Cheddar_Cheese_Souffl%C3%A9.jpg"
     }
   ]
 }

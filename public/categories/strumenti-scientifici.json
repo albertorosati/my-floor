@@ -4,7 +4,7 @@
   "subtitle": "Apparecchiature di laboratorio, astronomia, navigazione e misura",
   "icon": "🔬",
   "themeHex": "#0EA5E9",
-  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Scientists_are_working_in_the_lab.9.jpg/960px-Scientists_are_working_in_the_lab.9.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Scientists_are_working_in_the_lab.9.jpg/960px-Scientists_are_working_in_the_lab.9.jpg",
   "previewImages": [
     "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Scientists_are_working_in_the_lab.9.jpg/960px-Scientists_are_working_in_the_lab.9.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "https://upload.wikimedia.org/wikipedia/commons/7/71/Zeiss2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
@@ -16,7 +16,7 @@
       "id": "strumenti-scientifici-1",
       "answer": "Microscopio",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Scientists_are_working_in_the_lab.9.jpg/960px-Scientists_are_working_in_the_lab.9.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Scientists_are_working_in_the_lab.9.jpg/960px-Scientists_are_working_in_the_lab.9.jpg"
     },
     {
       "id": "strumenti-scientifici-2",
@@ -24,13 +24,13 @@
       "aliases": [
         "cannocchiale"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Zeiss2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Zeiss2.jpg"
     },
     {
       "id": "strumenti-scientifici-3",
       "answer": "Binocolo",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Binocular_with_8x_magnification_and_42_mm_lens_diameter.jpg/960px-Binocular_with_8x_magnification_and_42_mm_lens_diameter.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Binocular_with_8x_magnification_and_42_mm_lens_diameter.jpg/960px-Binocular_with_8x_magnification_and_42_mm_lens_diameter.jpg"
     },
     {
       "id": "strumenti-scientifici-4",
@@ -38,7 +38,7 @@
       "aliases": [
         "fonendoscopio"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Stethoscope-2.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Stethoscope-2.png"
     },
     {
       "id": "strumenti-scientifici-5",
@@ -46,13 +46,13 @@
       "aliases": [
         "iniezione"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Syringe2.jpg/960px-Syringe2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Syringe2.jpg/960px-Syringe2.jpg"
     },
     {
       "id": "strumenti-scientifici-6",
       "answer": "Termometro",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Melting_ice_thermometer.jpg/960px-Melting_ice_thermometer.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Melting_ice_thermometer.jpg/960px-Melting_ice_thermometer.jpg"
     },
     {
       "id": "strumenti-scientifici-7",
@@ -60,7 +60,7 @@
       "aliases": [
         "misuratore di pressione"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/13/MMSA_Checking_Blood_Pressure.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/13/MMSA_Checking_Blood_Pressure.JPG"
     },
     {
       "id": "strumenti-scientifici-8",
@@ -69,7 +69,7 @@
         "lastra raggi x",
         "raggi x"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Ap_lateral_elbow.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Ap_lateral_elbow.jpg"
     },
     {
       "id": "strumenti-scientifici-9",
@@ -77,7 +77,7 @@
       "aliases": [
         "carrozzina"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/Man_in_wheelchair_with_AFO_braces_and_crutches_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/Man_in_wheelchair_with_AFO_braces_and_crutches_b.jpg"
     },
     {
       "id": "strumenti-scientifici-10",
@@ -85,7 +85,7 @@
       "aliases": [
         "grucce"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Man_standing_with_forearm_crutches.jpg/960px-Man_standing_with_forearm_crutches.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Man_standing_with_forearm_crutches.jpg/960px-Man_standing_with_forearm_crutches.jpg"
     },
     {
       "id": "strumenti-scientifici-11",
@@ -93,19 +93,19 @@
       "aliases": [
         "bilancia"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/17/Balance_%C3%A0_tabac_1850.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/17/Balance_%C3%A0_tabac_1850.JPG"
     },
     {
       "id": "strumenti-scientifici-12",
       "answer": "Clessidra",
       "aliases": [],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Half-hour_sand_glass_MET_ES268.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Half-hour_sand_glass_MET_ES268.jpg"
     },
     {
       "id": "strumenti-scientifici-13",
       "answer": "Bussola",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/2016_Busola.JPG/960px-2016_Busola.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/2016_Busola.JPG/960px-2016_Busola.JPG"
     },
     {
       "id": "strumenti-scientifici-14",
@@ -113,7 +113,7 @@
       "aliases": [
         "astrolabio"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Sextant.jpg/960px-Sextant.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Sextant.jpg/960px-Sextant.jpg"
     },
     {
       "id": "strumenti-scientifici-15",
@@ -121,13 +121,13 @@
       "aliases": [
         "orologio solare"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/MootHallSundial.JPG/960px-MootHallSundial.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/MootHallSundial.JPG/960px-MootHallSundial.JPG"
     },
     {
       "id": "strumenti-scientifici-16",
       "answer": "Barometro",
       "aliases": [],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Dosen-barometer.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Dosen-barometer.jpg"
     },
     {
       "id": "strumenti-scientifici-17",
@@ -135,25 +135,25 @@
       "aliases": [
         "misuratore del vento"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Wea00920.jpg/960px-Wea00920.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Wea00920.jpg/960px-Wea00920.jpg"
     },
     {
       "id": "strumenti-scientifici-18",
       "answer": "Sismografo",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Kinemetrics_seismograph.jpg/960px-Kinemetrics_seismograph.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Kinemetrics_seismograph.jpg/960px-Kinemetrics_seismograph.jpg"
     },
     {
       "id": "strumenti-scientifici-19",
       "answer": "Metronomo",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Czech-03836_-_Metronome_%2832638405050%29.jpg/960px-Czech-03836_-_Metronome_%2832638405050%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Czech-03836_-_Metronome_%2832638405050%29.jpg/960px-Czech-03836_-_Metronome_%2832638405050%29.jpg"
     },
     {
       "id": "strumenti-scientifici-20",
       "answer": "Diapason",
       "aliases": [],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/TuningFork659Hz.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/TuningFork659Hz.jpg"
     },
     {
       "id": "strumenti-scientifici-21",
@@ -161,13 +161,13 @@
       "aliases": [
         "calibro a corsoio"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Caliper_detail_view.jpeg/960px-Caliper_detail_view.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Caliper_detail_view.jpeg/960px-Caliper_detail_view.jpeg"
     },
     {
       "id": "strumenti-scientifici-22",
       "answer": "Micrometro",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Micrometers.jpg/960px-Micrometers.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Micrometers.jpg/960px-Micrometers.jpg"
     },
     {
       "id": "strumenti-scientifici-23",
@@ -176,7 +176,7 @@
         "provette",
         "beuta"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Two_small_test_tubes_held_in_spring_clamps.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Two_small_test_tubes_held_in_spring_clamps.jpg"
     },
     {
       "id": "strumenti-scientifici-24",
@@ -184,7 +184,7 @@
       "aliases": [
         "distillatore"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Alambik1.jpg/960px-Alambik1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Alambik1.jpg/960px-Alambik1.jpg"
     },
     {
       "id": "strumenti-scientifici-25",
@@ -192,7 +192,7 @@
       "aliases": [
         "bruciatore"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Mechero_Bunsen.jpg/960px-Mechero_Bunsen.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Mechero_Bunsen.jpg/960px-Mechero_Bunsen.jpg"
     },
     {
       "id": "strumenti-scientifici-26",
@@ -200,7 +200,7 @@
       "aliases": [
         "coltura batterica"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Antonio_e_Biagio_e_Cesare_Arrigo_Petri_dish.jpg/960px-Antonio_e_Biagio_e_Cesare_Arrigo_Petri_dish.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Antonio_e_Biagio_e_Cesare_Arrigo_Petri_dish.jpg/960px-Antonio_e_Biagio_e_Cesare_Arrigo_Petri_dish.jpg"
     },
     {
       "id": "strumenti-scientifici-27",
@@ -208,13 +208,13 @@
       "aliases": [
         "ferro di cavallo magnetico"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Magnetite_sample_with_neodymium_magnet.jpg/960px-Magnetite_sample_with_neodymium_magnet.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Magnetite_sample_with_neodymium_magnet.jpg/960px-Magnetite_sample_with_neodymium_magnet.jpg"
     },
     {
       "id": "strumenti-scientifici-28",
       "answer": "Prisma Ottico",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Dispersive_prism.png/960px-Dispersive_prism.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Dispersive_prism.png/960px-Dispersive_prism.png"
     },
     {
       "id": "strumenti-scientifici-29",
@@ -222,7 +222,7 @@
       "aliases": [
         "lente"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Mag_glass_request.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Mag_glass_request.jpg"
     },
     {
       "id": "strumenti-scientifici-30",
@@ -230,7 +230,7 @@
       "aliases": [
         "palline di newton"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Newton%27s_Cradle.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Newton%27s_Cradle.jpg"
     },
     {
       "id": "strumenti-scientifici-31",
@@ -238,7 +238,7 @@
       "aliases": [
         "mappamondo"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/The_Great_Globe%2C_Guyot_Hall%2C_Princeton_University.jpg/960px-The_Great_Globe%2C_Guyot_Hall%2C_Princeton_University.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/The_Great_Globe%2C_Guyot_Hall%2C_Princeton_University.jpg/960px-The_Great_Globe%2C_Guyot_Hall%2C_Princeton_University.jpg"
     },
     {
       "id": "strumenti-scientifici-32",
@@ -246,19 +246,19 @@
       "aliases": [
         "abaco"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Abacus_%28PSF%29.png/960px-Abacus_%28PSF%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Abacus_%28PSF%29.png/960px-Abacus_%28PSF%29.png"
     },
     {
       "id": "strumenti-scientifici-33",
       "answer": "Regolo Calcolatore",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Sliderule.PickettN902T.agr.jpg/960px-Sliderule.PickettN902T.agr.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Sliderule.PickettN902T.agr.jpg/960px-Sliderule.PickettN902T.agr.jpg"
     },
     {
       "id": "strumenti-scientifici-34",
       "answer": "Contatore Geiger",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Geiger_counter.jpg/960px-Geiger_counter.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Geiger_counter.jpg/960px-Geiger_counter.jpg"
     }
   ]
 }

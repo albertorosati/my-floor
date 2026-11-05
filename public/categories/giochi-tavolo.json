@@ -4,7 +4,7 @@
   "subtitle": "Scacchiere, dadi, carte e grandi classici delle serate in compagnia",
   "icon": "🎲",
   "themeHex": "#F97316",
-  "coverImage": "https://upload.wikimedia.org/wikipedia/commons/6/6f/ChessSet.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "coverImage": "https://upload.wikimedia.org/wikipedia/commons/6/6f/ChessSet.jpg",
   "previewImages": [
     "https://upload.wikimedia.org/wikipedia/commons/6/6f/ChessSet.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/CheckersStandard.jpg/960px-CheckersStandard.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -19,7 +19,7 @@
         "scacchiera",
         "re degli scacchi"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/ChessSet.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/ChessSet.jpg"
     },
     {
       "id": "giochi-tavolo-2",
@@ -27,7 +27,7 @@
       "aliases": [
         "pedine dama"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/CheckersStandard.jpg/960px-CheckersStandard.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/CheckersStandard.jpg/960px-CheckersStandard.jpg"
     },
     {
       "id": "giochi-tavolo-3",
@@ -35,7 +35,7 @@
       "aliases": [
         "tavola reale"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Backgammon_lg.png/960px-Backgammon_lg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Backgammon_lg.png/960px-Backgammon_lg.png"
     },
     {
       "id": "giochi-tavolo-4",
@@ -43,7 +43,7 @@
       "aliases": [
         "tessere domino"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Dominospiel.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Dominospiel.JPG"
     },
     {
       "id": "giochi-tavolo-5",
@@ -51,7 +51,7 @@
       "aliases": [
         "majong"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Mahjong_game.jpg/960px-Mahjong_game.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Mahjong_game.jpg/960px-Mahjong_game.jpg"
     },
     {
       "id": "giochi-tavolo-6",
@@ -59,7 +59,7 @@
       "aliases": [
         "torre di legno"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/56_Leonard_Street_%2824249%29.jpg/960px-56_Leonard_Street_%2824249%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/56_Leonard_Street_%2824249%29.jpg/960px-56_Leonard_Street_%2824249%29.jpg"
     },
     {
       "id": "giochi-tavolo-7",
@@ -67,7 +67,7 @@
       "aliases": [
         "tappetino pallini"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/E3_2011_-_IndieCade_Twister_race_%285831107414%29.jpg/960px-E3_2011_-_IndieCade_Twister_race_%285831107414%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/E3_2011_-_IndieCade_Twister_race_%285831107414%29.jpg/960px-E3_2011_-_IndieCade_Twister_race_%285831107414%29.jpg"
     },
     {
       "id": "giochi-tavolo-8",
@@ -76,7 +76,7 @@
         "palle da biliardo",
         "stecca"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Niels_Feijen_NL.JPG/960px-Niels_Feijen_NL.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Niels_Feijen_NL.JPG/960px-Niels_Feijen_NL.JPG"
     },
     {
       "id": "giochi-tavolo-9",
@@ -84,7 +84,7 @@
       "aliases": [
         "bersaglio freccette"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Darts_in_a_dartboard.jpg/960px-Darts_in_a_dartboard.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Darts_in_a_dartboard.jpg/960px-Darts_in_a_dartboard.jpg"
     },
     {
       "id": "giochi-tavolo-10",
@@ -92,7 +92,7 @@
       "aliases": [
         "biliardino"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Baby_foot_artlibre_jnl.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Baby_foot_artlibre_jnl.jpg"
     },
     {
       "id": "giochi-tavolo-11",
@@ -100,7 +100,7 @@
       "aliases": [
         "ruota casino"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/13-02-27-spielbank-wiesbaden-by-RalfR-094.jpg/960px-13-02-27-spielbank-wiesbaden-by-RalfR-094.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/13-02-27-spielbank-wiesbaden-by-RalfR-094.jpg/960px-13-02-27-spielbank-wiesbaden-by-RalfR-094.jpg"
     },
     {
       "id": "giochi-tavolo-12",
@@ -108,7 +108,7 @@
       "aliases": [
         "macchinetta casino"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Las_Vegas_slot_machines.jpg/960px-Las_Vegas_slot_machines.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Las_Vegas_slot_machines.jpg/960px-Las_Vegas_slot_machines.jpg"
     },
     {
       "id": "giochi-tavolo-13",
@@ -117,7 +117,7 @@
         "fiches",
         "carte da poker"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Holdem.jpg/960px-Holdem.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Holdem.jpg/960px-Holdem.jpg"
     },
     {
       "id": "giochi-tavolo-14",
@@ -126,7 +126,7 @@
         "tombola",
         "cartella tombola"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Bingo.jpg/960px-Bingo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Bingo.jpg/960px-Bingo.jpg"
     },
     {
       "id": "giochi-tavolo-15",
@@ -134,7 +134,7 @@
       "aliases": [
         "cruciverba numerico"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Sudoku_Puzzle_%28automorphic_with_translational_symmetry%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Sudoku_Puzzle_%28automorphic_with_translational_symmetry%29.png"
     },
     {
       "id": "giochi-tavolo-16",
@@ -142,7 +142,7 @@
       "aliases": [
         "parole crociate"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/MInute_Crypic_October_31%2C_2026_puzzle.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/MInute_Crypic_October_31%2C_2026_puzzle.png"
     },
     {
       "id": "giochi-tavolo-17",
@@ -150,7 +150,7 @@
       "aliases": [
         "tessere puzzle"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Jigsaw_puzzle_01_by_Scouten.jpg/960px-Jigsaw_puzzle_01_by_Scouten.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Jigsaw_puzzle_01_by_Scouten.jpg/960px-Jigsaw_puzzle_01_by_Scouten.jpg"
     },
     {
       "id": "giochi-tavolo-18",
@@ -158,7 +158,7 @@
       "aliases": [
         "rubik"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Rubiks_cube_solved.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Rubiks_cube_solved.jpg"
     },
     {
       "id": "giochi-tavolo-19",
@@ -166,7 +166,7 @@
       "aliases": [
         "dado"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1c/6sided_dice_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1c/6sided_dice_%28cropped%29.jpg"
     },
     {
       "id": "giochi-tavolo-20",
@@ -176,7 +176,7 @@
         "scopa carte",
         "carte da gioco"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/AcetoFive.JPG/960px-AcetoFive.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/AcetoFive.JPG/960px-AcetoFive.JPG"
     },
     {
       "id": "giochi-tavolo-21",
@@ -184,7 +184,7 @@
       "aliases": [
         "carte dei tarocchi"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Print%2C_playing-card_%28BM_1904%2C0511.47.1-78_3%29.jpg/960px-Print%2C_playing-card_%28BM_1904%2C0511.47.1-78_3%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Print%2C_playing-card_%28BM_1904%2C0511.47.1-78_3%29.jpg/960px-Print%2C_playing-card_%28BM_1904%2C0511.47.1-78_3%29.jpg"
     },
     {
       "id": "giochi-tavolo-22",
@@ -193,13 +193,13 @@
         "mikado",
         "bastoncini"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Jeu_de_mikado.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Jeu_de_mikado.jpg"
     },
     {
       "id": "giochi-tavolo-23",
       "answer": "battaglia Navale",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Hra_n%C3%A1mo%C5%99n%C3%AD_bitva_%281%29.jpg/960px-Hra_n%C3%A1mo%C5%99n%C3%AD_bitva_%281%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Hra_n%C3%A1mo%C5%99n%C3%AD_bitva_%281%29.jpg/960px-Hra_n%C3%A1mo%C5%99n%C3%AD_bitva_%281%29.jpg"
     },
     {
       "id": "giochi-tavolo-24",
@@ -207,7 +207,7 @@
       "aliases": [
         "forza quattro"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/84/Connect-four.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/84/Connect-four.jpg"
     },
     {
       "id": "giochi-tavolo-25",
@@ -215,7 +215,7 @@
       "aliases": [
         "monopoly"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Monopoly_board_on_white_bg.jpg/960px-Monopoly_board_on_white_bg.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Monopoly_board_on_white_bg.jpg/960px-Monopoly_board_on_white_bg.jpg"
     },
     {
       "id": "giochi-tavolo-26",
@@ -224,7 +224,7 @@
         "scrabble",
         "letterine legno"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Scrabble_game_in_progress.jpg/960px-Scrabble_game_in_progress.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Scrabble_game_in_progress.jpg/960px-Scrabble_game_in_progress.jpg"
     },
     {
       "id": "giochi-tavolo-27",
@@ -233,13 +233,13 @@
         "weiqi",
         "pietre go"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/FloorGoban.JPG/960px-FloorGoban.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/FloorGoban.JPG/960px-FloorGoban.JPG"
     },
     {
       "id": "giochi-tavolo-28",
       "answer": "Carrom",
       "aliases": [],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Carrom.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Carrom.jpg"
     },
     {
       "id": "giochi-tavolo-29",
@@ -247,7 +247,7 @@
       "aliases": [
         "disco air hockey"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6b/AirHockeyTable.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6b/AirHockeyTable.JPG"
     },
     {
       "id": "giochi-tavolo-30",
@@ -255,7 +255,7 @@
       "aliases": [
         "pinball"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/A_rebuilt_Terminator_2_pinball_machine_by_Wayne_Patrick_Finn_Melbourne_Australia._38.jpg/960px-A_rebuilt_Terminator_2_pinball_machine_by_Wayne_Patrick_Finn_Melbourne_Australia._38.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/A_rebuilt_Terminator_2_pinball_machine_by_Wayne_Patrick_Finn_Melbourne_Australia._38.jpg/960px-A_rebuilt_Terminator_2_pinball_machine_by_Wayne_Patrick_Finn_Melbourne_Australia._38.jpg"
     },
     {
       "id": "giochi-tavolo-31",
@@ -263,7 +263,7 @@
       "aliases": [
         "birilli"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/20190107_Bowling_balls_and_pins.png/960px-20190107_Bowling_balls_and_pins.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/20190107_Bowling_balls_and_pins.png/960px-20190107_Bowling_balls_and_pins.png"
     },
     {
       "id": "giochi-tavolo-32",
@@ -272,13 +272,13 @@
         "bocce",
         "gioco delle bocce"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Petanque_on_a_beach_of_Nice.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Petanque_on_a_beach_of_Nice.jpg"
     },
     {
       "id": "giochi-tavolo-33",
       "answer": "Croquet",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Modern_croquet_equipment.JPG/960px-Modern_croquet_equipment.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Modern_croquet_equipment.JPG/960px-Modern_croquet_equipment.JPG"
     }
   ]
 }

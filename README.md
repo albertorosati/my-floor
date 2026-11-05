@@ -1,11 +1,16 @@
-# ⚡ The Floor — 1v1 Voice Duel Showdown
+<p align="center">
+  <img src="./public/banner.svg" alt="The Floor — 1v1 Voice Duel Showdown" width="840" />
+</p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Live%20Demo-Play%20Now-FF4D8D?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Demo" />
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/React%2018-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React 18" />
-  <img src="https://img.shields.io/badge/Tailwind%20CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/WebRTC-PeerJS-333333?style=for-the-badge&logo=webrtc&logoColor=white" alt="WebRTC" />
+  <a href="https://albertorosati.github.io/my-floor/">
+    <img src="https://img.shields.io/badge/PLAY_LIVE-albertorosati.github.io%2Fmy--floor-FF4D8D?style=for-the-badge" alt="Play Live" />
+  </a>
+  <img src="https://img.shields.io/badge/React_18-61DAFB?style=for-the-badge&labelColor=140E24" alt="React 18" />
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&labelColor=140E24" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&labelColor=140E24" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/WebRTC-PeerJS-FFB800?style=for-the-badge&labelColor=140E24" alt="WebRTC" />
+  <img src="https://img.shields.io/badge/56_Decks-2%2C100+_Photos-00F0FF?style=for-the-badge&labelColor=140E24" alt="Categories" />
 </p>
 
 <p align="center">

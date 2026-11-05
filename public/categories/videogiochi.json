@@ -365,7 +365,7 @@
         "steve minecraft",
         "blocchi"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/0/0e/Minecraft_%28film%29.png/960px-Minecraft_%28film%29.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/0/0e/Minecraft_%28film%29.png/960px-Minecraft_%28film%29.png"
     },
     {
       "id": "videogiochi-42",
@@ -374,7 +374,7 @@
         "mario bros",
         "idraulico"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/5/50/Mario_Nintendo.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/5/50/Mario_Nintendo.png"
     },
     {
       "id": "videogiochi-43",
@@ -383,7 +383,7 @@
         "zelda",
         "link"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/e/ec/Twilight_Princess_-_Link_05.jpg/960px-Twilight_Princess_-_Link_05.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/e/ec/Twilight_Princess_-_Link_05.jpg/960px-Twilight_Princess_-_Link_05.jpg"
     },
     {
       "id": "videogiochi-44",
@@ -391,7 +391,7 @@
       "aliases": [
         "sonic il riccio"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/f4/Sonic_modern_and_classic_designs.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/f4/Sonic_modern_and_classic_designs.png"
     },
     {
       "id": "videogiochi-45",
@@ -399,7 +399,7 @@
       "aliases": [
         "pacman"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Pac-Man_ingame_and_2D_alternative_design.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Pac-Man_ingame_and_2D_alternative_design.png"
     }
   ]
 }

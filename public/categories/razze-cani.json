@@ -4,7 +4,7 @@
   "subtitle": "Dal minuscolo Chihuahua al San Bernardo: riconosci la razza!",
   "icon": "🐶",
   "themeHex": "#D97706",
-  "coverImage": "https://upload.wikimedia.org/wikipedia/commons/d/d0/German_Shepherd_-_DSC_0346_%2810096362833%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "coverImage": "https://upload.wikimedia.org/wikipedia/commons/d/d0/German_Shepherd_-_DSC_0346_%2810096362833%29.jpg",
   "previewImages": [
     "https://upload.wikimedia.org/wikipedia/commons/d/d0/German_Shepherd_-_DSC_0346_%2810096362833%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_Retriever_Dukedestiny01_drvd.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
@@ -18,7 +18,7 @@
       "aliases": [
         "cane lupo"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/German_Shepherd_-_DSC_0346_%2810096362833%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/German_Shepherd_-_DSC_0346_%2810096362833%29.jpg"
     },
     {
       "id": "razze-cani-2",
@@ -26,7 +26,7 @@
       "aliases": [
         "golden"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_Retriever_Dukedestiny01_drvd.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_Retriever_Dukedestiny01_drvd.jpg"
     },
     {
       "id": "razze-cani-3",
@@ -34,7 +34,7 @@
       "aliases": [
         "labrador retriever"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Labrador_on_Quantock_%282175262184%29.jpg/960px-Labrador_on_Quantock_%282175262184%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Labrador_on_Quantock_%282175262184%29.jpg/960px-Labrador_on_Quantock_%282175262184%29.jpg"
     },
     {
       "id": "razze-cani-4",
@@ -42,7 +42,7 @@
       "aliases": [
         "bouledogue francese"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/2008-07-28_Dog_at_Frolick_Field.jpg/960px-2008-07-28_Dog_at_Frolick_Field.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/2008-07-28_Dog_at_Frolick_Field.jpg/960px-2008-07-28_Dog_at_Frolick_Field.jpg"
     },
     {
       "id": "razze-cani-5",
@@ -50,7 +50,7 @@
       "aliases": [
         "bulldog"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Whitebulldog.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Whitebulldog.jpg"
     },
     {
       "id": "razze-cani-6",
@@ -58,7 +58,7 @@
       "aliases": [
         "pug"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Mops_oct09_cropped2.jpg/960px-Mops_oct09_cropped2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Mops_oct09_cropped2.jpg/960px-Mops_oct09_cropped2.jpg"
     },
     {
       "id": "razze-cani-7",
@@ -66,7 +66,7 @@
       "aliases": [
         "cane salsiccia"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/%EB%8B%A5%EC%8A%A4%ED%9B%88%ED%8A%B8%28%EB%8B%A8%EB%AA%A8%EC%A2%85%29_%28Dachshund_%28Short%29%29.jpg/960px-%EB%8B%A5%EC%8A%A4%ED%9B%88%ED%8A%B8%28%EB%8B%A8%EB%AA%A8%EC%A2%85%29_%28Dachshund_%28Short%29%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/%EB%8B%A5%EC%8A%A4%ED%9B%88%ED%8A%B8%28%EB%8B%A8%EB%AA%A8%EC%A2%85%29_%28Dachshund_%28Short%29%29.jpg/960px-%EB%8B%A5%EC%8A%A4%ED%9B%88%ED%8A%B8%28%EB%8B%A8%EB%AA%A8%EC%A2%85%29_%28Dachshund_%28Short%29%29.jpg"
     },
     {
       "id": "razze-cani-8",
@@ -74,7 +74,7 @@
       "aliases": [
         "ciuaua"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Chihuahua1_bvdb.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Chihuahua1_bvdb.jpg"
     },
     {
       "id": "razze-cani-9",
@@ -82,7 +82,7 @@
       "aliases": [
         "husky"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Husky_L.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Husky_L.jpg"
     },
     {
       "id": "razze-cani-10",
@@ -90,7 +90,7 @@
       "aliases": [
         "rotvailer"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Rottweiler_standing_facing_left.jpg/960px-Rottweiler_standing_facing_left.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Rottweiler_standing_facing_left.jpg/960px-Rottweiler_standing_facing_left.jpg"
     },
     {
       "id": "razze-cani-11",
@@ -98,13 +98,13 @@
       "aliases": [
         "doberman"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Dobermann_handling.jpg/960px-Dobermann_handling.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Dobermann_handling.jpg/960px-Dobermann_handling.jpg"
     },
     {
       "id": "razze-cani-12",
       "answer": "Boxer",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Male_fawn_Boxer_undocked.jpg/960px-Male_fawn_Boxer_undocked.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Male_fawn_Boxer_undocked.jpg/960px-Male_fawn_Boxer_undocked.jpg"
     },
     {
       "id": "razze-cani-13",
@@ -112,7 +112,7 @@
       "aliases": [
         "carica dei 101"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/68/Sun_Dog_Dalmatian.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/68/Sun_Dog_Dalmatian.jpg"
     },
     {
       "id": "razze-cani-14",
@@ -120,7 +120,7 @@
       "aliases": [
         "bigol"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Beagle_600.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Beagle_600.jpg"
     },
     {
       "id": "razze-cani-15",
@@ -128,7 +128,7 @@
       "aliases": [
         "collie"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Border_Collie_600.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Border_Collie_600.jpg"
     },
     {
       "id": "razze-cani-16",
@@ -136,7 +136,7 @@
       "aliases": [
         "welsh corgi"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Welsh_Pembroke_Corgi.jpg/960px-Welsh_Pembroke_Corgi.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Welsh_Pembroke_Corgi.jpg/960px-Welsh_Pembroke_Corgi.jpg"
     },
     {
       "id": "razze-cani-17",
@@ -144,7 +144,7 @@
       "aliases": [
         "shiba"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Taka_Shiba.jpg/960px-Taka_Shiba.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Taka_Shiba.jpg/960px-Taka_Shiba.jpg"
     },
     {
       "id": "razze-cani-18",
@@ -153,7 +153,7 @@
         "akita",
         "hachiko"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/af/Akita_Collage.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/af/Akita_Collage.png"
     },
     {
       "id": "razze-cani-19",
@@ -161,13 +161,13 @@
       "aliases": [
         "barbone"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Full_attention_%288067543690%29.jpg/960px-Full_attention_%288067543690%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Full_attention_%288067543690%29.jpg/960px-Full_attention_%288067543690%29.jpg"
     },
     {
       "id": "razze-cani-20",
       "answer": "Maltese",
       "aliases": [],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/Maltese_600.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/Maltese_600.jpg"
     },
     {
       "id": "razze-cani-21",
@@ -175,7 +175,7 @@
       "aliases": [
         "yorkshire terrier"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/41/%282_version%29_Grupp_3%2C_YORKSHIRETERRIER%2C_NO_UCH_SE_UCH_Oxzar_Amazing_Bel%E2%80%99s_Toffy_%2824310212305%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/41/%282_version%29_Grupp_3%2C_YORKSHIRETERRIER%2C_NO_UCH_SE_UCH_Oxzar_Amazing_Bel%E2%80%99s_Toffy_%2824310212305%29.jpg"
     },
     {
       "id": "razze-cani-22",
@@ -184,19 +184,19 @@
         "pomerania",
         "volpino"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Pomeranian.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Pomeranian.JPG"
     },
     {
       "id": "razze-cani-23",
       "answer": "San Bernardo",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Hummel_Vedor_vd_Robandahoeve.jpg/960px-Hummel_Vedor_vd_Robandahoeve.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Hummel_Vedor_vd_Robandahoeve.jpg/960px-Hummel_Vedor_vd_Robandahoeve.jpg"
     },
     {
       "id": "razze-cani-24",
       "answer": "Terranova",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Newfoundland_dog_Smoky.jpg/960px-Newfoundland_dog_Smoky.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Newfoundland_dog_Smoky.jpg/960px-Newfoundland_dog_Smoky.jpg"
     },
     {
       "id": "razze-cani-25",
@@ -204,7 +204,7 @@
       "aliases": [
         "gran danese"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Dog_niemiecki_%C5%BC%C3%B3%C5%82ty_LM980.jpg/960px-Dog_niemiecki_%C5%BC%C3%B3%C5%82ty_LM980.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Dog_niemiecki_%C5%BC%C3%B3%C5%82ty_LM980.jpg/960px-Dog_niemiecki_%C5%BC%C3%B3%C5%82ty_LM980.jpg"
     },
     {
       "id": "razze-cani-26",
@@ -212,13 +212,13 @@
       "aliases": [
         "greyhound"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/GraceTheGreyhound.jpg/960px-GraceTheGreyhound.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/GraceTheGreyhound.jpg/960px-GraceTheGreyhound.jpg"
     },
     {
       "id": "razze-cani-27",
       "answer": "Bull Terrier",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Bullterrier-3453301920.jpg/960px-Bullterrier-3453301920.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Bullterrier-3453301920.jpg/960px-Bullterrier-3453301920.jpg"
     },
     {
       "id": "razze-cani-28",
@@ -226,7 +226,7 @@
       "aliases": [
         "corso"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/03/Cane_corso_temi_1_1024x768x24_%28cropped%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/03/Cane_corso_temi_1_1024x768x24_%28cropped%29.png"
     },
     {
       "id": "razze-cani-29",
@@ -234,7 +234,7 @@
       "aliases": [
         "maremmano"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Pastore_Maremmano-Abruzzese%2C_young_dog_%28cropped%29.jpg/960px-Pastore_Maremmano-Abruzzese%2C_young_dog_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Pastore_Maremmano-Abruzzese%2C_young_dog_%28cropped%29.jpg/960px-Pastore_Maremmano-Abruzzese%2C_young_dog_%28cropped%29.jpg"
     },
     {
       "id": "razze-cani-30",
@@ -242,13 +242,13 @@
       "aliases": [
         "ciau ciau"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Chow-chow_in_Tallinn.JPG/960px-Chow-chow_in_Tallinn.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Chow-chow_in_Tallinn.JPG/960px-Chow-chow_in_Tallinn.JPG"
     },
     {
       "id": "razze-cani-31",
       "answer": "Shar Pei",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Dog_morphological_variation.png/960px-Dog_morphological_variation.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Dog_morphological_variation.png/960px-Dog_morphological_variation.png"
     },
     {
       "id": "razze-cani-32",
@@ -256,7 +256,7 @@
       "aliases": [
         "jack russell terrier"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Jack_Russell_Terrier_1.jpg/960px-Jack_Russell_Terrier_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Jack_Russell_Terrier_1.jpg/960px-Jack_Russell_Terrier_1.jpg"
     },
     {
       "id": "razze-cani-33",
@@ -264,7 +264,7 @@
       "aliases": [
         "cocker"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/%22Bill%22_-_Cocker_spaniel_anglais_2.JPG/960px-%22Bill%22_-_Cocker_spaniel_anglais_2.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/%22Bill%22_-_Cocker_spaniel_anglais_2.JPG/960px-%22Bill%22_-_Cocker_spaniel_anglais_2.JPG"
     },
     {
       "id": "razze-cani-34",
@@ -272,25 +272,25 @@
       "aliases": [
         "setter"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Can_Setter_dog_GFDL.jpg/960px-Can_Setter_dog_GFDL.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Can_Setter_dog_GFDL.jpg/960px-Can_Setter_dog_GFDL.jpg"
     },
     {
       "id": "razze-cani-35",
       "answer": "Basset Hound",
       "aliases": [],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cf/BassetHound_profil.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cf/BassetHound_profil.jpg"
     },
     {
       "id": "razze-cani-36",
       "answer": "Samoiedo",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Samojed00.jpg/960px-Samojed00.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Samojed00.jpg/960px-Samojed00.jpg"
     },
     {
       "id": "razze-cani-37",
       "answer": "Schnauzer",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Miniature_Schnauzer_salt_%26_pepper_%28cropped%29.jpg/960px-Miniature_Schnauzer_salt_%26_pepper_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Miniature_Schnauzer_salt_%26_pepper_%28cropped%29.jpg/960px-Miniature_Schnauzer_salt_%26_pepper_%28cropped%29.jpg"
     },
     {
       "id": "razze-cani-38",
@@ -298,7 +298,7 @@
       "aliases": [
         "bernese"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/3-BerneseMountainDogInGrass.jpg/960px-3-BerneseMountainDogInGrass.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/3-BerneseMountainDogInGrass.jpg/960px-3-BerneseMountainDogInGrass.jpg"
     }
   ]
 }

@@ -4,7 +4,7 @@
   "subtitle": "Personaggi e serie che ci hanno tenuti incollati allo schermo",
   "icon": "📺",
   "themeHex": "#8B5CF6",
-  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Walter_Francis_White_by_Clara_Sipprell.jpg/960px-Walter_Francis_White_by_Clara_Sipprell.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "coverImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Walter_Francis_White_by_Clara_Sipprell.jpg/960px-Walter_Francis_White_by_Clara_Sipprell.jpg",
   "previewImages": [
     "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Walter_Francis_White_by_Clara_Sipprell.jpg/960px-Walter_Francis_White_by_Clara_Sipprell.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "https://thumb.wikimedia.org/wikipedia/it/thumb/e/ea/Stranger_Things_-_Storie_dal_1985.jpg/960px-Stranger_Things_-_Storie_dal_1985.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -19,7 +19,7 @@
         "walter white",
         "heisenberg"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Walter_Francis_White_by_Clara_Sipprell.jpg/960px-Walter_Francis_White_by_Clara_Sipprell.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Walter_Francis_White_by_Clara_Sipprell.jpg/960px-Walter_Francis_White_by_Clara_Sipprell.jpg"
     },
     {
       "id": "serie-tv-2",
@@ -28,7 +28,7 @@
         "undici",
         "sottosopra"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/e/ea/Stranger_Things_-_Storie_dal_1985.jpg/960px-Stranger_Things_-_Storie_dal_1985.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/e/ea/Stranger_Things_-_Storie_dal_1985.jpg/960px-Stranger_Things_-_Storie_dal_1985.jpg"
     },
     {
       "id": "serie-tv-3",
@@ -36,7 +36,7 @@
       "aliases": [
         "gioco del calamaro"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/7/76/Seong_Gi-hun.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/7/76/Seong_Gi-hun.jpg"
     },
     {
       "id": "serie-tv-4",
@@ -46,7 +46,7 @@
         "jon snow",
         "daenerys"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Sam_Rockwell-3953.jpg/960px-Sam_Rockwell-3953.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Sam_Rockwell-3953.jpg/960px-Sam_Rockwell-3953.jpg"
     },
     {
       "id": "serie-tv-5",
@@ -56,7 +56,7 @@
         "il professore",
         "bella ciao"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/e/e9/La_casa_di_carta_-_Corea.jpg/960px-La_casa_di_carta_-_Corea.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/e/e9/La_casa_di_carta_-_Corea.jpg/960px-La_casa_di_carta_-_Corea.jpg"
     },
     {
       "id": "serie-tv-6",
@@ -65,7 +65,7 @@
         "wednesday",
         "mercoledi addams"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/8/8f/Mercoled%C3%AC_%28La_famiglia_Addams%2C_1964%29.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/8/8f/Mercoled%C3%AC_%28La_famiglia_Addams%2C_1964%29.png"
     },
     {
       "id": "serie-tv-7",
@@ -73,7 +73,7 @@
       "aliases": [
         "thomas shelby"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/8/81/ThomasShelby.jpg/960px-ThomasShelby.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/8/81/ThomasShelby.jpg/960px-ThomasShelby.jpg"
     },
     {
       "id": "serie-tv-8",
@@ -81,7 +81,7 @@
       "aliases": [
         "michael scott"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/4/4b/The_Office_US_sigla.png/960px-The_Office_US_sigla.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/4/4b/The_Office_US_sigla.png/960px-The_Office_US_sigla.png"
     },
     {
       "id": "serie-tv-9",
@@ -91,7 +91,7 @@
         "ross",
         "central perk"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/16/JenniferAnistonHWoFFeb2012.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/16/JenniferAnistonHWoFFeb2012.jpg"
     },
     {
       "id": "serie-tv-10",
@@ -100,7 +100,7 @@
         "barney stinson",
         "e alla fine arriva mamma"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/2/22/Barney_Stinson_%28HIMYM%29.png/960px-Barney_Stinson_%28HIMYM%29.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/2/22/Barney_Stinson_%28HIMYM%29.png/960px-Barney_Stinson_%28HIMYM%29.png"
     },
     {
       "id": "serie-tv-11",
@@ -109,7 +109,7 @@
         "sheldon cooper",
         "bazinga"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/6/65/Big_Bang_Theory%2C_Sheldon_Cooper%2C_5x20.png/960px-Big_Bang_Theory%2C_Sheldon_Cooper%2C_5x20.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/6/65/Big_Bang_Theory%2C_Sheldon_Cooper%2C_5x20.png/960px-Big_Bang_Theory%2C_Sheldon_Cooper%2C_5x20.png"
     },
     {
       "id": "serie-tv-12",
@@ -118,7 +118,7 @@
         "dottor house",
         "house"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/e/eb/Gregory_House.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/e/eb/Gregory_House.png"
     },
     {
       "id": "serie-tv-13",
@@ -127,7 +127,7 @@
         "isola di lost",
         "jack shephard"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Matthew_Fox_actor_%28cropped%29.jpg/960px-Matthew_Fox_actor_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Matthew_Fox_actor_%28cropped%29.jpg/960px-Matthew_Fox_actor_%28cropped%29.jpg"
     },
     {
       "id": "serie-tv-14",
@@ -135,7 +135,7 @@
       "aliases": [
         "pablo escobar serie"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Wagner_Moura-6546_%283x4%29.jpg/960px-Wagner_Moura-6546_%283x4%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Wagner_Moura-6546_%283x4%29.jpg/960px-Wagner_Moura-6546_%283x4%29.jpg"
     },
     {
       "id": "serie-tv-15",
@@ -143,7 +143,7 @@
       "aliases": [
         "patriota"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Antony_Starr_by_Gage_Skidmore.jpg/960px-Antony_Starr_by_Gage_Skidmore.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Antony_Starr_by_Gage_Skidmore.jpg/960px-Antony_Starr_by_Gage_Skidmore.jpg"
     },
     {
       "id": "serie-tv-16",
@@ -151,7 +151,7 @@
       "aliases": [
         "joel e ellie"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Bella_Ramsey_in_2026_02_%28cropped%29.jpg/960px-Bella_Ramsey_in_2026_02_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Bella_Ramsey_in_2026_02_%28cropped%29.jpg/960px-Bella_Ramsey_in_2026_02_%28cropped%29.jpg"
     },
     {
       "id": "serie-tv-17",
@@ -159,7 +159,7 @@
       "aliases": [
         "rick grimes"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/8/81/Rick_Grimes.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/8/81/Rick_Grimes.png"
     },
     {
       "id": "serie-tv-18",
@@ -167,7 +167,7 @@
       "aliases": [
         "dexter morgan"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/1/17/Dexter_Morgan.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/1/17/Dexter_Morgan.png"
     },
     {
       "id": "serie-tv-19",
@@ -175,7 +175,7 @@
       "aliases": [
         "saul goodman"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/4/47/SaulGoodman.jpg/960px-SaulGoodman.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/4/47/SaulGoodman.jpg/960px-SaulGoodman.jpg"
     },
     {
       "id": "serie-tv-20",
@@ -184,7 +184,7 @@
         "sacred heart",
         "medici ai primi ferri"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/7/7c/Scrubs_titoli_di_testa.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/7/7c/Scrubs_titoli_di_testa.png"
     },
     {
       "id": "serie-tv-21",
@@ -192,7 +192,7 @@
       "aliases": [
         "scofield"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/3/3e/MichaelScofield.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/3/3e/MichaelScofield.png"
     },
     {
       "id": "serie-tv-22",
@@ -200,7 +200,7 @@
       "aliases": [
         "ragnar"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Harley_MS_2278%2C_folio_39r_excerpt.jpg/960px-Harley_MS_2278%2C_folio_39r_excerpt.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Harley_MS_2278%2C_folio_39r_excerpt.jpg/960px-Harley_MS_2278%2C_folio_39r_excerpt.jpg"
     },
     {
       "id": "serie-tv-23",
@@ -208,7 +208,7 @@
       "aliases": [
         "lady whistledown"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Reg%C3%A9-Jean_Page%2C_Jura_Watches_Aug_9%2C_2023.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Reg%C3%A9-Jean_Page%2C_Jura_Watches_Aug_9%2C_2023.jpg"
     },
     {
       "id": "serie-tv-24",
@@ -217,7 +217,7 @@
         "assane diop",
         "omar sy"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Omar_Sy_%282020%29.jpg/960px-Omar_Sy_%282020%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Omar_Sy_%282020%29.jpg/960px-Omar_Sy_%282020%29.jpg"
     },
     {
       "id": "serie-tv-25",
@@ -226,7 +226,7 @@
         "benedict cumberbatch",
         "sherlock holmes"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Benedict_Cumberbatch-67555.jpg/960px-Benedict_Cumberbatch-67555.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Benedict_Cumberbatch-67555.jpg/960px-Benedict_Cumberbatch-67555.jpg"
     },
     {
       "id": "serie-tv-26",
@@ -235,7 +235,7 @@
         "the sopranos",
         "tony soprano"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Tony_Soprano_%28The_Sopranos_Family_Tree%29_cropped.jpg/960px-Tony_Soprano_%28The_Sopranos_Family_Tree%29_cropped.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Tony_Soprano_%28The_Sopranos_Family_Tree%29_cropped.jpg/960px-Tony_Soprano_%28The_Sopranos_Family_Tree%29_cropped.jpg"
     },
     {
       "id": "serie-tv-27",
@@ -244,7 +244,7 @@
         "mulder e scully",
         "x files"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/5/57/FBI-FoxMulder.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/5/57/FBI-FoxMulder.jpg"
     },
     {
       "id": "serie-tv-28",
@@ -252,7 +252,7 @@
       "aliases": [
         "agente cooper"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/e/e4/Twin_Peaks%2C_Dale_Cooper.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/e/e4/Twin_Peaks%2C_Dale_Cooper.png"
     },
     {
       "id": "serie-tv-29",
@@ -261,7 +261,7 @@
         "guardaspiaggia",
         "david hasselhoff"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Hoff_3.jpg/960px-Hoff_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Hoff_3.jpg/960px-Hoff_3.jpg"
     },
     {
       "id": "serie-tv-30",
@@ -270,7 +270,7 @@
         "principe di bel air",
         "carlton"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/Alfonso_Ribeiro.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/Alfonso_Ribeiro.JPG"
     },
     {
       "id": "serie-tv-31",
@@ -279,7 +279,7 @@
         "carmine di salvo",
         "ipm napoli"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Nicolas_Maupas_at_Venice_Film_Festival_2026-10.jpg/960px-Nicolas_Maupas_at_Venice_Film_Festival_2026-10.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Nicolas_Maupas_at_Venice_Film_Festival_2026-10.jpg/960px-Nicolas_Maupas_at_Venice_Film_Festival_2026-10.jpg"
     },
     {
       "id": "serie-tv-32",
@@ -288,7 +288,7 @@
         "genny savastano",
         "ciro di marzio"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Salvatore_Esposito_Patrimonio_Italiano_Tv_2024.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Salvatore_Esposito_Patrimonio_Italiano_Tv_2024.png"
     },
     {
       "id": "serie-tv-33",
@@ -297,7 +297,7 @@
         "rene ferretti",
         "occhi del cuore"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Francesco_Pannofino_-_Lucca_Comics_%26_Games_2018_01.jpg/960px-Francesco_Pannofino_-_Lucca_Comics_%26_Games_2018_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Francesco_Pannofino_-_Lucca_Comics_%26_Games_2018_01.jpg/960px-Francesco_Pannofino_-_Lucca_Comics_%26_Games_2018_01.jpg"
     },
     {
       "id": "serie-tv-34",
@@ -305,7 +305,7 @@
       "aliases": [
         "prete detective"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Terence_Hill_in_Dresden_%2820.08.2018%29.jpg/960px-Terence_Hill_in_Dresden_%2820.08.2018%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Terence_Hill_in_Dresden_%2820.08.2018%29.jpg/960px-Terence_Hill_in_Dresden_%2820.08.2018%29.jpg"
     },
     {
       "id": "serie-tv-35",
@@ -314,7 +314,7 @@
         "montalbano",
         "luca zingaretti"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Luca_Zingaretti_2010.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Luca_Zingaretti_2010.JPG"
     },
     {
       "id": "serie-tv-36",
@@ -324,7 +324,7 @@
         "il freddo",
         "libanese"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Vinicio_Marchioni_at_81st_Venice_International_Film_Festival.jpg/960px-Vinicio_Marchioni_at_81st_Venice_International_Film_Festival.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Vinicio_Marchioni_at_81st_Venice_International_Film_Festival.jpg/960px-Vinicio_Marchioni_at_81st_Venice_International_Film_Festival.jpg"
     },
     {
       "id": "serie-tv-37",
@@ -333,7 +333,7 @@
         "luca e paolo",
         "camera cafe"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Luca_Bizzarri_2016.jpg/960px-Luca_Bizzarri_2016.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Luca_Bizzarri_2016.jpg/960px-Luca_Bizzarri_2016.jpg"
     },
     {
       "id": "serie-tv-38",
@@ -342,7 +342,7 @@
         "garbatella",
         "cesaroni"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/54/Claudio_Amendola_D%C3%A9luge.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/54/Claudio_Amendola_D%C3%A9luge.jpg"
     }
   ]
 }

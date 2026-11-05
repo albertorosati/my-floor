@@ -104,12 +104,11 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
       {/* Header */}
       <header className="max-w-5xl w-full mx-auto flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3.5">
-          <div className="w-14 h-14 rounded-2xl bg-gold border-[3px] border-ink shadow-chunky-sm grid grid-cols-2 gap-1 p-2 rotate-[-3deg]">
-            <div className="bg-p1 rounded-[4px]" />
-            <div className="bg-p2 rounded-[4px]" />
-            <div className="bg-p2 rounded-[4px]" />
-            <div className="bg-p1 rounded-[4px]" />
-          </div>
+          <img
+            src="./logo.svg"
+            alt="The Floor Logo"
+            className="w-14 h-14 rounded-2xl border-[3px] border-ink shadow-chunky-sm rotate-[-3deg] hover:rotate-0 transition-transform"
+          />
           <div>
             <h1 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-cream leading-none">
               {gameConfig.appTitle}
