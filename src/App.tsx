@@ -3,8 +3,6 @@ import {
   Category,
   DuelSummary,
   GameSettings,
-  GridSizeOption,
-  GridTile,
   PlayerConfig,
   PlayerId,
   RemoteMicPacket,
@@ -13,47 +11,15 @@ import { loadAllCategories } from './data/categories';
 import { DiscordHostPeer, generateRoomCode } from './engine/discordMicSync';
 import { soundEngine } from './engine/soundEffects';
 import { LobbyScreen } from './components/LobbyScreen';
-import { FloorGridScreen } from './components/FloorGridScreen';
+import { CategoryDraftScreen } from './components/CategoryDraftScreen';
 import { DuelArenaScreen } from './components/DuelArenaScreen';
 import { RemoteMicScreen } from './components/RemoteMicScreen';
 import { CategoryEditorModal } from './components/CategoryEditorModal';
 import { VictoryScreen } from './components/VictoryScreen';
 
-type ScreenState = 'lobby' | 'grid' | 'duel' | 'victory';
-
-function buildInitialGrid(
-  size: GridSizeOption,
-  categories: Category[]
-): GridTile[] {
-  const rows = 3;
-  const cols = size === '3x3' ? 3 : 4;
-  const totalRows = size === '4x4' ? 4 : rows;
-  const totalTiles = totalRows * cols;
-
-  const shuffledCats = [...categories].sort(() => Math.random() - 0.5);
-  const tiles: GridTile[] = [];
-
-  for (let i = 0; i < totalTiles; i++) {
-    const r = Math.floor(i / cols);
-    const c = i % cols;
-    const cat = shuffledCats[i % shuffledCats.length];
-    // Disposizione a scacchiera bilanciata per massimizzare i confini attaccabili fin dal turno 1
-    const owner: PlayerId = (r + c) % 2 === 0 ? 'p1' : 'p2';
-    tiles.push({
-      index: i,
-      row: r,
-      col: c,
-      owner,
-      category: cat,
-      battlesCount: 0,
-    });
-  }
-
-  return tiles;
-}
+type ScreenState = 'lobby' | 'draft' | 'duel' | 'victory';
 
 export const App: React.FC = () => {
-  // Controlla se questo browser è stato aperto come Microfono Remoto per Giocatore 2 (?room=XXXX)
   const [remoteRoomParam] = useState<string | null>(() => {
     const params = new URLSearchParams(window.location.search);
     const r = params.get('room');
@@ -69,43 +35,32 @@ export const App: React.FC = () => {
   const [p1, setP1] = useState<PlayerConfig>({
     id: 'p1',
     name: 'Giocatore 1',
-    avatar: '⚡',
-    primaryHex: '#00f0ff',
-    secondaryHex: '#0284c7',
-    glowClass: 'neon-cyan-box',
-    bgClass: 'bg-cyan-500',
-    borderClass: 'border-cyan-400',
-    textClass: 'text-cyan-300',
+    avatar: '🦊',
   });
 
   const [p2, setP2] = useState<PlayerConfig>({
     id: 'p2',
     name: 'Giocatore 2',
-    avatar: '🔥',
-    primaryHex: '#ff0055',
-    secondaryHex: '#e11d48',
-    glowClass: 'neon-pink-box',
-    bgClass: 'bg-rose-500',
-    borderClass: 'border-rose-500',
-    textClass: 'text-rose-300',
+    avatar: '🐯',
   });
 
   const [settings, setSettings] = useState<GameSettings>({
-    gridSize: '3x4',
+    targetWins: 3,
     duelDurationSeconds: 45,
     passPenaltySeconds: 3,
     micMode: 'local-shared',
     soundEnabled: true,
     announcerEnabled: true,
-    autoRevealAnswerMs: 500,
   });
 
-  // Stato Griglia e Duello
-  const [tiles, setTiles] = useState<GridTile[]>([]);
-  const [activeTurn, setActiveTurn] = useState<PlayerId>('p1');
-  const [challengedTile, setChallengedTile] = useState<GridTile | null>(null);
+  // Stato Match a Round con scelta categoria alternata
+  const [p1Score, setP1Score] = useState(0);
+  const [p2Score, setP2Score] = useState(0);
+  const [chooserId, setChooserId] = useState<PlayerId>('p1');
+  const [activeCategory, setActiveCategory] = useState<Category | null>(null);
+  const [playedCategoryIds, setPlayedCategoryIds] = useState<string[]>([]);
   const [duelHistory, setDuelHistory] = useState<DuelSummary[]>([]);
-  const [winnerId, setWinnerId] = useState<PlayerId | null>(null);
+  const [winnerId, setWinnerId] = useState<PlayerId>('p1');
 
   // Stato Discord P2P Host
   const [roomCode] = useState<string>(() => generateRoomCode());
@@ -115,13 +70,11 @@ export const App: React.FC = () => {
   const [remoteTranscriptPreview, setRemoteTranscriptPreview] = useState('');
   const hostPeerRef = useRef<DiscordHostPeer | null>(null);
 
-  // Sincronizza flag audio
   useEffect(() => {
     soundEngine.enabled = settings.soundEnabled;
     soundEngine.announcerEnabled = settings.announcerEnabled;
   }, [settings.soundEnabled, settings.announcerEnabled]);
 
-  // Avvia host P2P quando si seleziona la modalità Discord
   useEffect(() => {
     if (remoteRoomParam) return;
     if (settings.micMode !== 'discord-p2p') {
@@ -155,7 +108,6 @@ export const App: React.FC = () => {
     hostPeerRef.current?.sendState(packet);
   }, []);
 
-  // Se siamo nel tab companion del Giocatore 2 su Discord, mostra l'interfaccia microfono dedicata
   if (remoteRoomParam) {
     return <RemoteMicScreen roomCode={remoteRoomParam} />;
   }
@@ -179,70 +131,49 @@ export const App: React.FC = () => {
   const handleStartNewGame = () => {
     const allCats = loadAllCategories();
     setCategories(allCats);
-    const initialTiles = buildInitialGrid(settings.gridSize, allCats);
-    setTiles(initialTiles);
+    setP1Score(0);
+    setP2Score(0);
+    setPlayedCategoryIds([]);
     setDuelHistory([]);
-    setWinnerId(null);
-    setActiveTurn(Math.random() < 0.5 ? 'p1' : 'p2');
-    setScreen('grid');
+    setChooserId('p1');
+    setScreen('draft');
   };
 
-  const handleStartDuel = (tile: GridTile) => {
-    setChallengedTile(tile);
+  const handleSelectCategory = (cat: Category) => {
+    setActiveCategory(cat);
+    setPlayedCategoryIds((prev) => [...prev, cat.id]);
     setScreen('duel');
   };
 
   const handleDuelFinished = (summary: DuelSummary) => {
+    const newP1Score = summary.winner === 'p1' ? p1Score + 1 : p1Score;
+    const newP2Score = summary.winner === 'p2' ? p2Score + 1 : p2Score;
+
+    setP1Score(newP1Score);
+    setP2Score(newP2Score);
     setDuelHistory((prev) => [...prev, summary]);
 
-    if (!challengedTile) {
-      setScreen('grid');
+    // Controlla se uno dei due giocatori ha raggiunto i punti vittoria
+    if (
+      settings.targetWins > 0 &&
+      (newP1Score >= settings.targetWins || newP2Score >= settings.targetWins)
+    ) {
+      setWinnerId(newP1Score >= newP2Score ? 'p1' : 'p2');
+      setScreen('victory');
       return;
     }
 
-    const updatedTiles = [...tiles];
-    if (summary.winner === activeTurn) {
-      // L'attaccante ha vinto: conquista la casella sfidata!
-      updatedTiles[challengedTile.index] = {
-        ...challengedTile,
-        owner: summary.winner,
-        battlesCount: challengedTile.battlesCount + 1,
-      };
-    } else {
-      // Il difensore ha resistito e vinto: conquista una casella adiacente dell'attaccante!
-      const attackerTiles = updatedTiles.filter((t) => t.owner === activeTurn);
-      let tileToConquer = attackerTiles.find(
-        (t) =>
-          Math.abs(t.row - challengedTile.row) +
-            Math.abs(t.col - challengedTile.col) ===
-          1
-      );
-      if (!tileToConquer && attackerTiles.length > 0) {
-        tileToConquer = attackerTiles[0];
-      }
-      if (tileToConquer) {
-        updatedTiles[tileToConquer.index] = {
-          ...tileToConquer,
-          owner: summary.winner,
-          battlesCount: tileToConquer.battlesCount + 1,
-        };
-      }
-    }
-
-    setTiles(updatedTiles);
-    setActiveTurn(summary.winner);
-
-    // Controlla se un giocatore possiede ora l'intero pavimento
-    const allOwnedByWinner = updatedTiles.every(
-      (t) => t.owner === summary.winner
-    );
-    if (allOwnedByWinner) {
-      setWinnerId(summary.winner);
-      setScreen('victory');
-    } else {
-      setScreen('grid');
-    }
+    // Passa rigorosamente a giro la scelta della prossima categoria all'altro giocatore!
+    setChooserId((prev) => (prev === 'p1' ? 'p2' : 'p1'));
+    setScreen('draft');
   };
+
+  const handleFinishMatchEarly = () => {
+    setWinnerId(p1Score >= p2Score ? 'p1' : 'p2');
+    setScreen('victory');
+  };
+
+  const currentRound = duelHistory.length + 1;
 
   return (
     <>
@@ -262,30 +193,35 @@ export const App: React.FC = () => {
         />
       )}
 
-      {screen === 'grid' && (
-        <FloorGridScreen
-          tiles={tiles}
-          gridSize={settings.gridSize}
+      {screen === 'draft' && (
+        <CategoryDraftScreen
+          categories={categories}
+          playedCategoryIds={playedCategoryIds}
           p1={p1}
           p2={p2}
-          activeTurn={activeTurn}
+          p1Score={p1Score}
+          p2Score={p2Score}
+          targetWins={settings.targetWins}
+          chooserId={chooserId}
+          roundNumber={currentRound}
           lastSummary={
             duelHistory.length > 0
               ? duelHistory[duelHistory.length - 1]
               : null
           }
-          onChangeTurn={setActiveTurn}
-          onStartDuel={handleStartDuel}
+          onSelectCategory={handleSelectCategory}
+          onFinishMatchEarly={handleFinishMatchEarly}
           onBackToLobby={() => setScreen('lobby')}
         />
       )}
 
-      {screen === 'duel' && challengedTile && (
+      {screen === 'duel' && activeCategory && (
         <DuelArenaScreen
-          category={challengedTile.category}
+          roundNumber={currentRound}
+          category={activeCategory}
           p1={p1}
           p2={p2}
-          initialPlayer={activeTurn}
+          initialPlayer={chooserId}
           settings={settings}
           p2RemoteConnected={p2RemoteConnected}
           latestRemotePacket={latestRemotePacket}
@@ -294,11 +230,13 @@ export const App: React.FC = () => {
         />
       )}
 
-      {screen === 'victory' && winnerId && (
+      {screen === 'victory' && (
         <VictoryScreen
           winnerId={winnerId}
           p1={p1}
           p2={p2}
+          p1Score={p1Score}
+          p2Score={p2Score}
           history={duelHistory}
           onPlayAgain={handleStartNewGame}
           onBackToLobby={() => setScreen('lobby')}

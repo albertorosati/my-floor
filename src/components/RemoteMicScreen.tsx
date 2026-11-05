@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Mic, Radio, FastForward, Wifi, WifiOff } from 'lucide-react';
+import { Mic, FastForward, Wifi, WifiOff } from 'lucide-react';
 import { DiscordClientPeer } from '../engine/discordMicSync';
 import { SmartSpeechRecognizer } from '../engine/speechRecognition';
 import { PlayerId, RemoteMicPacket } from '../types/game';
@@ -14,16 +14,15 @@ export const RemoteMicScreen: React.FC<RemoteMicScreenProps> = ({
   const [connStatus, setConnStatus] = useState<
     'connecting' | 'connected' | 'disconnected'
   >('connecting');
-  const [statusMsg, setStatusMsg] = useState('Connessione in corso...');
+  const [statusMsg, setStatusMsg] = useState('Collegamento alla partita...');
   const [micActive, setMicActive] = useState(false);
   const [micError, setMicError] = useState<string | null>(null);
   const [transcript, setTranscript] = useState('');
   const [volume, setVolume] = useState(0);
 
-  // Stato ricevuto dallo schermo principale
   const [activePlayer, setActivePlayer] = useState<PlayerId>('p1');
   const [p2Name, setP2Name] = useState('Giocatore 2');
-  const [categoryName, setCategoryName] = useState('In attesa di sfida...');
+  const [categoryName, setCategoryName] = useState('In attesa del round...');
   const [timeLeftP2, setTimeLeftP2] = useState<number | null>(null);
 
   const clientRef = useRef<DiscordClientPeer | null>(null);
@@ -94,30 +93,24 @@ export const RemoteMicScreen: React.FC<RemoteMicScreenProps> = ({
   const isMyTurn = activePlayer === 'p2';
 
   return (
-    <div className="min-h-screen studio-bg studio-grid-overlay flex flex-col items-center justify-between p-6 text-center select-none">
-      {/* Header */}
-      <header className="w-full max-w-md flex items-center justify-between border-b border-white/10 pb-4">
-        <div className="flex items-center gap-2">
-          <Radio className="w-5 h-5 text-rose-400" />
-          <span className="font-display font-bold text-lg tracking-wider">
-            FLOOR ARENA // MIC REMOTO
-          </span>
-        </div>
-        <span className="px-2.5 py-1 rounded bg-rose-500/20 border border-rose-400/40 font-mono text-xs text-rose-300 font-bold">
-          STANZA {roomCode}
+    <div className="min-h-screen party-stage-bg flex flex-col items-center justify-between p-6 text-center select-none">
+      <header className="w-full max-w-md flex items-center justify-between">
+        <span className="font-display font-bold text-xl text-cream">
+          The Floor
+        </span>
+        <span className="px-3 py-1 rounded-xl bg-cream text-ink border-2 border-ink font-mono font-bold text-xs">
+          Stanza {roomCode}
         </span>
       </header>
 
-      {/* Main Card */}
-      <main className="w-full max-w-md my-auto flex flex-col gap-5 bg-[#0c1124]/95 border-2 border-rose-500/50 neon-pink-box rounded-3xl p-6">
-        {/* Stato Connessione P2P */}
+      <main className="card-cream w-full max-w-md my-auto rounded-3xl p-6 flex flex-col gap-5">
         <div
-          className={`px-4 py-2 rounded-xl text-xs font-mono font-bold flex items-center justify-center gap-2 ${
+          className={`px-4 py-2 rounded-xl text-xs font-bold border-2 border-ink flex items-center justify-center gap-2 ${
             connStatus === 'connected'
-              ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/40'
+              ? 'bg-mint text-ink'
               : connStatus === 'connecting'
-              ? 'bg-amber-500/20 text-amber-300 border border-amber-400/40'
-              : 'bg-rose-500/20 text-rose-300 border border-rose-400/40'
+              ? 'bg-gold text-ink'
+              : 'bg-p2 text-white'
           }`}
         >
           {connStatus === 'connected' ? (
@@ -128,81 +121,65 @@ export const RemoteMicScreen: React.FC<RemoteMicScreenProps> = ({
           <span>{statusMsg}</span>
         </div>
 
-        {/* Info Turno & Categoria */}
-        <div className="p-4 rounded-2xl bg-black/50 border border-white/10 flex flex-col gap-1">
-          <span className="text-xs font-mono uppercase text-slate-400">
-            GIOCATORE COLLEGATO: {p2Name}
-          </span>
-          <div className="font-display font-black text-xl text-white uppercase">
+        <div className="p-4 rounded-2xl bg-paper border-2 border-ink flex flex-col gap-1">
+          <span className="text-xs font-bold text-ink/60">{p2Name}</span>
+          <div className="font-display font-bold text-xl text-ink">
             {categoryName}
           </div>
           {timeLeftP2 !== null && (
-            <div className="font-mono font-extrabold text-4xl text-rose-400 mt-1">
+            <div className="font-mono font-extrabold text-4xl text-p2 mt-1">
               {timeLeftP2.toFixed(1)}s
             </div>
           )}
           <div
-            className={`mt-2 py-1.5 px-3 rounded-lg font-mono font-bold text-xs uppercase ${
-              isMyTurn
-                ? 'bg-rose-500 text-white animate-pulse'
-                : 'bg-white/5 text-slate-400'
+            className={`mt-2 py-1.5 px-3 rounded-xl font-display font-bold text-xs border-2 border-ink ${
+              isMyTurn ? 'bg-p2 text-white animate-pulse' : 'bg-white text-ink/60'
             }`}
           >
-            {isMyTurn
-              ? '🔥 TOCCA A TE! PARLA ORA!'
-              : '⏳ Turno dell’avversario'}
+            {isMyTurn ? 'Tocca a te parlare!' : 'Turno dell’avversario'}
           </div>
         </div>
 
-        {/* Pulsante Attivazione Microfono */}
         <button
           onClick={toggleMicrophone}
-          className={`w-full py-5 rounded-2xl font-display font-black text-xl uppercase tracking-wider flex flex-col items-center justify-center gap-2 transition-all border-2 ${
-            micActive
-              ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300 shadow-lg shadow-emerald-500/20'
-              : 'bg-gradient-to-r from-rose-500 to-indigo-600 border-transparent text-white shadow-xl'
+          className={`btn-push w-full py-5 rounded-2xl font-display font-bold text-lg flex flex-col items-center justify-center gap-2 ${
+            micActive ? 'bg-mint text-ink' : 'bg-p2 text-white'
           }`}
         >
-          <Mic className={`w-8 h-8 ${micActive ? 'animate-bounce' : ''}`} />
+          <Mic className="w-7 h-7" />
           <span>
-            {micActive
-              ? 'MICROFONO ATTIVO E IN ASCOLTO'
-              : 'CLICCA PER ATTIVARE IL MICROFONO'}
+            {micActive ? 'Microfono attivo' : 'Tocca per attivare il microfono'}
           </span>
         </button>
 
-        {/* Onda sonora e trascrizione live */}
         {micActive && (
-          <div className="p-3.5 rounded-xl bg-black/60 border border-white/10 flex flex-col gap-2">
-            <div className="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
+          <div className="p-3 rounded-xl bg-paper border border-ink/20 flex flex-col gap-2">
+            <div className="w-full h-2.5 bg-ink/15 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-rose-400 to-emerald-400 transition-all duration-75"
-                style={{ width: `${Math.max(6, volume * 100)}%` }}
+                className="h-full bg-mint transition-all duration-75"
+                style={{ width: `${Math.max(8, volume * 100)}%` }}
               />
             </div>
-            <p className="font-mono text-sm text-cyan-200 truncate">
-              {transcript ? `“${transcript}”` : 'Parla normalmente...'}
+            <p className="font-display font-bold text-sm text-ink truncate">
+              {transcript ? `“${transcript}”` : 'Parla pure...'}
             </p>
           </div>
         )}
 
-        {micError && (
-          <p className="text-xs text-rose-400 font-semibold">{micError}</p>
-        )}
+        {micError && <p className="text-xs text-p2 font-bold">{micError}</p>}
 
-        {/* Pulsante Passo Remoto */}
         <button
           onClick={handleRemotePass}
           disabled={!micActive}
-          className="w-full py-4 rounded-2xl bg-amber-500/20 hover:bg-amber-500/30 border-2 border-amber-400/50 text-amber-300 font-display font-extrabold text-lg uppercase flex items-center justify-center gap-2 transition-all disabled:opacity-40"
+          className="btn-push w-full py-4 rounded-2xl bg-gold text-ink font-display font-bold text-base flex items-center justify-center gap-2"
         >
           <FastForward className="w-5 h-5" />
-          <span>PASSO (-3 SECONDI)</span>
+          <span>Passo (-3s)</span>
         </button>
       </main>
 
-      <footer className="text-xs text-slate-500 font-mono">
-        Guarda lo schermo condiviso su Discord mentre parli qui!
+      <footer className="text-xs text-cream/60">
+        Guarda le foto sullo schermo condiviso su Discord!
       </footer>
     </div>
   );

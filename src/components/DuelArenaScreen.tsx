@@ -2,11 +2,9 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   Mic,
   FastForward,
-  CheckCircle2,
+  Check,
   Pause,
   Play,
-  Volume2,
-  Flame,
   Radio,
 } from 'lucide-react';
 import {
@@ -21,8 +19,10 @@ import {
 import { evaluateVoiceInput } from '../engine/voiceMatcher';
 import { SmartSpeechRecognizer } from '../engine/speechRecognition';
 import { soundEngine } from '../engine/soundEffects';
+import { getBackupImageUrl } from '../data/categories';
 
 interface DuelArenaScreenProps {
+  roundNumber: number;
   category: Category;
   p1: PlayerConfig;
   p2: PlayerConfig;
@@ -44,6 +44,7 @@ function shuffleItems(items: DuelItem[]): DuelItem[] {
 }
 
 export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
+  roundNumber,
   category,
   p1,
   p2,
@@ -63,32 +64,65 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
   const [timeP1, setTimeP1] = useState(settings.duelDurationSeconds);
   const [timeP2, setTimeP2] = useState(settings.duelDurationSeconds);
   const [isPaused, setIsPaused] = useState(false);
-
-  // Stato penalità PASSO (3.0s durante i quali il tempo del giocatore continua a scorrere)
   const [passPenaltyLeft, setPassPenaltyLeft] = useState<number>(0);
 
-  // Breve flash celebrativo (500ms) quando si indovina, prima di passare il turno
   const [correctFlash, setCorrectFlash] = useState<{
     answer: string;
     byPlayer: PlayerId;
   } | null>(null);
 
-  // Statistiche duello
   const [p1Correct, setP1Correct] = useState(0);
   const [p2Correct, setP2Correct] = useState(0);
   const [p1Passes, setP1Passes] = useState(0);
   const [p2Passes, setP2Passes] = useState(0);
   const [streak, setStreak] = useState(0);
 
-  // Feedback microfono in tempo reale
   const [liveTranscript, setLiveTranscript] = useState('');
   const [micVolume, setMicVolume] = useState(0);
   const [micListening, setMicListening] = useState(false);
-  const [imgError, setImgError] = useState(false);
+  const [usingBackupUrl, setUsingBackupUrl] = useState(false);
+
+  const brokenIdsRef = useRef<Set<string>>(new Set());
+  const resolvedUrlsRef = useRef<Map<string, string>>(new Map());
 
   const currentItem = deck[itemIndex % deck.length];
+  const displaySrc = usingBackupUrl
+    ? getBackupImageUrl(currentItem.imageUrl)
+    : resolvedUrlsRef.current.get(currentItem.id) || currentItem.imageUrl;
 
-  // Refs per accesso sincrono dentro i callback vocali e timer
+  // Preloader rolling: mantiene sempre pre-caricate in RAM le prossime 10 fotografie
+  useEffect(() => {
+    for (let offset = 1; offset <= 10; offset++) {
+      const candidate = deck[(itemIndex + offset) % deck.length];
+      if (
+        !candidate ||
+        brokenIdsRef.current.has(candidate.id) ||
+        resolvedUrlsRef.current.has(candidate.id)
+      ) {
+        continue;
+      }
+
+      const img = new Image();
+      img.decoding = 'async';
+      img.onload = () => {
+        resolvedUrlsRef.current.set(candidate.id, candidate.imageUrl);
+      };
+      img.onerror = () => {
+        // Prova subito il proxy WebP di emergenza
+        const backup = getBackupImageUrl(candidate.imageUrl);
+        const img2 = new Image();
+        img2.onload = () => {
+          resolvedUrlsRef.current.set(candidate.id, backup);
+        };
+        img2.onerror = () => {
+          brokenIdsRef.current.add(candidate.id);
+        };
+        img2.src = backup;
+      };
+      img.src = candidate.imageUrl;
+    }
+  }, [deck, itemIndex]);
+
   const stateRef = useRef({
     activePlayer,
     currentItem,
@@ -128,18 +162,26 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
   const lastSecondBeepRef = useRef<number>(-1);
 
   const advanceToNextImage = useCallback(() => {
-    setImgError(false);
+    setUsingBackupUrl(false);
     setItemIndex((prev) => {
-      const next = prev + 1;
+      let next = prev + 1;
+      let safety = 0;
+      while (
+        next < deck.length &&
+        brokenIdsRef.current.has(deck[next].id) &&
+        safety < deck.length
+      ) {
+        next++;
+        safety++;
+      }
       if (next >= deck.length) {
         setDeck(shuffleItems(category.items));
         return 0;
       }
       return next;
     });
-  }, [deck.length, category.items]);
+  }, [deck, category.items]);
 
-  // Azione: RISPOSTA ESATTA!
   const triggerCorrectGuess = useCallback(
     (heardText?: string) => {
       const st = stateRef.current;
@@ -152,7 +194,6 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         return;
       }
 
-      // Cooldown anti-eco per non far scattare l'immagine successiva con la coda vocale
       ignoreVoiceUntilRef.current = performance.now() + 650;
       recognizerRef.current?.consumeCurrentBuffer();
 
@@ -186,7 +227,6 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     [advanceToNextImage]
   );
 
-  // Azione: PASSO! (3 secondi di penalità, il turno resta allo stesso giocatore!)
   const triggerPass = useCallback(() => {
     const st = stateRef.current;
     if (
@@ -203,7 +243,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
 
     soundEngine.playPassPenalty();
     setStreak(0);
-    setLiveTranscript('⏭️ PASSO!');
+    setLiveTranscript('Passo!');
 
     if (st.activePlayer === 'p1') {
       setP1Passes((p) => p + 1);
@@ -214,7 +254,6 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     setPassPenaltyLeft(settings.passPenaltySeconds);
   }, [settings.passPenaltySeconds]);
 
-  // Valutazione centralizzata dell'input vocale (sia locale che remoto P2P)
   const processSpokenAlternatives = useCallback(
     (alternatives: string[], sourcePlayer?: PlayerId) => {
       const st = stateRef.current;
@@ -231,8 +270,6 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         return;
       }
 
-      // Se siamo in modalità Discord P2P con Giocatore 2 connesso,
-      // il mic di P1 risponde nel turno di P1 e il mic remoto di P2 risponde nel turno di P2
       if (
         settings.micMode === 'discord-p2p' &&
         p2RemoteConnected &&
@@ -253,15 +290,9 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         triggerCorrectGuess(alternatives[0]);
       }
     },
-    [
-      settings.micMode,
-      p2RemoteConnected,
-      triggerPass,
-      triggerCorrectGuess,
-    ]
+    [settings.micMode, p2RemoteConnected, triggerPass, triggerCorrectGuess]
   );
 
-  // Avvio del riconoscimento vocale locale
   useEffect(() => {
     const rec = new SmartSpeechRecognizer(
       (alternatives) => {
@@ -282,7 +313,6 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     };
   }, [processSpokenAlternatives]);
 
-  // Ricezione pacchetti dal microfono remoto P2P (Modalità Discord per Giocatore 2)
   useEffect(() => {
     if (!latestRemotePacket) return;
     if (latestRemotePacket.type === 'TRANSCRIPT') {
@@ -308,7 +338,6 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     }
   }, [latestRemotePacket, processSpokenAlternatives, triggerPass]);
 
-  // Invia aggiornamenti di stato al microfono remoto di Giocatore 2
   useEffect(() => {
     if (settings.micMode === 'discord-p2p' && p2RemoteConnected) {
       onSendRemoteState({
@@ -332,7 +361,6 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     onSendRemoteState,
   ]);
 
-  // Scorciatoie tastiera di emergenza (Spazio = Passo, Invio = Buona, P = Pausa)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.code === 'Space') {
@@ -350,7 +378,6 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [triggerPass, triggerCorrectGuess]);
 
-  // Loop ad alta precisione (50ms) per i due cronometri e per la penalità PASSO
   useEffect(() => {
     let lastTick = performance.now();
 
@@ -360,12 +387,8 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
       lastTick = now;
 
       const st = stateRef.current;
-      if (st.duelEnded || st.isPaused) return;
+      if (st.duelEnded || st.isPaused || st.correctFlash !== null) return;
 
-      // Se siamo nel flash verde di cambio turno, i cronometri sono congelati
-      if (st.correctFlash !== null) return;
-
-      // Gestione countdown penalità PASSO (3.0s)
       if (st.passPenaltyLeft > 0) {
         const nextPenalty = Math.max(0, st.passPenaltyLeft - dt);
         setPassPenaltyLeft(nextPenalty);
@@ -375,7 +398,6 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         }
       }
 
-      // Decrementa il cronometro del giocatore di turno
       if (st.activePlayer === 'p1') {
         const nextP1 = Math.max(0, st.timeP1 - dt);
         setTimeP1(nextP1);
@@ -390,8 +412,10 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
           stateRef.current.duelEnded = true;
           soundEngine.playDuelVictory();
           onDuelFinished({
+            roundNumber,
             winner: 'p2',
             loser: 'p1',
+            categoryId: category.id,
             categoryName: category.name,
             categoryIcon: category.icon,
             winnerTimeLeft: st.timeP2,
@@ -399,7 +423,6 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
             p2Correct: st.p2Correct,
             p1Passes: st.p1Passes,
             p2Passes: st.p2Passes,
-            conqueredTilesCount: 1,
           });
         }
       } else {
@@ -416,8 +439,10 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
           stateRef.current.duelEnded = true;
           soundEngine.playDuelVictory();
           onDuelFinished({
+            roundNumber,
             winner: 'p1',
             loser: 'p2',
+            categoryId: category.id,
             categoryName: category.name,
             categoryIcon: category.icon,
             winnerTimeLeft: st.timeP1,
@@ -425,7 +450,6 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
             p2Correct: st.p2Correct,
             p1Passes: st.p1Passes,
             p2Passes: st.p2Passes,
-            conqueredTilesCount: 1,
           });
         }
       }
@@ -434,325 +458,280 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     return () => clearInterval(interval);
   }, [
     advanceToNextImage,
+    category.id,
     category.icon,
     category.name,
     onDuelFinished,
+    roundNumber,
   ]);
 
   const p1Urgent = activePlayer === 'p1' && timeP1 <= 10;
   const p2Urgent = activePlayer === 'p2' && timeP2 <= 10;
 
   return (
-    <div className="min-h-screen studio-bg studio-grid-overlay flex flex-col justify-between p-4 md:p-6 select-none relative overflow-hidden">
-      {/* Header Categoria & Controllo Pausa */}
-      <header className="max-w-6xl w-full mx-auto flex items-center justify-between gap-4 z-10">
+    <div className="min-h-screen party-stage-bg flex flex-col justify-between p-4 sm:p-6 select-none">
+      {/* Barra Superiore: Categoria & Pausa */}
+      <header className="max-w-6xl w-full mx-auto flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <span className="text-3xl">{category.icon}</span>
+          <div className="w-11 h-11 rounded-2xl bg-gold border-[2.5px] border-ink shadow-chunky-sm flex items-center justify-center text-2xl">
+            {category.icon}
+          </div>
           <div>
-            <span className="text-[11px] font-mono uppercase tracking-widest text-amber-300 block">
-              CATEGORIA IN DUELLO
+            <span className="text-xs font-bold text-cream/60 block">
+              Round {roundNumber}
             </span>
-            <h1 className="font-display font-black text-xl md:text-3xl uppercase tracking-wider text-white">
+            <h1 className="font-display font-bold text-xl sm:text-2xl text-cream leading-tight">
               {category.name}
             </h1>
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
-          {streak >= 3 && (
-            <div className="px-3 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/50 text-amber-300 font-mono font-bold text-xs flex items-center gap-1.5 animate-bounce">
-              <Flame className="w-4 h-4 text-amber-400" />
-              <span>RITMO DI FUOCO: {streak} DI FILA!</span>
-            </div>
+        <button
+          onClick={() => setIsPaused((p) => !p)}
+          className="btn-push px-4 py-2 rounded-xl bg-cream text-ink font-display font-bold text-xs flex items-center gap-1.5"
+        >
+          {isPaused ? (
+            <>
+              <Play className="w-4 h-4 text-mint" />
+              <span>Riprendi</span>
+            </>
+          ) : (
+            <>
+              <Pause className="w-4 h-4 text-ink" />
+              <span>Pausa</span>
+            </>
           )}
-
-          <button
-            onClick={() => setIsPaused((p) => !p)}
-            className="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-xs font-mono uppercase flex items-center gap-1.5 transition-all"
-          >
-            {isPaused ? (
-              <>
-                <Play className="w-4 h-4 text-emerald-400" />
-                <span>Riprendi</span>
-              </>
-            ) : (
-              <>
-                <Pause className="w-4 h-4 text-amber-300" />
-                <span>Pausa [P]</span>
-              </>
-            )}
-          </button>
-        </div>
+        </button>
       </header>
 
-      {/* Arena Centrale: Cronometro P1 | Immagine | Cronometro P2 */}
-      <main className="max-w-6xl w-full mx-auto my-3 grid grid-cols-1 lg:grid-cols-12 gap-5 items-center z-10">
-        {/* Colonna Giocatore 1 */}
+      {/* Palco Centrale: Timer P1 | Grande Cornice Fotografica | Timer P2 */}
+      <main className="max-w-6xl w-full mx-auto my-3 grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+        {/* Blocco Cronometro Giocatore 1 */}
         <div
-          className={`lg:col-span-3 rounded-3xl p-5 border-2 transition-all duration-300 flex flex-col items-center justify-between gap-4 ${
+          className={`lg:col-span-3 rounded-3xl border-[3px] border-ink p-5 flex flex-col items-center gap-3 transition-all duration-200 ${
             activePlayer === 'p1'
               ? p1Urgent
-                ? 'bg-rose-950/80 border-rose-400 shadow-2xl shadow-rose-500/40 scale-[1.03] animate-pulse-fast'
-                : 'bg-[#081b33]/95 border-cyan-400 neon-cyan-box scale-[1.03]'
-              : 'bg-[#070b16]/60 border-white/10 opacity-55'
+                ? 'bg-p2 text-white shadow-chunky-lg scale-[1.03] animate-pulse'
+                : 'bg-p1 text-white shadow-chunky-lg scale-[1.03]'
+              : 'bg-cream/90 text-ink opacity-60 shadow-chunky-sm'
           }`}
         >
-          <div className="flex flex-col items-center gap-1 text-center">
-            <span className="text-4xl">{p1.avatar}</span>
-            <h2 className="font-display font-black text-xl md:text-2xl uppercase tracking-wider text-cyan-300">
-              {p1.name}
-            </h2>
-            {activePlayer === 'p1' && (
-              <span className="px-2.5 py-0.5 rounded-full bg-cyan-400 text-black font-mono font-extrabold text-[10px] uppercase tracking-widest">
-                PARLA ORA!
-              </span>
-            )}
-          </div>
+          <span className="text-4xl">{p1.avatar}</span>
+          <h2 className="font-display font-bold text-xl truncate max-w-full">
+            {p1.name}
+          </h2>
+          {activePlayer === 'p1' && (
+            <span className="px-3 py-0.5 rounded-full bg-gold text-ink border-2 border-ink font-display font-bold text-xs">
+              Tocca a te!
+            </span>
+          )}
 
-          <div
-            className={`font-mono font-extrabold text-5xl md:text-7xl tracking-tight ${
-              p1Urgent
-                ? 'text-rose-400 text-glow-pink'
-                : 'text-white text-glow-cyan'
-            }`}
-          >
+          <div className="font-mono font-extrabold text-5xl sm:text-6xl tracking-tight my-1">
             {timeP1.toFixed(1)}
           </div>
 
-          {/* Barra progresso tempo P1 */}
-          <div className="w-full h-2.5 bg-black/60 rounded-full overflow-hidden">
+          <div className="w-full h-3 bg-black/25 rounded-full overflow-hidden border border-black/20">
             <div
-              className={`h-full transition-all duration-100 ${
-                p1Urgent ? 'bg-rose-500' : 'bg-cyan-400'
-              }`}
+              className="h-full bg-gold transition-all duration-100"
               style={{
                 width: `${(timeP1 / settings.duelDurationSeconds) * 100}%`,
               }}
             />
           </div>
 
-          <div className="w-full flex justify-between text-xs font-mono text-slate-400 pt-1 border-t border-white/10">
-            <span>Indovinate: {p1Correct}</span>
-            <span>Passi: {p1Passes}</span>
+          <div className="text-xs font-bold opacity-85">
+            Indovinate: {p1Correct}
           </div>
         </div>
 
-        {/* Colonna Centrale: Il Display Gigante dell'Immagine */}
-        <div className="lg:col-span-6 flex flex-col items-center gap-4">
+        {/* Cornice Centrale della Fotografia Vera */}
+        <div className="lg:col-span-6 flex flex-col gap-3.5">
           <div
-            className={`relative w-full aspect-[4/3] max-h-[430px] rounded-3xl border-4 flex flex-col items-center justify-center p-6 overflow-hidden transition-all duration-200 ${
+            className={`relative w-full h-[340px] sm:h-[430px] rounded-3xl border-[4px] border-ink shadow-chunky-lg overflow-hidden flex items-center justify-center transition-colors duration-150 ${
               correctFlash
-                ? 'bg-emerald-950/90 border-emerald-400 shadow-2xl shadow-emerald-500/40 scale-[1.02]'
+                ? 'bg-mint'
                 : passPenaltyLeft > 0
-                ? 'bg-amber-950/90 border-amber-400 shadow-2xl shadow-amber-500/40'
-                : activePlayer === 'p1'
-                ? 'bg-[#0b1329]/95 border-cyan-400/80 neon-cyan-box'
-                : 'bg-[#210b1a]/95 border-rose-500/80 neon-pink-box'
+                ? 'bg-gold'
+                : 'bg-[#110d1b]'
             }`}
           >
-            {/* Stato 1: Flash Verde Risposta Esatta */}
+            {/* Flash Risposta Indovinata */}
             {correctFlash && (
-              <div className="flex flex-col items-center justify-center text-center gap-3 animate-bounce z-20">
-                <CheckCircle2 className="w-20 h-20 text-emerald-400" />
-                <span className="font-mono text-sm uppercase tracking-widest text-emerald-300 font-bold">
-                  RISPOSTA ESATTA!
+              <div className="p-6 text-center text-ink flex flex-col items-center gap-3 animate-pop-in z-20">
+                <div className="w-16 h-16 rounded-full bg-cream border-[3px] border-ink flex items-center justify-center shadow-chunky-sm">
+                  <Check className="w-9 h-9 text-mint stroke-[3]" />
+                </div>
+                <span className="font-display font-bold text-sm uppercase tracking-wider">
+                  Esatto!
                 </span>
-                <h3 className="font-display font-black text-4xl md:text-5xl text-white uppercase">
+                <h3 className="font-display font-bold text-3xl sm:text-5xl">
                   {correctFlash.answer}
                 </h3>
               </div>
             )}
 
-            {/* Stato 2: Penalità 3 Secondi dopo aver detto PASSO */}
+            {/* Schermata 3 Secondi dopo aver detto PASSO */}
             {!correctFlash && passPenaltyLeft > 0 && (
-              <div className="flex flex-col items-center justify-center text-center gap-3 z-20">
-                <FastForward className="w-16 h-16 text-amber-400 animate-pulse" />
-                <span className="font-mono text-xs uppercase tracking-widest text-amber-300">
-                  PENALITÀ PASSO — ERA:
+              <div className="p-6 text-center text-ink flex flex-col items-center gap-2 z-20 animate-pop-in">
+                <span className="font-display font-bold text-sm uppercase">
+                  Passo! Era:
                 </span>
-                <h3 className="font-display font-black text-3xl md:text-4xl text-white uppercase">
+                <h3 className="font-display font-bold text-3xl sm:text-4xl">
                   {currentItem.answer}
                 </h3>
-                <div className="mt-2 font-mono font-black text-5xl text-amber-400">
+                <div className="mt-2 px-5 py-2 rounded-2xl bg-cream border-[3px] border-ink font-mono font-extrabold text-4xl shadow-chunky-sm">
                   {passPenaltyLeft.toFixed(1)}s
                 </div>
-                <p className="text-xs text-amber-200/80">
-                  Nuova immagine in arrivo per{' '}
-                  {activePlayer === 'p1' ? p1.name : p2.name}...
-                </p>
               </div>
             )}
 
-            {/* Stato 3: Immagine da Indovinare */}
+            {/* Fotografia Reale (con sfondo sfocato morbido per non tagliare mai volti o dettagli!) */}
             {!correctFlash && passPenaltyLeft === 0 && (
-              <div className="w-full h-full flex flex-col items-center justify-center relative">
-                {currentItem.imageUrl && !imgError ? (
-                  <img
-                    key={currentItem.id}
-                    src={currentItem.imageUrl}
-                    alt="Indovina l'immagine"
-                    onError={() => setImgError(true)}
-                    className="max-h-[270px] md:max-h-[310px] w-auto object-contain drop-shadow-[0_14px_28px_rgba(0,0,0,0.65)] transition-transform duration-200 scale-100 hover:scale-105"
-                  />
-                ) : (
-                  <div className="text-[130px] md:text-[160px] leading-none select-none drop-shadow-2xl">
-                    {currentItem.fallbackEmoji || '❓'}
-                  </div>
-                )}
-
-                {currentItem.subLabel && (
-                  <span className="mt-4 px-3 py-1 rounded-full bg-white/10 text-xs font-mono text-slate-300">
-                    Indizio: {currentItem.subLabel}
-                  </span>
-                )}
-              </div>
+              <>
+                <img
+                  src={displaySrc}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110 opacity-40 pointer-events-none"
+                />
+                <img
+                  key={`${currentItem.id}-${usingBackupUrl ? 'b' : 'p'}`}
+                  src={displaySrc}
+                  alt="Cosa vedi nella foto?"
+                  onError={() => {
+                    if (!usingBackupUrl) {
+                      setUsingBackupUrl(true);
+                    } else {
+                      brokenIdsRef.current.add(currentItem.id);
+                      advanceToNextImage();
+                    }
+                  }}
+                  className="relative z-10 max-w-full max-h-full w-full h-full object-contain p-2 sm:p-3 drop-shadow-xl"
+                />
+              </>
             )}
           </div>
 
-          {/* Barra Live Sottotitoli Microfono + Pulsanti Rapidi */}
-          <div className="w-full rounded-2xl bg-[#070b17]/95 border border-white/15 p-3.5 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="flex items-center gap-3 w-full sm:w-auto overflow-hidden">
-              <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-white/5 border border-white/10 shrink-0">
+          {/* Barra Voce & Pulsanti Rapidi */}
+          <div className="card-cream rounded-2xl p-3 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="flex items-center gap-3 w-full sm:w-auto min-w-0">
+              <div className="relative w-10 h-10 rounded-xl bg-paper border-2 border-ink flex items-center justify-center shrink-0">
                 {settings.micMode === 'discord-p2p' &&
                 activePlayer === 'p2' &&
                 p2RemoteConnected ? (
-                  <Radio className="w-5 h-5 text-rose-400 animate-pulse" />
+                  <Radio className="w-5 h-5 text-p2 animate-pulse" />
                 ) : (
                   <Mic
                     className={`w-5 h-5 ${
-                      micListening
-                        ? 'text-emerald-400'
-                        : 'text-rose-400'
+                      micListening ? 'text-mint' : 'text-p2'
                     }`}
                   />
                 )}
-                {/* Anello reattivo al volume della voce */}
                 <span
-                  className="absolute inset-0 rounded-xl border-2 border-emerald-400/60 pointer-events-none transition-transform duration-75"
+                  className="absolute inset-0 rounded-xl border-2 border-mint pointer-events-none transition-transform duration-75"
                   style={{
-                    transform: `scale(${1 + micVolume * 0.35})`,
-                    opacity: micVolume > 0.05 ? 0.9 : 0,
+                    transform: `scale(${1 + micVolume * 0.3})`,
+                    opacity: micVolume > 0.06 ? 0.9 : 0,
                   }}
                 />
               </div>
 
-              <div className="flex flex-col min-w-0">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400">
-                  {settings.micMode === 'discord-p2p' &&
-                  activePlayer === 'p2' &&
-                  p2RemoteConnected
-                    ? `MIC REMOTO DISCORD (${p2.name})`
-                    : `ASCOLTO VOCALE ATTIVO (${
-                        activePlayer === 'p1' ? p1.name : p2.name
-                      })`}
-                </span>
-                <p className="text-sm font-mono font-bold text-cyan-200 truncate">
+              <div className="min-w-0 flex-1">
+                <div className="text-[11px] font-bold text-ink/55">
+                  {activePlayer === 'p1' ? p1.name : p2.name} al microfono
+                </div>
+                <div className="text-sm font-display font-bold text-ink truncate">
                   {liveTranscript
                     ? `“${liveTranscript}”`
-                    : 'Parla per indovinare o di’ “PASSO”...'}
-                </p>
+                    : 'Di’ cos’è oppure di’ “Passo”...'}
+                </div>
               </div>
             </div>
 
-            {/* Controlli fisici/paracadute a schermo */}
             <div className="flex items-center gap-2 shrink-0 w-full sm:w-auto justify-end">
               <button
                 onClick={triggerPass}
                 disabled={passPenaltyLeft > 0 || correctFlash !== null}
-                className="px-4 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/50 text-amber-300 font-display font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 transition-all disabled:opacity-40"
+                className="btn-push px-4 py-2 rounded-xl bg-gold text-ink font-display font-bold text-xs flex items-center gap-1.5"
               >
                 <FastForward className="w-4 h-4" />
-                <span>PASSO (-3s)</span>
+                <span>Passo (-3s)</span>
               </button>
 
               <button
                 onClick={() => triggerCorrectGuess(currentItem.answer)}
                 disabled={passPenaltyLeft > 0 || correctFlash !== null}
-                title="Convalida manualmente [Invio]"
-                className="px-3.5 py-2 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-400/50 text-emerald-300 font-display font-bold text-xs uppercase tracking-wider flex items-center gap-1 transition-all disabled:opacity-40"
+                title="Segna buona manualmente [Invio]"
+                className="btn-push px-3.5 py-2 rounded-xl bg-mint text-ink font-display font-bold text-xs flex items-center gap-1"
               >
-                <CheckCircle2 className="w-4 h-4" />
+                <Check className="w-4 h-4 stroke-[3]" />
                 <span>Buona</span>
               </button>
             </div>
           </div>
         </div>
 
-        {/* Colonna Giocatore 2 */}
+        {/* Blocco Cronometro Giocatore 2 */}
         <div
-          className={`lg:col-span-3 rounded-3xl p-5 border-2 transition-all duration-300 flex flex-col items-center justify-between gap-4 ${
+          className={`lg:col-span-3 rounded-3xl border-[3px] border-ink p-5 flex flex-col items-center gap-3 transition-all duration-200 ${
             activePlayer === 'p2'
               ? p2Urgent
-                ? 'bg-rose-950/90 border-yellow-400 shadow-2xl shadow-rose-500/50 scale-[1.03] animate-pulse-fast'
-                : 'bg-[#2a0818]/95 border-rose-500 neon-pink-box scale-[1.03]'
-              : 'bg-[#070b16]/60 border-white/10 opacity-55'
+                ? 'bg-p2 text-white shadow-chunky-lg scale-[1.03] animate-pulse'
+                : 'bg-p2 text-white shadow-chunky-lg scale-[1.03]'
+              : 'bg-cream/90 text-ink opacity-60 shadow-chunky-sm'
           }`}
         >
-          <div className="flex flex-col items-center gap-1 text-center">
-            <span className="text-4xl">{p2.avatar}</span>
-            <h2 className="font-display font-black text-xl md:text-2xl uppercase tracking-wider text-rose-300">
-              {p2.name}
-            </h2>
-            {activePlayer === 'p2' && (
-              <span className="px-2.5 py-0.5 rounded-full bg-rose-500 text-white font-mono font-extrabold text-[10px] uppercase tracking-widest">
-                PARLA ORA!
-              </span>
-            )}
-          </div>
+          <span className="text-4xl">{p2.avatar}</span>
+          <h2 className="font-display font-bold text-xl truncate max-w-full">
+            {p2.name}
+          </h2>
+          {activePlayer === 'p2' && (
+            <span className="px-3 py-0.5 rounded-full bg-gold text-ink border-2 border-ink font-display font-bold text-xs">
+              Tocca a te!
+            </span>
+          )}
 
-          <div
-            className={`font-mono font-extrabold text-5xl md:text-7xl tracking-tight ${
-              p2Urgent
-                ? 'text-yellow-300 text-glow-gold'
-                : 'text-white text-glow-pink'
-            }`}
-          >
+          <div className="font-mono font-extrabold text-5xl sm:text-6xl tracking-tight my-1">
             {timeP2.toFixed(1)}
           </div>
 
-          {/* Barra progresso tempo P2 */}
-          <div className="w-full h-2.5 bg-black/60 rounded-full overflow-hidden">
+          <div className="w-full h-3 bg-black/25 rounded-full overflow-hidden border border-black/20">
             <div
-              className={`h-full transition-all duration-100 ${
-                p2Urgent ? 'bg-yellow-400' : 'bg-rose-500'
-              }`}
+              className="h-full bg-gold transition-all duration-100"
               style={{
                 width: `${(timeP2 / settings.duelDurationSeconds) * 100}%`,
               }}
             />
           </div>
 
-          <div className="w-full flex justify-between text-xs font-mono text-slate-400 pt-1 border-t border-white/10">
-            <span>Indovinate: {p2Correct}</span>
-            <span>Passi: {p2Passes}</span>
+          <div className="text-xs font-bold opacity-85">
+            Indovinate: {p2Correct}
           </div>
         </div>
       </main>
 
-      {/* Overlay Pausa */}
+      {/* Modale Pausa */}
       {isPaused && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex flex-col items-center justify-center p-6">
-          <div className="max-w-md w-full rounded-3xl bg-[#0b1124] border border-white/20 p-8 text-center flex flex-col items-center gap-4">
-            <Volume2 className="w-12 h-12 text-cyan-400" />
-            <h2 className="font-display font-black text-3xl uppercase">
-              DUELLO IN PAUSA
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-6">
+          <div className="card-cream max-w-sm w-full rounded-3xl p-8 text-center flex flex-col items-center gap-4">
+            <h2 className="font-display font-bold text-3xl text-ink">
+              Gioco in pausa
             </h2>
-            <p className="text-sm text-slate-400">
-              I cronometri sono fermi. L&apos;immagine è nascosta finché non riprendi.
+            <p className="text-sm text-ink/70">
+              Il tempo è fermo. Clicca qui sotto quando siete pronti a ripartire!
             </p>
             <button
               onClick={() => setIsPaused(false)}
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-500 font-display font-bold text-lg uppercase"
+              className="btn-push w-full py-3.5 rounded-2xl bg-gold text-ink font-display font-bold text-lg"
             >
-              RIPRENDI DUELLO
+              Riprendi
             </button>
           </div>
         </div>
       )}
 
-      {/* Footer Info Tasti */}
-      <footer className="max-w-6xl w-full mx-auto text-center text-xs font-mono text-slate-500 z-10">
-        [Spazio] Passo (-3s) • [Invio] Convalida Manuale • [P] Pausa
+      <footer className="max-w-6xl w-full mx-auto text-center text-xs text-cream/45">
+        Spazio = Passo • Invio = Buona • P = Pausa
       </footer>
     </div>
   );

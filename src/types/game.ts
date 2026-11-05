@@ -4,26 +4,13 @@ export interface PlayerConfig {
   id: PlayerId;
   name: string;
   avatar: string;
-  primaryHex: string;
-  secondaryHex: string;
-  glowClass: string;
-  bgClass: string;
-  borderClass: string;
-  textClass: string;
 }
 
 export interface DuelItem {
   id: string;
-  /** Risposta principale mostrata a schermo dopo aver indovinato o passato */
   answer: string;
-  /** Lista di sinonimi, varianti fonetiche IT/EN, plurali o soprannomi accettati */
   aliases: string[];
-  /** URL immagine ad alta leggibilità (SVG/PNG/Wikimedia/Twemoji/Custom DataURL) */
   imageUrl: string;
-  /** Emoji/SVG fallback ad altissima risoluzione se offline o in caricamento */
-  fallbackEmoji?: string;
-  /** Sottotitolo o indizio visivo opzionale (es. solo se abilitato) */
-  subLabel?: string;
 }
 
 export interface Category {
@@ -32,37 +19,31 @@ export interface Category {
   subtitle: string;
   icon: string;
   themeHex: string;
+  coverImage?: string;
+  previewImages?: string[];
   items: DuelItem[];
   isCustom?: boolean;
 }
 
-export interface GridTile {
-  index: number;
-  row: number;
-  col: number;
-  owner: PlayerId;
-  category: Category;
-  /** Quante volte questo territorio ha cambiato padrone */
-  battlesCount: number;
-}
-
 export type MicMode = 'local-shared' | 'discord-p2p';
 
-export type GridSizeOption = '3x3' | '3x4' | '4x4';
+/** 0 = Partita libera senza limite di punti */
+export type TargetWinsOption = 3 | 5 | 7 | 0;
 
 export interface GameSettings {
-  gridSize: GridSizeOption;
+  targetWins: TargetWinsOption;
   duelDurationSeconds: number;
   passPenaltySeconds: number;
   micMode: MicMode;
   soundEnabled: boolean;
   announcerEnabled: boolean;
-  autoRevealAnswerMs: number;
 }
 
 export interface DuelSummary {
+  roundNumber: number;
   winner: PlayerId;
   loser: PlayerId;
+  categoryId: string;
   categoryName: string;
   categoryIcon: string;
   winnerTimeLeft: number;
@@ -70,7 +51,6 @@ export interface DuelSummary {
   p2Correct: number;
   p1Passes: number;
   p2Passes: number;
-  conqueredTilesCount: number;
 }
 
 export interface VoiceMatchResult {

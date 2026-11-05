@@ -4,87 +4,71 @@
 
 @layer base {
   body {
-    background-color: #04060e;
-    color: #f8fafc;
-    font-family: 'Outfit', sans-serif;
+    background-color: #181226;
+    color: #fffdf9;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     overflow-x: hidden;
   }
 }
 
-/* Studio TV Background Grid & Spotlights */
-.studio-bg {
-  background:
-    radial-gradient(circle at 18% 20%, rgba(0, 240, 255, 0.14) 0%, transparent 42%),
-    radial-gradient(circle at 82% 20%, rgba(255, 0, 85, 0.14) 0%, transparent 42%),
-    radial-gradient(circle at 50% 85%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
-    linear-gradient(180deg, #04060e 0%, #090d1e 55%, #04060e 100%);
-}
-
-.studio-grid-overlay {
-  background-size: 48px 48px;
+/* Sfondo caldo da Party Game televisivo (niente griglie fredde da IA) */
+.party-stage-bg {
+  background-color: #1a1429;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    radial-gradient(circle at 15% 15%, rgba(255, 184, 0, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 85% 82%, rgba(255, 71, 87, 0.12) 0%, transparent 42%),
+    radial-gradient(rgba(255, 253, 247, 0.055) 1.5px, transparent 1.5px);
+  background-size: 100% 100%, 100% 100%, 28px 28px;
 }
 
-/* 3D Perspective Floor Container */
-.floor-perspective-wrapper {
-  perspective: 1200px;
+/* Bottoni e Carte Tattili con bordo inchiostro e ombra 3D piena */
+.card-cream {
+  background-color: #fffdf7;
+  color: #181226;
+  border: 3px solid #181226;
+  box-shadow: 0 7px 0 #0d0917;
 }
 
-.floor-3d-plane {
-  transform: rotateX(22deg) scale(0.98);
-  transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+.card-dark {
+  background-color: #241c38;
+  color: #fffdf9;
+  border: 3px solid #0d0917;
+  box-shadow: 0 7px 0 #0d0917;
 }
 
-.floor-3d-plane:hover {
-  transform: rotateX(16deg) scale(1);
+.btn-push {
+  border: 3px solid #181226;
+  box-shadow: 0 5px 0 #0d0917;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.15s ease;
 }
 
-/* Neon Glow Shadows */
-.neon-cyan-box {
-  box-shadow:
-    0 0 22px rgba(0, 240, 255, 0.38),
-    inset 0 0 14px rgba(0, 240, 255, 0.22);
+.btn-push:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 #0d0917;
 }
 
-.neon-pink-box {
-  box-shadow:
-    0 0 22px rgba(255, 0, 85, 0.38),
-    inset 0 0 14px rgba(255, 0, 85, 0.22);
+.btn-push:active:not(:disabled) {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #0d0917;
 }
 
-.neon-gold-box {
-  box-shadow:
-    0 0 32px rgba(250, 204, 21, 0.65),
-    inset 0 0 18px rgba(250, 204, 21, 0.35);
+.btn-push:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
-.text-glow-cyan {
-  text-shadow: 0 0 18px rgba(0, 240, 255, 0.7);
-}
-
-.text-glow-pink {
-  text-shadow: 0 0 18px rgba(255, 0, 85, 0.7);
-}
-
-.text-glow-gold {
-  text-shadow: 0 0 22px rgba(250, 204, 21, 0.8);
-}
-
-/* Custom Scrollbar */
+/* Scrollbar morbida */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #070a14;
+  background: #140f21;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #392e56;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #514278;
 }
