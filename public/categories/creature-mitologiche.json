@@ -42,7 +42,11 @@
       "aliases": [
         "minerva"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Mochuelo_Com%C3%BAn_%28_Athene_noctua_%29%281%29.jpg/960px-Mochuelo_Com%C3%BAn_%28_Athene_noctua_%29%281%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Athena_Parthenos_LeQuire.jpg/960px-Athena_Parthenos_LeQuire.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Athena_Parthenos_LeQuire.jpg/960px-Athena_Parthenos_LeQuire.jpg",
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Athena_Giustiniani%2C_Vatican_Museums.jpg/960px-Athena_Giustiniani%2C_Vatican_Museums.jpg"
+      ]
     },
     {
       "id": "creature-mitologiche-5",
@@ -72,7 +76,11 @@
       "aliases": [
         "mercurio dio"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Rue_du_Faubourg-Saint-Honor%C3%A9%2C_Paris_May_2006.jpg/960px-Rue_du_Faubourg-Saint-Honor%C3%A9%2C_Paris_May_2006.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Herm%C3%A8s_et_son_caduc%C3%A9e_%2830596203082%29.jpg/960px-Herm%C3%A8s_et_son_caduc%C3%A9e_%2830596203082%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Herm%C3%A8s_et_son_caduc%C3%A9e_%2830596203082%29.jpg/960px-Herm%C3%A8s_et_son_caduc%C3%A9e_%2830596203082%29.jpg",
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Statuette_of_Hermes%2C_City_Arts_Museum_of_Angoul%C3%AAme%2C_France_-_20080613.jpg/960px-Statuette_of_Hermes%2C_City_Arts_Museum_of_Angoul%C3%AAme%2C_France_-_20080613.jpg"
+      ]
     },
     {
       "id": "creature-mitologiche-9",
@@ -200,7 +208,11 @@
       "aliases": [
         "dio sciacallo"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Anubis_challenge_screen_%28dark%29.png/960px-Anubis_challenge_screen_%28dark%29.png"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Anubis_coffer-N_4094-IMG_0288-black.jpg/960px-Anubis_coffer-N_4094-IMG_0288-black.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Anubis_coffer-N_4094-IMG_0288-black.jpg/960px-Anubis_coffer-N_4094-IMG_0288-black.jpg",
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Anubis_%28Dios_Egipcio%29_-_A740870.jpg/960px-Anubis_%28Dios_Egipcio%29_-_A740870.jpg"
+      ]
     },
     {
       "id": "creature-mitologiche-26",
@@ -208,13 +220,19 @@
       "aliases": [
         "dio falco"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5e/ASRG_Labeled_Cutaway_%28English%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Temple_of_Edfu%2C_Horus%2C_Egypt.jpg/960px-Temple_of_Edfu%2C_Horus%2C_Egypt.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Temple_of_Edfu%2C_Horus%2C_Egypt.jpg/960px-Temple_of_Edfu%2C_Horus%2C_Egypt.jpg"
+      ]
     },
     {
       "id": "creature-mitologiche-27",
       "answer": "Osiride",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/OSIRIS-REx_spacecraft_model.png/960px-OSIRIS-REx_spacecraft_model.png"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Egyptian_-_Statue_of_Osiris_-_Walters_54551.jpg/960px-Egyptian_-_Statue_of_Osiris_-_Walters_54551.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Egyptian_-_Statue_of_Osiris_-_Walters_54551.jpg/960px-Egyptian_-_Statue_of_Osiris_-_Walters_54551.jpg"
+      ]
     },
     {
       "id": "creature-mitologiche-28",
@@ -267,7 +285,10 @@
         "bigfoot",
         "abominevole uomo delle nevi"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Academy_Sports_%2B_Outdoors_-_Sarah_Stierch_-_May_2024_02.jpg/960px-Academy_Sports_%2B_Outdoors_-_Sarah_Stierch_-_May_2024_02.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Abominable_Snowman_Monsterpalooza2011.jpg/960px-Abominable_Snowman_Monsterpalooza2011.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Abominable_Snowman_Monsterpalooza2011.jpg/960px-Abominable_Snowman_Monsterpalooza2011.jpg"
+      ]
     },
     {
       "id": "creature-mitologiche-35",

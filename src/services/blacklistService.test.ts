@@ -57,6 +57,15 @@ describe('blacklistService', () => {
         'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/library_hero.jpg';
       expect(blacklistService.isBlacklisted(rdr2Banner)).toBe(true);
 
+      // Omonimi errati (civetta per Atena, negozio di lusso per Ermes) bloccati
+      const athenaOwl =
+        'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Mochuelo_Com%C3%BAn_%28_Athene_noctua_%29%281%29.jpg/960px-Mochuelo_Com%C3%BAn_%28_Athene_noctua_%29%281%29.jpg';
+      expect(blacklistService.isBlacklisted(athenaOwl)).toBe(true);
+
+      const hermesStore =
+        'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Rue_du_Faubourg-Saint-Honor%C3%A9%2C_Paris_May_2006.jpg/960px-Rue_du_Faubourg-Saint-Honor%C3%A9%2C_Paris_May_2006.jpg';
+      expect(blacklistService.isBlacklisted(hermesStore)).toBe(true);
+
       const cleanPhoto =
         'https://upload.wikimedia.org/wikipedia/commons/1/12/Living_clean_fish.jpg';
       expect(blacklistService.isBlacklisted(cleanPhoto)).toBe(false);
