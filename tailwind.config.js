@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ['"Baloo 2"', '"Noto Color Emoji"', 'cursive', 'sans-serif'],
-        sans: ['"Nunito"', '"Noto Color Emoji"', 'sans-serif'],
+        display: ['"Baloo 2"', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['"Nunito"', 'system-ui', '-apple-system', 'sans-serif'],
       },
       colors: {
         bg: '#1B1B3A',

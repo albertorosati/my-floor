@@ -21,6 +21,7 @@ import { pwaInstallService } from '../services/pwaInstallService';
 import { t, filterCategories, localizePlayerName, getCategoryTitle } from '../services/i18n';
 import { TheFloorBackground } from './TheFloorBackground';
 import { TheFloorLogo } from './TheFloorLogo';
+import { PhoneMicModal } from './PhoneMicModal';
 import { getPlayerColor, PLAYER_COLORS } from '../utils/playerColors';
 
 interface LobbyScreenProps {
@@ -69,6 +70,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
   const [testTranscript, setTestTranscript] = useState('');
   const [testVolume, setTestVolume] = useState(0);
   const [copiedLink, setCopiedLink] = useState(false);
+  const [phoneModalOpen, setPhoneModalOpen] = useState(false);
   const [canInstallPwa, setCanInstallPwa] = useState(false);
   const [showSettingsModal, setShowSettingsModal] = useState(false);
   const [avatarPickerFor, setAvatarPickerFor] = useState<string | null>(null);
@@ -127,8 +129,11 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
   };
 
   const getCompanionUrl = () => {
+    if (isDiscordActivity) {
+      return `https://albertorosati.github.io/yappik/?room=${encodeURIComponent(roomCode)}`;
+    }
     const baseUrl = `${window.location.origin}${window.location.pathname}`;
-    return `${baseUrl}?room=${roomCode}`;
+    return `${baseUrl}?room=${encodeURIComponent(roomCode)}`;
   };
 
   const handleCopyCompanionUrl = () => {
@@ -309,91 +314,115 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
               </div>
             </div>
 
-            {/* "How do you play?" (Two Selectable Cards) */}
-            <div className="flex flex-col gap-2">
-              <span className="font-display font-bold text-sm text-paper tracking-wide">
-                {t('lobby.howToPlay', settings.language)}
-              </span>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {/* Same Room Card */}
-                <button
-                  type="button"
-                  onClick={() => onUpdateSettings({ micMode: 'local-shared' })}
-                  className={`p-4 rounded-card border-[3px] border-ink text-left transition-all ${
-                    settings.micMode === 'local-shared'
-                      ? 'bg-yellow text-ink shadow-hard tactile-lifted'
-                      : 'bg-paper text-ink shadow-hard-sm hover:translate-y-[-2px]'
-                  }`}
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-2xl">🏠</span>
-                    <span className="font-display font-black text-lg">
-                      {t('lobby.sameRoom', settings.language)}
-                    </span>
-                  </div>
-                  <p className="text-xs font-sans font-semibold opacity-90 leading-snug">
-                    {t('lobby.sameRoomDesc', settings.language)}
-                  </p>
-                </button>
-
-                {/* On Discord Card */}
-                <button
-                  type="button"
-                  onClick={() => onUpdateSettings({ micMode: 'discord-p2p' })}
-                  className={`p-4 rounded-card border-[3px] border-ink text-left transition-all ${
-                    settings.micMode === 'discord-p2p'
-                      ? 'bg-yellow text-ink shadow-hard tactile-lifted'
-                      : 'bg-paper text-ink shadow-hard-sm hover:translate-y-[-2px]'
-                  }`}
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <span className="text-2xl">🎧</span>
-                        <span className="font-display font-black text-lg">
-                          {t('lobby.onDiscord', settings.language)}
-                        </span>
-                      </div>
-                      {p2RemoteConnected && (
-                        <span className="px-2 py-0.5 rounded-full bg-green text-ink font-display font-bold text-xs border border-ink">
-                          Connected
-                        </span>
-                      )}
+            {/* "How do you play?" / Discord Mode Section */}
+            {isDiscordActivity ? (
+              <div className="card-paper p-5 flex flex-col gap-3 border-[3px] border-ink bg-paper shadow-hard">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-11 h-11 rounded-2xl bg-[#5865F2] text-white flex items-center justify-center font-display font-black text-2xl border-[3px] border-ink shadow-hard-sm shrink-0">
+                      🎙️
                     </div>
-                  </div>
-                  <p className="text-xs font-sans font-semibold opacity-90 leading-snug">
-                    {t('lobby.onDiscordDesc', settings.language)}
-                  </p>
-                  {remoteTranscriptPreview && (
-                    <div className="mt-2 text-xs font-bold text-ink/75 truncate bg-white/70 px-2 py-1 rounded border border-ink">
-                      Mic 2: &ldquo;{remoteTranscriptPreview}&rdquo;
-                    </div>
-                  )}
-                </button>
-              </div>
-
-              {settings.micMode === 'discord-p2p' && (
-                isDiscordActivity ? (
-                  <div className="card-paper p-3 mt-1 flex flex-col sm:flex-row items-center justify-between gap-2 border-[3px] border-ink bg-[#5865F2]/10">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xl">🎮</span>
-                      <span className="font-display font-black text-xs sm:text-sm text-ink">
+                    <div>
+                      <h4 className="font-display font-black text-base text-ink leading-tight flex items-center gap-2">
+                        <span>{settings.language === 'en' ? 'Discord Voice Channel' : 'Canale Vocale Discord'}</span>
+                        <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#5865F2] text-white">Activity</span>
+                      </h4>
+                      <p className="font-sans font-semibold text-xs text-ink/75 mt-0.5">
                         {settings.language === 'en'
-                          ? `Discord Call Linked • Room: ${roomCode}`
-                          : `Canale Discord Collegato • Stanza: ${roomCode}`}
+                          ? 'Shout guesses in voice chat • Use Enter for Correct, Space to Pass'
+                          : 'Grida le risposte in chiamata • Premi Invio (Corretto) o Spazio (Passa)'}
+                      </p>
+                    </div>
+                  </div>
+
+                  {p2RemoteConnected && (
+                    <span className="px-3 py-1 rounded-full bg-green text-ink font-display font-bold text-xs border-[2px] border-ink shadow-hard-sm shrink-0 self-start sm:self-center">
+                      📱 {settings.language === 'en' ? 'Phone Connected' : 'Telefono Connesso'}
+                    </span>
+                  )}
+                </div>
+
+                {/* Smartphone QR Companion Promo */}
+                <div className="pt-3 border-t-2 border-ink/15 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                  <p className="font-sans font-medium text-xs text-ink/80 leading-snug">
+                    {settings.language === 'en'
+                      ? 'Want real speech recognition? Connect your smartphone via QR code.'
+                      : 'Vuoi il riconoscimento vocale automatico? Collega il tuo smartphone con il QR code.'}
+                  </p>
+
+                  <button
+                    type="button"
+                    onClick={() => setPhoneModalOpen(true)}
+                    className="btn-push py-2.5 px-4 rounded-xl bg-yellow text-ink font-display font-black text-xs flex items-center justify-center gap-2 shrink-0 shadow-hard-sm"
+                  >
+                    <span>📱</span>
+                    <span>
+                      {p2RemoteConnected
+                        ? (settings.language === 'en' ? 'Phone Mic Active' : 'Microfono Telefono Attivo')
+                        : (settings.language === 'en' ? 'Connect Phone Mic (QR)' : 'Collega Microfono Telefono (QR)')}
+                    </span>
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-2">
+                <span className="font-display font-bold text-sm text-paper tracking-wide">
+                  {t('lobby.howToPlay', settings.language)}
+                </span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {/* Same Room Card */}
+                  <button
+                    type="button"
+                    onClick={() => onUpdateSettings({ micMode: 'local-shared' })}
+                    className={`p-4 rounded-card border-[3px] border-ink text-left transition-all ${
+                      settings.micMode === 'local-shared'
+                        ? 'bg-yellow text-ink shadow-hard tactile-lifted'
+                        : 'bg-paper text-ink shadow-hard-sm hover:translate-y-[-2px]'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-2xl">🏠</span>
+                      <span className="font-display font-black text-lg">
+                        {t('lobby.sameRoom', settings.language)}
                       </span>
                     </div>
-                    {p2RemoteConnected ? (
-                      <span className="px-3 py-1 rounded-full bg-green text-ink font-display font-black text-xs border-[2px] border-ink shadow-hard-sm">
-                        {settings.language === 'en' ? 'P2 Ready' : 'G2 Pronto'}
-                      </span>
-                    ) : (
-                      <span className="px-3 py-1 rounded-full bg-yellow text-ink font-display font-bold text-xs border-[2px] border-ink">
-                        {settings.language === 'en' ? 'Waiting for friend in call' : 'In attesa del rivale'}
-                      </span>
-                    )}
-                  </div>
-                ) : (
+                    <p className="text-xs font-sans font-semibold opacity-90 leading-snug">
+                      {t('lobby.sameRoomDesc', settings.language)}
+                    </p>
+                  </button>
+
+                  {/* Remote P2P Card */}
+                  <button
+                    type="button"
+                    onClick={() => onUpdateSettings({ micMode: 'discord-p2p' })}
+                    className={`p-4 rounded-card border-[3px] border-ink text-left transition-all ${
+                      settings.micMode === 'discord-p2p'
+                        ? 'bg-yellow text-ink shadow-hard tactile-lifted'
+                        : 'bg-paper text-ink shadow-hard-sm hover:translate-y-[-2px]'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <span className="text-2xl">🌐</span>
+                          <span className="font-display font-black text-lg">
+                            {t('lobby.onDiscord', settings.language)}
+                          </span>
+                        </div>
+                        {p2RemoteConnected && (
+                          <span className="px-2 py-0.5 rounded-full bg-green text-ink font-display font-bold text-xs border border-ink">
+                            Connected
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <p className="text-xs font-sans font-semibold opacity-90 leading-snug">
+                      {t('lobby.onDiscordDesc', settings.language)}
+                    </p>
+                  </button>
+                </div>
+
+                {settings.micMode === 'discord-p2p' && (
                   <div className="card-paper p-3 mt-1 flex flex-col sm:flex-row items-center gap-2">
                     <input
                       type="text"
@@ -419,9 +448,9 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                       )}
                     </button>
                   </div>
-                )
-              )}
-            </div>
+                )}
+              </div>
+            )}
 
             {/* Match Settings: Points to win + Time per player */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -472,45 +501,47 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
               </div>
             </div>
 
-            {/* Test Mic link */}
-            <div className="text-left">
-              <button
-                type="button"
-                onClick={toggleMicTest}
-                className="text-xs font-bold text-paper hover:text-yellow underline cursor-pointer"
-              >
-                {testingMic
-                  ? t('lobby.closeVoiceBtn', settings.language)
-                  : t('lobby.testVoiceBtn', settings.language)}
-              </button>
-              {testingMic && (
-                <div className="card-paper p-3 mt-2 flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-2 min-w-0">
-                    <Mic className="w-4 h-4 text-green shrink-0 animate-pulse" />
-                    <span className="font-display font-bold text-ink truncate">
-                      {testTranscript || t('lobby.testingMic', settings.language)}
-                    </span>
+            {/* Test Mic link (Only for Standalone Web App) */}
+            {!isDiscordActivity && (
+              <div className="text-left">
+                <button
+                  type="button"
+                  onClick={toggleMicTest}
+                  className="text-xs font-bold text-paper hover:text-yellow underline cursor-pointer"
+                >
+                  {testingMic
+                    ? t('lobby.closeVoiceBtn', settings.language)
+                    : t('lobby.testVoiceBtn', settings.language)}
+                </button>
+                {testingMic && (
+                  <div className="card-paper p-3 mt-2 flex items-center justify-between text-xs">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <Mic className="w-4 h-4 text-green shrink-0 animate-pulse" />
+                      <span className="font-display font-bold text-ink truncate">
+                        {testTranscript || t('lobby.testingMic', settings.language)}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1 shrink-0">
+                      <span
+                        className={`w-2.5 h-4 rounded-sm border border-ink ${
+                          testVolume > 0.05 ? 'bg-green' : 'bg-ink/20'
+                        }`}
+                      />
+                      <span
+                        className={`w-2.5 h-6 rounded-sm border border-ink ${
+                          testVolume > 0.25 ? 'bg-green' : 'bg-ink/20'
+                        }`}
+                      />
+                      <span
+                        className={`w-2.5 h-8 rounded-sm border border-ink ${
+                          testVolume > 0.5 ? 'bg-green' : 'bg-ink/20'
+                        }`}
+                      />
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1 shrink-0">
-                    <span
-                      className={`w-2.5 h-4 rounded-sm border border-ink ${
-                        testVolume > 0.05 ? 'bg-green' : 'bg-ink/20'
-                      }`}
-                    />
-                    <span
-                      className={`w-2.5 h-6 rounded-sm border border-ink ${
-                        testVolume > 0.25 ? 'bg-green' : 'bg-ink/20'
-                      }`}
-                    />
-                    <span
-                      className={`w-2.5 h-8 rounded-sm border border-ink ${
-                        testVolume > 0.5 ? 'bg-green' : 'bg-ink/20'
-                      }`}
-                    />
-                  </div>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            )}
 
             {/* ONE BIG YELLOW START BUTTON */}
             <button
@@ -903,6 +934,15 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
           </div>
         </div>
       )}
+
+      {/* Phone Mic QR Modal (Exclusive for Discord Activity or remote pairing) */}
+      <PhoneMicModal
+        isOpen={phoneModalOpen}
+        onClose={() => setPhoneModalOpen(false)}
+        roomCode={roomCode}
+        isConnected={p2RemoteConnected}
+        language={settings.language}
+      />
     </div>
   );
 };

@@ -48,27 +48,24 @@ export function isDiscordActivity(): boolean {
 }
 
 /**
- * Derives a deterministic 4-character room code from a Discord instanceId or channelId.
- * This guarantees that all participants in the same Discord voice channel session
- * share the exact same room code without having to type it manually.
+ * Derives a collision-proof room code from a Discord instanceId or channelId.
+ * If the input is already a UUID or long alphanumeric ID, it sanitizes and returns it directly.
+ * Otherwise, it formats a deterministic, collision-resistant identifier.
  */
 export function deriveRoomCodeFromDiscord(instanceOrChannelId: string): string {
-  if (!instanceOrChannelId) return 'YAPK';
-
-  const alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  let hash = 0;
-  for (let i = 0; i < instanceOrChannelId.length; i++) {
-    hash = (hash << 5) - hash + instanceOrChannelId.charCodeAt(i);
-    hash |= 0;
+  if (!instanceOrChannelId || !instanceOrChannelId.trim()) {
+    if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+      return crypto.randomUUID();
+    }
+    return 'yapk-discord-session';
   }
-  hash = Math.abs(hash);
 
-  let code = '';
-  for (let i = 0; i < 4; i++) {
-    code += alphabet.charAt(hash % alphabet.length);
-    hash = Math.floor(hash / alphabet.length);
+  const cleaned = instanceOrChannelId.trim().toLowerCase().replace(/[^a-z0-9-]/g, '');
+  if (cleaned.length >= 8 && cleaned.length <= 48) {
+    return cleaned;
   }
-  return code;
+
+  return `disc-${cleaned}`;
 }
 
 class DiscordActivityService {

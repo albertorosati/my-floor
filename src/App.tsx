@@ -485,6 +485,8 @@ export const App: React.FC = () => {
           latestRemotePacket={latestRemotePacket}
           onSendRemoteState={handleSendRemoteState}
           onDuelFinished={handleDuelFinished}
+          isDiscordActivity={isDiscord}
+          roomCode={roomCode}
         />
       )}
 

@@ -41,10 +41,9 @@ describe('discordActivityService & discordUrlMapper', () => {
   });
 
   describe('deriveRoomCodeFromDiscord', () => {
-    it('generates a 4-character uppercase code', () => {
+    it('preserves Discord instanceId or long snowflake as unique identifier', () => {
       const code = deriveRoomCodeFromDiscord('123456789012345678');
-      expect(code).toHaveLength(4);
-      expect(code).toMatch(/^[A-Z0-9]{4}$/);
+      expect(code).toBe('123456789012345678');
     });
 
     it('is completely deterministic for the same channel or instance ID', () => {
@@ -53,9 +52,9 @@ describe('discordActivityService & discordUrlMapper', () => {
       expect(code1).toBe(code2);
     });
 
-    it('handles empty or missing input gracefully', () => {
+    it('handles empty or missing input gracefully with fallback', () => {
       const code = deriveRoomCodeFromDiscord('');
-      expect(code).toBe('YAPK');
+      expect(code.length).toBeGreaterThan(0);
     });
   });
 

@@ -2,15 +2,17 @@ import Peer, { DataConnection } from 'peerjs';
 import { RemoteMicPacket } from '../types/game';
 import { gameConfig } from '../services/configService';
 
-const PEER_PREFIX = gameConfig.network.peerPrefix;
+const PEER_PREFIX = 'yapk-';
 
 export function generateRoomCode(): string {
-  const chars = gameConfig.network.roomCodeAlphabet;
-  let code = '';
-  for (let i = 0; i < gameConfig.network.roomCodeLength; i++) {
-    code += chars.charAt(Math.floor(Math.random() * chars.length));
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    return crypto.randomUUID();
   }
-  return code;
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+    const r = (Math.random() * 16) | 0;
+    const v = c === 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
 }
 
 export class DiscordHostPeer {
@@ -25,7 +27,7 @@ export class DiscordHostPeer {
     onPacket: (packet: RemoteMicPacket) => void,
     onConnectionChange: (connected: boolean, peerInfo?: string) => void
   ) {
-    this.roomCode = roomCode.toUpperCase();
+    this.roomCode = roomCode.trim().toLowerCase();
     this.onPacket = onPacket;
     this.onConnectionChange = onConnectionChange;
   }
@@ -118,7 +120,7 @@ export class DiscordClientPeer {
       msg?: string
     ) => void
   ) {
-    this.roomCode = roomCode.toUpperCase().trim();
+    this.roomCode = roomCode.trim().toLowerCase();
     this.onStatePacket = onStatePacket;
     this.onStatusChange = onStatusChange;
   }

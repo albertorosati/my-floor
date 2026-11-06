@@ -7,6 +7,7 @@ import {
   Play,
   ArrowRight,
   X,
+  Smartphone,
 } from 'lucide-react';
 import {
   Category,
@@ -33,6 +34,7 @@ import { TheFloorBackground } from './TheFloorBackground';
 import { FormattedTime } from './FormattedTime';
 import { StreakBadge } from './StreakBadge';
 import { InlineCrown } from './InlineCrown';
+import { PhoneMicModal } from './PhoneMicModal';
 
 interface DuelArenaScreenProps {
   roundNumber: number;
@@ -45,6 +47,8 @@ interface DuelArenaScreenProps {
   latestRemotePacket: RemoteMicPacket | null;
   onSendRemoteState: (packet: RemoteMicPacket) => void;
   onDuelFinished: (summary: DuelSummary) => void;
+  isDiscordActivity?: boolean;
+  roomCode?: string;
 }
 
 export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
@@ -58,6 +62,8 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
   latestRemotePacket,
   onSendRemoteState,
   onDuelFinished,
+  isDiscordActivity = false,
+  roomCode = '',
 }) => {
   const [deck, setDeck] = useState<DuelItem[]>(() =>
     prepareArenaDeck(category.items)
@@ -96,6 +102,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
   const [micListening, setMicListening] = useState(false);
   const [micErrorMsg, setMicErrorMsg] = useState<string | null>(null);
   const [usingBackupUrl, setUsingBackupUrl] = useState(false);
+  const [phoneModalOpen, setPhoneModalOpen] = useState(false);
 
   // End of duel sequences:
   const [duelFinishPhase, setDuelFinishPhase] = useState<'reveal' | 'winner' | null>(null);
@@ -381,6 +388,13 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
   processSpokenAlternativesRef.current = processSpokenAlternatives;
 
   const startMicSession = useCallback(() => {
+    if (isDiscordActivity) {
+      // In Discord Activity iframe, direct mic capture is blocked by Discord CSP sandbox.
+      // Speech recognition comes from the paired smartphone companion via PeerJS.
+      setMicListening(p2RemoteConnected);
+      return;
+    }
+
     if (recognizerRef.current) {
       recognizerRef.current.stop();
     }
@@ -407,7 +421,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     );
     recognizerRef.current = rec;
     rec.start();
-  }, [settings.language]);
+  }, [isDiscordActivity, p2RemoteConnected, settings.language]);
 
   useEffect(() => {
     startMicSession();
@@ -428,7 +442,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
           ? [latestRemotePacket.transcript]
           : [];
       if (alts.length > 0) {
-        processSpokenAlternatives(alts, 'p2');
+        processSpokenAlternatives(alts, stateRef.current.activePlayer);
       }
     } else if (latestRemotePacket.type === 'PASS_BUTTON') {
       if (stateRef.current.activePlayer === 'p2') {
@@ -655,15 +669,37 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
             </h1>
           </div>
 
-          <button
-            type="button"
-            onClick={() => setIsPaused((p) => !p)}
-            className="btn-push px-4 py-2 rounded-xl bg-paper text-ink font-display font-bold text-sm flex items-center gap-1.5 shrink-0 border-[3px] border-ink shadow-hard-sm"
-            aria-label={isPaused ? t('arena.resume', settings.language) : t('arena.pause', settings.language)}
-          >
-            {isPaused ? <Play className="w-4 h-4 text-green" /> : <Pause className="w-4 h-4 stroke-[2.5]" />}
-            <span>{isPaused ? t('arena.resume', settings.language) : t('arena.pause', settings.language)}</span>
-          </button>
+          <div className="flex items-center gap-2 shrink-0">
+            {isDiscordActivity && (
+              <button
+                type="button"
+                onClick={() => setPhoneModalOpen(true)}
+                className={`btn-push px-3 py-2 rounded-xl border-[3px] border-ink shadow-hard-sm font-display font-black text-xs flex items-center gap-1.5 transition-transform active:translate-y-0.5 ${
+                  p2RemoteConnected
+                    ? 'bg-green text-ink'
+                    : 'bg-yellow text-ink'
+                }`}
+                title={settings.language === 'en' ? 'Smartphone Mic QR' : 'Microfono Smartphone QR'}
+              >
+                <Smartphone className="w-4 h-4 shrink-0" />
+                <span className="hidden sm:inline">
+                  {p2RemoteConnected
+                    ? (settings.language === 'en' ? 'Phone Mic' : 'Mic Telefono')
+                    : (settings.language === 'en' ? 'Connect Phone' : 'QR Telefono')}
+                </span>
+              </button>
+            )}
+
+            <button
+              type="button"
+              onClick={() => setIsPaused((p) => !p)}
+              className="btn-push px-4 py-2 rounded-xl bg-paper text-ink font-display font-bold text-sm flex items-center gap-1.5 shrink-0 border-[3px] border-ink shadow-hard-sm"
+              aria-label={isPaused ? t('arena.resume', settings.language) : t('arena.pause', settings.language)}
+            >
+              {isPaused ? <Play className="w-4 h-4 text-green" /> : <Pause className="w-4 h-4 stroke-[2.5]" />}
+              <span>{isPaused ? t('arena.resume', settings.language) : t('arena.pause', settings.language)}</span>
+            </button>
+          </div>
         </header>
 
         {/* ============================================================== */}
@@ -720,7 +756,13 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
             {/* Speech bubble anchored to P1 when active */}
             {p1Active && (
               <div className="speech-bubble speech-bubble-tail-bottom absolute -bottom-16 left-1/2 -translate-x-1/2 bg-yellow text-ink border-[3px] border-ink px-4 py-1.5 rounded-2xl shadow-hard font-display font-black text-sm whitespace-nowrap z-30">
-                {liveTranscript ? `“${liveTranscript}”` : t('arena.listening', settings.language)}
+                {liveTranscript
+                  ? `“${liveTranscript}”`
+                  : isDiscordActivity
+                  ? p2RemoteConnected
+                    ? (settings.language === 'en' ? 'Speak into phone...' : 'Parla al telefono...')
+                    : (settings.language === 'en' ? 'Shout in voice chat!' : 'Grida nel canale vocale!')
+                  : t('arena.listening', settings.language)}
               </div>
             )}
           </div>
@@ -806,6 +848,12 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
                   <span className={p1Active ? 'text-blue' : 'text-red'}>
                     “{liveTranscript}”
                   </span>
+                ) : isDiscordActivity ? (
+                  p2RemoteConnected ? (
+                    <span className="text-green font-bold">📱 {settings.language === 'en' ? 'Speak into phone...' : 'Parla al telefono...'}</span>
+                  ) : (
+                    <span className="text-ink font-bold">🎙️ {settings.language === 'en' ? 'Shout in voice chat! [Enter]/[Space]' : 'Grida nel canale vocale! [Invio]/[Spazio]'}</span>
+                  )
                 ) : micListening ? (
                   t('arena.listening', settings.language)
                 ) : micErrorMsg ? (
@@ -867,7 +915,13 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
             {/* Speech bubble anchored to P2 when active */}
             {p2Active && (
               <div className="speech-bubble speech-bubble-tail-bottom absolute -bottom-16 left-1/2 -translate-x-1/2 bg-yellow text-ink border-[3px] border-ink px-4 py-1.5 rounded-2xl shadow-hard font-display font-black text-sm whitespace-nowrap z-30">
-                {liveTranscript ? `“${liveTranscript}”` : t('arena.listening', settings.language)}
+                {liveTranscript
+                  ? `“${liveTranscript}”`
+                  : isDiscordActivity
+                  ? p2RemoteConnected
+                    ? (settings.language === 'en' ? 'Speak into phone...' : 'Parla al telefono...')
+                    : (settings.language === 'en' ? 'Shout in voice chat!' : 'Grida nel canale vocale!')
+                  : t('arena.listening', settings.language)}
               </div>
             )}
           </div>
@@ -941,30 +995,58 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         {/* ============================================================== */}
         <div className="w-full shrink-0 flex flex-col items-center gap-2 py-1">
           <div className="flex items-center justify-center gap-4 w-full">
-            {/* Real Mic Level Meter (3 Bars driven by live mic volume) */}
-            <div
-              className="flex items-center gap-1.5 px-3 py-3 rounded-xl bg-paper border-[3px] border-ink shadow-hard shrink-0 h-16"
-              title="Mic level"
-            >
-              <Mic className={`w-5 h-5 ${micListening ? 'text-green' : 'text-ink/40'}`} />
-              <div className="flex items-end gap-1 h-8">
-                <span
-                  className={`w-2 rounded-sm border border-ink transition-all ${
-                    micListening && micVolume > 0.05 ? 'bg-green h-4' : 'bg-ink/15 h-3'
-                  }`}
-                />
-                <span
-                  className={`w-2 rounded-sm border border-ink transition-all ${
-                    micListening && micVolume > 0.25 ? 'bg-green h-6' : 'bg-ink/15 h-3'
-                  }`}
-                />
-                <span
-                  className={`w-2 rounded-sm border border-ink transition-all ${
-                    micListening && micVolume > 0.55 ? 'bg-green h-8' : 'bg-ink/15 h-3'
-                  }`}
-                />
+            {/* Mic indicator: Discord Voice / Phone Companion vs Web Browser Mic */}
+            {isDiscordActivity ? (
+              p2RemoteConnected ? (
+                <button
+                  type="button"
+                  onClick={() => setPhoneModalOpen(true)}
+                  className="btn-push flex items-center gap-2 px-3.5 py-3 rounded-xl bg-paper border-[3px] border-ink shadow-hard shrink-0 h-16 hover:bg-yellow transition-colors"
+                  title={settings.language === 'en' ? 'Phone Mic Connected (Click for QR)' : 'Microfono Telefono Connesso (Clicca per QR)'}
+                >
+                  <Smartphone className="w-5 h-5 text-green" />
+                  <span className="font-display font-black text-xs text-ink hidden sm:inline">📱 Mic</span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-green animate-ping" />
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setPhoneModalOpen(true)}
+                  className="btn-push flex items-center gap-2 px-3 py-3 rounded-xl bg-paper border-[3px] border-ink shadow-hard shrink-0 h-16 hover:bg-yellow transition-colors"
+                  title={settings.language === 'en' ? 'Discord Voice Channel (Click for Phone QR)' : 'Canale Vocale Discord (Clicca per QR Telefono)'}
+                >
+                  <span className="text-xl">🎙️</span>
+                  <div className="flex flex-col text-left leading-tight hidden sm:flex">
+                    <span className="font-display font-black text-xs text-ink">Vocale</span>
+                    <span className="text-[10px] text-ink/70 font-bold">📱 Telefono</span>
+                  </div>
+                </button>
+              )
+            ) : (
+              <div
+                className="flex items-center gap-1.5 px-3 py-3 rounded-xl bg-paper border-[3px] border-ink shadow-hard shrink-0 h-16"
+                title="Mic level"
+              >
+                <Mic className={`w-5 h-5 ${micListening ? 'text-green' : 'text-ink/40'}`} />
+                <div className="flex items-end gap-1 h-8">
+                  <span
+                    className={`w-2 rounded-sm border border-ink transition-all ${
+                      micListening && micVolume > 0.05 ? 'bg-green h-4' : 'bg-ink/15 h-3'
+                    }`}
+                  />
+                  <span
+                    className={`w-2 rounded-sm border border-ink transition-all ${
+                      micListening && micVolume > 0.25 ? 'bg-green h-6' : 'bg-ink/15 h-3'
+                    }`}
+                  />
+                  <span
+                    className={`w-2 rounded-sm border border-ink transition-all ${
+                      micListening && micVolume > 0.55 ? 'bg-green h-8' : 'bg-ink/15 h-3'
+                    }`}
+                  />
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Pass Button: min 64px tall, min 160px wide, A2 lowercase 's' */}
             <button
@@ -1085,6 +1167,15 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
           </div>
         </div>
       )}
+
+      {/* Phone Mic QR Modal (Can be opened mid-game in Discord Activity) */}
+      <PhoneMicModal
+        isOpen={phoneModalOpen}
+        onClose={() => setPhoneModalOpen(false)}
+        roomCode={roomCode}
+        isConnected={p2RemoteConnected}
+        language={settings.language}
+      />
     </div>
   );
 };
