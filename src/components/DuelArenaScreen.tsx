@@ -24,6 +24,7 @@ import {
 import { evaluateVoiceInput } from '../engine/voiceMatcher';
 import { SmartSpeechRecognizer } from '../engine/speechRecognition';
 import { soundEngine } from '../engine/soundEffects';
+import { hapticsService } from '../services/hapticsService';
 import {
   getBackupImageUrl,
   isImageCached,
@@ -239,6 +240,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
       const newStreak = st.streak + 1;
       setStreak(newStreak);
       soundEngine.playCorrectAnswer(newStreak);
+      hapticsService.vibrateCorrect();
 
       if (st.activePlayer === 'p1') {
         setP1Correct((c) => c + 1);
@@ -282,6 +284,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     recognizerRef.current?.consumeCurrentBuffer();
 
     soundEngine.playPassPenalty();
+    hapticsService.vibratePass();
     setStreak(0);
     setLiveTranscript('Passo!');
 
@@ -480,6 +483,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         setDuelFinishPhase('winner');
         soundEngine.playGrandFanfare();
         soundEngine.playDuelVictory();
+        hapticsService.vibrateVictory();
 
         const winPlayer = winner === 'p1' ? p1 : p2;
         soundEngine.speakAnnouncement(
@@ -580,9 +584,11 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         const wholeSec = Math.ceil(nextP1);
         if (wholeSec !== lastSecondBeepRef.current && nextP1 > 0) {
           lastSecondBeepRef.current = wholeSec;
-          soundEngine.playClockTick(
-            nextP1 <= gameConfig.options.urgentThresholdSeconds
-          );
+          const isUrgent = nextP1 <= gameConfig.options.urgentThresholdSeconds;
+          soundEngine.playClockTick(isUrgent);
+          if (isUrgent) {
+            hapticsService.vibrateUrgentTick();
+          }
         }
 
         if (nextP1 <= 0) {
@@ -595,9 +601,11 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         const wholeSec = Math.ceil(nextP2);
         if (wholeSec !== lastSecondBeepRef.current && nextP2 > 0) {
           lastSecondBeepRef.current = wholeSec;
-          soundEngine.playClockTick(
-            nextP2 <= gameConfig.options.urgentThresholdSeconds
-          );
+          const isUrgent = nextP2 <= gameConfig.options.urgentThresholdSeconds;
+          soundEngine.playClockTick(isUrgent);
+          if (isUrgent) {
+            hapticsService.vibrateUrgentTick();
+          }
         }
 
         if (nextP2 <= 0) {

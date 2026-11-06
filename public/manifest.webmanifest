@@ -1,0 +1,27 @@
+{
+  "name": "The Floor — 1v1 Voice Duel Showdown",
+  "short_name": "The Floor",
+  "description": "Party game 1 contro 1 a riconoscimento vocale ispirato a The Floor su centinaia di fotografie vere in HD.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#181226",
+  "theme_color": "#181226",
+  "lang": "it-IT",
+  "categories": ["games", "entertainment"],
+  "icons": [
+    {
+      "src": "./logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./logo.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

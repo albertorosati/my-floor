@@ -12,6 +12,7 @@ import { gameConfig } from './services/configService';
 import { CategoryRepository } from './services/categoryRepository';
 import { DiscordHostPeer, generateRoomCode } from './engine/discordMicSync';
 import { soundEngine } from './engine/soundEffects';
+import { hapticsService } from './services/hapticsService';
 import { LobbyScreen } from './components/LobbyScreen';
 import { CategoryDraftScreen } from './components/CategoryDraftScreen';
 import { DuelArenaScreen } from './components/DuelArenaScreen';
@@ -53,6 +54,7 @@ export const App: React.FC = () => {
     micMode: gameConfig.defaults.micMode,
     soundEnabled: gameConfig.defaults.soundEnabled,
     announcerEnabled: gameConfig.defaults.announcerEnabled,
+    hapticsEnabled: true,
   });
 
   // Stato Match a Round con scelta categoria alternata
@@ -75,7 +77,8 @@ export const App: React.FC = () => {
   useEffect(() => {
     soundEngine.enabled = settings.soundEnabled;
     soundEngine.announcerEnabled = settings.announcerEnabled;
-  }, [settings.soundEnabled, settings.announcerEnabled]);
+    hapticsService.enabled = settings.hapticsEnabled;
+  }, [settings.soundEnabled, settings.announcerEnabled, settings.hapticsEnabled]);
 
   useEffect(() => {
     if (remoteRoomParam) return;

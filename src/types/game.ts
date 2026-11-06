@@ -37,6 +37,7 @@ export interface GameSettings {
   micMode: MicMode;
   soundEnabled: boolean;
   announcerEnabled: boolean;
+  hapticsEnabled: boolean;
 }
 
 export interface DuelSummary {

@@ -8,6 +8,9 @@ import {
   Sparkles,
   Play,
   Layers,
+  Download,
+  Smartphone,
+  X,
 } from 'lucide-react';
 import {
   Category,
@@ -18,6 +21,8 @@ import {
 } from '../types/game';
 import { SmartSpeechRecognizer } from '../engine/speechRecognition';
 import { gameConfig } from '../services/configService';
+import { pwaInstallService } from '../services/pwaInstallService';
+import { hapticsService } from '../services/hapticsService';
 import { APP_VERSION } from '../config/version';
 
 interface LobbyScreenProps {
@@ -52,6 +57,9 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
   const [testVolume, setTestVolume] = useState(0);
   const [micError, setMicError] = useState<string | null>(null);
   const [copiedLink, setCopiedLink] = useState(false);
+  const [canInstallPwa, setCanInstallPwa] = useState(false);
+  const [isStandalone, setIsStandalone] = useState(false);
+  const [showIosInstallModal, setShowIosInstallModal] = useState(false);
   const recognizerRef = useRef<SmartSpeechRecognizer | null>(null);
 
   const speechSupported = SmartSpeechRecognizer.isSupported();
@@ -59,10 +67,23 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
   const avatars = gameConfig.players.avatars;
 
   useEffect(() => {
+    const unsub = pwaInstallService.subscribe((can, standalone) => {
+      setCanInstallPwa(can);
+      setIsStandalone(standalone);
+    });
     return () => {
+      unsub();
       recognizerRef.current?.stop();
     };
   }, []);
+
+  const handleInstallClick = async () => {
+    hapticsService.vibrateTap();
+    const result = await pwaInstallService.triggerInstall();
+    if (result === 'ios-guide') {
+      setShowIosInstallModal(true);
+    }
+  };
 
   const toggleMicTest = () => {
     if (testingMic) {
@@ -119,31 +140,61 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
           </div>
         </div>
 
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2">
+          {!isStandalone && canInstallPwa && (
+            <button
+              onClick={handleInstallClick}
+              className="btn-push px-3 py-2 rounded-xl bg-gold text-ink font-display font-bold text-xs flex items-center gap-1.5 shadow-sm"
+              title="Installa The Floor come app sul tuo dispositivo"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Installa App</span>
+            </button>
+          )}
+
           <button
             onClick={onOpenCategoryEditor}
-            className="btn-push px-4 py-2.5 rounded-xl bg-cream text-ink font-display font-semibold text-sm flex items-center gap-2"
+            className="btn-push px-3 sm:px-4 py-2 rounded-xl bg-cream text-ink font-display font-semibold text-xs sm:text-sm flex items-center gap-1.5"
           >
             <Layers className="w-4 h-4 text-p1" />
-            <span>Categorie ({categories.length})</span>
+            <span className="hidden sm:inline">Categorie ({categories.length})</span>
+            <span className="sm:hidden">{categories.length}</span>
           </button>
 
           <button
             onClick={() =>
               onUpdateSettings({ soundEnabled: !settings.soundEnabled })
             }
-            className={`btn-push p-2.5 rounded-xl font-bold ${
+            className={`btn-push p-2 rounded-xl font-bold ${
               settings.soundEnabled
                 ? 'bg-mint text-ink'
                 : 'bg-[#2f2547] text-cream/60'
             }`}
-            title={settings.soundEnabled ? 'Audio attivo' : 'Audio disattivato'}
+            title={settings.soundEnabled ? 'Effetti sonori attivi' : 'Audio disattivato'}
           >
             {settings.soundEnabled ? (
-              <Volume2 className="w-5 h-5" />
+              <Volume2 className="w-4 h-4 sm:w-5 sm:h-5" />
             ) : (
-              <VolumeX className="w-5 h-5" />
+              <VolumeX className="w-4 h-4 sm:w-5 sm:h-5" />
             )}
+          </button>
+
+          <button
+            onClick={() =>
+              onUpdateSettings({ hapticsEnabled: !settings.hapticsEnabled })
+            }
+            className={`btn-push p-2 rounded-xl font-bold ${
+              settings.hapticsEnabled
+                ? 'bg-gold text-ink'
+                : 'bg-[#2f2547] text-cream/40'
+            }`}
+            title={
+              settings.hapticsEnabled
+                ? 'Vibrazione tattile attiva'
+                : 'Vibrazione tattile disattivata'
+            }
+          >
+            <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
         </div>
       </header>
@@ -441,6 +492,59 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
           </span>
         </div>
       </footer>
+
+      {/* Finestra Modale Guida Installazione iOS Safari */}
+      {showIosInstallModal && (
+        <div className="fixed inset-0 z-50 bg-[#140e24]/90 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="card-cream max-w-sm w-full rounded-3xl p-6 text-center flex flex-col items-center gap-4 animate-pop-in relative border-[4px] border-ink">
+            <button
+              onClick={() => setShowIosInstallModal(false)}
+              className="absolute top-4 right-4 p-1.5 rounded-xl bg-paper border border-ink/20 text-ink/70 hover:text-ink"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            <div className="w-16 h-16 rounded-2xl bg-gold border-[3px] border-ink shadow-chunky-sm flex items-center justify-center text-3xl">
+              📲
+            </div>
+
+            <div>
+              <h3 className="font-display font-bold text-xl text-ink">
+                Installa su iPhone / iPad
+              </h3>
+              <p className="text-xs text-ink/70 mt-1">
+                Gioca a tutto schermo senza barre del browser in 2 semplici tocchi:
+              </p>
+            </div>
+
+            <div className="w-full flex flex-col gap-2.5 text-left text-xs font-semibold text-ink bg-paper p-3.5 rounded-2xl border border-ink/20">
+              <div className="flex items-center gap-2.5">
+                <span className="w-6 h-6 rounded-lg bg-p1 text-white font-bold flex items-center justify-center text-xs shrink-0">
+                  1
+                </span>
+                <span>
+                  Tocca il tasto <strong>Condividi</strong> 📤 nella barra inferiore di Safari
+                </span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <span className="w-6 h-6 rounded-lg bg-p2 text-white font-bold flex items-center justify-center text-xs shrink-0">
+                  2
+                </span>
+                <span>
+                  Scorri in basso e scegli <strong>&ldquo;Aggiungi alla schermata Home&rdquo;</strong> ➕
+                </span>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setShowIosInstallModal(false)}
+              className="btn-push w-full py-2.5 rounded-xl bg-mint text-ink font-display font-bold text-sm"
+            >
+              Ho capito!
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
