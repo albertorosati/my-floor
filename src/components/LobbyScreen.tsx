@@ -161,49 +161,58 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
   const featuredCategories = availableCategories.slice(0, 14);
 
   return (
-    <div className="min-h-screen party-stage-bg flex flex-col justify-between select-none relative overflow-x-hidden">
-      {/* Sfondo luminoso con riflettori da studio televisivo */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[450px] floor-stage-marquee pointer-events-none -z-0" />
+    <div className="min-h-screen broadcast-stage-bg flex flex-col justify-between select-none relative overflow-x-hidden text-cream">
+      {/* Sfondo con fasci di luce da studio televisivo */}
+      <div className="absolute top-0 left-1/4 -translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-br from-cyan-500/10 to-transparent blur-3xl pointer-events-none -z-0" />
+      <div className="absolute top-0 right-1/4 translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-bl from-rose-500/10 to-transparent blur-3xl pointer-events-none -z-0" />
 
       {/* ============================================================== */}
-      {/* HEADER DELLA LOBBY                                            */}
+      {/* 1. MASTER BROADCAST HEADER                                    */}
       {/* ============================================================== */}
-      <header className="relative z-10 max-w-6xl w-full mx-auto px-4 sm:px-6 pt-4 sm:pt-6 flex flex-wrap items-center justify-between gap-4">
-        {/* Logo & Brand */}
+      <header className="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 pt-3 sm:pt-4 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-3">
+        {/* Brand & Broadcast Status */}
         <div className="flex items-center gap-3">
           <div className="relative group cursor-pointer">
             <img
               src="./logo.svg"
-              alt="Floor Arena Logo"
-              className="w-13 h-13 sm:w-15 sm:h-15 rounded-2xl border-[3px] border-ink shadow-chunky transition-transform group-hover:scale-105 group-hover:-rotate-3"
+              alt="The Floor Arena"
+              className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl border-2 border-white/20 shadow-lg transition-transform group-hover:scale-105"
             />
-            <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-gold border border-ink flex items-center justify-center text-[10px] font-black">
-              ⚡
+            <div className="absolute -top-1 -right-1 flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500" />
             </div>
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-display text-2xl sm:text-3xl font-black tracking-tight text-cream drop-shadow-sm leading-none">
+              <span className="font-display text-2xl sm:text-3xl font-black tracking-tight text-white leading-none">
                 {gameConfig.appTitle}
               </span>
-              <span className="px-2 py-0.5 rounded-lg bg-gold text-ink font-display font-black text-[11px] uppercase tracking-wider border border-ink shadow-sm">
+              <span className="px-1.5 py-0.5 rounded bg-gold text-ink font-display font-black text-[10px] uppercase tracking-wider">
                 ARENA
               </span>
             </div>
-            <p className="text-xs text-cream/75 font-semibold mt-1">
-              {t('app.headerStats', settings.language, {
-                categories: availableCategories.length,
-                photos: totalPhotos.toLocaleString(
-                  settings.language === 'en' ? 'en-US' : 'it-IT'
-                ),
-              })}
-            </p>
+            <div className="flex items-center gap-2 text-[11px] font-mono text-cream/60 mt-0.5">
+              <span className="inline-flex items-center gap-1 text-red-400 font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                ON AIR
+              </span>
+              <span>•</span>
+              <span>
+                {t('app.headerStats', settings.language, {
+                  categories: availableCategories.length,
+                  photos: totalPhotos.toLocaleString(
+                    settings.language === 'en' ? 'en-US' : 'it-IT'
+                  ),
+                })}
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* Action Pills & Controls */}
+        {/* Studio Controls */}
         <div className="flex items-center gap-2">
-          {/* Selettore Lingua IT / EN */}
+          {/* Selettore Lingua Bilingue */}
           <button
             onClick={() => {
               hapticsService.vibrateTap();
@@ -211,74 +220,77 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                 language: settings.language === 'it' ? 'en' : 'it',
               });
             }}
-            className="btn-push px-3 py-2 rounded-xl bg-cream text-ink font-display font-extrabold text-xs sm:text-sm flex items-center gap-1.5 shadow-sm"
+            className="px-3 py-1.5 rounded-lg bg-[#141824] hover:bg-[#1c2233] border border-white/15 text-cream font-mono font-bold text-xs flex items-center gap-1.5 transition-colors shadow-sm"
             title={
               settings.language === 'it'
                 ? 'Switch to English'
                 : 'Passa alla lingua Italiana'
             }
           >
-            <span className="text-base">
+            <span className="text-sm">
               {settings.language === 'it' ? '🇮🇹' : '🇬🇧'}
             </span>
-            <span className="uppercase">{settings.language}</span>
+            <span className="uppercase tracking-wider">{settings.language}</span>
           </button>
 
-          {/* Sfoglia Catalogo Categorie */}
+          {/* Sfoglia Archivio Categorie */}
           <button
             onClick={onOpenCategoryEditor}
-            className="btn-push px-3 sm:px-4 py-2 rounded-xl bg-cream text-ink font-display font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-sm"
+            className="px-3 sm:px-4 py-1.5 rounded-lg bg-[#141824] hover:bg-[#1c2233] border border-white/15 text-cream font-display font-bold text-xs sm:text-sm flex items-center gap-1.5 transition-colors shadow-sm"
           >
-            <Layers className="w-4 h-4 text-p1" />
+            <Layers className="w-4 h-4 text-p1Cyan" />
             <span className="hidden sm:inline">
-              {settings.language === 'en' ? 'Categories' : 'Categorie'} (
-              {availableCategories.length})
+              {settings.language === 'en' ? 'Categories' : 'Categorie'}
             </span>
-            <span className="sm:hidden">{availableCategories.length}</span>
+            <span className="font-mono text-xs px-1.5 py-0.2 rounded bg-black/50 text-gold font-bold">
+              {availableCategories.length}
+            </span>
           </button>
 
           {/* Tasto Installazione PWA se disponibile */}
           {!isStandalone && canInstallPwa && (
             <button
               onClick={handleInstallClick}
-              className="btn-push px-3 py-2 rounded-xl bg-gold text-ink font-display font-bold text-xs flex items-center gap-1.5 shadow-sm"
+              className="px-3 py-1.5 rounded-lg bg-gold hover:bg-goldBright text-ink font-display font-bold text-xs flex items-center gap-1.5 shadow-sm transition-colors"
               title={t('app.install', settings.language)}
             >
               <Download className="w-3.5 h-3.5" />
-              <span className="hidden md:inline">{t('app.install', settings.language)}</span>
+              <span className="hidden md:inline">
+                {t('app.install', settings.language)}
+              </span>
             </button>
           )}
 
-          {/* Toggle Audio */}
+          {/* Toggle Effetti Sonori */}
           <button
             onClick={() =>
               onUpdateSettings({ soundEnabled: !settings.soundEnabled })
             }
-            className={`btn-push p-2 rounded-xl font-bold ${
+            className={`p-2 rounded-lg border transition-colors ${
               settings.soundEnabled
-                ? 'bg-mint text-ink'
-                : 'bg-[#2f2547] text-cream/50'
+                ? 'bg-[#141824] text-mint border-mint/40 hover:bg-[#1a2030]'
+                : 'bg-[#141824] text-cream/40 border-white/10 hover:bg-[#1a2030]'
             }`}
             title={
               settings.soundEnabled ? 'Effetti sonori attivi' : 'Audio disattivato'
             }
           >
             {settings.soundEnabled ? (
-              <Volume2 className="w-4 h-4 sm:w-5 sm:h-5" />
+              <Volume2 className="w-4 h-4" />
             ) : (
-              <VolumeX className="w-4 h-4 sm:w-5 sm:h-5" />
+              <VolumeX className="w-4 h-4" />
             )}
           </button>
 
-          {/* Toggle Vibrazione Tattile */}
+          {/* Toggle Vibrazione Aptica */}
           <button
             onClick={() =>
               onUpdateSettings({ hapticsEnabled: !settings.hapticsEnabled })
             }
-            className={`btn-push p-2 rounded-xl font-bold ${
+            className={`p-2 rounded-lg border transition-colors ${
               settings.hapticsEnabled
-                ? 'bg-gold text-ink'
-                : 'bg-[#2f2547] text-cream/40'
+                ? 'bg-[#141824] text-gold border-gold/40 hover:bg-[#1a2030]'
+                : 'bg-[#141824] text-cream/40 border-white/10 hover:bg-[#1a2030]'
             }`}
             title={
               settings.hapticsEnabled
@@ -286,300 +298,629 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                 : 'Vibrazione tattile disattivata'
             }
           >
-            <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" />
+            <Smartphone className="w-4 h-4" />
           </button>
         </div>
       </header>
 
       {/* ============================================================== */}
-      {/* HERO SECTION MARQUEE CON STAGE GLOW                           */}
+      {/* 2. HERO BROADCAST BANNER & CHYRON TICKER                       */}
       {/* ============================================================== */}
-      <section className="relative z-10 max-w-6xl w-full mx-auto px-4 sm:px-6 mt-4 sm:mt-6 text-center flex flex-col items-center">
-        {/* Eyebrow Pill */}
-        <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-gold/90 text-ink font-display font-black text-xs uppercase tracking-wider border-2 border-ink shadow-chunky-sm mb-2 animate-bounce-soft">
-          <Flame className="w-3.5 h-3.5 text-p2 fill-current" />
-          <span>{t('home.heroTagline', settings.language)}</span>
-          <Sparkles className="w-3.5 h-3.5 text-ink" />
+      <section className="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 pt-3 sm:pt-5">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded bg-gold/15 text-gold font-mono font-bold text-[11px] uppercase tracking-wider border border-gold/30 mb-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+              <span>{t('home.heroTagline', settings.language)}</span>
+            </div>
+            <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase leading-none drop-shadow-md">
+              {t('home.heroTitle', settings.language)}
+            </h2>
+          </div>
+          <p className="max-w-md text-xs sm:text-sm text-cream/70 font-medium leading-relaxed">
+            {t('home.heroSubtitle', settings.language)}
+          </p>
         </div>
 
-        {/* Hero Title */}
-        <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] uppercase leading-none">
-          {t('home.heroTitle', settings.language)}
-        </h2>
+        {/* Lower-Third Chyron Ticker con Anteprime Fotografiche */}
+        <div className="w-full mt-3 overflow-hidden rounded-xl bg-[#0d101a] border border-white/10 p-1.5 flex items-center shadow-inner relative">
+          <div className="px-2.5 py-1 rounded bg-gold text-ink font-mono font-black text-[10px] uppercase tracking-wider shrink-0 mr-2 flex items-center gap-1 shadow-sm">
+            <span>LIVE CRAWL</span>
+            <span className="text-[9px]">►</span>
+          </div>
 
-        {/* Hero Subtitle */}
-        <p className="max-w-2xl text-xs sm:text-base text-cream/80 font-medium mt-2.5 leading-relaxed">
-          {t('home.heroSubtitle', settings.language)}
-        </p>
-
-        {/* Ticker Marquee a scorrimento continuo delle categorie con anteprime fotografiche */}
-        <div className="w-full mt-4 sm:mt-5 overflow-hidden py-1 relative">
-          <div className="absolute inset-y-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-[#181226] to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-8 sm:w-16 bg-gradient-to-l from-[#181226] to-transparent z-10 pointer-events-none" />
-
-          <div className="animate-marquee-scroll flex items-center gap-2.5">
-            {[...featuredCategories, ...featuredCategories].map((cat, idx) => {
-              const cover = cat.coverImage || cat.items[0]?.imageUrl;
-              return (
-                <div
-                  key={`marquee-${cat.id}-${idx}`}
-                  onClick={onOpenCategoryEditor}
-                  className="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-gold/20 border border-white/15 backdrop-blur-sm flex items-center gap-2 text-xs font-bold text-cream cursor-pointer transition-colors shadow-sm shrink-0"
-                >
-                  {cover ? (
-                    <img
-                      src={cover}
-                      alt=""
-                      className="w-5 h-5 rounded-md object-cover border border-white/20"
-                    />
-                  ) : (
-                    <span>{cat.icon}</span>
-                  )}
-                  <span className="truncate max-w-[120px]">
-                    {getCategoryTitle(cat, settings.language)}
-                  </span>
-                </div>
-              );
-            })}
+          <div className="overflow-hidden relative flex-1">
+            <div className="animate-marquee-scroll flex items-center gap-2">
+              {[...featuredCategories, ...featuredCategories].map((cat, idx) => {
+                const cover = cat.coverImage || cat.items[0]?.imageUrl;
+                return (
+                  <div
+                    key={`chyron-${cat.id}-${idx}`}
+                    onClick={onOpenCategoryEditor}
+                    className="px-2.5 py-1 rounded-lg bg-[#141824] hover:bg-[#1f2638] border border-white/10 flex items-center gap-2 text-xs font-bold text-cream/90 cursor-pointer transition-colors shrink-0"
+                  >
+                    {cover ? (
+                      <img
+                        src={cover}
+                        alt=""
+                        className="w-4 h-4 rounded object-cover border border-white/20"
+                      />
+                    ) : (
+                      <span className="text-xs">{cat.icon}</span>
+                    )}
+                    <span className="truncate max-w-[130px] font-display">
+                      {getCategoryTitle(cat, settings.language)}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Avviso Microfono Browser */}
       {!speechSupported && (
-        <div className="max-w-5xl w-full mx-auto px-4 mt-3">
-          <div className="p-4 rounded-2xl bg-gold text-ink border-[3px] border-ink shadow-chunky-sm font-semibold text-sm">
-            {t('lobby.micBrowserNotice', settings.language)}
+        <div className="max-w-7xl w-full mx-auto px-4 mt-2">
+          <div className="p-3 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/40 font-medium text-xs flex items-center gap-2">
+            <span>⚠️</span>
+            <span>{t('lobby.micBrowserNotice', settings.language)}</span>
           </div>
         </div>
       )}
 
       {/* ============================================================== */}
-      {/* I 3 PORTALI DI GIOCO ("SCEGLI COME GIOCARE")                  */}
+      {/* 3. BROADCAST CHANNEL SWITCHER RACK (ANTI-SLOP HARDWARE DECK)  */}
       {/* ============================================================== */}
-      <section className="relative z-10 max-w-6xl w-full mx-auto px-4 sm:px-6 mt-4 sm:mt-6">
-        <div className="flex items-center justify-between mb-3 px-1">
-          <h3 className="font-display font-black text-sm sm:text-base text-cream/90 uppercase tracking-wider flex items-center gap-2">
-            <Gamepad2 className="w-4 h-4 text-gold" />
-            <span>{t('home.selectMode', settings.language)}</span>
-          </h3>
-        </div>
+      <section className="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 mt-4">
+        <div className="p-2 rounded-2xl bg-[#0b0e18] border border-white/15 shadow-2xl">
+          <div className="flex items-center justify-between px-2 mb-2">
+            <div className="flex items-center gap-2 text-[11px] font-mono font-bold text-cream/50 uppercase tracking-widest">
+              <Radio className="w-3.5 h-3.5 text-gold" />
+              <span>CHANNEL MASTER SELECTOR</span>
+            </div>
+            <span className="text-[10px] font-mono text-cream/40">
+              [SYSTEM: READY]
+            </span>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
-          {/* Card Portale 1: Solo Training */}
-          <button
-            onClick={() => {
-              hapticsService.vibrateTap();
-              onUpdateSettings({ mode: 'solo' });
-            }}
-            className={`p-4 sm:p-5 rounded-3xl border-[3px] text-left transition-all duration-200 flex flex-col justify-between gap-3 relative overflow-hidden group ${
-              currentMode === 'solo'
-                ? 'bg-gradient-to-b from-teal-500/30 to-[#1e2a38] border-mint text-cream shadow-chunky scale-[1.02] ring-2 ring-mint'
-                : 'bg-[#221a36]/90 border-ink hover:border-mint/50 text-cream/80 hover:bg-[#281f3e]'
-            }`}
-          >
-            <div className="flex items-start justify-between gap-2">
-              <div
-                className={`w-12 h-12 rounded-2xl border-2 border-ink flex items-center justify-center text-2xl shadow-sm ${
-                  currentMode === 'solo' ? 'bg-mint text-ink' : 'bg-paper text-ink'
-                }`}
-              >
-                🎯
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            {/* CH.01: Duello 1v1 */}
+            <button
+              onClick={() => {
+                hapticsService.vibrateTap();
+                onUpdateSettings({ mode: 'duel' });
+              }}
+              className={`p-3 rounded-xl border text-left transition-all relative overflow-hidden flex flex-col justify-between gap-1.5 ${
+                currentMode === 'duel'
+                  ? 'bg-gradient-to-r from-blue-950/80 to-rose-950/80 border-rose-500/80 shadow-[0_0_20px_rgba(255,0,85,0.25)] ring-1 ring-rose-500'
+                  : 'bg-[#111522] border-white/10 hover:border-white/20 text-cream/60'
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[10px] font-bold text-cream/50">
+                  CH.01
+                </span>
+                <span
+                  className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider ${
+                    currentMode === 'duel'
+                      ? 'bg-rose-500 text-white animate-pulse'
+                      : 'bg-black/40 text-cream/40'
+                  }`}
+                >
+                  {currentMode === 'duel' ? '● ON AIR' : 'STANDBY'}
+                </span>
               </div>
-              <span
-                className={`px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider border ${
-                  currentMode === 'solo'
-                    ? 'bg-mint text-ink border-ink'
-                    : 'bg-black/40 text-cream/70 border-white/10'
-                }`}
-              >
-                {t('home.soloBadge', settings.language)}
-              </span>
-            </div>
-
-            <div>
-              <h4 className="font-display font-black text-lg sm:text-xl text-white group-hover:text-mint transition-colors">
-                {t('mode.solo', settings.language)}
-              </h4>
-              <p className="text-xs text-cream/70 mt-1 line-clamp-2 leading-relaxed">
-                {t('mode.soloDesc', settings.language)}
-              </p>
-            </div>
-
-            <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-bold text-mint">
-              <span>{t('home.soloFeature', settings.language)}</span>
-              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-            </div>
-          </button>
-
-          {/* Card Portale 2: Duello Classico 1v1 */}
-          <button
-            onClick={() => {
-              hapticsService.vibrateTap();
-              onUpdateSettings({ mode: 'duel' });
-            }}
-            className={`p-4 sm:p-5 rounded-3xl border-[3px] text-left transition-all duration-200 flex flex-col justify-between gap-3 relative overflow-hidden group ${
-              currentMode === 'duel'
-                ? 'bg-gradient-to-b from-rose-500/30 to-[#381e28] border-p2 text-cream shadow-chunky scale-[1.02] ring-2 ring-p2'
-                : 'bg-[#221a36]/90 border-ink hover:border-p2/50 text-cream/80 hover:bg-[#281f3e]'
-            }`}
-          >
-            <div className="flex items-start justify-between gap-2">
-              <div
-                className={`w-12 h-12 rounded-2xl border-2 border-ink flex items-center justify-center text-2xl shadow-sm ${
-                  currentMode === 'duel' ? 'bg-p2 text-white' : 'bg-paper text-ink'
-                }`}
-              >
-                ⚔️
+              <div className="flex items-center gap-2 mt-0.5">
+                <span className="text-xl">⚔️</span>
+                <div>
+                  <h4 className="font-display font-black text-sm sm:text-base text-white leading-tight">
+                    {t('mode.duel', settings.language)}
+                  </h4>
+                  <p className="text-[11px] text-cream/60 font-medium">
+                    {settings.language === 'en'
+                      ? '2 Players • Alternate TV clock'
+                      : '2 Giocatori • Tempo alternato TV'}
+                  </p>
+                </div>
               </div>
-              <span
-                className={`px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider border ${
-                  currentMode === 'duel'
-                    ? 'bg-p2 text-white border-ink'
-                    : 'bg-black/40 text-cream/70 border-white/10'
-                }`}
-              >
-                {t('home.duelBadge', settings.language)}
-              </span>
-            </div>
+            </button>
 
-            <div>
-              <h4 className="font-display font-black text-lg sm:text-xl text-white group-hover:text-p2 transition-colors">
-                {t('mode.duel', settings.language)}
-              </h4>
-              <p className="text-xs text-cream/70 mt-1 line-clamp-2 leading-relaxed">
-                {t('mode.duelDesc', settings.language)}
-              </p>
-            </div>
-
-            <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-bold text-p2">
-              <span>{t('home.duelFeature', settings.language)}</span>
-              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-            </div>
-          </button>
-
-          {/* Card Portale 3: Party Arena */}
-          <button
-            onClick={() => {
-              hapticsService.vibrateTap();
-              onUpdateSettings({ mode: 'party' });
-            }}
-            className={`p-4 sm:p-5 rounded-3xl border-[3px] text-left transition-all duration-200 flex flex-col justify-between gap-3 relative overflow-hidden group ${
-              currentMode === 'party'
-                ? 'bg-gradient-to-b from-amber-500/30 to-[#382d1e] border-gold text-cream shadow-chunky scale-[1.02] ring-2 ring-gold'
-                : 'bg-[#221a36]/90 border-ink hover:border-gold/50 text-cream/80 hover:bg-[#281f3e]'
-            }`}
-          >
-            <div className="flex items-start justify-between gap-2">
-              <div
-                className={`w-12 h-12 rounded-2xl border-2 border-ink flex items-center justify-center text-2xl shadow-sm ${
-                  currentMode === 'party' ? 'bg-gold text-ink' : 'bg-paper text-ink'
-                }`}
-              >
-                👑
+            {/* CH.02: Solo Practice */}
+            <button
+              onClick={() => {
+                hapticsService.vibrateTap();
+                onUpdateSettings({ mode: 'solo' });
+              }}
+              className={`p-3 rounded-xl border text-left transition-all relative overflow-hidden flex flex-col justify-between gap-1.5 ${
+                currentMode === 'solo'
+                  ? 'bg-gradient-to-r from-emerald-950/80 to-teal-950/80 border-mint shadow-[0_0_20px_rgba(0,229,163,0.25)] ring-1 ring-mint'
+                  : 'bg-[#111522] border-white/10 hover:border-white/20 text-cream/60'
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[10px] font-bold text-cream/50">
+                  CH.02
+                </span>
+                <span
+                  className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider ${
+                    currentMode === 'solo'
+                      ? 'bg-mint text-ink font-black animate-pulse'
+                      : 'bg-black/40 text-cream/40'
+                  }`}
+                >
+                  {currentMode === 'solo' ? '● ON AIR' : 'STANDBY'}
+                </span>
               </div>
-              <span
-                className={`px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider border ${
-                  currentMode === 'party'
-                    ? 'bg-gold text-ink border-ink'
-                    : 'bg-black/40 text-cream/70 border-white/10'
-                }`}
-              >
-                {t('home.partyBadge', settings.language)}
-              </span>
-            </div>
+              <div className="flex items-center gap-2 mt-0.5">
+                <span className="text-xl">🎯</span>
+                <div>
+                  <h4 className="font-display font-black text-sm sm:text-base text-white leading-tight">
+                    {t('mode.solo', settings.language)}
+                  </h4>
+                  <p className="text-[11px] text-cream/60 font-medium">
+                    {settings.language === 'en'
+                      ? '1 Player • Time attack radar'
+                      : '1 Giocatore • Record contro il tempo'}
+                  </p>
+                </div>
+              </div>
+            </button>
 
-            <div>
-              <h4 className="font-display font-black text-lg sm:text-xl text-white group-hover:text-gold transition-colors">
-                {t('mode.party', settings.language)}
-              </h4>
-              <p className="text-xs text-cream/70 mt-1 line-clamp-2 leading-relaxed">
-                {t('mode.partyDesc', settings.language)}
-              </p>
-            </div>
-
-            <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-bold text-gold">
-              <span>{t('home.partyFeature', settings.language)}</span>
-              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-            </div>
-          </button>
+            {/* CH.03: Party Tournament */}
+            <button
+              onClick={() => {
+                hapticsService.vibrateTap();
+                onUpdateSettings({ mode: 'party' });
+              }}
+              className={`p-3 rounded-xl border text-left transition-all relative overflow-hidden flex flex-col justify-between gap-1.5 ${
+                currentMode === 'party'
+                  ? 'bg-gradient-to-r from-amber-950/80 to-orange-950/80 border-gold shadow-[0_0_20px_rgba(255,184,0,0.25)] ring-1 ring-gold'
+                  : 'bg-[#111522] border-white/10 hover:border-white/20 text-cream/60'
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[10px] font-bold text-cream/50">
+                  CH.03
+                </span>
+                <span
+                  className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider ${
+                    currentMode === 'party'
+                      ? 'bg-gold text-ink font-black animate-pulse'
+                      : 'bg-black/40 text-cream/40'
+                  }`}
+                >
+                  {currentMode === 'party' ? '● ON AIR' : 'STANDBY'}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 mt-0.5">
+                <span className="text-xl">👑</span>
+                <div>
+                  <h4 className="font-display font-black text-sm sm:text-base text-white leading-tight">
+                    {t('mode.party', settings.language)}
+                  </h4>
+                  <p className="text-[11px] text-cream/60 font-medium">
+                    {settings.language === 'en'
+                      ? '3-8 Players • Elimination showdown'
+                      : '3-8 Giocatori • Torneo ad eliminazione'}
+                  </p>
+                </div>
+              </div>
+            </button>
+          </div>
         </div>
       </section>
 
       {/* ============================================================== */}
-      {/* DOCK DI CONFIGURAZIONE DELLA MODALITÀ ATTIVA                  */}
+      {/* 4. THE ARENA STAGE (FACE-OFF PODIUMS & MATCH CONSOLE)          */}
       {/* ============================================================== */}
-      <main className="relative z-10 max-w-6xl w-full mx-auto px-4 sm:px-6 my-5 sm:my-6">
+      <main className="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 my-4">
         {/* ============================================================ */}
-        {/* 1. CONFIGURAZIONE ALLENAMENTO SOLITARIO (1 GIOCATORE)         */}
+        {/* 4A. DUELLO 1v1: PODI CONTRAPPOSTI & CONSOLE CENTRALE          */}
         {/* ============================================================ */}
-        {currentMode === 'solo' && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
-            {/* Profilo Giocatore Singolo */}
-            <div className="lg:col-span-5 bg-[#1a132c]/95 border-2 border-white/15 backdrop-blur-md rounded-3xl overflow-hidden shadow-2xl">
-              <div className="bg-gradient-to-r from-emerald-500 to-teal-600 px-5 py-3 border-b-2 border-white/10 flex items-center justify-between text-ink font-display">
-                <span className="font-black text-lg tracking-wide flex items-center gap-2 text-ink">
-                  <Target className="w-5 h-5 text-ink stroke-[2.5]" />
-                  <span>{t('solo.title', settings.language)}</span>
-                </span>
-                <span className="text-3xl filter drop-shadow-sm">{p1.avatar}</span>
-              </div>
-              <div className="p-5 flex flex-col gap-3.5">
-                <label className="text-xs font-black text-cream/70 uppercase tracking-wider flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-mint" />
-                  <span>{t('lobby.playerName', settings.language)}</span>
-                </label>
-                <input
-                  type="text"
-                  value={p1DisplayName}
-                  maxLength={18}
-                  onChange={(e) =>
-                    onUpdatePlayer('p1', e.target.value, p1.avatar)
-                  }
-                  placeholder={t('lobby.p1Placeholder', settings.language)}
-                  className="w-full px-4 py-3 rounded-2xl bg-[#120c22] border-2 border-mint/40 focus:border-mint text-white font-display text-xl font-bold focus:outline-none focus:ring-2 focus:ring-mint/20 placeholder:text-white/30"
-                />
-                <div className="pt-1">
-                  <span className="text-[11px] font-bold text-cream/50 uppercase tracking-wide block mb-2">
-                    {settings.language === 'en' ? 'Choose Avatar' : 'Scegli Avatar'}
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {avatars.map((av) => (
-                      <button
-                        key={`solo-${av}`}
-                        onClick={() => onUpdatePlayer('p1', p1.name, av)}
-                        className={`w-10 h-10 rounded-xl text-lg flex items-center justify-center transition-all ${
-                          p1.avatar === av
-                            ? 'bg-mint text-ink border-2 border-white scale-110 shadow-lg shadow-mint/30 ring-2 ring-mint'
-                            : 'bg-[#120c22] border border-white/10 text-white/80 hover:border-white/30 hover:bg-white/5'
-                        }`}
-                      >
-                        {av}
-                      </button>
-                    ))}
+        {currentMode === 'duel' && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
+            {/* P1: PODIO COBALTO (Sinistra) */}
+            <div className="lg:col-span-4 rounded-2xl bg-[#0e121e] border-2 border-p1/40 overflow-hidden shadow-xl flex flex-col justify-between">
+              <div>
+                <div className="bg-gradient-to-r from-blue-700 to-indigo-800 px-4 py-2.5 flex items-center justify-between text-white border-b border-white/10">
+                  <div className="flex items-center gap-2 font-display font-black text-sm uppercase tracking-wider">
+                    <span className="w-2 h-2 rounded-full bg-cyan-300 animate-ping" />
+                    <span>CONTENDER 01 // {t('lobby.p1', settings.language)}</span>
+                  </div>
+                  <span className="text-2xl drop-shadow">{p1.avatar}</span>
+                </div>
+
+                <div className="p-4 flex flex-col gap-3">
+                  <div>
+                    <label className="text-[10px] font-mono uppercase tracking-wider text-cream/50 block mb-1">
+                      {t('lobby.playerName', settings.language)}
+                    </label>
+                    <input
+                      type="text"
+                      value={p1DisplayName}
+                      maxLength={18}
+                      onChange={(e) =>
+                        onUpdatePlayer('p1', e.target.value, p1.avatar)
+                      }
+                      placeholder={t('lobby.p1Placeholder', settings.language)}
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#090c15] border border-p1/40 focus:border-p1Cyan text-white font-display text-lg font-bold focus:outline-none focus:ring-2 focus:ring-p1Cyan/30"
+                    />
+                  </div>
+
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-cream/50 block mb-1.5">
+                      {settings.language === 'en' ? 'PODIUM AVATAR' : 'AVATAR PODIO'}
+                    </span>
+                    <div className="grid grid-cols-5 gap-1.5">
+                      {avatars.slice(0, 10).map((av) => (
+                        <button
+                          key={`p1-${av}`}
+                          onClick={() => onUpdatePlayer('p1', p1.name, av)}
+                          className={`h-9 rounded-lg text-lg flex items-center justify-center transition-all ${
+                            p1.avatar === av
+                              ? 'bg-p1 text-white border-2 border-p1Cyan shadow-md shadow-p1/50 scale-105'
+                              : 'bg-[#141926] border border-white/10 hover:border-white/30 text-white/80 hover:bg-[#1a2030]'
+                          }`}
+                        >
+                          {av}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
+
+              <div className="p-3 bg-black/40 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-cyan-400">
+                <span>STAGE LEFT // BLUE TEAM</span>
+                <span className="font-bold">READY</span>
+              </div>
             </div>
 
-            {/* Impostazioni Tempo & Prova Microfono */}
-            <div className="lg:col-span-7 bg-[#1a132c]/95 border-2 border-white/15 backdrop-blur-md rounded-3xl p-6 flex flex-col gap-5 shadow-2xl">
+            {/* CENTRO: CONSOLE REGOLE & MEGA BOTTONE AVVIA DUELLO */}
+            <div className="lg:col-span-4 rounded-2xl bg-[#0e121e] border-2 border-white/15 p-4 sm:p-5 flex flex-col justify-between gap-4 shadow-2xl">
               <div>
-                <h3 className="font-display font-black text-xs text-cream/75 mb-2.5 uppercase tracking-wider flex items-center gap-2">
-                  <span>⏱️</span>
-                  <span>{t('solo.duration', settings.language)}</span>
-                </h3>
-                <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-3">
+                  <span className="font-mono text-xs font-bold text-gold uppercase tracking-wider">
+                    MATCH PARAMETERS
+                  </span>
+                  <span className="font-mono text-[10px] text-cream/40">
+                    CODE: {roomCode}
+                  </span>
+                </div>
+
+                {/* Scelta Modalità Microfono / Stanza */}
+                <div className="grid grid-cols-2 gap-2 mb-3">
+                  <button
+                    onClick={() =>
+                      onUpdateSettings({ micMode: 'local-shared' as MicMode })
+                    }
+                    className={`p-2.5 rounded-xl border text-left transition-all ${
+                      settings.micMode === 'local-shared'
+                        ? 'bg-blue-950/70 border-p1Cyan text-white shadow-sm ring-1 ring-p1Cyan'
+                        : 'bg-[#090c15] border-white/10 hover:border-white/20 text-cream/70'
+                    }`}
+                  >
+                    <div className="font-display font-bold text-xs flex items-center gap-1.5">
+                      <span>🏠</span>
+                      <span>{t('lobby.sameRoom', settings.language)}</span>
+                    </div>
+                    <p className="text-[10px] text-cream/60 mt-0.5 leading-tight">
+                      1 Microfono
+                    </p>
+                  </button>
+
+                  <button
+                    onClick={() =>
+                      onUpdateSettings({ micMode: 'discord-p2p' as MicMode })
+                    }
+                    className={`p-2.5 rounded-xl border text-left transition-all ${
+                      settings.micMode === 'discord-p2p'
+                        ? 'bg-rose-950/70 border-p2Flame text-white shadow-sm ring-1 ring-p2Flame'
+                        : 'bg-[#090c15] border-white/10 hover:border-white/20 text-cream/70'
+                    }`}
+                  >
+                    <div className="font-display font-bold text-xs flex items-center gap-1.5">
+                      <span>🎧</span>
+                      <span>{t('lobby.onDiscord', settings.language)}</span>
+                    </div>
+                    <p className="text-[10px] text-cream/60 mt-0.5 leading-tight">
+                      Link Remoto
+                    </p>
+                  </button>
+                </div>
+
+                {settings.micMode === 'discord-p2p' && (
+                  <div className="mb-3 p-2.5 rounded-xl bg-[#090c15] border border-white/15 flex flex-col gap-1.5">
+                    <div className="flex items-center justify-between text-[11px] font-mono">
+                      <span className="text-cream/70">REMOTE MIC P2P:</span>
+                      <span
+                        className={`px-1.5 py-0.2 rounded font-bold ${
+                          p2RemoteConnected
+                            ? 'bg-mint text-ink'
+                            : 'bg-gold/30 text-gold'
+                        }`}
+                      >
+                        {p2RemoteConnected ? 'CONNECTED' : 'WAITING'}
+                      </span>
+                    </div>
+                    <div className="flex gap-1.5">
+                      <input
+                        type="text"
+                        readOnly
+                        value={getCompanionUrl()}
+                        className="flex-1 px-2.5 py-1.5 rounded-lg bg-black/60 border border-white/15 text-xs font-mono text-cream select-all"
+                      />
+                      <button
+                        onClick={handleCopyCompanionUrl}
+                        className="px-3 py-1.5 rounded-lg bg-p2 text-white font-display font-bold text-xs flex items-center gap-1 shrink-0 shadow-sm"
+                      >
+                        {copiedLink ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Selettori Traguardo Punti & Tempo */}
+                <div className="grid grid-cols-2 gap-2.5 mb-3">
+                  <div>
+                    <label className="text-[10px] font-mono uppercase tracking-wider text-cream/50 block mb-1">
+                      {t('lobby.pointsToWin', settings.language)}
+                    </label>
+                    <div className="grid grid-cols-2 gap-1">
+                      {gameConfig.options.targetWins.map((pts) => (
+                        <button
+                          key={`pts-${pts}`}
+                          onClick={() =>
+                            onUpdateSettings({
+                              targetWins: pts as TargetWinsOption,
+                            })
+                          }
+                          className={`py-1.5 rounded-lg font-display font-bold text-xs border transition-all ${
+                            settings.targetWins === pts
+                              ? 'bg-gold text-ink border-gold font-black shadow-md shadow-gold/20'
+                              : 'bg-[#090c15] text-cream/70 border-white/10 hover:border-gold/30'
+                          }`}
+                        >
+                          {pts === 0
+                            ? settings.language === 'en'
+                              ? 'Free'
+                              : 'Libera'
+                            : `${pts} ${settings.language === 'en' ? 'pts' : 'pt'}`}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-[10px] font-mono uppercase tracking-wider text-cream/50 block mb-1">
+                      {t('lobby.timePerPlayer', settings.language)}
+                    </label>
+                    <div className="grid grid-cols-3 gap-1">
+                      {gameConfig.options.duelDurations.map((sec) => (
+                        <button
+                          key={`sec-${sec}`}
+                          onClick={() =>
+                            onUpdateSettings({ duelDurationSeconds: sec })
+                          }
+                          className={`py-1.5 rounded-lg font-display font-bold text-xs border transition-all ${
+                            settings.duelDurationSeconds === sec
+                              ? 'bg-gold text-ink border-gold font-black shadow-md shadow-gold/20'
+                              : 'bg-[#090c15] text-cream/70 border-white/10 hover:border-gold/30'
+                          }`}
+                        >
+                          {sec}s
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Studio Live Mic VU-Meter */}
+                <div className="p-2.5 rounded-xl bg-[#090c15] border border-white/10 flex flex-col gap-1.5">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-mono text-[10px] text-cream/60 flex items-center gap-1.5">
+                      <Mic className="w-3.5 h-3.5 text-gold" />
+                      <span>STUDIO MIC TEST</span>
+                    </span>
+                    <button
+                      onClick={toggleMicTest}
+                      className={`px-2 py-0.5 rounded text-[11px] font-mono font-bold border transition-colors ${
+                        testingMic
+                          ? 'bg-rose-500 text-white border-rose-400 animate-pulse'
+                          : 'bg-white/10 text-cream/80 border-white/20 hover:bg-white/20'
+                      }`}
+                    >
+                      {testingMic ? 'STOP' : 'TEST'}
+                    </button>
+                  </div>
+
+                  {testingMic && (
+                    <div className="flex items-center gap-2 pt-0.5">
+                      <div className="flex-1 h-2 bg-black/60 rounded overflow-hidden flex gap-0.5 p-0.5 border border-white/10">
+                        {[...Array(12)].map((_, i) => {
+                          const active = testVolume * 12 > i;
+                          const color =
+                            i < 7 ? 'bg-mint' : i < 10 ? 'bg-gold' : 'bg-rose-500';
+                          return (
+                            <div
+                              key={`vu-bar-${i}`}
+                              className={`flex-1 h-full rounded-xs transition-opacity ${
+                                active ? `${color} opacity-100` : 'bg-white/5 opacity-20'
+                              }`}
+                            />
+                          );
+                        })}
+                      </div>
+                      <span className="text-[11px] font-mono text-mint truncate max-w-[120px]">
+                        &ldquo;{testTranscript}&rdquo;
+                      </span>
+                    </div>
+                  )}
+                  {micError && (
+                    <p className="text-[11px] text-rose-400 font-mono">{micError}</p>
+                  )}
+                </div>
+              </div>
+
+              {/* Mega Pulsante Lancio Duello */}
+              <button
+                onClick={() => {
+                  recognizerRef.current?.stop();
+                  onStartGame();
+                }}
+                className="btn-push w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-400 via-gold to-yellow-400 text-ink font-display font-black text-2xl flex items-center justify-center gap-3 border-[3px] border-ink shadow-[0_8px_0_#926b00,0_12px_30px_rgba(255,184,0,0.5)] active:translate-y-1.5 active:shadow-[0_0_0_#926b00] animate-glow-pulse"
+              >
+                <Swords className="w-7 h-7 stroke-[2.5]" />
+                <span>{t('lobby.startDuel', settings.language)}</span>
+                <Sparkles className="w-5 h-5 text-ink" />
+              </button>
+            </div>
+
+            {/* P2: PODIO ROSSO (Destra) */}
+            <div className="lg:col-span-4 rounded-2xl bg-[#0e121e] border-2 border-p2/40 overflow-hidden shadow-xl flex flex-col justify-between">
+              <div>
+                <div className="bg-gradient-to-r from-rose-700 to-red-800 px-4 py-2.5 flex items-center justify-between text-white border-b border-white/10">
+                  <div className="flex items-center gap-2 font-display font-black text-sm uppercase tracking-wider">
+                    <span className="w-2 h-2 rounded-full bg-rose-300 animate-ping" />
+                    <span>CONTENDER 02 // {t('lobby.p2', settings.language)}</span>
+                  </div>
+                  <span className="text-2xl drop-shadow">{p2.avatar}</span>
+                </div>
+
+                <div className="p-4 flex flex-col gap-3">
+                  <div>
+                    <label className="text-[10px] font-mono uppercase tracking-wider text-cream/50 block mb-1">
+                      {t('lobby.playerName', settings.language)}
+                    </label>
+                    <input
+                      type="text"
+                      value={p2DisplayName}
+                      maxLength={18}
+                      onChange={(e) =>
+                        onUpdatePlayer('p2', e.target.value, p2.avatar)
+                      }
+                      placeholder={t('lobby.p2Placeholder', settings.language)}
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#090c15] border border-p2/40 focus:border-p2Flame text-white font-display text-lg font-bold focus:outline-none focus:ring-2 focus:ring-p2Flame/30"
+                    />
+                  </div>
+
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-cream/50 block mb-1.5">
+                      {settings.language === 'en' ? 'PODIUM AVATAR' : 'AVATAR PODIO'}
+                    </span>
+                    <div className="grid grid-cols-5 gap-1.5">
+                      {avatars.slice(0, 10).map((av) => (
+                        <button
+                          key={`p2-${av}`}
+                          onClick={() => onUpdatePlayer('p2', p2.name, av)}
+                          className={`h-9 rounded-lg text-lg flex items-center justify-center transition-all ${
+                            p2.avatar === av
+                              ? 'bg-p2 text-white border-2 border-p2Flame shadow-md shadow-p2/50 scale-105'
+                              : 'bg-[#141926] border border-white/10 hover:border-white/30 text-white/80 hover:bg-[#1a2030]'
+                          }`}
+                        >
+                          {av}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-3 bg-black/40 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-rose-400">
+                <span>STAGE RIGHT // RED TEAM</span>
+                <span className="font-bold">READY</span>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ============================================================ */}
+        {/* 4B. SOLO TRAINING: PODIO RADAR & CONSOLE SPEEDRUN            */}
+        {/* ============================================================ */}
+        {currentMode === 'solo' && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
+            {/* Pod Allenamento Singolo */}
+            <div className="lg:col-span-5 rounded-2xl bg-[#0e121e] border-2 border-mint/40 overflow-hidden shadow-xl flex flex-col justify-between">
+              <div>
+                <div className="bg-gradient-to-r from-emerald-600 to-teal-700 px-4 py-3 flex items-center justify-between text-ink border-b border-white/10 font-display">
+                  <div className="flex items-center gap-2 font-black text-sm uppercase tracking-wider text-ink">
+                    <Target className="w-5 h-5 text-ink stroke-[2.5]" />
+                    <span>SOLO SPEEDRUN POD // {t('solo.title', settings.language)}</span>
+                  </div>
+                  <span className="text-2xl drop-shadow">{p1.avatar}</span>
+                </div>
+
+                <div className="p-5 flex flex-col gap-3.5">
+                  <div>
+                    <label className="text-[10px] font-mono uppercase tracking-wider text-cream/50 block mb-1">
+                      {t('lobby.playerName', settings.language)}
+                    </label>
+                    <input
+                      type="text"
+                      value={p1DisplayName}
+                      maxLength={18}
+                      onChange={(e) =>
+                        onUpdatePlayer('p1', e.target.value, p1.avatar)
+                      }
+                      placeholder={t('lobby.p1Placeholder', settings.language)}
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#090c15] border border-mint/40 focus:border-mint text-white font-display text-lg font-bold focus:outline-none focus:ring-2 focus:ring-mint/20"
+                    />
+                  </div>
+
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-cream/50 block mb-1.5">
+                      {settings.language === 'en' ? 'SPEEDRUN AVATAR' : 'AVATAR SPEEDRUN'}
+                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      {avatars.map((av) => (
+                        <button
+                          key={`solo-av-${av}`}
+                          onClick={() => onUpdatePlayer('p1', p1.name, av)}
+                          className={`w-10 h-10 rounded-xl text-lg flex items-center justify-center transition-all ${
+                            p1.avatar === av
+                              ? 'bg-mint text-ink border-2 border-white scale-105 shadow-md shadow-mint/40'
+                              : 'bg-[#141926] border border-white/10 text-white/80 hover:border-white/30 hover:bg-[#1a2030]'
+                          }`}
+                        >
+                          {av}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-3 bg-black/40 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-mint">
+                <span>TIME ATTACK MATRIX</span>
+                <span className="font-bold">SYSTEM ACTIVE</span>
+              </div>
+            </div>
+
+            {/* Console Impostazioni Tempo & Lancio */}
+            <div className="lg:col-span-7 rounded-2xl bg-[#0e121e] border-2 border-white/15 p-5 flex flex-col justify-between gap-5 shadow-2xl">
+              <div>
+                <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-4">
+                  <span className="font-mono text-xs font-bold text-mint uppercase tracking-wider">
+                    ⏱️ TIME ATTACK DURATION
+                  </span>
+                  <span className="font-mono text-[10px] text-cream/40">
+                    TARGET: BEAT YOUR BEST
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-3 sm:grid-cols-5 gap-2 mb-4">
                   {gameConfig.options.soloDurations.map((sec) => (
                     <button
-                      key={`solo-dur-${sec}`}
+                      key={`dur-${sec}`}
                       onClick={() =>
                         onUpdateSettings({ soloDurationSeconds: sec })
                       }
-                      className={`py-3 px-2 rounded-xl font-display font-bold text-xs sm:text-sm border-2 transition-all ${
+                      className={`py-3 px-2 rounded-xl font-display font-bold text-xs sm:text-sm border transition-all ${
                         settings.soloDurationSeconds === sec
                           ? 'bg-mint text-ink border-mint shadow-lg shadow-mint/25 scale-105 font-black'
-                          : 'bg-[#120c22] text-cream/75 border-white/10 hover:border-mint/40 hover:text-white'
+                          : 'bg-[#090c15] text-cream/70 border-white/10 hover:border-mint/40 hover:text-white'
                       }`}
                     >
                       {sec === 0
@@ -590,45 +931,45 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                     </button>
                   ))}
                 </div>
-              </div>
 
-              {/* Box Microfono con Livello Live */}
-              <div className="p-4 rounded-2xl bg-[#120c22] border border-white/15 flex flex-col gap-2.5">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-xs font-bold text-cream/80 flex items-center gap-2">
-                    <Mic className="w-4 h-4 text-mint" />
-                    <span>{t('lobby.testVoicePrompt', settings.language)}</span>
-                  </span>
-                  <button
-                    onClick={toggleMicTest}
-                    className={`px-3 py-1.5 rounded-xl font-display font-bold text-xs border transition-all ${
-                      testingMic
-                        ? 'bg-p2 text-white border-p2 animate-pulse'
-                        : 'bg-white/10 text-cream border-white/20 hover:bg-white/20'
-                    }`}
-                  >
-                    {testingMic
-                      ? t('lobby.closeVoiceBtn', settings.language)
-                      : t('lobby.testVoiceBtn', settings.language)}
-                  </button>
-                </div>
-
-                {testingMic && (
-                  <div className="flex items-center gap-3 pt-1">
-                    <div className="w-28 h-2.5 bg-black/50 rounded-full overflow-hidden shrink-0 border border-white/10">
-                      <div
-                        className="h-full bg-mint shadow-[0_0_12px_#00E5A3] transition-all duration-75"
-                        style={{ width: `${Math.max(10, testVolume * 100)}%` }}
-                      />
-                    </div>
-                    <span className="text-xs font-bold text-mint truncate">
-                      &ldquo;{testTranscript}&rdquo;
+                {/* Studio Live Mic VU-Meter */}
+                <div className="p-3 rounded-xl bg-[#090c15] border border-white/10 flex flex-col gap-2">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-mono text-[10px] text-cream/60 flex items-center gap-1.5">
+                      <Mic className="w-3.5 h-3.5 text-mint" />
+                      <span>{t('lobby.testVoicePrompt', settings.language)}</span>
                     </span>
+                    <button
+                      onClick={toggleMicTest}
+                      className={`px-2.5 py-1 rounded text-xs font-mono font-bold border transition-colors ${
+                        testingMic
+                          ? 'bg-rose-500 text-white border-rose-400 animate-pulse'
+                          : 'bg-white/10 text-cream/80 border-white/20 hover:bg-white/20'
+                      }`}
+                    >
+                      {testingMic
+                        ? t('lobby.closeVoiceBtn', settings.language)
+                        : t('lobby.testVoiceBtn', settings.language)}
+                    </button>
                   </div>
-                )}
-                {micError && (
-                  <p className="text-xs text-p2 font-bold">{micError}</p>
-                )}
+
+                  {testingMic && (
+                    <div className="flex items-center gap-3 pt-0.5">
+                      <div className="w-32 h-2.5 bg-black/60 rounded-full overflow-hidden flex gap-0.5 p-0.5 border border-white/10">
+                        <div
+                          className="h-full bg-mint shadow-[0_0_12px_#00E5A3] transition-all duration-75"
+                          style={{ width: `${Math.max(10, testVolume * 100)}%` }}
+                        />
+                      </div>
+                      <span className="text-xs font-mono text-mint truncate">
+                        &ldquo;{testTranscript}&rdquo;
+                      </span>
+                    </div>
+                  )}
+                  {micError && (
+                    <p className="text-xs text-rose-400 font-mono">{micError}</p>
+                  )}
+                </div>
               </div>
 
               {/* Pulsante Lancio Solo Arena */}
@@ -648,310 +989,14 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
         )}
 
         {/* ============================================================ */}
-        {/* 2. CONFIGURAZIONE DUELLO CLASSICO 1v1 (2 GIOCATORI)          */}
-        {/* ============================================================ */}
-        {currentMode === 'duel' && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
-            {/* Giocatori P1 e P2 */}
-            <div className="lg:col-span-5 flex flex-col gap-4">
-              {/* Card Giocatore 1 */}
-              <div className="bg-[#1a132c]/95 border-2 border-white/15 backdrop-blur-md rounded-3xl overflow-hidden shadow-2xl">
-                <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-3 border-b-2 border-white/10 flex items-center justify-between text-white font-display">
-                  <span className="font-black text-base tracking-wide flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-blue-300 animate-ping" />
-                    <span>{t('lobby.p1', settings.language)}</span>
-                  </span>
-                  <span className="text-2xl filter drop-shadow-sm">{p1.avatar}</span>
-                </div>
-                <div className="p-4 flex flex-col gap-3">
-                  <input
-                    type="text"
-                    value={p1DisplayName}
-                    maxLength={18}
-                    onChange={(e) =>
-                      onUpdatePlayer('p1', e.target.value, p1.avatar)
-                    }
-                    placeholder={t('lobby.p1Placeholder', settings.language)}
-                    className="w-full px-4 py-2.5 rounded-xl bg-[#120c22] border-2 border-blue-500/40 focus:border-blue-400 text-white font-display text-lg font-bold focus:outline-none focus:ring-2 focus:ring-blue-500/20 placeholder:text-white/30"
-                  />
-                  <div className="flex flex-wrap gap-1.5 pt-0.5">
-                    {avatars.slice(0, 10).map((av) => (
-                      <button
-                        key={`p1-${av}`}
-                        onClick={() => onUpdatePlayer('p1', p1.name, av)}
-                        className={`w-8 h-8 rounded-lg text-base flex items-center justify-center transition-all ${
-                          p1.avatar === av
-                            ? 'bg-blue-600 text-white border-2 border-white scale-110 shadow-md shadow-blue-500/40'
-                            : 'bg-[#120c22] border border-white/10 text-white/80 hover:border-white/30 hover:bg-white/5'
-                        }`}
-                      >
-                        {av}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Card Giocatore 2 */}
-              <div className="bg-[#1a132c]/95 border-2 border-white/15 backdrop-blur-md rounded-3xl overflow-hidden shadow-2xl">
-                <div className="bg-gradient-to-r from-rose-600 to-red-600 px-5 py-3 border-b-2 border-white/10 flex items-center justify-between text-white font-display">
-                  <span className="font-black text-base tracking-wide flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-rose-300 animate-ping" />
-                    <span>{t('lobby.p2', settings.language)}</span>
-                  </span>
-                  <span className="text-2xl filter drop-shadow-sm">{p2.avatar}</span>
-                </div>
-                <div className="p-4 flex flex-col gap-3">
-                  <input
-                    type="text"
-                    value={p2DisplayName}
-                    maxLength={18}
-                    onChange={(e) =>
-                      onUpdatePlayer('p2', e.target.value, p2.avatar)
-                    }
-                    placeholder={t('lobby.p2Placeholder', settings.language)}
-                    className="w-full px-4 py-2.5 rounded-xl bg-[#120c22] border-2 border-rose-500/40 focus:border-rose-400 text-white font-display text-lg font-bold focus:outline-none focus:ring-2 focus:ring-rose-500/20 placeholder:text-white/30"
-                  />
-                  <div className="flex flex-wrap gap-1.5 pt-0.5">
-                    {avatars.slice(0, 10).map((av) => (
-                      <button
-                        key={`p2-${av}`}
-                        onClick={() => onUpdatePlayer('p2', p2.name, av)}
-                        className={`w-8 h-8 rounded-lg text-base flex items-center justify-center transition-all ${
-                          p2.avatar === av
-                            ? 'bg-rose-600 text-white border-2 border-white scale-110 shadow-md shadow-rose-500/40'
-                            : 'bg-[#120c22] border border-white/10 text-white/80 hover:border-white/30 hover:bg-white/5'
-                        }`}
-                      >
-                        {av}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Impostazioni Duello */}
-            <div className="lg:col-span-7 bg-[#1a132c]/95 border-2 border-white/15 backdrop-blur-md rounded-3xl p-5 sm:p-6 flex flex-col gap-5 shadow-2xl">
-              <div>
-                <h3 className="font-display font-black text-xs text-cream/75 mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                  <span>🕹️</span>
-                  <span>{t('lobby.howToPlay', settings.language)}</span>
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <button
-                    onClick={() =>
-                      onUpdateSettings({ micMode: 'local-shared' as MicMode })
-                    }
-                    className={`p-3.5 rounded-2xl border-2 text-left transition-all ${
-                      settings.micMode === 'local-shared'
-                        ? 'bg-blue-950/60 border-blue-400 text-white shadow-lg shadow-blue-500/20 ring-1 ring-blue-400/50'
-                        : 'bg-[#120c22] border-white/10 hover:border-white/25 text-cream/75'
-                    }`}
-                  >
-                    <div className="font-display font-bold text-sm text-white flex items-center gap-2">
-                      <span className="text-base">🏠</span>
-                      <span>{t('lobby.sameRoom', settings.language)}</span>
-                    </div>
-                    <p className="text-[11px] text-cream/70 mt-1 leading-relaxed">
-                      {t('lobby.sameRoomDesc', settings.language)}
-                    </p>
-                  </button>
-
-                  <button
-                    onClick={() =>
-                      onUpdateSettings({ micMode: 'discord-p2p' as MicMode })
-                    }
-                    className={`p-3.5 rounded-2xl border-2 text-left transition-all ${
-                      settings.micMode === 'discord-p2p'
-                        ? 'bg-rose-950/60 border-rose-400 text-white shadow-lg shadow-rose-500/20 ring-1 ring-rose-400/50'
-                        : 'bg-[#120c22] border-white/10 hover:border-white/25 text-cream/75'
-                    }`}
-                  >
-                    <div className="font-display font-bold text-sm text-white flex items-center gap-2">
-                      <span className="text-base">🎧</span>
-                      <span>{t('lobby.onDiscord', settings.language)}</span>
-                    </div>
-                    <p className="text-[11px] text-cream/70 mt-1 leading-relaxed">
-                      {t('lobby.onDiscordDesc', settings.language, {
-                        p2: p2DisplayName,
-                      })}
-                    </p>
-                  </button>
-                </div>
-
-                {settings.micMode === 'discord-p2p' && (
-                  <div className="mt-3 p-3.5 rounded-2xl bg-[#120c22] border border-white/15 flex flex-col gap-2">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="text-xs font-bold text-cream/80">
-                        {t('lobby.micLinkFor', settings.language, {
-                          p2: p2DisplayName,
-                        })}
-                      </span>
-                      <span
-                        className={`px-2 py-0.5 rounded-full text-[11px] font-bold border ${
-                          p2RemoteConnected
-                            ? 'bg-mint text-ink border-mint shadow-sm'
-                            : 'bg-gold/30 text-gold border-gold/40'
-                        }`}
-                      >
-                        {p2RemoteConnected
-                          ? t('lobby.connected', settings.language, {
-                              p2: p2DisplayName,
-                            })
-                          : t('lobby.waitingConnection', settings.language)}
-                      </span>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row gap-2">
-                      <input
-                        type="text"
-                        readOnly
-                        value={getCompanionUrl()}
-                        className="flex-1 px-3 py-2 rounded-xl bg-black/40 border border-white/15 text-xs font-mono text-cream select-all focus:outline-none"
-                      />
-                      <button
-                        onClick={handleCopyCompanionUrl}
-                        className="btn-push px-4 py-2 rounded-xl bg-p2 text-white font-display font-bold text-xs flex items-center justify-center gap-1.5 shrink-0 shadow-sm"
-                      >
-                        {copiedLink ? (
-                          <>
-                            <Check className="w-3.5 h-3.5" />
-                            <span>{t('lobby.copied', settings.language)}</span>
-                          </>
-                        ) : (
-                          <>
-                            <Copy className="w-3.5 h-3.5" />
-                            <span>{t('lobby.copyLink', settings.language)}</span>
-                          </>
-                        )}
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Traguardo Punti & Secondi */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <h3 className="font-display font-black text-xs text-cream/75 mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                    <span>🏆</span>
-                    <span>{t('lobby.pointsToWin', settings.language)}</span>
-                  </h3>
-                  <div className="grid grid-cols-4 gap-1.5">
-                    {gameConfig.options.targetWins.map((pts) => (
-                      <button
-                        key={pts}
-                        onClick={() =>
-                          onUpdateSettings({
-                            targetWins: pts as TargetWinsOption,
-                          })
-                        }
-                        className={`py-2 px-1.5 rounded-xl font-display font-bold text-xs border-2 transition-all ${
-                          settings.targetWins === pts
-                            ? 'bg-gold text-ink border-gold font-black shadow-lg shadow-gold/25 scale-105'
-                            : 'bg-[#120c22] text-cream/75 border-white/10 hover:border-gold/40 hover:text-white'
-                        }`}
-                      >
-                        {pts === 0
-                          ? settings.language === 'en'
-                            ? 'Free'
-                            : 'Libera'
-                          : `${pts} ${settings.language === 'en' ? 'pts' : 'pt'}`}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="font-display font-black text-xs text-cream/75 mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                    <span>⏱️</span>
-                    <span>{t('lobby.timePerPlayer', settings.language)}</span>
-                  </h3>
-                  <div className="grid grid-cols-3 gap-1.5">
-                    {gameConfig.options.duelDurations.map((sec) => (
-                      <button
-                        key={sec}
-                        onClick={() =>
-                          onUpdateSettings({ duelDurationSeconds: sec })
-                        }
-                        className={`py-2 px-2 rounded-xl font-display font-bold text-xs border-2 transition-all ${
-                          settings.duelDurationSeconds === sec
-                            ? 'bg-gold text-ink border-gold font-black shadow-lg shadow-gold/25 scale-105'
-                            : 'bg-[#120c22] text-cream/75 border-white/10 hover:border-gold/40 hover:text-white'
-                        }`}
-                      >
-                        {sec}s
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Prova Rapida Microfono */}
-              <div className="p-3.5 rounded-2xl bg-[#120c22] border border-white/15 flex flex-col gap-2.5">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-xs font-bold text-cream/80 flex items-center gap-2">
-                    <Mic className="w-4 h-4 text-p1" />
-                    <span>{t('lobby.testVoicePrompt', settings.language)}</span>
-                  </span>
-                  <button
-                    onClick={toggleMicTest}
-                    className={`px-3 py-1.5 rounded-xl font-display font-bold text-xs border transition-all ${
-                      testingMic
-                        ? 'bg-p2 text-white border-p2 animate-pulse'
-                        : 'bg-white/10 text-cream border-white/20 hover:bg-white/20'
-                    }`}
-                  >
-                    {testingMic
-                      ? t('lobby.closeVoiceBtn', settings.language)
-                      : t('lobby.testVoiceBtn', settings.language)}
-                  </button>
-                </div>
-
-                {testingMic && (
-                  <div className="flex items-center gap-3 pt-1">
-                    <div className="w-28 h-2.5 bg-black/50 rounded-full overflow-hidden shrink-0 border border-white/10">
-                      <div
-                        className="h-full bg-mint shadow-[0_0_12px_#00E5A3] transition-all duration-75"
-                        style={{ width: `${Math.max(10, testVolume * 100)}%` }}
-                      />
-                    </div>
-                    <span className="text-xs font-bold text-mint truncate">
-                      &ldquo;{testTranscript}&rdquo;
-                    </span>
-                  </div>
-                )}
-                {micError && (
-                  <p className="text-xs text-p2 font-bold">{micError}</p>
-                )}
-              </div>
-
-              {/* Pulsante Lancio Duello */}
-              <button
-                onClick={() => {
-                  recognizerRef.current?.stop();
-                  onStartGame();
-                }}
-                className="btn-push w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-400 via-gold to-yellow-400 text-ink font-display font-black text-2xl flex items-center justify-center gap-3 border-[3px] border-ink shadow-[0_8px_0_#926b00,0_12px_30px_rgba(255,184,0,0.5)] active:translate-y-1.5 active:shadow-[0_0_0_#926b00] animate-glow-pulse"
-              >
-                <Swords className="w-7 h-7 stroke-[2.5]" />
-                <span>{t('lobby.startDuel', settings.language)}</span>
-                <Sparkles className="w-5 h-5 text-ink" />
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* ============================================================ */}
-        {/* 3. CONFIGURAZIONE PARTY TORNEO (3-8 GIOCATORI)               */}
+        {/* 4C. PARTY TORNEO: ROSTER CONCORRENTI & CONSOLE               */}
         {/* ============================================================ */}
         {currentMode === 'party' && (
-          <div className="flex flex-col gap-5">
-            <div className="bg-[#1a132c]/95 border-2 border-white/15 backdrop-blur-md rounded-3xl p-5 sm:p-6 shadow-2xl">
-              <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div className="flex flex-col gap-4">
+            <div className="rounded-2xl bg-[#0e121e] border-2 border-gold/40 p-5 shadow-2xl">
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-4 border-b border-white/10 pb-3">
                 <div>
-                  <h3 className="font-display font-black text-xl sm:text-2xl text-cream flex items-center gap-2">
+                  <h3 className="font-display font-black text-xl sm:text-2xl text-white flex items-center gap-2">
                     <Crown className="w-6 h-6 text-gold fill-current" />
                     <span>
                       {t('party.players', settings.language, {
@@ -959,7 +1004,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                       })}
                     </span>
                   </h3>
-                  <p className="text-xs text-cream/70 font-semibold mt-0.5">
+                  <p className="text-xs text-cream/70 font-medium mt-0.5">
                     {t('lobby.partySub', settings.language)}
                   </p>
                 </div>
@@ -967,7 +1012,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                 {partyPlayers.length < 8 && onAddPartyPlayer && (
                   <button
                     onClick={onAddPartyPlayer}
-                    className="btn-push px-4 py-2 rounded-xl bg-mint text-ink font-display font-bold text-sm flex items-center gap-1.5 border-2 border-ink shadow-sm"
+                    className="px-4 py-2 rounded-xl bg-gold hover:bg-goldBright text-ink font-display font-black text-sm flex items-center gap-1.5 shadow-sm transition-colors"
                   >
                     <UserPlus className="w-4 h-4" />
                     <span>{t('party.addPlayer', settings.language)}</span>
@@ -975,22 +1020,22 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                 )}
               </div>
 
-              {/* Griglia Giocatori Party */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+              {/* Griglia Roster Concorrenti */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                 {partyPlayers.map((player, idx) => (
                   <div
                     key={player.id}
-                    className="p-3.5 rounded-2xl bg-[#120c22] border border-white/15 flex flex-col gap-2 relative shadow-sm"
+                    className="p-3 rounded-xl bg-[#090c15] border border-white/15 flex flex-col gap-2 relative shadow-sm"
                   >
                     <div className="flex items-center justify-between gap-2">
-                      <span className="w-6 h-6 rounded-lg bg-gold text-ink text-xs font-black flex items-center justify-center">
+                      <span className="w-6 h-6 rounded bg-gold text-ink font-mono text-xs font-black flex items-center justify-center">
                         #{idx + 1}
                       </span>
                       <span className="text-2xl">{player.avatar}</span>
                       {partyPlayers.length > 3 && onRemovePartyPlayer && (
                         <button
                           onClick={() => onRemovePartyPlayer(player.id)}
-                          className="p-1 rounded-lg bg-p2/20 hover:bg-p2 text-p2 hover:text-white transition-colors"
+                          className="p-1 rounded bg-rose-500/20 hover:bg-rose-500 text-rose-400 hover:text-white transition-colors"
                           title={t('party.removePlayer', settings.language)}
                         >
                           <Trash2 className="w-3.5 h-3.5" />
@@ -1014,7 +1059,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                         'party.playerNamePlaceholder',
                         settings.language
                       )}
-                      className="w-full px-3 py-1.5 rounded-lg bg-black/40 border border-white/20 focus:border-gold text-white font-display font-bold text-sm focus:outline-none"
+                      className="w-full px-3 py-1.5 rounded-lg bg-black/50 border border-white/20 focus:border-gold text-white font-display font-bold text-sm focus:outline-none"
                     />
 
                     <div className="flex flex-wrap gap-1 pt-0.5">
@@ -1025,7 +1070,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                             onUpdatePartyPlayer &&
                             onUpdatePartyPlayer(player.id, player.name, av)
                           }
-                          className={`w-6 h-6 rounded-md text-xs flex items-center justify-center transition-all ${
+                          className={`w-6 h-6 rounded text-xs flex items-center justify-center transition-all ${
                             player.avatar === av
                               ? 'bg-gold text-ink font-black scale-110 shadow-sm'
                               : 'bg-white/10 hover:bg-white/20 text-white'
@@ -1040,25 +1085,19 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
               </div>
 
               {partyPlayers.length < 3 && (
-                <div className="mt-4 p-3 rounded-xl bg-p2/20 border-2 border-p2 text-rose-300 font-bold text-xs text-center">
+                <div className="mt-4 p-3 rounded-xl bg-rose-500/20 border border-rose-500 text-rose-300 font-bold text-xs text-center font-mono">
                   ⚠️ {t('party.minPlayersWarning', settings.language)}
                 </div>
               )}
             </div>
 
-            {/* Impostazioni Torneo & Pulsante Start */}
-            <div className="bg-[#1a132c]/95 border-2 border-white/15 backdrop-blur-md rounded-3xl p-5 sm:p-6 shadow-2xl flex flex-col gap-5">
+            {/* Console Torneo & Pulsante Start */}
+            <div className="rounded-2xl bg-[#0e121e] border-2 border-white/15 p-5 shadow-2xl flex flex-col gap-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <h3 className="font-display font-black text-xs text-cream/75 mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                    <span>🏆</span>
-                    <span>
-                      {t('lobby.pointsToWin', settings.language)}{' '}
-                      <span className="text-cream/50 font-medium">
-                        ({settings.language === 'en' ? 'Wins to champion' : 'Vittorie per il trionfo'})
-                      </span>
-                    </span>
-                  </h3>
+                  <label className="text-[10px] font-mono uppercase tracking-wider text-cream/50 block mb-1">
+                    {t('lobby.pointsToWin', settings.language)}
+                  </label>
                   <div className="grid grid-cols-4 gap-1.5">
                     {gameConfig.options.targetWins.map((pts) => (
                       <button
@@ -1068,10 +1107,10 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                             targetWins: pts as TargetWinsOption,
                           })
                         }
-                        className={`py-2 px-1.5 rounded-xl font-display font-bold text-xs border-2 transition-all ${
+                        className={`py-2 px-1.5 rounded-xl font-display font-bold text-xs border transition-all ${
                           settings.targetWins === pts
                             ? 'bg-gold text-ink border-gold font-black shadow-lg shadow-gold/25 scale-105'
-                            : 'bg-[#120c22] text-cream/75 border-white/10 hover:border-gold/40 hover:text-white'
+                            : 'bg-[#090c15] text-cream/75 border-white/10 hover:border-gold/40 hover:text-white'
                         }`}
                       >
                         {pts === 0
@@ -1085,13 +1124,9 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                 </div>
 
                 <div>
-                  <h3 className="font-display font-black text-xs text-cream/75 mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                    <span>⏱️</span>
-                    <span>
-                      {t('lobby.timePerPlayer', settings.language)}{' '}
-                      {t('lobby.timeInDuels', settings.language)}
-                    </span>
-                  </h3>
+                  <label className="text-[10px] font-mono uppercase tracking-wider text-cream/50 block mb-1">
+                    {t('lobby.timePerPlayer', settings.language)} {t('lobby.timeInDuels', settings.language)}
+                  </label>
                   <div className="grid grid-cols-3 gap-1.5">
                     {gameConfig.options.duelDurations.map((sec) => (
                       <button
@@ -1099,10 +1134,10 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                         onClick={() =>
                           onUpdateSettings({ duelDurationSeconds: sec })
                         }
-                        className={`py-2 px-2 rounded-xl font-display font-bold text-xs border-2 transition-all ${
+                        className={`py-2 px-2 rounded-xl font-display font-bold text-xs border transition-all ${
                           settings.duelDurationSeconds === sec
                             ? 'bg-gold text-ink border-gold font-black shadow-lg shadow-gold/25 scale-105'
-                            : 'bg-[#120c22] text-cream/75 border-white/10 hover:border-gold/40 hover:text-white'
+                            : 'bg-[#090c15] text-cream/75 border-white/10 hover:border-gold/40 hover:text-white'
                         }`}
                       >
                         {sec}s
@@ -1130,21 +1165,18 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
       </main>
 
       {/* ============================================================== */}
-      {/* FOOTER DELLA LOBBY                                            */}
+      {/* 5. BROADCAST FOOTER                                            */}
       {/* ============================================================== */}
-      <footer className="relative z-10 max-w-6xl w-full mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-xs text-cream/60 border-t border-cream/10">
-        <p className="text-center sm:text-left font-medium">
+      <footer className="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 py-3 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-cream/50 border-t border-white/10">
+        <p className="text-center sm:text-left font-mono text-[11px]">
           {currentMode === 'solo'
             ? t('lobby.footerSolo', settings.language)
             : t('lobby.footerDuel', settings.language)}
         </p>
-        <div className="flex items-center gap-2 shrink-0">
-          <span
-            title={`The Floor Game Show — Build ${APP_VERSION}`}
-            className="px-2.5 py-1 rounded-lg bg-black/40 border border-cream/15 text-cream/80 font-mono font-bold text-[11px] shadow-sm select-all cursor-default"
-          >
-            v{APP_VERSION}
-          </span>
+        <div className="flex items-center gap-2 shrink-0 font-mono text-[10px]">
+          <span className="text-cream/40">ENGINE: V{APP_VERSION}</span>
+          <span>•</span>
+          <span className="text-mint font-bold">STAGE READY</span>
         </div>
       </footer>
 
