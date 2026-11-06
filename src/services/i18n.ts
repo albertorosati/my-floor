@@ -22,6 +22,37 @@ export const DICTIONARY: Translations = {
     en: '{categories} categories • {photos} HD photos',
   },
 
+  // Homepage Hero & Showcase
+  'home.heroTagline': {
+    it: 'IL GAME SHOW VOCALE DEFINITIVO',
+    en: 'THE DEFINITIVE VOICE GAME SHOW',
+  },
+  'home.heroTitle': {
+    it: 'CONQUISTA IL FLOOR',
+    en: 'CONQUER THE FLOOR',
+  },
+  'home.heroSubtitle': {
+    it: 'Riconosci le immagini al volo, rispondi con la voce prima del tuo rivale e domina il tabellone luminoso!',
+    en: 'Identify photos on the fly, answer with your voice before your rival, and dominate the LED floor!',
+  },
+  'home.selectMode': {
+    it: 'SCEGLI LA TUA MODALITÀ',
+    en: 'CHOOSE YOUR GAME MODE',
+  },
+  'home.soloBadge': { it: '1 GIOCATORE', en: '1 PLAYER' },
+  'home.duelBadge': { it: 'TESTA A TESTA', en: 'HEAD TO HEAD' },
+  'home.partyBadge': { it: 'GRUPPO & FESTE', en: 'PARTY & FRIENDS' },
+  'home.soloFeature': { it: 'Sfida i tuoi record personali', en: 'Beat your personal bests' },
+  'home.duelFeature': { it: 'Tempo alternato in presenza o Discord', en: 'Alternate chess-clock live or on Discord' },
+  'home.partyFeature': { it: 'Torneo 3-8 giocatori con podio finale', en: '3-8 player tournament with championship podium' },
+  'home.exploreCategories': { it: 'Esplora Categorie', en: 'Browse Categories' },
+  'home.launchArena': { it: 'ENTRA NELL\'ARENA', en: 'ENTER THE ARENA' },
+  'home.stageFloorTitle': { it: 'IL GRANDE FLOOR LUMINOSO', en: 'THE ICONIC LED FLOOR' },
+  'home.stageFloorDesc': {
+    it: '56 categorie tematiche con oltre 3.400 fotografie HD scattate per veri appassionati.',
+    en: '56 themed categories with over 3,400 HD photos crafted for true trivia masters.',
+  },
+
   // Game Modes
   'mode.solo': { it: '🎯 Allenamento (1P)', en: '🎯 Solo Practice (1P)' },
   'mode.duel': { it: '⚔️ Duello 1v1 (2P)', en: '⚔️ 1v1 Duel (2P)' },

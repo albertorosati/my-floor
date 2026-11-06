@@ -149,3 +149,30 @@
 .animate-emergency {
   animation: emergencyPulse 0.8s ease-in-out infinite;
 }
+
+/* Floor LED Stage Lights */
+.floor-stage-marquee {
+  background: radial-gradient(ellipse at 50% 0%, rgba(255, 184, 0, 0.22) 0%, rgba(255, 71, 87, 0.12) 40%, transparent 75%);
+}
+
+.floor-grid-perspective {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-scroll {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 35s linear infinite;
+}
+
+.animate-marquee-scroll:hover {
+  animation-play-state: paused;
+}
