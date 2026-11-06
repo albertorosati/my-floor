@@ -29,7 +29,9 @@ import {
 } from '../data/categories';
 import { gameConfig } from '../services/configService';
 import { soloScoreService } from '../services/soloScoreService';
-import { t } from '../services/i18n';
+import { t, localizePlayerName } from '../services/i18n';
+import { TheFloorBackground } from './TheFloorBackground';
+import { ScorePips } from './ScorePips';
 
 interface SoloTrainingScreenProps {
   category: Category;
@@ -434,20 +436,24 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
   }, [sessionEnded, triggerPass, triggerCorrectGuess]);
 
   return (
-    <div className="h-[100dvh] max-h-[100dvh] w-full bg-bg text-ink flex flex-col justify-between p-3 sm:p-5 select-none overflow-hidden touch-none">
-      {/* 1. TOP BAR: Category name left, pause right */}
-      <header className="max-w-5xl w-full mx-auto flex items-center justify-between gap-3 shrink-0">
-        <div className="flex items-center gap-2 text-paper min-w-0">
+    <div className="h-[100dvh] max-h-[100dvh] w-full relative overflow-hidden flex flex-col justify-between p-3 sm:p-5 select-none touch-none">
+      {/* 1. Signature Floor Background */}
+      <TheFloorBackground activeStage="neutral" />
+
+      {/* 2. Top Bar: Category name sticker left, Pause & Exit right */}
+      <header className="relative z-10 max-w-[1100px] w-full mx-auto flex items-center justify-between gap-3 shrink-0">
+        <div className="flex items-center gap-2 bg-paper border-[3px] border-ink rounded-full px-4 py-1.5 shadow-hard-sm -rotate-1 min-w-0">
           <span className="text-2xl sm:text-3xl shrink-0">{category.icon}</span>
-          <h1 className="font-display font-black text-xl sm:text-2xl truncate">
+          <h1 className="font-display font-black text-lg sm:text-xl text-ink truncate">
             {category.name}
           </h1>
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
           <button
+            type="button"
             onClick={() => setIsPaused((p) => !p)}
-            className="btn-push px-4 py-1.5 rounded-xl bg-paper text-ink font-display font-bold text-sm flex items-center gap-1.5"
+            className="btn-push px-4 py-2 rounded-xl bg-paper border-[3px] border-ink shadow-hard-sm text-ink font-display font-bold text-sm flex items-center gap-1.5"
             aria-label={isPaused ? t('arena.resume', settings.language) : t('arena.pause', settings.language)}
           >
             {isPaused ? <Play className="w-4 h-4 text-green" /> : <Pause className="w-4 h-4" />}
@@ -455,8 +461,9 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
           </button>
 
           <button
+            type="button"
             onClick={() => setShowExitConfirm(true)}
-            className="btn-push p-1.5 px-2.5 rounded-xl bg-paper text-ink font-display font-bold text-sm"
+            className="btn-push p-2 rounded-xl bg-paper border-[3px] border-ink shadow-hard-sm text-ink font-display font-bold text-sm"
             aria-label={t('solo.finishEarly', settings.language)}
             title={t('solo.finishEarly', settings.language)}
           >
@@ -465,59 +472,75 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
         </div>
       </header>
 
-      {/* 2. MAIN STAGE */}
-      <main className="max-w-5xl w-full mx-auto my-auto flex-1 flex flex-col lg:flex-row lg:items-center lg:justify-between lg:gap-6 min-h-0">
-        {/* Single Player Card (Desktop: Left) */}
-        <div className="hidden lg:flex w-52 p-5 rounded-card border-[3px] border-ink flex-col items-center justify-center gap-2 text-center bg-blue text-white shadow-hard">
-          <span className="text-4xl">{player.avatar}</span>
-          <span className="font-display font-bold text-lg truncate max-w-full">
-            {player.name}
+      {/* 3. Main Stage: [Player Card] [Hero Photo] (Centered in 1100px container) */}
+      <main className="relative z-10 max-w-[1100px] w-full mx-auto my-auto flex-1 flex flex-col lg:flex-row items-center justify-center gap-4 sm:gap-6 min-h-0">
+        {/* Desktop Single Player Card (Left) */}
+        <div className="hidden lg:flex w-64 p-5 rounded-card border-[3px] border-ink flex-col items-center justify-center gap-2 text-center bg-blue text-white shadow-hard-lifted tactile-lifted shrink-0 relative">
+          <span className="text-5xl my-1">{player.avatar}</span>
+          <span className="font-display font-black text-xl truncate max-w-full">
+            {localizePlayerName(player.name, settings.language)}
           </span>
-          <span className="font-display font-black text-5xl tracking-tight my-1">
+
+          {/* Giant Timer */}
+          <div className="font-display font-black text-5xl tabular-nums tracking-tight my-2">
             {isFreeMode ? `${timeRemaining.toFixed(0)}s` : timeRemaining.toFixed(1)}
-          </span>
-          <span className="text-xs font-bold opacity-80">
-            {totalCorrect} pts
-          </span>
+          </div>
+
+          {/* Score Pips */}
+          <div className="flex items-center gap-2 bg-paper/20 px-3 py-1.5 rounded-full border border-white/30">
+            <ScorePips
+              score={totalCorrect}
+              targetWins={0}
+              playerColor="blue"
+              className="text-white font-black"
+            />
+          </div>
+
+          {/* Comic speech bubble with transcript pointing toward player */}
+          {liveTranscript && (
+            <div className="speech-bubble absolute -top-14 left-1/2 -translate-x-1/2 bg-yellow text-ink border-[3px] border-ink px-4 py-2 rounded-2xl shadow-hard font-display font-black text-sm whitespace-nowrap z-30">
+              &ldquo;{liveTranscript}&rdquo;
+            </div>
+          )}
         </div>
 
-        {/* Hero Photo: ~65% height on plain background, ONE frame only */}
-        <div className="flex-1 min-h-0 w-full h-full max-h-[65vh] flex items-center justify-center relative">
-          <div className="w-full h-full rounded-card border-[3px] border-ink shadow-hard overflow-hidden bg-black flex items-center justify-center relative">
-            {/* Flash Correct Guess */}
+        {/* Hero Photo: Real aspect ratio, max 58vh, 12px paper mat */}
+        <div className="flex-1 min-h-0 w-full h-full max-h-[58vh] flex items-center justify-center relative">
+          <div className="p-3 bg-paper rounded-card border-[3px] border-ink shadow-hard max-h-full max-w-full flex items-center justify-center relative overflow-hidden">
+            {/* Flash Correct Guess (Starburst Pop) */}
             {correctFlash && (
-              <div className="absolute inset-0 bg-green text-ink z-20 flex flex-col items-center justify-center p-6 text-center animate-pop-in">
-                <div className="w-16 h-16 rounded-full bg-paper border-[3px] border-ink shadow-hard-sm flex items-center justify-center mb-3">
-                  <Check className="w-9 h-9 text-green stroke-[3]" />
+              <div className="absolute inset-0 z-30 bg-green/90 backdrop-blur-none flex flex-col items-center justify-center p-6 text-center animate-starburst-pop">
+                <div className="w-20 h-20 rounded-full bg-paper border-[3px] border-ink shadow-hard flex items-center justify-center mb-3">
+                  <Check className="w-10 h-10 text-green stroke-[3]" />
                 </div>
-                <h3 className="font-display font-black text-3xl sm:text-5xl">
+                <h3 className="font-display font-black text-3xl sm:text-5xl text-ink">
                   {correctFlash.answer}
                 </h3>
                 {correctFlash.alias && correctFlash.alias.toLowerCase() !== correctFlash.answer.toLowerCase() && (
-                  <span className="text-xs font-bold text-ink/70 mt-1">
+                  <span className="text-sm font-bold text-ink/80 mt-1">
                     (&ldquo;{correctFlash.alias}&rdquo;)
                   </span>
                 )}
               </div>
             )}
 
-            {/* 3s Pass Penalty Screen */}
+            {/* Pass Penalty Feedback (Pass Burst) */}
             {!correctFlash && passPenaltyLeft > 0 && (
-              <div className="absolute inset-0 bg-yellow text-ink z-20 flex flex-col items-center justify-center p-6 text-center animate-pop-in">
-                <span className="font-display font-bold text-sm uppercase tracking-wider mb-1">
-                  Pass! Answer:
+              <div className="absolute inset-0 z-30 bg-red/90 flex flex-col items-center justify-center p-6 text-center animate-pass-burst text-white">
+                <span className="font-display font-black text-2xl uppercase tracking-wider mb-2 text-yellow">
+                  PASS! (-3s)
                 </span>
-                <h3 className="font-display font-black text-2xl sm:text-4xl mb-3">
+                <span className="font-display font-bold text-sm opacity-90 mb-1">
+                  Answer:
+                </span>
+                <h3 className="font-display font-black text-2xl sm:text-4xl">
                   {currentItem.answer}
                 </h3>
-                <span className="font-display font-black text-5xl">
-                  {passPenaltyLeft.toFixed(1)}s
-                </span>
               </div>
             )}
 
-            {/* The Photo */}
-            {!correctFlash && passPenaltyLeft === 0 && (
+            {/* The Photo with 12px mat & photo slap animation on new image */}
+            <div className="w-full h-full flex items-center justify-center bg-paper/50 rounded-lg overflow-hidden">
               <img
                 key={`${currentItem.id}-${usingBackupUrl ? 'b' : 'p'}`}
                 src={displaySrc}
@@ -533,113 +556,136 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
                     advanceToNextImage();
                   }
                 }}
-                className={`max-w-full max-h-full w-auto h-auto object-contain transition-opacity duration-100 ${
+                className={`max-w-full max-h-[52vh] w-auto h-auto object-contain animate-photo-slap transition-opacity duration-100 ${
                   imageLoaded ? 'opacity-100' : 'opacity-0'
                 }`}
               />
-            )}
+            </div>
           </div>
         </div>
       </main>
 
-      {/* Mobile Player Card (Row directly below photo) */}
-      <div className="w-full max-w-5xl mx-auto my-2 lg:hidden shrink-0">
-        <div className="p-3 rounded-card border-[3px] border-ink flex items-center justify-between gap-2 bg-blue text-white shadow-hard">
-          <div className="flex items-center gap-2 min-w-0">
-            <span className="text-2xl shrink-0">{player.avatar}</span>
+      {/* Mobile Player Bar (Directly below photo on smaller screens) */}
+      <div className="relative z-10 w-full max-w-[1100px] mx-auto my-2 lg:hidden shrink-0">
+        <div className="p-3 rounded-card border-[3px] border-ink flex items-center justify-between gap-3 bg-blue text-white shadow-hard-lifted tactile-lifted">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <span className="text-3xl shrink-0">{player.avatar}</span>
             <div className="min-w-0">
-              <span className="font-display font-bold text-xs truncate block leading-tight">
-                {player.name}
+              <span className="font-display font-black text-sm truncate block leading-tight">
+                {localizePlayerName(player.name, settings.language)}
               </span>
-              <span className="text-[10px] font-bold opacity-80 block">
+              <span className="text-xs font-bold opacity-90 block">
                 {totalCorrect} pts
               </span>
             </div>
           </div>
-          <span className="font-display font-black text-2xl shrink-0">
+          <span className="font-display font-black text-3xl tabular-nums shrink-0">
             {isFreeMode ? `${timeRemaining.toFixed(0)}s` : timeRemaining.toFixed(1)}
           </span>
         </div>
       </div>
 
-      {/* 3. BOTTOM ACTION BAR */}
-      <div className="w-full max-w-5xl mx-auto shrink-0 card-paper p-3 flex items-center justify-between gap-3">
+      {/* 4. Bottom Action Bar: Mic meter left, big Pass and Correct buttons right */}
+      <div className="relative z-10 w-full max-w-[1100px] mx-auto shrink-0 card-paper p-3 sm:p-4 flex items-center justify-between gap-3">
+        {/* Mic Meter & Status */}
         <div className="flex items-center gap-3 min-w-0 flex-1">
           <div
             aria-label="Microphone"
-            className={`w-11 h-11 rounded-xl border-[3px] border-ink shadow-hard-sm flex items-center justify-center shrink-0 ${
+            className={`w-12 h-12 rounded-xl border-[3px] border-ink shadow-hard-sm flex items-center justify-center shrink-0 transition-colors ${
               isListening ? 'bg-green text-ink' : 'bg-paper text-ink'
             }`}
           >
-            <Mic className="w-5 h-5 text-ink" />
+            <Mic className="w-6 h-6" />
+          </div>
+
+          {/* 3-Bar Volume Level Indicator */}
+          <div className="flex items-end gap-1 h-9 px-2 py-1.5 bg-white border-[3px] border-ink rounded-lg shrink-0">
+            <div
+              className={`w-2.5 rounded-sm transition-all duration-75 ${
+                micVolume > 0.05 ? 'bg-green h-full' : 'bg-ink/20 h-2'
+              }`}
+            />
+            <div
+              className={`w-2.5 rounded-sm transition-all duration-75 ${
+                micVolume > 0.25 ? 'bg-yellow h-full' : 'bg-ink/20 h-3'
+              }`}
+            />
+            <div
+              className={`w-2.5 rounded-sm transition-all duration-75 ${
+                micVolume > 0.55 ? 'bg-red h-full' : 'bg-ink/20 h-4'
+              }`}
+            />
           </div>
 
           <div className="min-w-0 flex-1">
             <div className="text-xs sm:text-sm font-display font-bold text-ink truncate">
               {liveTranscript ? (
-                <span className="text-blue">“{liveTranscript}”</span>
+                <span className="text-blue font-black">&ldquo;{liveTranscript}&rdquo;</span>
               ) : isListening ? (
-                settings.language === 'en' ? 'Say what you see or "Pass"...' : 'Di’ cosa vedi o "Passo"...'
+                <span className="text-ink/80">{t('arena.listening', settings.language)}</span>
               ) : micErrorMsg ? (
-                <span className="text-red">{micErrorMsg}</span>
+                <span className="text-red font-bold">{micErrorMsg}</span>
               ) : (
-                settings.language === 'en' ? 'Microphone active' : 'Microfono attivo'
+                <span className="text-ink/60">{t('arena.micActive', settings.language)}</span>
               )}
             </div>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 shrink-0">
+        {/* Action Buttons: Min 64x160px */}
+        <div className="flex items-center gap-3 shrink-0">
           <button
             type="button"
             onClick={triggerPass}
             disabled={passPenaltyLeft > 0 || correctFlash !== null}
-            className="btn-push px-3.5 py-2 rounded-xl bg-paper text-ink font-display font-black text-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+            className="btn-push min-w-[130px] sm:min-w-[160px] min-h-[54px] sm:min-h-[64px] px-4 py-2.5 rounded-xl bg-paper text-ink font-display font-black text-base sm:text-lg border-[3px] border-ink shadow-hard flex items-center justify-center gap-2"
           >
-            <FastForward className="w-4 h-4 inline mr-1" />
-            <span>{isFreeMode ? t('arena.passButton', settings.language) : 'Pass (-3s)'}</span>
+            <FastForward className="w-5 h-5" />
+            <span>{isFreeMode ? t('arena.passButton', settings.language) : t('arena.pass', settings.language)}</span>
           </button>
 
           <button
             type="button"
             onClick={() => triggerCorrectGuess()}
             disabled={passPenaltyLeft > 0 || correctFlash !== null}
-            className="btn-push px-4 py-2 rounded-xl bg-green text-ink font-display font-black text-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+            className="btn-push min-w-[130px] sm:min-w-[160px] min-h-[54px] sm:min-h-[64px] px-4 py-2.5 rounded-xl bg-green text-ink font-display font-black text-base sm:text-lg border-[3px] border-ink shadow-hard flex items-center justify-center gap-2"
           >
-            <Check className="w-4 h-4 inline mr-1 stroke-[3]" />
-            <span>{settings.language === 'en' ? 'Correct' : 'Buona'}</span>
+            <Check className="w-6 h-6 stroke-[3]" />
+            <span>{t('arena.correct', settings.language)}</span>
           </button>
         </div>
       </div>
 
       {/* Desktop Keyboard Hints */}
-      <div className="hidden lg:block text-center text-xs text-paper/40 font-medium mt-1">
+      <div className="relative z-10 hidden lg:block text-center text-xs text-paper/70 font-display font-bold mt-1">
         [Space] Pass • [Enter] Correct • [P] Pause
       </div>
 
       {/* Exit Confirm Modal */}
       {showExitConfirm && (
-        <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
-          <div className="card-paper max-w-sm w-full p-6 text-center flex flex-col items-center gap-4 animate-pop-in">
+        <div className="fixed inset-0 z-50 bg-black/75 flex items-center justify-center p-4">
+          <div className="card-paper max-w-sm w-full p-6 text-center flex flex-col items-center gap-4 animate-starburst-pop">
             <h3 className="font-display font-black text-2xl text-ink">
               {t('solo.exitConfirmTitle', settings.language)}
             </h3>
-            <p className="text-sm font-sans text-ink/80">
+            <p className="text-sm font-sans text-ink/80 font-semibold">
               {t('solo.exitConfirmDesc', settings.language)}
             </p>
             <div className="grid grid-cols-2 gap-3 w-full pt-2">
               <button
+                type="button"
                 onClick={() => setShowExitConfirm(false)}
-                className="btn-push py-2.5 rounded-xl bg-paper border-[3px] border-ink text-ink font-display font-bold text-sm"
+                className="btn-push py-2.5 rounded-xl bg-paper border-[3px] border-ink text-ink font-display font-bold text-sm shadow-hard-sm"
               >
                 {t('solo.continueBtn', settings.language)}
               </button>
               <button
+                type="button"
                 onClick={() => {
                   setShowExitConfirm(false);
                   finishTrainingSession();
                 }}
-                className="btn-push py-2.5 rounded-xl bg-yellow border-[3px] border-ink text-ink font-display font-black text-sm"
+                className="btn-push py-2.5 rounded-xl bg-yellow border-[3px] border-ink text-ink font-display font-black text-sm shadow-hard-sm"
               >
                 {t('solo.endNowBtn', settings.language)}
               </button>
@@ -650,75 +696,84 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
 
       {/* Training Results Modal */}
       {summaryData && (
-        <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
-          <div className="card-paper max-w-md w-full p-6 text-center flex flex-col items-center gap-5 animate-pop-in">
-            <div className="w-20 h-20 rounded-2xl bg-yellow border-[3px] border-ink shadow-hard flex items-center justify-center text-5xl">
+        <div className="fixed inset-0 z-50 bg-black/75 flex items-center justify-center p-4">
+          <div className="card-paper max-w-md w-full p-6 sm:p-8 text-center flex flex-col items-center gap-5 animate-starburst-pop relative">
+            {/* Flat Confetti Elements */}
+            <div className="absolute -top-4 -left-4 w-6 h-6 bg-yellow border-[3px] border-ink rotate-12 animate-confetti-flat" />
+            <div className="absolute -top-3 -right-3 w-5 h-5 bg-red border-[3px] border-ink -rotate-12 animate-confetti-flat" />
+            <div className="absolute -bottom-3 left-8 w-5 h-5 bg-blue border-[3px] border-ink rotate-45 animate-confetti-flat" />
+            <div className="absolute -bottom-4 right-10 w-6 h-6 bg-green border-[3px] border-ink -rotate-6 animate-confetti-flat" />
+
+            <div className="w-24 h-24 rounded-2xl bg-yellow border-[3px] border-ink shadow-hard flex items-center justify-center text-6xl shrink-0 -rotate-2">
               {summaryData.isNewPersonalBest ? '👑' : summaryData.categoryIcon}
             </div>
 
             <div>
-              <span className="text-xs font-bold text-ink/60 uppercase tracking-wider block mb-1">
+              <span className="px-3.5 py-1 rounded-full bg-yellow border-[3px] border-ink font-display font-black text-xs uppercase tracking-wider text-ink inline-block mb-2">
                 {summaryData.isNewPersonalBest
                   ? t('solo.newRecord', settings.language)
                   : t('solo.completed', settings.language)}
               </span>
-              <h2 className="font-display font-black text-2xl sm:text-3xl text-ink">
+              <h2 className="font-display font-black text-3xl sm:text-4xl text-ink">
                 {summaryData.categoryName}
               </h2>
             </div>
 
-            {/* Stats - clean, no nested outlined cards */}
-            <div className="w-full flex items-center justify-around py-3 border-y-[3px] border-ink/20">
+            {/* Clean Stats Row without nested outlined cards */}
+            <div className="w-full grid grid-cols-3 py-4 border-y-[3px] border-ink">
               <div className="text-center">
-                <span className="text-xs font-bold text-ink/60 uppercase block">
+                <span className="text-xs font-bold text-ink/70 uppercase block mb-1">
                   {t('solo.correct', settings.language)}
                 </span>
-                <span className="font-display font-black text-3xl text-green">
+                <span className="font-display font-black text-3xl sm:text-4xl text-green">
                   {summaryData.totalCorrect}
                 </span>
               </div>
-              <div className="text-center">
-                <span className="text-xs font-bold text-ink/60 uppercase block">
+              <div className="text-center border-x-[3px] border-ink">
+                <span className="text-xs font-bold text-ink/70 uppercase block mb-1">
                   {t('solo.streak', settings.language)}
                 </span>
-                <span className="font-display font-black text-3xl text-yellow">
+                <span className="font-display font-black text-3xl sm:text-4xl text-yellow">
                   {summaryData.bestStreak}
                 </span>
               </div>
               <div className="text-center">
-                <span className="text-xs font-bold text-ink/60 uppercase block">
+                <span className="text-xs font-bold text-ink/70 uppercase block mb-1">
                   {t('solo.passes', settings.language)}
                 </span>
-                <span className="font-display font-black text-3xl text-red">
+                <span className="font-display font-black text-3xl sm:text-4xl text-red">
                   {summaryData.totalPasses}
                 </span>
               </div>
             </div>
 
             {summaryData.previousBest > 0 && (
-              <p className="text-xs font-sans text-ink/70 font-semibold">
+              <p className="text-xs font-sans text-ink/80 font-bold">
                 {t('solo.previousBest', settings.language, { n: summaryData.previousBest })}
               </p>
             )}
 
-            <div className="w-full flex flex-col gap-2.5 pt-2">
+            <div className="w-full flex flex-col gap-3 pt-2">
               <button
+                type="button"
                 onClick={handleRestart}
-                className="btn-push w-full py-3 px-4 rounded-xl bg-yellow text-ink font-display font-black text-base flex items-center justify-center gap-2"
+                className="btn-push w-full py-3.5 px-5 rounded-xl bg-yellow text-ink font-display font-black text-base sm:text-lg border-[3px] border-ink shadow-hard flex items-center justify-center gap-2"
               >
                 <RotateCcw className="w-5 h-5" />
                 <span>{t('solo.playAgain', settings.language)}</span>
               </button>
 
               <button
+                type="button"
                 onClick={onBackToDraft}
-                className="btn-push w-full py-2.5 px-4 rounded-xl bg-paper text-ink font-display font-bold text-sm flex items-center justify-center gap-2"
+                className="btn-push w-full py-3 px-5 rounded-xl bg-paper text-ink font-display font-bold text-sm sm:text-base border-[3px] border-ink shadow-hard flex items-center justify-center gap-2"
               >
                 <span>{t('solo.changeCategory', settings.language)}</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
               <button
+                type="button"
                 onClick={onBackToLobby}
                 className="text-xs font-sans font-bold text-ink/70 hover:text-ink pt-1"
               >

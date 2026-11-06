@@ -4,25 +4,23 @@
 
 @layer base {
   :root {
-    --bg: #1B1B3A;
+    --floor-base: #1B1B3A;
+    --floor-alt: #26264F;
     --ink: #14121F;
     --paper: #FFFDF5;
     --yellow: #FFC933;
     --blue: #2F6BFF;
     --red: #FF3D6E;
     --green: #19C37D;
-    --outline: 3px solid #14121F;
-    --shadow-hard: 4px 4px 0px #14121F;
-    --shadow-pressed: 1px 1px 0px #14121F;
-    --radius-card: 16px;
-    --radius-pill: 999px;
   }
 
   body {
     background-color: #1B1B3A;
     color: #14121F;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', 'Noto Color Emoji', sans-serif;
     overflow-x: hidden;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
   }
 
   /* Accessible focus states: 3px yellow outline with 2px offset */
@@ -32,7 +30,18 @@
   }
 }
 
-/* Disciplined Cartoon Neo-Brutalist Classes */
+/* 96px Checkerboard pattern (the only pattern in the app) */
+.floor-checkerboard {
+  background-image: conic-gradient(
+    var(--floor-alt) 90deg,
+    var(--floor-base) 90deg 180deg,
+    var(--floor-alt) 180deg 270deg,
+    var(--floor-base) 270deg
+  );
+  background-size: 192px 192px;
+}
+
+/* Neo-Brutalist Sticker Cards */
 .card-paper {
   background-color: #FFFDF5;
   color: #14121F;
@@ -41,28 +50,22 @@
   box-shadow: 4px 4px 0px #14121F;
 }
 
-.card-cream {
-  background-color: #FFFDF5;
-  color: #14121F;
-  border: 3px solid #14121F;
-  border-radius: 16px;
-  box-shadow: 4px 4px 0px #14121F;
+/* Tactile States */
+.tactile-lifted {
+  transform: translateY(-6px);
+  box-shadow: 8px 8px 0px #14121F;
+  transition: transform 140ms cubic-bezier(0.2, 0, 0, 1), box-shadow 140ms cubic-bezier(0.2, 0, 0, 1);
 }
 
-.card-dark {
-  background-color: #FFFDF5;
-  color: #14121F;
-  border: 3px solid #14121F;
-  border-radius: 16px;
-  box-shadow: 4px 4px 0px #14121F;
+.tactile-pressed {
+  transform: translateY(2px);
+  box-shadow: 1px 1px 0px #14121F;
+  transition: transform 140ms cubic-bezier(0.2, 0, 0, 1), box-shadow 140ms cubic-bezier(0.2, 0, 0, 1);
 }
 
-.party-stage-bg,
-.broadcast-stage-bg {
-  background-color: #1B1B3A;
-}
-
+/* Push button with 48px min touch target and shadow collapse */
 .btn-push {
+  min-height: 48px;
   border: 3px solid #14121F;
   box-shadow: 4px 4px 0px #14121F;
   border-radius: 16px;
@@ -71,8 +74,8 @@
 }
 
 .btn-push:hover:not(:disabled) {
-  transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0px #14121F;
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0px #14121F;
 }
 
 .btn-push:active:not(:disabled) {
@@ -83,66 +86,140 @@
 .btn-push:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: 2px 2px 0px #14121F;
 }
 
-.btn-pill {
-  border: 3px solid #14121F;
-  box-shadow: 3px 3px 0px #14121F;
-  border-radius: 999px;
-  transition: transform 100ms ease, box-shadow 100ms ease;
+/* One-shot Feedback Keyframes (under 600ms) */
+@keyframes starburstPop {
+  0% { transform: scale(0) rotate(-10deg); opacity: 0; }
+  60% { transform: scale(1.15) rotate(3deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
 }
 
-.btn-pill:hover:not(:disabled) {
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0px #14121F;
+.animate-starburst-pop {
+  animation: starburstPop 380ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-.btn-pill:active:not(:disabled) {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0px #14121F;
+@keyframes passBurst {
+  0% { transform: scale(0.6) rotate(6deg); opacity: 0; }
+  60% { transform: scale(1.1) rotate(-3deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
 }
 
-/* Discrete non-looping animations */
-@keyframes passShake {
-  0%, 100% { transform: translateX(0); }
-  20%, 60% { transform: translateX(-6px); }
-  40%, 80% { transform: translateX(6px); }
+.animate-pass-burst {
+  animation: passBurst 320ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-@keyframes scorePop {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.18); }
+@keyframes photoSlap {
+  0% { transform: translateY(-24px) rotate(-2deg); opacity: 0; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+}
+
+.animate-photo-slap {
+  animation: photoSlap 180ms cubic-bezier(0.2, 0, 0, 1) forwards;
+}
+
+@keyframes pipBounce {
+  0% { transform: scale(0.5); }
+  60% { transform: scale(1.35); }
   100% { transform: scale(1); }
 }
 
-.animate-pass-shake {
-  animation: passShake 0.3s ease-in-out;
+.animate-pip-bounce {
+  animation: pipBounce 280ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.animate-screen-shake {
-  animation: passShake 0.35s ease-in-out;
+@keyframes countdownSlam {
+  0% { transform: scale(1.8); opacity: 0; }
+  70% { transform: scale(0.96); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
-.animate-score-pop {
-  animation: scorePop 0.25s ease-out;
+.animate-countdown-slam {
+  animation: countdownSlam 200ms cubic-bezier(0.2, 0, 0, 1) forwards;
 }
 
-.animate-pop-in {
-  animation: scorePop 0.2s ease-out;
+@keyframes screenShake6px {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-6px, 3px); }
+  40% { transform: translate(6px, -3px); }
+  60% { transform: translate(-4px, 2px); }
+  80% { transform: translate(4px, -2px); }
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+.animate-screen-shake-6px {
+  animation: screenShake6px 220ms ease-in-out;
 }
-::-webkit-scrollbar-track {
-  background: #1B1B3A;
+
+@keyframes urgentPulseHard {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
 }
-::-webkit-scrollbar-thumb {
-  background: #2e2e54;
-  border-radius: 999px;
+
+.animate-urgent-pulse-hard {
+  animation: urgentPulseHard 600ms ease-in-out infinite;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #444474;
+
+@keyframes flatConfettiFall {
+  0% { transform: translateY(-40px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(500px) rotate(270deg); opacity: 0; }
+}
+
+.animate-confetti-flat {
+  animation: flatConfettiFall 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Comic Speech Bubble */
+.speech-bubble {
+  position: relative;
+  background: #FFFDF5;
+  border: 3px solid #14121F;
+  box-shadow: 4px 4px 0px #14121F;
+  border-radius: 16px;
+}
+
+.speech-bubble-tail-left::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -12px;
+  transform: translateY(-50%);
+  border-width: 8px 12px 8px 0;
+  border-style: solid;
+  border-color: transparent #14121F transparent transparent;
+}
+
+.speech-bubble-tail-right::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -12px;
+  transform: translateY(-50%);
+  border-width: 8px 0 8px 12px;
+  border-style: solid;
+  border-color: transparent transparent transparent #14121F;
+}
+
+.speech-bubble-tail-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 12px 8px 0 8px;
+  border-style: solid;
+  border-color: #14121F transparent transparent transparent;
+}
+
+/* Accessibility: prefers-reduced-motion disables bursts, shakes, tile flips and slams */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

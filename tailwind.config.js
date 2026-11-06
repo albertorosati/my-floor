@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ['"Baloo 2"', 'cursive', 'sans-serif'],
-        sans: ['"Nunito"', 'sans-serif'],
+        display: ['"Baloo 2"', '"Noto Color Emoji"', 'cursive', 'sans-serif'],
+        sans: ['"Nunito"', '"Noto Color Emoji"', 'sans-serif'],
       },
       colors: {
         bg: '#1B1B3A',
@@ -20,10 +20,14 @@ export default {
         gold: '#FFC933',
         mint: '#19C37D',
         cream: '#FFFDF5',
+        'floor-neutral': '#1B1B3A',
+        'floor-p1': '#1B2A6B',
+        'floor-p2': '#5A1632',
       },
       boxShadow: {
         hard: '4px 4px 0 #14121F',
         'hard-sm': '2px 2px 0 #14121F',
+        'hard-lifted': '8px 8px 0 #14121F',
         'hard-pressed': '1px 1px 0 #14121F',
         chunky: '4px 4px 0 #14121F',
         'chunky-sm': '2px 2px 0 #14121F',
