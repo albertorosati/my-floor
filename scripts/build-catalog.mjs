@@ -9,11 +9,20 @@ import { SEED_PART_4 } from './seed-part4.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT_FILE = path.resolve(__dirname, '../src/data/generatedCatalog.json');
 const PUBLIC_CAT_DIR = path.resolve(__dirname, '../public/categories');
+const BLACKLIST_FILE = path.resolve(__dirname, '../src/data/blacklist.json');
+
+let blacklistData = { blacklistedUrls: [], forbiddenKeywords: [] };
+try {
+  const raw = await fs.readFile(BLACKLIST_FILE, 'utf-8');
+  blacklistData = JSON.parse(raw);
+} catch {
+  // fallback if file not yet present
+}
 
 const USER_AGENT =
   'YappikCatalogBuilder/3.0 (https://github.com/albertorosati/yappik; educational trivia game)';
 
-const FORBIDDEN_KEYWORDS = [
+const BASE_FORBIDDEN_KEYWORDS = [
   '.svg',
   '.ogg',
   '.webm',
@@ -46,6 +55,10 @@ const FORBIDDEN_KEYWORDS = [
   'locator_map',
 ];
 
+const FORBIDDEN_KEYWORDS = Array.from(
+  new Set([...BASE_FORBIDDEN_KEYWORDS, ...(blacklistData.forbiddenKeywords || [])])
+);
+
 async function fetchJson(url) {
   for (let attempt = 0; attempt < 3; attempt++) {
     try {
@@ -72,6 +85,14 @@ async function fetchJson(url) {
 function isHighQualityPhoto(thumbObj, pageImageName = '') {
   if (!thumbObj || typeof thumbObj.source !== 'string') return false;
   const url = thumbObj.source;
+
+  // Check blacklisted URLs directly
+  if (Array.isArray(blacklistData.blacklistedUrls)) {
+    for (const bUrl of blacklistData.blacklistedUrls) {
+      if (url.includes(bUrl) || bUrl.includes(url)) return false;
+    }
+  }
+
   const combined = `${url} ${pageImageName}`.toLowerCase();
 
   for (const bad of FORBIDDEN_KEYWORDS) {

@@ -1,53 +1,67 @@
 import { DuelItem } from '../types/game';
+import { blacklistService } from '../services/blacklistService';
 
 /**
  * Restituisce l'elenco completo e deduplicato delle URL fotografiche disponibili
- * per un dato soggetto (immagine primaria + eventuali scatti alternativi).
+ * per un dato soggetto, escludendo automaticamente tutte le immagini presenti nella blacklist
+ * (sia statiche del catalogo che segnalate a runtime dall'utente).
  */
 export function getItemImagePool(item: DuelItem): string[] {
   const pool = new Set<string>();
 
   if (item.imageUrl && typeof item.imageUrl === 'string') {
     const cleanPrimary = item.imageUrl.trim();
-    if (cleanPrimary) pool.add(cleanPrimary);
+    if (cleanPrimary && !blacklistService.isBlacklisted(cleanPrimary)) {
+      pool.add(cleanPrimary);
+    }
   }
 
   if (Array.isArray(item.imageUrls)) {
     for (const url of item.imageUrls) {
       if (url && typeof url === 'string') {
         const clean = url.trim();
-        if (clean) pool.add(clean);
+        if (clean && !blacklistService.isBlacklisted(clean)) {
+          pool.add(clean);
+        }
       }
     }
   }
 
-  return pool.size > 0 ? Array.from(pool) : [item.imageUrl || ''];
+  // Se tutte le foto sono in blacklist ma c'è item.imageUrl, restituisce l'originale
+  // come estremo fallback solo per evitare crash, altrimenti l'elenco pulito.
+  return pool.size > 0 ? Array.from(pool) : (item.imageUrl ? [item.imageUrl] : []);
 }
 
 /**
- * Seleziona una fotografia casuale dal pool fotografico del soggetto.
- * Permette di cambiare scatto (angolazioni, espressioni, età, contesti diversi)
- * per evitare che il giocatore memorizzi la singola foto invece di riconoscere la persona.
+ * Seleziona una fotografia casuale valida dal pool fotografico del soggetto.
+ * Permette di cambiare scatto (angolazioni, contesti diversi)
+ * ed evita foto già blacktlistate.
  */
 export function getRandomItemImage(item: DuelItem): string {
   const pool = getItemImagePool(item);
-  if (pool.length <= 1) return pool[0] || item.imageUrl;
+  if (pool.length === 0) return item.imageUrl || '';
+  if (pool.length === 1) return pool[0];
   const idx = Math.floor(Math.random() * pool.length);
   return pool[idx];
 }
 
 /**
- * Prepara il mazzo per l'arena del duello:
- * 1. Per ciascun elemento assegna una fotografia scelta a caso tra quelle disponibili.
- * 2. Rimescola l'ordine degli elementi (Fisher-Yates).
+ * Prepara il mazzo per l'arena del duello o l'allenamento:
+ * 1. Esclude eventuali soggetti completamente blacktlistati.
+ * 2. Per ciascun elemento assegna una fotografia valida non blacktlistata.
+ * 3. Rimescola l'ordine degli elementi (Fisher-Yates).
  */
 export function prepareArenaDeck(items: DuelItem[]): DuelItem[] {
-  const copy: DuelItem[] = items.map((item) => {
+  const validItems = items.filter((item) => {
+    if (blacklistService.isItemBlacklisted(item.id)) return false;
     const pool = getItemImagePool(item);
-    if (pool.length <= 1) {
-      return { ...item };
-    }
-    const chosenPhoto = pool[Math.floor(Math.random() * pool.length)];
+    return pool.some((url) => !blacklistService.isBlacklisted(url));
+  });
+
+  const sourceItems = validItems.length >= 1 ? validItems : items;
+
+  const copy: DuelItem[] = sourceItems.map((item) => {
+    const chosenPhoto = getRandomItemImage(item);
     return {
       ...item,
       imageUrl: chosenPhoto,

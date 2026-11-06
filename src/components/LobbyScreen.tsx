@@ -23,6 +23,7 @@ import { TheFloorBackground } from './TheFloorBackground';
 import { TheFloorLogo } from './TheFloorLogo';
 import { PhoneMicModal } from './PhoneMicModal';
 import { getPlayerColor, PLAYER_COLORS } from '../utils/playerColors';
+import { blacklistService } from '../services/blacklistService';
 
 interface LobbyScreenProps {
   p1: PlayerConfig;
@@ -74,15 +75,23 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
   const [canInstallPwa, setCanInstallPwa] = useState(false);
   const [showSettingsModal, setShowSettingsModal] = useState(false);
   const [avatarPickerFor, setAvatarPickerFor] = useState<string | null>(null);
+  const [flaggedCount, setFlaggedCount] = useState(() => blacklistService.getFlaggedCount());
+  const [copiedBlacklist, setCopiedBlacklist] = useState(false);
 
   const recognizerRef = useRef<SmartSpeechRecognizer | null>(null);
 
   useEffect(() => {
     setCanInstallPwa(pwaInstallService.canInstall());
-    const unsub = pwaInstallService.subscribe((canInstall) => {
+    const unsubPwa = pwaInstallService.subscribe((canInstall) => {
       setCanInstallPwa(canInstall);
     });
-    return unsub;
+    const unsubBlacklist = blacklistService.subscribe(() => {
+      setFlaggedCount(blacklistService.getFlaggedCount());
+    });
+    return () => {
+      unsubPwa();
+      unsubBlacklist();
+    };
   }, []);
 
   // Esc closes settings or avatar picker
@@ -921,6 +930,48 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                 <Download className="w-5 h-5" />
                 <span>{t('app.install', settings.language)}</span>
               </button>
+            )}
+
+            {/* Reported Photos Management (Zero-Backend Blacklist) */}
+            {flaggedCount > 0 && (
+              <div className="flex flex-col gap-2 p-3 bg-paper/60 rounded-xl border-2 border-ink">
+                <div className="flex items-center justify-between">
+                  <span className="font-display font-bold text-sm text-ink flex items-center gap-1.5">
+                    <span>🚩</span>
+                    <span>{t('arena.flaggedCount', settings.language, { count: flaggedCount })}</span>
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      blacklistService.clearUserFlags();
+                      setFlaggedCount(0);
+                    }}
+                    className="text-xs font-sans font-bold text-red hover:underline"
+                  >
+                    {settings.language === 'en' ? 'Reset' : 'Ripristina'}
+                  </button>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const json = blacklistService.exportBlacklistJson();
+                    if (navigator.clipboard) {
+                      navigator.clipboard.writeText(json).then(() => {
+                        setCopiedBlacklist(true);
+                        setTimeout(() => setCopiedBlacklist(false), 2000);
+                      });
+                    }
+                  }}
+                  className="btn-push w-full py-2 px-3 rounded-lg bg-paper text-ink font-display font-bold text-xs border-2 border-ink flex items-center justify-center gap-1.5 hover:bg-yellow transition-colors"
+                >
+                  <span>📋</span>
+                  <span>
+                    {copiedBlacklist
+                      ? (settings.language === 'en' ? 'JSON Copied to clipboard!' : 'JSON Copiato negli appunti!')
+                      : (settings.language === 'en' ? 'Export Blacklist JSON' : 'Esporta JSON Segnalazioni')}
+                  </span>
+                </button>
+              </div>
             )}
 
             {/* B2: Done primary button */}

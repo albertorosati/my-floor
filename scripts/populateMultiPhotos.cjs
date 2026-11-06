@@ -1,6 +1,16 @@
 const fs = require('fs');
 const path = require('path');
 
+const BLACKLIST_FILE = path.resolve(__dirname, '../src/data/blacklist.json');
+let blacklistData = { blacklistedUrls: [], forbiddenKeywords: [] };
+try {
+  if (fs.existsSync(BLACKLIST_FILE)) {
+    blacklistData = JSON.parse(fs.readFileSync(BLACKLIST_FILE, 'utf-8'));
+  }
+} catch {
+  // fallback
+}
+
 const HEADERS = {
   'User-Agent': 'YappikCelebrityBot/1.0 (https://github.com/albertorosati/yappik; info@yappik.app)',
 };
@@ -17,7 +27,8 @@ function isTitleValid(title, name) {
     'signature', 'firma', 'autograph', 'wax', 'cera', 'grevin', 'tussaud',
     'locandina', 'poster', 'logo', 'flag', 'bandiera', 'map', 'schema',
     'chart', 'diagram', 'stamps', 'francobollo', 'drawing', 'disegno', 'coas',
-    'coin', 'moneta', 'doll', 'action figure', 'cosplay', 'waxwork', 'wax museum'
+    'coin', 'moneta', 'doll', 'action figure', 'cosplay', 'waxwork', 'wax museum',
+    ...(blacklistData.forbiddenKeywords || [])
   ];
   if (badKeywords.some((k) => t.includes(k))) return false;
 
@@ -49,6 +60,11 @@ async function findAlternatePhotos(name, currentUrl, limit = 3) {
       const cleanCandidate = info.url.split('?')[0];
       if (cleanCandidate === cleanCurrent || candidates.includes(cleanCandidate)) {
         continue;
+      }
+      if (Array.isArray(blacklistData.blacklistedUrls)) {
+        if (blacklistData.blacklistedUrls.some((b) => cleanCandidate.includes(b) || b.includes(cleanCandidate))) {
+          continue;
+        }
       }
       candidates.push(cleanCandidate);
       if (candidates.length >= limit) break;

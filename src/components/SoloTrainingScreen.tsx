@@ -26,7 +26,9 @@ import {
   isImageCached,
   prepareArenaDeck,
   primeImage,
+  getItemImagePool,
 } from '../data/categories';
+import { blacklistService } from '../services/blacklistService';
 import { gameConfig } from '../services/configService';
 import { soloScoreService } from '../services/soloScoreService';
 import { t, localizePlayerName } from '../services/i18n';
@@ -100,10 +102,16 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
   const ignoreVoiceUntilRef = useRef<number>(0);
   const lastSecondBeepRef = useRef<number>(-1);
 
+  const [photoOverride, setPhotoOverride] = useState<string | null>(null);
+  const [reportToast, setReportToast] = useState(false);
+  const reportTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const currentItem = deck[itemIndex % deck.length];
-  const displaySrc = usingBackupUrl
-    ? getBackupImageUrl(currentItem.imageUrl)
-    : resolvedUrlsRef.current.get(currentItem.id) || currentItem.imageUrl;
+  const displaySrc =
+    photoOverride ||
+    (usingBackupUrl
+      ? getBackupImageUrl(currentItem.imageUrl)
+      : resolvedUrlsRef.current.get(currentItem.id) || currentItem.imageUrl);
 
   const [imageLoaded, setImageLoaded] = useState(() =>
     isImageCached(displaySrc)
@@ -184,6 +192,7 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
   // Passa all'immagine successiva
   const advanceToNextImage = useCallback(() => {
     setUsingBackupUrl(false);
+    setPhotoOverride(null);
     setItemIndex((prev) => {
       let next = prev + 1;
       let safety = 0;
@@ -202,6 +211,35 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
       return next;
     });
   }, [deck, category.items]);
+
+  // Gestione segnalazione foto inadatta/sbagliata
+  const handleReportPhoto = useCallback(() => {
+    if (!currentItem) return;
+
+    blacklistService.flagImage(displaySrc, {
+      itemId: currentItem.id,
+      answer: currentItem.answer,
+      reason: 'user_reported',
+    });
+
+    hapticsService.vibrateTap();
+
+    setReportToast(true);
+    if (reportTimerRef.current) clearTimeout(reportTimerRef.current);
+    reportTimerRef.current = setTimeout(() => {
+      setReportToast(false);
+    }, 1800);
+
+    // Controlla se esistono scatti alternativi validi non ancora blacktlistati
+    const cleanPool = getItemImagePool(currentItem);
+    if (cleanPool.length > 0) {
+      const nextPhoto = cleanPool[Math.floor(Math.random() * cleanPool.length)];
+      setPhotoOverride(nextPhoto);
+      setImageLoaded(false);
+    } else {
+      advanceToNextImage();
+    }
+  }, [currentItem, displaySrc, advanceToNextImage]);
 
   // Risposta corretta
   // Risposta corretta (A1)
@@ -550,6 +588,27 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
             style={{ transform: `rotate(${itemIndex % 2 === 0 ? '-1deg' : '1deg'})` }}
             className="p-3 bg-paper rounded-card border-[3px] border-ink shadow-hard max-h-full max-w-full flex items-center justify-center relative animate-photo-slap transition-transform duration-200"
           >
+            {/* Report Bad Photo Quick Button (Top-Right on photo mat) */}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleReportPhoto();
+              }}
+              title={t('arena.reportTooltip', settings.language)}
+              aria-label={t('arena.reportPhoto', settings.language)}
+              className="absolute top-2 right-2 z-30 w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-paper/90 hover:bg-red/10 active:scale-95 border-2 border-ink flex items-center justify-center text-xs sm:text-sm text-ink/70 hover:text-red transition-all cursor-pointer shadow-sm select-none"
+            >
+              🚩
+            </button>
+
+            {/* Toast Notification when photo is reported */}
+            {reportToast && (
+              <div className="absolute top-3 left-1/2 -translate-x-1/2 z-50 px-3.5 py-1.5 bg-yellow border-2 border-ink rounded-xl shadow-hard font-display font-black text-xs sm:text-sm text-ink animate-pop-in pointer-events-none whitespace-nowrap">
+                {t('arena.photoReported', settings.language)}
+              </div>
+            )}
+
             {/* PASS -3s Burst (A1, A2) */}
             {passBurstVisible && (
               <div className="absolute inset-0 z-30 flex flex-col items-center justify-center pointer-events-none animate-pass-burst">

@@ -318,6 +318,19 @@ export const DICTIONARY = {
   'arena.micActive': { it: 'Microfono attivo', en: 'Microphone active' },
   'arena.answerTag': { it: 'RISPOSTA', en: 'ANSWER' },
   'arena.yesTag': { it: 'ESATTO', en: 'YES' },
+  'arena.reportPhoto': { it: 'Segnala foto errata', en: 'Report bad photo' },
+  'arena.reportTooltip': {
+    it: 'Foto illeggibile, brutta o sbagliata? Segnalala per rimuoverla!',
+    en: 'Bad, unreadable or wrong photo? Report it to remove it!',
+  },
+  'arena.photoReported': {
+    it: 'Foto segnalata e rimossa!',
+    en: 'Photo reported & removed!',
+  },
+  'arena.flaggedCount': {
+    it: '{count} foto segnalate',
+    en: '{count} photos reported',
+  },
   'arena.takesLead': { it: '{name} passa in vantaggio!', en: '{name} takes the lead!' },
   'party.challengeStep': { it: 'Sfida:', en: 'Challenge:' },
   'lobby.browseAllCount': { it: 'Sfoglia tutte le {n} categorie', en: 'Browse all {n} categories' },
