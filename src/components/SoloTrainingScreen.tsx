@@ -32,6 +32,8 @@ import { soloScoreService } from '../services/soloScoreService';
 import { t, localizePlayerName } from '../services/i18n';
 import { TheFloorBackground } from './TheFloorBackground';
 import { ScorePips } from './ScorePips';
+import { FormattedTime } from './FormattedTime';
+import { StreakBadge } from './StreakBadge';
 
 interface SoloTrainingScreenProps {
   category: Category;
@@ -67,10 +69,12 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
   const [totalPasses, setTotalPasses] = useState(0);
   const [streak, setStreak] = useState(0);
   const [bestStreak, setBestStreak] = useState(0);
-  const [correctFlash, setCorrectFlash] = useState<{
-    answer: string;
-    alias?: string;
+  const [revealedAnswer, setRevealedAnswer] = useState<{
+    tag: 'ANSWER' | 'YES';
+    text: string;
+    isPass: boolean;
   } | null>(null);
+  const [passBurstVisible, setPassBurstVisible] = useState(false);
 
   // Microfono e riconoscimento
   const [isListening, setIsListening] = useState(false);
@@ -116,7 +120,8 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
     streak,
     bestStreak,
     isFreeMode,
-    correctFlash,
+    revealedAnswer,
+    currentItem,
   });
 
   useEffect(() => {
@@ -130,7 +135,8 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
       streak,
       bestStreak,
       isFreeMode,
-      correctFlash,
+      revealedAnswer,
+      currentItem,
     };
   });
 
@@ -198,20 +204,20 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
   }, [deck, category.items]);
 
   // Risposta corretta
+  // Risposta corretta (A1)
   const triggerCorrectGuess = useCallback(
     (heardText?: string) => {
       const st = stateRef.current;
       if (
         st.sessionEnded ||
         st.isPaused ||
-        st.passPenaltyLeft > 0 ||
-        st.correctFlash !== null
+        st.revealedAnswer !== null
       ) {
         return;
       }
 
       ignoreVoiceUntilRef.current =
-        performance.now() + gameConfig.options.voiceCooldownMs;
+        performance.now() + 800;
       recognizerRef.current?.consumeCurrentBuffer();
 
       const newStreak = st.streak + 1;
@@ -226,26 +232,28 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
         setLiveTranscript(heardText);
       }
 
-      setCorrectFlash({
-        answer: currentItem.answer,
-        alias: heardText,
+      // Show sticker label overlapping bottom edge with green "YES" tag + canonical answer for 700ms
+      setRevealedAnswer({
+        tag: 'YES',
+        text: currentItem.answer,
+        isPass: false,
       });
 
       setTimeout(() => {
-        setCorrectFlash(null);
+        setRevealedAnswer(null);
         advanceToNextImage();
-      }, gameConfig.options.correctFlashDurationMs);
+      }, 700);
     },
     [advanceToNextImage, currentItem.answer]
   );
 
-  // Passo
+  // Passo (A1)
   const triggerPass = useCallback(() => {
     const st = stateRef.current;
-    if (st.sessionEnded || st.isPaused || st.passPenaltyLeft > 0) return;
+    if (st.sessionEnded || st.isPaused || st.revealedAnswer !== null) return;
 
     ignoreVoiceUntilRef.current =
-      performance.now() + gameConfig.options.voiceCooldownMs;
+      performance.now() + 1500;
     recognizerRef.current?.consumeCurrentBuffer();
 
     soundEngine.playPassPenalty();
@@ -255,18 +263,31 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
     setTotalPasses((p) => p + 1);
 
     if (!isFreeMode) {
-      // Penalità tempo in modalità con timer
+      // Deduct -3s immediately
       setTimeRemaining((prev) =>
         Math.max(0, prev - settings.passPenaltySeconds)
       );
     }
 
-    setPassPenaltyLeft(settings.passPenaltySeconds);
-    advanceToNextImage();
+    setPassBurstVisible(true);
+
+    // Show sticker label overlapping bottom edge with red "ANSWER" tag for 1.4s
+    setRevealedAnswer({
+      tag: 'ANSWER',
+      text: currentItem.answer,
+      isPass: true,
+    });
+
+    setTimeout(() => {
+      setRevealedAnswer(null);
+      setPassBurstVisible(false);
+      advanceToNextImage();
+    }, 1400);
   }, [
     isFreeMode,
     settings.passPenaltySeconds,
     advanceToNextImage,
+    currentItem.answer,
   ]);
 
   // Fine sessione allenamento
@@ -278,6 +299,13 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
     recognizerRef.current?.stop();
     soundEngine.playTimeOutBuzzer();
     hapticsService.vibrateVictory();
+
+    // Show answer of last item
+    setRevealedAnswer({
+      tag: 'ANSWER',
+      text: st.currentItem.answer,
+      isPass: true,
+    });
 
     const finalCorrect = st.totalCorrect;
     const finalBest = Math.max(st.bestStreak, st.streak);
@@ -324,18 +352,20 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
     setTotalPasses(0);
     setStreak(0);
     setBestStreak(0);
-    setCorrectFlash(null);
+    setRevealedAnswer(null);
+    setPassBurstVisible(false);
     setSummaryData(null);
     setLiveTranscript('');
   };
 
-  // Timer loop principale
+  // Timer loop principale: frozen while revealedAnswer !== null
   useEffect(() => {
     if (sessionEnded || isPaused) return;
 
     const interval = setInterval(() => {
-      // Penalità visiva passo
-      setPassPenaltyLeft((prev) => (prev > 0 ? Math.max(0, prev - 0.1) : 0));
+      const st = stateRef.current;
+      // Clock is frozen while answer is revealed (A1)
+      if (st.revealedAnswer !== null) return;
 
       if (isFreeMode) {
         // Modalità libera: conta verso l'alto come cronometro
@@ -475,25 +505,34 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
       {/* 3. Main Stage: [Player Card] [Hero Photo] (Centered in 1100px container) */}
       <main className="relative z-10 max-w-[1100px] w-full mx-auto my-auto flex-1 flex flex-col lg:flex-row items-center justify-center gap-4 sm:gap-6 min-h-0">
         {/* Desktop Single Player Card (Left) */}
-        <div className="hidden lg:flex w-64 p-5 rounded-card border-[3px] border-ink flex-col items-center justify-center gap-2 text-center bg-blue text-white shadow-hard-lifted tactile-lifted shrink-0 relative">
-          <span className="text-5xl my-1">{player.avatar}</span>
-          <span className="font-display font-black text-xl truncate max-w-full">
-            {localizePlayerName(player.name, settings.language)}
-          </span>
-
-          {/* Giant Timer */}
-          <div className="font-display font-black text-5xl tabular-nums tracking-tight my-2">
-            {isFreeMode ? `${timeRemaining.toFixed(0)}s` : timeRemaining.toFixed(1)}
+        <div className="hidden lg:flex w-64 min-h-[220px] p-5 rounded-card border-[3px] border-ink flex-col items-center justify-center gap-2 text-center bg-blue text-white shadow-hard-lifted tactile-lifted shrink-0 relative">
+          {/* C3: Avatar 72px overlapping card's top edge */}
+          <div className="absolute -top-9 left-1/2 -translate-x-1/2 z-20">
+            <div
+              className="w-[72px] h-[72px] rounded-full bg-paper border-[3px] border-ink flex items-center justify-center text-4xl shadow-hard-sm relative animate-avatar-hop ring-4 ring-yellow"
+              style={{ outline: '4px solid #2F6BFF' }}
+            >
+              {player.avatar}
+            </div>
           </div>
 
-          {/* Score Pips */}
-          <div className="flex items-center gap-2 bg-paper/20 px-3 py-1.5 rounded-full border border-white/30">
-            <ScorePips
-              score={totalCorrect}
-              targetWins={0}
-              playerColor="blue"
-              className="text-white font-black"
+          <div className="mt-4 w-full">
+            <span className="font-display font-black text-xl truncate block leading-tight max-w-full">
+              {localizePlayerName(player.name, settings.language)}
+            </span>
+          </div>
+
+          {/* Giant Timer (A2 Units) */}
+          <div className="font-display font-black text-5xl xl:text-6xl tabular-nums tracking-tight my-2">
+            <FormattedTime
+              seconds={timeRemaining}
+              decimals={isFreeMode ? 0 : 1}
             />
+          </div>
+
+          {/* Score count */}
+          <div className="flex items-center gap-2 bg-paper/20 px-4 py-1.5 rounded-full border border-white/30 font-display font-black text-sm">
+            <span>{totalCorrect} pts</span>
           </div>
 
           {/* Comic speech bubble with transcript pointing toward player */}
@@ -504,42 +543,23 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
           )}
         </div>
 
-        {/* Hero Photo: Real aspect ratio, max 58vh, 12px paper mat */}
+        {/* Hero Photo: Real aspect ratio, max 58vh, 12px paper mat, alternating ±1deg tilt (C4) */}
         <div className="flex-1 min-h-0 w-full h-full max-h-[58vh] flex items-center justify-center relative">
-          <div className="p-3 bg-paper rounded-card border-[3px] border-ink shadow-hard max-h-full max-w-full flex items-center justify-center relative overflow-hidden">
-            {/* Flash Correct Guess (Starburst Pop) */}
-            {correctFlash && (
-              <div className="absolute inset-0 z-30 bg-green/90 backdrop-blur-none flex flex-col items-center justify-center p-6 text-center animate-starburst-pop">
-                <div className="w-20 h-20 rounded-full bg-paper border-[3px] border-ink shadow-hard flex items-center justify-center mb-3">
-                  <Check className="w-10 h-10 text-green stroke-[3]" />
+          <div
+            key={`${currentItem.id}-${itemIndex}`}
+            style={{ transform: `rotate(${itemIndex % 2 === 0 ? '-1deg' : '1deg'})` }}
+            className="p-3 bg-paper rounded-card border-[3px] border-ink shadow-hard max-h-full max-w-full flex items-center justify-center relative animate-photo-slap transition-transform duration-200"
+          >
+            {/* PASS -3s Burst (A1, A2) */}
+            {passBurstVisible && (
+              <div className="absolute inset-0 z-30 flex flex-col items-center justify-center pointer-events-none animate-pass-burst">
+                <div className="px-6 py-3 rounded-2xl bg-red text-white border-[3px] border-ink shadow-hard font-display font-black text-2xl sm:text-4xl -rotate-3">
+                  PASS −3<span style={{ fontSize: '0.45em' }} className="lowercase ml-0.5 align-baseline">s</span>
                 </div>
-                <h3 className="font-display font-black text-3xl sm:text-5xl text-ink">
-                  {correctFlash.answer}
-                </h3>
-                {correctFlash.alias && correctFlash.alias.toLowerCase() !== correctFlash.answer.toLowerCase() && (
-                  <span className="text-sm font-bold text-ink/80 mt-1">
-                    (&ldquo;{correctFlash.alias}&rdquo;)
-                  </span>
-                )}
               </div>
             )}
 
-            {/* Pass Penalty Feedback (Pass Burst) */}
-            {!correctFlash && passPenaltyLeft > 0 && (
-              <div className="absolute inset-0 z-30 bg-red/90 flex flex-col items-center justify-center p-6 text-center animate-pass-burst text-white">
-                <span className="font-display font-black text-2xl uppercase tracking-wider mb-2 text-yellow">
-                  PASS! (-3s)
-                </span>
-                <span className="font-display font-bold text-sm opacity-90 mb-1">
-                  Answer:
-                </span>
-                <h3 className="font-display font-black text-2xl sm:text-4xl">
-                  {currentItem.answer}
-                </h3>
-              </div>
-            )}
-
-            {/* The Photo with 12px mat & photo slap animation on new image */}
+            {/* The Photo with 12px mat */}
             <div className="w-full h-full flex items-center justify-center bg-paper/50 rounded-lg overflow-hidden">
               <img
                 key={`${currentItem.id}-${usingBackupUrl ? 'b' : 'p'}`}
@@ -556,11 +576,35 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
                     advanceToNextImage();
                   }
                 }}
-                className={`max-w-full max-h-[52vh] w-auto h-auto object-contain animate-photo-slap transition-opacity duration-100 ${
+                className={`max-w-full max-h-[52vh] w-auto h-auto object-contain transition-opacity duration-100 ${
                   imageLoaded ? 'opacity-100' : 'opacity-0'
                 }`}
               />
             </div>
+
+            {/* A1: Sticker Label Overlapping Bottom Edge of Photo */}
+            {revealedAnswer && (
+              <div
+                className={`absolute -bottom-6 left-1/2 -translate-x-1/2 z-40 max-w-[92%] sm:max-w-[85%] bg-paper border-[3px] border-ink shadow-hard rounded-2xl px-4 py-2 sm:px-6 sm:py-3 flex items-center gap-3 animate-starburst-pop select-none ${
+                  revealedAnswer.isPass ? '-rotate-1' : 'rotate-1'
+                }`}
+              >
+                <span
+                  className={`px-2.5 py-1 rounded-lg border-2 border-ink font-display font-black text-xs sm:text-sm uppercase tracking-wider shrink-0 ${
+                    revealedAnswer.tag === 'YES'
+                      ? 'bg-green text-ink'
+                      : 'bg-red text-white'
+                  }`}
+                >
+                  {revealedAnswer.tag === 'YES'
+                    ? t('arena.yesTag', settings.language)
+                    : t('arena.answerTag', settings.language)}
+                </span>
+                <span className="font-display font-black text-xl sm:text-2xl md:text-[28px] text-ink leading-tight truncate">
+                  {revealedAnswer.text}
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </main>
@@ -579,9 +623,11 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
               </span>
             </div>
           </div>
-          <span className="font-display font-black text-3xl tabular-nums shrink-0">
-            {isFreeMode ? `${timeRemaining.toFixed(0)}s` : timeRemaining.toFixed(1)}
-          </span>
+          <FormattedTime
+            seconds={timeRemaining}
+            decimals={isFreeMode ? 0 : 1}
+            className="text-3xl shrink-0"
+          />
         </div>
       </div>
 
@@ -637,18 +683,20 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
           <button
             type="button"
             onClick={triggerPass}
-            disabled={passPenaltyLeft > 0 || correctFlash !== null}
-            className="btn-push min-w-[130px] sm:min-w-[160px] min-h-[54px] sm:min-h-[64px] px-4 py-2.5 rounded-xl bg-paper text-ink font-display font-black text-base sm:text-lg border-[3px] border-ink shadow-hard flex items-center justify-center gap-2"
+            disabled={revealedAnswer !== null}
+            className="btn-push min-w-[130px] sm:min-w-[160px] min-h-[54px] sm:min-h-[64px] px-4 py-2.5 rounded-xl bg-paper text-ink font-display font-black text-base sm:text-lg border-[3px] border-ink shadow-hard flex items-center justify-center gap-2 disabled:opacity-50"
           >
             <FastForward className="w-5 h-5" />
-            <span>{isFreeMode ? t('arena.passButton', settings.language) : t('arena.pass', settings.language)}</span>
+            <span>
+              Pass (−3<span style={{ fontSize: '0.45em' }} className="lowercase ml-0.5 align-baseline">s</span>)
+            </span>
           </button>
 
           <button
             type="button"
             onClick={() => triggerCorrectGuess()}
-            disabled={passPenaltyLeft > 0 || correctFlash !== null}
-            className="btn-push min-w-[130px] sm:min-w-[160px] min-h-[54px] sm:min-h-[64px] px-4 py-2.5 rounded-xl bg-green text-ink font-display font-black text-base sm:text-lg border-[3px] border-ink shadow-hard flex items-center justify-center gap-2"
+            disabled={revealedAnswer !== null}
+            className="btn-push min-w-[130px] sm:min-w-[160px] min-h-[54px] sm:min-h-[64px] px-4 py-2.5 rounded-xl bg-green text-ink font-display font-black text-base sm:text-lg border-[3px] border-ink shadow-hard flex items-center justify-center gap-2 disabled:opacity-50"
           >
             <Check className="w-6 h-6 stroke-[3]" />
             <span>{t('arena.correct', settings.language)}</span>

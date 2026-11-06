@@ -3,8 +3,6 @@ import {
   Shuffle,
   Grid,
   ArrowLeft,
-  Search,
-  X,
   Flag,
 } from 'lucide-react';
 import {
@@ -30,7 +28,9 @@ import {
   localizePlayerName,
 } from '../services/i18n';
 import { TheFloorBackground } from './TheFloorBackground';
-import { ScorePips } from './ScorePips';
+import { InlineCrown } from './InlineCrown';
+import { CategoryGalleryModal } from './CategoryGalleryModal';
+import { getPlayerColor } from '../utils/playerColors';
 
 interface CategoryDraftScreenProps {
   categories: Category[];
@@ -107,7 +107,6 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
   p2Score,
   targetWins,
   chooserId,
-  roundNumber,
   language = 'it',
   onSelectCategory,
   onFinishMatchEarly,
@@ -126,10 +125,10 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
   const [selectedCat, setSelectedCat] = useState<Category | null>(null);
   const [countdown, setCountdown] = useState<number | null>(null);
   const [countdownPhase, setCountdownPhase] = useState<'card-scale' | 'full-countdown'>('card-scale');
-  const [showAllModal, setShowAllModal] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [showGalleryModal, setShowGalleryModal] = useState(false);
 
   const chooser = chooserId === 'p1' ? p1 : p2;
+  const chooserColor = getPlayerColor(chooser.id);
 
   useEffect(() => {
     offered.forEach((cat) => {
@@ -180,7 +179,7 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
 
   const handleChooseCard = (cat: Category) => {
     if (countdown !== null) return;
-    setShowAllModal(false);
+    setShowGalleryModal(false);
     preloadCategoryImages(cat, 20);
     soundEngine.playChallengeLocked();
     const catName = getCategoryTitle(cat, language);
@@ -194,21 +193,13 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
     setCountdown(3);
   };
 
-  const filteredCatalog = useMemo(() => {
-    const q = searchQuery.toLowerCase().trim();
-    if (!q) return availableCategories;
-    return availableCategories.filter((c) => {
-      const title = getCategoryTitle(c, language).toLowerCase();
-      return title.includes(q) || c.name.toLowerCase().includes(q);
-    });
-  }, [availableCategories, searchQuery, language]);
-
-  const stageColor = chooserId === 'p1' ? 'p1' : 'p2';
+  const isP1Leading = p1Score > p2Score && p1Score > 0;
+  const isP2Leading = p2Score > p1Score && p2Score > 0;
 
   return (
     <div className="relative h-[100dvh] max-h-[100dvh] w-full flex flex-col justify-between p-4 sm:p-6 select-none overflow-hidden touch-none">
-      {/* Dynamic 96px Checkerboard Floor Background */}
-      <TheFloorBackground stage={stageColor} />
+      {/* Signature Floor Background in chooser's stage color */}
+      <TheFloorBackground stage={chooser.id} />
 
       {/* Main Container: Max 1100px Centered */}
       <div className="w-full max-w-[1100px] mx-auto flex-1 flex flex-col justify-between py-2 min-h-0">
@@ -226,35 +217,43 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
             <span>{t('draft.menu', language)}</span>
           </button>
 
-          {/* Compact Scoreboard in Top Center: Two Pills */}
+          {/* Compact Scoreboard in Top Center: Plain Numbers, Crown on Leader */}
           {!isSolo && (
             <div className="flex items-center gap-2 sm:gap-3">
               {/* P1 Pill */}
               <div className="px-3.5 py-1.5 rounded-full bg-paper border-[3px] border-ink shadow-hard-sm flex items-center gap-2">
-                <span className="text-xl shrink-0">{p1.avatar}</span>
+                <div className="relative flex items-center justify-center">
+                  <span className="text-xl shrink-0">{p1.avatar}</span>
+                  {isP1Leading && (
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                      <InlineCrown size="sm" />
+                    </div>
+                  )}
+                </div>
                 <span className="font-display font-black text-xs sm:text-sm text-ink truncate max-w-[80px] sm:max-w-[110px]">
                   {p1.name}
                 </span>
-                <ScorePips
-                  score={p1Score}
-                  targetWins={targetWins}
-                  playerColor="blue"
-                  size="sm"
-                />
+                <span className="font-display font-black text-sm sm:text-base text-ink tabular-nums">
+                  {p1Score}
+                </span>
               </div>
 
               {/* P2 Pill */}
               <div className="px-3.5 py-1.5 rounded-full bg-paper border-[3px] border-ink shadow-hard-sm flex items-center gap-2">
-                <span className="text-xl shrink-0">{p2.avatar}</span>
+                <div className="relative flex items-center justify-center">
+                  <span className="text-xl shrink-0">{p2.avatar}</span>
+                  {isP2Leading && (
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                      <InlineCrown size="sm" />
+                    </div>
+                  )}
+                </div>
                 <span className="font-display font-black text-xs sm:text-sm text-ink truncate max-w-[80px] sm:max-w-[110px]">
                   {p2.name}
                 </span>
-                <ScorePips
-                  score={p2Score}
-                  targetWins={targetWins}
-                  playerColor="red"
-                  size="sm"
-                />
+                <span className="font-display font-black text-sm sm:text-base text-ink tabular-nums">
+                  {p2Score}
+                </span>
               </div>
             </div>
           )}
@@ -283,13 +282,15 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
         </header>
 
         {/* ============================================================== */}
-        {/* RIBBON BANNER IN ACTIVE PLAYER'S COLOR (-1deg)                 */}
+        {/* RIBBON BANNER IN ACTIVE PLAYER'S REAL COLOR (-1deg)            */}
         {/* ============================================================== */}
         <div className="w-full text-center my-2 shrink-0">
           <div
-            className={`inline-block px-6 py-2 rounded-2xl border-[3px] border-ink shadow-hard -rotate-1 font-display font-black text-lg sm:text-2xl uppercase tracking-wider ${
-              chooserId === 'p1' ? 'bg-blue text-white' : 'bg-red text-white'
-            }`}
+            className="inline-block px-6 py-2.5 rounded-2xl border-[3px] border-ink shadow-hard -rotate-1 font-display font-black text-lg sm:text-2xl uppercase tracking-wider"
+            style={{
+              backgroundColor: chooserColor.bgHex,
+              color: chooserColor.onColorHex,
+            }}
           >
             {isSolo
               ? t('solo.chooseCategory', language)
@@ -298,29 +299,33 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
                 })}
           </div>
 
-          {/* Party opponent selector if in party mode */}
+          {/* Party challenge step: 48px avatar chips (selected = yellow outline) */}
           {isParty && partyPlayers.length > 2 && onSelectOpponent && (
-            <div className="mt-2 flex items-center justify-center gap-2 flex-wrap">
-              <span className="text-xs text-paper font-bold">
-                {t('party.selectOpponent', language)}:
+            <div className="mt-3 flex flex-col items-center justify-center gap-1.5">
+              <span className="font-display font-black text-xs sm:text-sm text-paper uppercase tracking-wider">
+                {t('party.challengeStep', language)}
               </span>
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center justify-center gap-2 flex-wrap">
                 {partyPlayers
                   .filter((p) => p.id !== chooser.id)
-                  .map((p) => (
-                    <button
-                      key={`opp-${p.id}`}
-                      type="button"
-                      onClick={() => onSelectOpponent(p.id)}
-                      className={`px-3 py-1 rounded-xl text-xs font-display font-bold border-[3px] border-ink transition-all ${
-                        selectedOpponentId === p.id
-                          ? 'bg-yellow text-ink shadow-hard-sm'
-                          : 'bg-paper text-ink hover:bg-yellow/40'
-                      }`}
-                    >
-                      {p.avatar} {p.name}
-                    </button>
-                  ))}
+                  .map((p) => {
+                    const isSelected = selectedOpponentId === p.id;
+                    return (
+                      <button
+                        key={`opp-${p.id}`}
+                        type="button"
+                        onClick={() => onSelectOpponent(p.id)}
+                        className={`w-12 h-12 rounded-xl text-2xl flex items-center justify-center border-[3px] border-ink transition-all active:scale-95 ${
+                          isSelected
+                            ? 'bg-yellow shadow-hard-lifted -translate-y-1 ring-4 ring-yellow/80'
+                            : 'bg-paper shadow-hard hover:-translate-y-0.5'
+                        }`}
+                        title={p.name}
+                      >
+                        {p.avatar}
+                      </button>
+                    );
+                  })}
               </div>
             </div>
           )}
@@ -377,7 +382,7 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
 
           <button
             type="button"
-            onClick={() => setShowAllModal(true)}
+            onClick={() => setShowGalleryModal(true)}
             disabled={countdown !== null}
             className="btn-push h-12 flex-1 px-4 rounded-xl bg-paper text-ink font-display font-bold text-sm flex items-center justify-center gap-2"
           >
@@ -430,55 +435,16 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
       )}
 
       {/* ============================================================== */}
-      {/* SEARCHABLE ALL CATEGORIES MODAL                                */}
+      {/* CATEGORY GALLERY MODAL (STICKER TILES, 3-CARD PEEK, SEARCH)   */}
       {/* ============================================================== */}
-      {showAllModal && (
-        <div className="fixed inset-0 z-40 bg-black/75 flex items-center justify-center p-4">
-          <div className="card-paper max-w-2xl w-full max-h-[85vh] flex flex-col overflow-hidden animate-pop-in">
-            <div className="p-4 bg-paper border-b-[3px] border-ink flex items-center justify-between gap-3">
-              <h2 className="font-display font-black text-xl text-ink">
-                {t('draft.allCategories', language)} ({filteredCatalog.length})
-              </h2>
-              <div className="flex items-center gap-2">
-                <div className="relative">
-                  <Search className="w-4 h-4 text-ink/50 absolute left-3 top-1/2 -translate-y-1/2" />
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder={t('draft.searchPlaceholder', language)}
-                    className="pl-9 pr-3 py-1.5 rounded-xl bg-white border-[3px] border-ink text-sm text-ink focus:outline-none focus:ring-2 focus:ring-yellow"
-                  />
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setShowAllModal(false)}
-                  aria-label="Close"
-                  className="btn-push w-9 h-9 rounded-xl bg-white text-ink flex items-center justify-center"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-
-            <div className="p-4 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {filteredCatalog.map((cat) => (
-                <button
-                  key={`all-${cat.id}`}
-                  type="button"
-                  onClick={() => handleChooseCard(cat)}
-                  className="p-3 rounded-xl bg-white border-[3px] border-ink shadow-hard-sm hover:bg-yellow flex items-center gap-2.5 text-left transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
-                >
-                  <span className="text-2xl shrink-0">{cat.icon}</span>
-                  <span className="font-display font-bold text-sm text-ink truncate">
-                    {getCategoryTitle(cat, language)}
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
+      <CategoryGalleryModal
+        isOpen={showGalleryModal}
+        categories={availableCategories}
+        language={language}
+        mode="pick"
+        onSelectCategory={(cat) => handleChooseCard(cat)}
+        onClose={() => setShowGalleryModal(false)}
+      />
     </div>
   );
 };

@@ -27,8 +27,20 @@ import { CategoryDraftScreen } from './components/CategoryDraftScreen';
 import { DuelArenaScreen } from './components/DuelArenaScreen';
 import { SoloTrainingScreen } from './components/SoloTrainingScreen';
 import { RemoteMicScreen } from './components/RemoteMicScreen';
-import { CategoryEditorModal } from './components/CategoryEditorModal';
+import { CategoryGalleryModal } from './components/CategoryGalleryModal';
 import { VictoryScreen } from './components/VictoryScreen';
+
+function getInitialLanguage(): AppLanguage {
+  if (typeof window !== 'undefined') {
+    const saved = localStorage.getItem('the_floor_lang');
+    if (saved === 'it' || saved === 'en') {
+      return saved;
+    } else if (navigator.language && !navigator.language.startsWith('it')) {
+      return 'en';
+    }
+  }
+  return 'it';
+}
 
 type ScreenState = 'lobby' | 'draft' | 'duel' | 'solo-arena' | 'victory';
 
@@ -43,47 +55,50 @@ export const App: React.FC = () => {
   const [categories, setCategories] = useState<Category[]>(() =>
     loadAllCategories()
   );
-  const [editorOpen, setEditorOpen] = useState(false);
+  const [galleryOpen, setGalleryOpen] = useState(false);
+
+  const initialLang = getInitialLanguage();
+  const defaultPrefix = initialLang === 'en' ? 'Player' : 'Giocatore';
 
   // Giocatori 1v1 Classico
   const [p1, setP1] = useState<PlayerConfig>({
     id: 'p1',
-    name: gameConfig.players.defaultP1.name,
+    name: `${defaultPrefix} 1`,
     avatar: gameConfig.players.defaultP1.avatar,
   });
 
   const [p2, setP2] = useState<PlayerConfig>({
     id: 'p2',
-    name: gameConfig.players.defaultP2.name,
+    name: `${defaultPrefix} 2`,
     avatar: gameConfig.players.defaultP2.avatar,
   });
 
-  // Giocatori Modalità Party (da 3 a 8 partecipanti)
+  // Giocatori Modalità Party (da 2 a 8 partecipanti)
   const [partyPlayers, setPartyPlayers] = useState<PartyPlayer[]>([
     {
       id: 'p1',
-      name: gameConfig.players.defaultP1.name,
+      name: `${defaultPrefix} 1`,
       avatar: gameConfig.players.defaultP1.avatar,
       wins: 0,
       duelsPlayed: 0,
     },
     {
       id: 'p2',
-      name: gameConfig.players.defaultP2.name,
+      name: `${defaultPrefix} 2`,
       avatar: gameConfig.players.defaultP2.avatar,
       wins: 0,
       duelsPlayed: 0,
     },
     {
       id: 'p3',
-      name: 'Giocatore 3',
+      name: `${defaultPrefix} 3`,
       avatar: '🐼',
       wins: 0,
       duelsPlayed: 0,
     },
     {
       id: 'p4',
-      name: 'Giocatore 4',
+      name: `${defaultPrefix} 4`,
       avatar: '🐸',
       wins: 0,
       duelsPlayed: 0,
@@ -91,15 +106,6 @@ export const App: React.FC = () => {
   ]);
 
   const [settings, setSettings] = useState<GameSettings>(() => {
-    let initialLang: AppLanguage = 'it';
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('the_floor_lang');
-      if (saved === 'it' || saved === 'en') {
-        initialLang = saved;
-      } else if (navigator.language && !navigator.language.startsWith('it')) {
-        initialLang = 'en';
-      }
-    }
     return {
       mode: (gameConfig.defaults.mode as GameMode) || 'duel',
       targetWins: gameConfig.defaults.targetWins,
@@ -193,11 +199,12 @@ export const App: React.FC = () => {
     const nextAvatar =
       gameConfig.players.avatars.find((a) => !usedAvatars.has(a)) || '⭐';
     const nextId = `p${Date.now().toString().slice(-4)}`;
+    const defaultPrefix = settings.language === 'en' ? 'Player' : 'Giocatore';
     setPartyPlayers((prev) => [
       ...prev,
       {
         id: nextId,
-        name: `Giocatore ${prev.length + 1}`,
+        name: `${defaultPrefix} ${prev.length + 1}`,
         avatar: nextAvatar,
         wins: 0,
         duelsPlayed: 0,
@@ -206,8 +213,18 @@ export const App: React.FC = () => {
   };
 
   const handleRemovePartyPlayer = (id: string) => {
-    if (partyPlayers.length <= 3) return;
-    setPartyPlayers((prev) => prev.filter((p) => p.id !== id));
+    if (partyPlayers.length <= 2) return;
+    setPartyPlayers((prev) => {
+      const filtered = prev.filter((p) => p.id !== id);
+      const defaultPrefix = settings.language === 'en' ? 'Player' : 'Giocatore';
+      const defaultRegex = /^(?:Player|Giocatore)\s+(\d+)$/i;
+      return filtered.map((player, idx) => {
+        if (defaultRegex.test(player.name.trim())) {
+          return { ...player, name: `${defaultPrefix} ${idx + 1}` };
+        }
+        return player;
+      });
+    });
   };
 
   const handleUpdatePartyPlayer = (
@@ -221,6 +238,32 @@ export const App: React.FC = () => {
   };
 
   const handleUpdateSettings = (partial: Partial<GameSettings>) => {
+    if (partial.language && partial.language !== settings.language) {
+      const newLang = partial.language;
+      const newPrefix = newLang === 'en' ? 'Player' : 'Giocatore';
+      const defaultRegex = /^(?:Player|Giocatore)\s+(\d+)$/i;
+
+      setP1((prev) => {
+        const match = prev.name.trim().match(defaultRegex);
+        if (match) return { ...prev, name: `${newPrefix} ${match[1]}` };
+        return prev;
+      });
+
+      setP2((prev) => {
+        const match = prev.name.trim().match(defaultRegex);
+        if (match) return { ...prev, name: `${newPrefix} ${match[1]}` };
+        return prev;
+      });
+
+      setPartyPlayers((prev) =>
+        prev.map((player, idx) => {
+          const match = player.name.trim().match(defaultRegex);
+          if (match) return { ...player, name: `${newPrefix} ${idx + 1}` };
+          return player;
+        })
+      );
+    }
+
     setSettings((prev) => {
       const updated = { ...prev, ...partial };
       if (partial.language && typeof window !== 'undefined') {
@@ -368,7 +411,7 @@ export const App: React.FC = () => {
           roomCode={roomCode}
           p2RemoteConnected={p2RemoteConnected}
           remoteTranscriptPreview={remoteTranscriptPreview}
-          onOpenCategoryEditor={() => setEditorOpen(true)}
+          onOpenCategoryEditor={() => setGalleryOpen(true)}
           onStartGame={handleStartNewGame}
         />
       )}
@@ -441,14 +484,13 @@ export const App: React.FC = () => {
         />
       )}
 
-      {editorOpen && (
-        <CategoryEditorModal
-          allCategories={categories}
-          language={settings.language}
-          onClose={() => setEditorOpen(false)}
-          onCategoriesUpdated={() => setCategories(loadAllCategories())}
-        />
-      )}
+      <CategoryGalleryModal
+        isOpen={galleryOpen}
+        categories={categories}
+        language={settings.language}
+        mode="browse"
+        onClose={() => setGalleryOpen(false)}
+      />
     </>
   );
 };

@@ -15,6 +15,8 @@ import {
 } from '../data/categories';
 import { t } from '../services/i18n';
 
+export const ENABLE_CUSTOM_CATEGORIES = false;
+
 interface CategoryEditorModalProps {
   allCategories: Category[];
   language?: AppLanguage;
@@ -28,6 +30,9 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
   onClose,
   onCategoriesUpdated,
 }) => {
+  if (!ENABLE_CUSTOM_CATEGORIES) {
+    return null;
+  }
   const [name, setName] = useState('');
   const [subtitle, setSubtitle] = useState('');
   const [icon, setIcon] = useState('⭐');

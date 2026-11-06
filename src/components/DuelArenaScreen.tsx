@@ -6,6 +6,7 @@ import {
   Pause,
   Play,
   ArrowRight,
+  X,
 } from 'lucide-react';
 import {
   Category,
@@ -29,7 +30,9 @@ import {
 import { gameConfig } from '../services/configService';
 import { t, localizePlayerName } from '../services/i18n';
 import { TheFloorBackground } from './TheFloorBackground';
-import { ScorePips } from './ScorePips';
+import { FormattedTime } from './FormattedTime';
+import { StreakBadge } from './StreakBadge';
+import { InlineCrown } from './InlineCrown';
 
 interface DuelArenaScreenProps {
   roundNumber: number;
@@ -65,18 +68,28 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
   const [timeP1, setTimeP1] = useState(settings.duelDurationSeconds);
   const [timeP2, setTimeP2] = useState(settings.duelDurationSeconds);
   const [isPaused, setIsPaused] = useState(false);
-  const [passPenaltyLeft, setPassPenaltyLeft] = useState<number>(0);
 
-  const [correctFlash, setCorrectFlash] = useState<{
-    answer: string;
-    byPlayer: PlayerId;
+  // A1: Sticker label overlapping bottom edge on Pass (1.4s), Correct (700ms), and Timeout
+  const [revealedAnswer, setRevealedAnswer] = useState<{
+    tag: 'ANSWER' | 'YES';
+    text: string;
+    isPass: boolean;
   } | null>(null);
 
+  // PASS -3s burst
+  const [passBurstVisible, setPassBurstVisible] = useState(false);
+
+  // Separate player stats and streaks (A4)
   const [p1Correct, setP1Correct] = useState(0);
   const [p2Correct, setP2Correct] = useState(0);
   const [p1Passes, setP1Passes] = useState(0);
   const [p2Passes, setP2Passes] = useState(0);
-  const [streak, setStreak] = useState(0);
+  const [p1Streak, setP1Streak] = useState(0);
+  const [p2Streak, setP2Streak] = useState(0);
+
+  // Leader announcement (A5)
+  const [leadAnnouncement, setLeadAnnouncement] = useState('');
+  const prevLeaderRef = useRef<PlayerId | null>(null);
 
   const [liveTranscript, setLiveTranscript] = useState('');
   const [micVolume, setMicVolume] = useState(0);
@@ -106,6 +119,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
 
   const [imageLoaded, setImageLoaded] = useState(() => isImageCached(displaySrc));
 
+  // Preload current image
   useEffect(() => {
     const cached = isImageCached(displaySrc);
     setImageLoaded(cached);
@@ -118,6 +132,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     }
   }, [displaySrc]);
 
+  // Rolling preloader
   useEffect(() => {
     const preloadCount = gameConfig.options.preloaderWindowSize;
     for (let offset = 1; offset <= preloadCount; offset++) {
@@ -151,9 +166,9 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     activePlayer,
     currentItem,
     isPaused,
-    passPenaltyLeft,
-    correctFlash,
-    streak,
+    revealedAnswer,
+    p1Streak,
+    p2Streak,
     timeP1,
     timeP2,
     p1Correct,
@@ -168,9 +183,9 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
       activePlayer,
       currentItem,
       isPaused,
-      passPenaltyLeft,
-      correctFlash,
-      streak,
+      revealedAnswer,
+      p1Streak,
+      p2Streak,
       timeP1,
       timeP2,
       p1Correct,
@@ -184,6 +199,21 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
   const ignoreVoiceUntilRef = useRef<number>(0);
   const recognizerRef = useRef<SmartSpeechRecognizer | null>(null);
   const lastSecondBeepRef = useRef<number>(-1);
+
+  // Leader calculation (A5)
+  const currentLeader: PlayerId | null =
+    p1Correct > p2Correct ? 'p1' : p2Correct > p1Correct ? 'p2' : null;
+
+  useEffect(() => {
+    if (currentLeader && currentLeader !== prevLeaderRef.current) {
+      const leaderName = currentLeader === 'p1' ? p1.name : p2.name;
+      const localized = localizePlayerName(leaderName, settings.language);
+      setLeadAnnouncement(
+        t('arena.takesLead', settings.language, { name: localized })
+      );
+    }
+    prevLeaderRef.current = currentLeader;
+  }, [currentLeader, p1.name, p2.name, settings.language]);
 
   const advanceToNextImage = useCallback(() => {
     setUsingBackupUrl(false);
@@ -206,83 +236,108 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     });
   }, [deck, category.items]);
 
+  // A1: Correct Guess Handler
   const triggerCorrectGuess = useCallback(
     (heardText?: string) => {
       const st = stateRef.current;
       if (
         st.duelEnded ||
         st.isPaused ||
-        st.passPenaltyLeft > 0 ||
-        st.correctFlash !== null
+        st.revealedAnswer !== null
       ) {
         return;
       }
 
-      ignoreVoiceUntilRef.current =
-        performance.now() + gameConfig.options.voiceCooldownMs;
+      ignoreVoiceUntilRef.current = performance.now() + 800;
       recognizerRef.current?.consumeCurrentBuffer();
 
-      const newStreak = st.streak + 1;
-      setStreak(newStreak);
-      soundEngine.playCorrectAnswer(newStreak);
-      hapticsService.vibrateCorrect();
+      const isP1 = st.activePlayer === 'p1';
+      const nextStreak = (isP1 ? st.p1Streak : st.p2Streak) + 1;
 
-      if (st.activePlayer === 'p1') {
+      if (isP1) {
+        setP1Streak(nextStreak);
         setP1Correct((c) => c + 1);
       } else {
+        setP2Streak(nextStreak);
         setP2Correct((c) => c + 1);
       }
+
+      soundEngine.playCorrectAnswer(nextStreak);
+      hapticsService.vibrateCorrect();
 
       if (heardText) {
         setLiveTranscript(heardText);
       }
 
-      setCorrectFlash({
-        answer: st.currentItem.answer,
-        byPlayer: st.activePlayer,
+      // Show sticker label overlapping bottom edge with green "YES" tag + canonical answer for 700ms
+      setRevealedAnswer({
+        tag: 'YES',
+        text: st.currentItem.answer,
+        isPass: false,
       });
 
       setTimeout(() => {
         if (stateRef.current.duelEnded) return;
-        setCorrectFlash(null);
+        setRevealedAnswer(null);
         setLiveTranscript('');
         setActivePlayer((prev) => (prev === 'p1' ? 'p2' : 'p1'));
         advanceToNextImage();
-      }, 500);
+      }, 700);
     },
     [advanceToNextImage]
   );
 
+  // A1: Pass Handler (freeze clock during 1.4s reveal, -3s is only penalty)
   const triggerPass = useCallback(() => {
     const st = stateRef.current;
     if (
       st.duelEnded ||
       st.isPaused ||
-      st.passPenaltyLeft > 0 ||
-      st.correctFlash !== null
+      st.revealedAnswer !== null
     ) {
       return;
     }
 
-    ignoreVoiceUntilRef.current =
-      performance.now() + gameConfig.options.voiceCooldownMs;
+    ignoreVoiceUntilRef.current = performance.now() + 1500;
     recognizerRef.current?.consumeCurrentBuffer();
 
     soundEngine.playPassPenalty();
     hapticsService.vibratePass();
-    setStreak(0);
+
+    // Deduct -3s immediately and reset player's streak
+    if (st.activePlayer === 'p1') {
+      setP1Streak(0);
+      setP1Passes((p) => p + 1);
+      setTimeP1((t) => Math.max(0, t - settings.passPenaltySeconds));
+    } else {
+      setP2Streak(0);
+      setP2Passes((p) => p + 1);
+      setTimeP2((t) => Math.max(0, t - settings.passPenaltySeconds));
+    }
+
     setLiveTranscript('Passo!');
     setPhotoShake(true);
     setTimeout(() => setPhotoShake(false), 300);
 
-    if (st.activePlayer === 'p1') {
-      setP1Passes((p) => p + 1);
-    } else {
-      setP2Passes((p) => p + 1);
-    }
+    // Show PASS burst
+    setPassBurstVisible(true);
 
-    setPassPenaltyLeft(settings.passPenaltySeconds);
-  }, [settings.passPenaltySeconds]);
+    // Show the sticker label overlapping bottom edge with red "ANSWER" tag for 1.4s
+    // Clock is frozen while revealedAnswer !== null!
+    setRevealedAnswer({
+      tag: 'ANSWER',
+      text: st.currentItem.answer,
+      isPass: true,
+    });
+
+    setTimeout(() => {
+      if (stateRef.current.duelEnded) return;
+      setRevealedAnswer(null);
+      setPassBurstVisible(false);
+      setLiveTranscript('');
+      advanceToNextImage();
+    }, 1400);
+  }, [settings.passPenaltySeconds, advanceToNextImage]);
 
   const processSpokenAlternatives = useCallback(
     (alternatives: string[], sourcePlayer?: PlayerId) => {
@@ -290,8 +345,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
       if (
         st.duelEnded ||
         st.isPaused ||
-        st.passPenaltyLeft > 0 ||
-        st.correctFlash !== null
+        st.revealedAnswer !== null
       ) {
         return;
       }
@@ -452,6 +506,13 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         summary,
       });
 
+      // A1: Show canonical answer of last photo with red ANSWER sticker overlapping bottom edge
+      setRevealedAnswer({
+        tag: 'ANSWER',
+        text: st.currentItem.answer,
+        isPass: true,
+      });
+
       setScreenShake(true);
       soundEngine.playTimeOutBuzzer();
       soundEngine.playRevealAnswer();
@@ -477,12 +538,11 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
       category.icon,
       category.name,
       onDuelFinished,
-      p1,
-      p2,
       roundNumber,
     ]
   );
 
+  // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (duelFinishPhase !== null) {
@@ -508,6 +568,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [triggerPass, triggerCorrectGuess, duelFinishPhase, handleProceedToDraft]);
 
+  // Main countdown timer loop: frozen while revealedAnswer !== null
   useEffect(() => {
     let lastTick = performance.now();
 
@@ -517,16 +578,8 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
       lastTick = now;
 
       const st = stateRef.current;
-      if (st.duelEnded || st.isPaused || st.correctFlash !== null) return;
-
-      if (st.passPenaltyLeft > 0) {
-        const nextPenalty = Math.max(0, st.passPenaltyLeft - dt);
-        setPassPenaltyLeft(nextPenalty);
-        if (nextPenalty === 0) {
-          setLiveTranscript('');
-          advanceToNextImage();
-        }
-      }
+      // Freeze clock while answer is revealed (1.4s on pass, 700ms on correct) or paused or duel ended
+      if (st.duelEnded || st.isPaused || st.revealedAnswer !== null) return;
 
       if (st.activePlayer === 'p1') {
         const nextP1 = Math.max(0, st.timeP1 - dt);
@@ -573,25 +626,31 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
   const stageColor = p1Active ? 'p1' : 'p2';
   const p1Urgent = p1Active && timeP1 <= 10;
   const p2Urgent = p2Active && timeP2 <= 10;
+  const photoTilt = itemIndex % 2 === 0 ? '-1deg' : '1deg';
 
   return (
     <div
-      className={`relative h-[100dvh] max-h-[100dvh] w-full flex flex-col justify-between p-3 sm:p-5 select-none overflow-hidden touch-none ${
+      className={`relative h-[100dvh] max-h-[100dvh] w-full flex flex-col justify-between p-3 sm:p-5 select-none overflow-hidden touch-none pb-[max(0.75rem,env(safe-area-inset-bottom))] ${
         screenShake ? 'animate-screen-shake-6px' : ''
       }`}
     >
-      {/* 1. Dynamic Floor Background Following Active Player */}
-      <TheFloorBackground stage={stageColor} />
+      {/* 1. Dynamic Floor Background Following Active Player (250ms wave max) */}
+      <TheFloorBackground stage={isPaused ? 'modal' : stageColor} />
+
+      {/* Screen Reader Announcement for Crown Lead Change */}
+      <div className="sr-only" aria-live="polite">
+        {leadAnnouncement}
+      </div>
 
       {/* Main Single Width Container: Max 1100px Centered */}
       <div className="w-full max-w-[1100px] mx-auto flex-1 flex flex-col justify-between py-1 min-h-0">
         {/* ============================================================== */}
-        {/* TOP BAR: Category (emoji + name) left, Pause right             */}
+        {/* TOP BAR: Category (emoji + name 28px) left, Pause right        */}
         {/* ============================================================== */}
         <header className="w-full flex items-center justify-between gap-3 shrink-0 py-1">
-          <div className="flex items-center gap-2.5 text-paper min-w-0">
+          <div className="flex items-center gap-2.5 bg-paper border-[3px] border-ink rounded-full px-4 py-1.5 shadow-hard-sm -rotate-1 min-w-0">
             <span className="text-3xl sm:text-4xl shrink-0">{category.icon}</span>
-            <h1 className="font-display font-black text-xl sm:text-2xl truncate tracking-wide">
+            <h1 className="font-display font-black text-xl sm:text-[28px] text-ink truncate tracking-wide leading-none">
               {category.name}
             </h1>
           </div>
@@ -599,7 +658,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
           <button
             type="button"
             onClick={() => setIsPaused((p) => !p)}
-            className="btn-push px-4 py-1.5 rounded-xl bg-paper text-ink font-display font-bold text-sm flex items-center gap-1.5 shrink-0"
+            className="btn-push px-4 py-2 rounded-xl bg-paper text-ink font-display font-bold text-sm flex items-center gap-1.5 shrink-0 border-[3px] border-ink shadow-hard-sm"
             aria-label={isPaused ? t('arena.resume', settings.language) : t('arena.pause', settings.language)}
           >
             {isPaused ? <Play className="w-4 h-4 text-green" /> : <Pause className="w-4 h-4 stroke-[2.5]" />}
@@ -608,41 +667,72 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         </header>
 
         {/* ============================================================== */}
-        {/* CENTER: [Player 1] [Photo] [Player 2] in one row, gap 24       */}
+        {/* CENTER GRID: [Card 200px] [Photo Hero] [Card 200px] (A6)       */}
         {/* ============================================================== */}
-        <main className="w-full my-auto flex-1 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 min-h-0 py-2">
-          {/* Player 1 Card (Desktop: Left) */}
+        <main className="w-full my-auto flex-1 flex flex-col lg:grid lg:grid-cols-[200px_1fr_200px] items-center gap-6 min-h-0 py-2">
+          {/* ------------------------------------------------------------ */}
+          {/* Player 1 Card (Desktop: Left 200px)                           */}
+          {/* ------------------------------------------------------------ */}
           <div
-            className={`hidden lg:flex w-56 min-h-[220px] rounded-card border-[3px] border-ink p-5 flex-col items-center justify-center gap-2 text-center transition-all ${
+            className={`hidden lg:flex w-full min-h-[220px] rounded-card border-[3px] border-ink p-5 flex-col items-center justify-center gap-2 text-center transition-all relative ${
               p1Active
-                ? 'bg-blue text-white tactile-lifted'
-                : 'bg-paper text-ink tactile-pressed'
+                ? 'bg-blue text-white shadow-hard-lifted tactile-lifted'
+                : 'bg-paper text-ink opacity-90 tactile-pressed'
             }`}
           >
-            <span className="text-4xl">{p1.avatar}</span>
-            <span className="font-display font-black text-lg truncate max-w-full">
-              {p1.name}
-            </span>
-            <span
-              className={`tabular-nums font-display font-black text-5xl tracking-tight my-0.5 ${
+            {/* C3: Avatar 72px overlapping card's top edge */}
+            <div className="absolute -top-9 left-1/2 -translate-x-1/2 z-20">
+              <div
+                className={`w-[72px] h-[72px] rounded-full bg-paper border-[3px] border-ink flex items-center justify-center text-4xl shadow-hard-sm relative ${
+                  p1Active ? 'animate-avatar-hop ring-4 ring-yellow' : ''
+                }`}
+                style={{ outline: '4px solid #2F6BFF' }}
+              >
+                {/* A5: Inline Crown if Leader */}
+                {currentLeader === 'p1' && (
+                  <InlineCrown className="absolute -top-7 left-1/2 -translate-x-1/2" />
+                )}
+                {p1.avatar}
+              </div>
+            </div>
+
+            {/* A4: Streak Badge slot */}
+            <StreakBadge streak={p1Streak} />
+
+            <div className="mt-4 w-full">
+              <span className="font-display font-black text-lg truncate block leading-tight max-w-full">
+                {localizePlayerName(p1.name, settings.language)}
+              </span>
+            </div>
+
+            {/* C2: In-Game Clock 72px+ on desktop with lowercase "s" at 0.45em (A2) */}
+            <div
+              className={`tabular-nums font-display font-black text-5xl xl:text-6xl tracking-tight my-1 ${
                 p1Urgent ? 'text-yellow animate-urgent-pulse-hard' : ''
               }`}
             >
-              {p1Active ? timeP1.toFixed(1) : Math.ceil(timeP1)}
-            </span>
-            <ScorePips
-              score={p1Correct}
-              targetWins={settings.targetWins}
-              playerColor="blue"
-              size="md"
-            />
+              <FormattedTime
+                seconds={timeP1}
+                decimals={p1Active && timeP1 < 10 ? 1 : 0}
+              />
+            </div>
+
+            {/* Speech bubble anchored to P1 when active */}
+            {p1Active && (
+              <div className="speech-bubble speech-bubble-tail-bottom absolute -bottom-16 left-1/2 -translate-x-1/2 bg-yellow text-ink border-[3px] border-ink px-4 py-1.5 rounded-2xl shadow-hard font-display font-black text-sm whitespace-nowrap z-30">
+                {liveTranscript ? `“${liveTranscript}”` : t('arena.listening', settings.language)}
+              </div>
+            )}
           </div>
 
-          {/* Photo Hero: Real aspect ratio (max 58vh), 12px mat, 3px outline, hard shadow */}
+          {/* ------------------------------------------------------------ */}
+          {/* Photo Hero: Real aspect ratio, 12px mat, alternating ±1deg   */}
+          {/* ------------------------------------------------------------ */}
           <div className="flex-1 min-h-0 w-full flex flex-col items-center justify-center relative">
             <div
               key={`${currentItem.id}-${itemIndex}`}
-              className={`relative bg-paper p-3 rounded-card border-[3px] border-ink shadow-hard max-h-[58vh] max-w-full flex items-center justify-center animate-photo-slap ${
+              style={{ transform: `rotate(${photoTilt})` }}
+              className={`relative bg-paper p-3 rounded-card border-[3px] border-ink shadow-hard max-h-[56vh] max-w-full flex items-center justify-center animate-photo-slap transition-transform duration-200 ${
                 photoShake ? 'animate-screen-shake-6px' : ''
               }`}
             >
@@ -650,44 +740,16 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
               {duelFinishPhase === 'reveal' && duelFinishData && (
                 <div className="absolute inset-0 bg-paper rounded-xl z-30 flex flex-col items-center justify-center p-6 text-center text-ink animate-pop-in">
                   <span className="font-display font-bold text-xs uppercase tracking-wider text-ink/70 mb-1">
-                    {settings.language === 'en' ? 'Time ran out! Answer was:' : 'Tempo scaduto! Era:'}
+                    {settings.language === 'en' ? 'Time ran out!' : 'Tempo scaduto!'}
                   </span>
-                  <h3 className="font-display font-black text-3xl sm:text-5xl text-ink">
-                    {duelFinishData.lastItem.answer}
-                  </h3>
                 </div>
               )}
 
-              {/* Feedback: Green Starburst "YES!" Over Photo */}
-              {correctFlash && (
-                <div className="absolute inset-0 z-30 flex flex-col items-center justify-center pointer-events-none animate-starburst-pop">
-                  <div className="relative flex items-center justify-center">
-                    <svg viewBox="0 0 160 160" className="w-40 h-40 sm:w-56 sm:h-56 drop-shadow-[6px_6px_0_#14121F]">
-                      <polygon
-                        points="80,0 100,35 140,20 128,60 160,80 128,100 140,140 100,125 80,160 60,125 20,140 32,100 0,80 32,60 20,20 60,35"
-                        fill="#19C37D"
-                        stroke="#14121F"
-                        strokeWidth="5"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    <div className="absolute flex flex-col items-center -rotate-3 text-ink">
-                      <span className="font-display font-black text-3xl sm:text-5xl leading-none">
-                        YES!
-                      </span>
-                      <span className="font-display font-bold text-xs sm:text-sm truncate max-w-[140px] sm:max-w-[180px] mt-1">
-                        {correctFlash.answer}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Feedback: Red "PASS -3s" Burst Over Photo */}
-              {!correctFlash && passPenaltyLeft > 0 && (
+              {/* Feedback: PASS -3s Burst Over Photo (A1, A2) */}
+              {passBurstVisible && (
                 <div className="absolute inset-0 z-30 flex flex-col items-center justify-center pointer-events-none animate-pass-burst">
-                  <div className="px-5 py-3 rounded-2xl bg-red text-white border-[3px] border-ink shadow-hard font-display font-black text-2xl sm:text-4xl uppercase -rotate-3">
-                    PASS -3s
+                  <div className="px-6 py-3 rounded-2xl bg-red text-white border-[3px] border-ink shadow-hard font-display font-black text-2xl sm:text-4xl -rotate-3">
+                    PASS −3<span style={{ fontSize: '0.45em' }} className="lowercase ml-0.5 align-baseline">s</span>
                   </div>
                 </div>
               )}
@@ -707,127 +769,175 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
                     advanceToNextImage();
                   }
                 }}
-                className={`max-h-[50vh] sm:max-h-[54vh] w-auto max-w-full object-contain rounded-lg transition-opacity duration-150 ${
+                className={`max-h-[48vh] sm:max-h-[52vh] w-auto max-w-full object-contain rounded-lg transition-opacity duration-150 ${
                   imageLoaded ? 'opacity-100' : 'opacity-0'
                 }`}
               />
+
+              {/* A1: Sticker Label Overlapping Bottom Edge of Photo */}
+              {revealedAnswer && (
+                <div
+                  className={`absolute -bottom-6 left-1/2 -translate-x-1/2 z-40 max-w-[92%] sm:max-w-[85%] bg-paper border-[3px] border-ink shadow-hard rounded-2xl px-4 py-2 sm:px-6 sm:py-3 flex items-center gap-3 animate-starburst-pop select-none ${
+                    revealedAnswer.isPass ? '-rotate-1' : 'rotate-1'
+                  }`}
+                >
+                  <span
+                    className={`px-2.5 py-1 rounded-lg border-2 border-ink font-display font-black text-xs sm:text-sm uppercase tracking-wider shrink-0 ${
+                      revealedAnswer.tag === 'YES'
+                        ? 'bg-green text-ink'
+                        : 'bg-red text-white'
+                    }`}
+                  >
+                    {revealedAnswer.tag === 'YES'
+                      ? t('arena.yesTag', settings.language)
+                      : t('arena.answerTag', settings.language)}
+                  </span>
+                  <span className="font-display font-black text-xl sm:text-2xl md:text-[28px] text-ink leading-tight truncate">
+                    {revealedAnswer.text}
+                  </span>
+                </div>
+              )}
             </div>
 
-            {/* Comic Speech Bubble Anchored to Active Card */}
-            <div
-              className={`mt-3 w-full max-w-md mx-auto speech-bubble speech-bubble-tail-bottom px-4 py-2 text-center transition-all`}
-            >
-              <span className="font-display font-black text-lg sm:text-xl text-ink leading-tight line-clamp-2">
+            {/* Mobile speech bubble centered under photo */}
+            <div className="lg:hidden mt-3 w-full max-w-md mx-auto speech-bubble speech-bubble-tail-bottom px-4 py-2 text-center">
+              <span className="font-display font-black text-base sm:text-lg text-ink leading-tight line-clamp-2">
                 {liveTranscript ? (
                   <span className={p1Active ? 'text-blue' : 'text-red'}>
                     “{liveTranscript}”
                   </span>
                 ) : micListening ? (
-                  settings.language === 'en' ? 'Say what you see or "Pass"...' : 'Di’ cosa vedi o "Passo"...'
+                  t('arena.listening', settings.language)
                 ) : micErrorMsg ? (
                   <span className="text-red">{micErrorMsg}</span>
                 ) : (
-                  settings.language === 'en' ? 'Microphone listening...' : 'Microfono in ascolto...'
+                  t('arena.micActive', settings.language)
                 )}
               </span>
             </div>
           </div>
 
-          {/* Player 2 Card (Desktop: Right) */}
+          {/* ------------------------------------------------------------ */}
+          {/* Player 2 Card (Desktop: Right 200px)                          */}
+          {/* ------------------------------------------------------------ */}
           <div
-            className={`hidden lg:flex w-56 min-h-[220px] rounded-card border-[3px] border-ink p-5 flex-col items-center justify-center gap-2 text-center transition-all ${
+            className={`hidden lg:flex w-full min-h-[220px] rounded-card border-[3px] border-ink p-5 flex-col items-center justify-center gap-2 text-center transition-all relative ${
               p2Active
-                ? 'bg-red text-white tactile-lifted'
-                : 'bg-paper text-ink tactile-pressed'
+                ? 'bg-red text-white shadow-hard-lifted tactile-lifted'
+                : 'bg-paper text-ink opacity-90 tactile-pressed'
             }`}
           >
-            <span className="text-4xl">{p2.avatar}</span>
-            <span className="font-display font-black text-lg truncate max-w-full">
-              {p2.name}
-            </span>
-            <span
-              className={`tabular-nums font-display font-black text-5xl tracking-tight my-0.5 ${
+            {/* C3: Avatar 72px overlapping card's top edge */}
+            <div className="absolute -top-9 left-1/2 -translate-x-1/2 z-20">
+              <div
+                className={`w-[72px] h-[72px] rounded-full bg-paper border-[3px] border-ink flex items-center justify-center text-4xl shadow-hard-sm relative ${
+                  p2Active ? 'animate-avatar-hop ring-4 ring-yellow' : ''
+                }`}
+                style={{ outline: '4px solid #FF3D6E' }}
+              >
+                {/* A5: Inline Crown if Leader */}
+                {currentLeader === 'p2' && (
+                  <InlineCrown className="absolute -top-7 left-1/2 -translate-x-1/2" />
+                )}
+                {p2.avatar}
+              </div>
+            </div>
+
+            {/* A4: Streak Badge slot */}
+            <StreakBadge streak={p2Streak} />
+
+            <div className="mt-4 w-full">
+              <span className="font-display font-black text-lg truncate block leading-tight max-w-full">
+                {localizePlayerName(p2.name, settings.language)}
+              </span>
+            </div>
+
+            {/* C2: In-Game Clock 72px+ on desktop with lowercase "s" at 0.45em (A2) */}
+            <div
+              className={`tabular-nums font-display font-black text-5xl xl:text-6xl tracking-tight my-1 ${
                 p2Urgent ? 'text-yellow animate-urgent-pulse-hard' : ''
               }`}
             >
-              {p2Active ? timeP2.toFixed(1) : Math.ceil(timeP2)}
-            </span>
-            <ScorePips
-              score={p2Correct}
-              targetWins={settings.targetWins}
-              playerColor="red"
-              size="md"
-            />
+              <FormattedTime
+                seconds={timeP2}
+                decimals={p2Active && timeP2 < 10 ? 1 : 0}
+              />
+            </div>
+
+            {/* Speech bubble anchored to P2 when active */}
+            {p2Active && (
+              <div className="speech-bubble speech-bubble-tail-bottom absolute -bottom-16 left-1/2 -translate-x-1/2 bg-yellow text-ink border-[3px] border-ink px-4 py-1.5 rounded-2xl shadow-hard font-display font-black text-sm whitespace-nowrap z-30">
+                {liveTranscript ? `“${liveTranscript}”` : t('arena.listening', settings.language)}
+              </div>
+            )}
           </div>
         </main>
 
-        {/* Mobile Player Cards (Row Stacked under Photo) */}
+        {/* ============================================================== */}
+        {/* Mobile Player Cards (Row Stacked under Photo)                  */}
+        {/* ============================================================== */}
         <div className="grid grid-cols-2 gap-3 w-full my-2 lg:hidden shrink-0">
           {/* P1 Card Mobile */}
           <div
-            className={`p-3 rounded-card border-[3px] border-ink flex items-center justify-between gap-2 transition-all ${
+            className={`p-3 rounded-card border-[3px] border-ink flex items-center justify-between gap-2 transition-all relative ${
               p1Active
                 ? 'bg-blue text-white tactile-lifted'
                 : 'bg-paper text-ink tactile-pressed'
             }`}
           >
+            <StreakBadge streak={p1Streak} className="scale-75 -top-2 -right-2" />
             <div className="flex items-center gap-2 min-w-0">
-              <span className="text-2xl shrink-0">{p1.avatar}</span>
+              <div className="relative">
+                {currentLeader === 'p1' && (
+                  <InlineCrown size="sm" className="absolute -top-4 left-1/2 -translate-x-1/2" />
+                )}
+                <span className="text-2xl shrink-0">{p1.avatar}</span>
+              </div>
               <div className="min-w-0">
                 <span className="font-display font-black text-xs truncate block leading-tight">
-                  {p1.name}
+                  {localizePlayerName(p1.name, settings.language)}
                 </span>
-                <ScorePips
-                  score={p1Correct}
-                  targetWins={settings.targetWins}
-                  playerColor="blue"
-                  size="sm"
-                />
               </div>
             </div>
-            <span
-              className={`tabular-nums font-display font-black text-2xl shrink-0 ${
-                p1Urgent ? 'text-yellow animate-urgent-pulse-hard' : ''
-              }`}
-            >
-              {p1Active ? timeP1.toFixed(1) : Math.ceil(timeP1)}
-            </span>
+            <FormattedTime
+              seconds={timeP1}
+              decimals={p1Active && timeP1 < 10 ? 1 : 0}
+              className={`text-2xl shrink-0 ${p1Urgent ? 'text-yellow animate-urgent-pulse-hard' : ''}`}
+            />
           </div>
 
           {/* P2 Card Mobile */}
           <div
-            className={`p-3 rounded-card border-[3px] border-ink flex items-center justify-between gap-2 transition-all ${
+            className={`p-3 rounded-card border-[3px] border-ink flex items-center justify-between gap-2 transition-all relative ${
               p2Active
                 ? 'bg-red text-white tactile-lifted'
                 : 'bg-paper text-ink tactile-pressed'
             }`}
           >
-            <span
-              className={`tabular-nums font-display font-black text-2xl shrink-0 ${
-                p2Urgent ? 'text-yellow animate-urgent-pulse-hard' : ''
-              }`}
-            >
-              {p2Active ? timeP2.toFixed(1) : Math.ceil(timeP2)}
-            </span>
+            <StreakBadge streak={p2Streak} className="scale-75 -top-2 -right-2" />
+            <FormattedTime
+              seconds={timeP2}
+              decimals={p2Active && timeP2 < 10 ? 1 : 0}
+              className={`text-2xl shrink-0 ${p2Urgent ? 'text-yellow animate-urgent-pulse-hard' : ''}`}
+            />
             <div className="flex items-center gap-2 min-w-0 text-right justify-end">
               <div className="min-w-0">
                 <span className="font-display font-black text-xs truncate block leading-tight">
-                  {p2.name}
+                  {localizePlayerName(p2.name, settings.language)}
                 </span>
-                <ScorePips
-                  score={p2Correct}
-                  targetWins={settings.targetWins}
-                  playerColor="red"
-                  size="sm"
-                />
               </div>
-              <span className="text-2xl shrink-0">{p2.avatar}</span>
+              <div className="relative">
+                {currentLeader === 'p2' && (
+                  <InlineCrown size="sm" className="absolute -top-4 left-1/2 -translate-x-1/2" />
+                )}
+                <span className="text-2xl shrink-0">{p2.avatar}</span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* ============================================================== */}
-        {/* BOTTOM ACTION BAR: 3-Bar Mic Meter | Pass (paper) | Correct (green) */}
+        {/* BOTTOM ACTION BAR: 3-Bar Mic Meter | Pass (paper) | Correct    */}
         {/* ============================================================== */}
         <div className="w-full shrink-0 flex flex-col items-center gap-2 py-1">
           <div className="flex items-center justify-center gap-4 w-full">
@@ -856,31 +966,33 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
               </div>
             </div>
 
-            {/* Pass Button (Paper, min 64px tall, min 160px wide) */}
+            {/* Pass Button: min 64px tall, min 160px wide, A2 lowercase 's' */}
             <button
               type="button"
               onClick={triggerPass}
-              disabled={passPenaltyLeft > 0 || correctFlash !== null}
-              className="btn-push flex-1 sm:flex-initial min-h-[64px] min-w-[140px] sm:min-w-[160px] px-6 py-3 rounded-2xl bg-paper text-ink font-display font-black text-xl flex items-center justify-center gap-2"
+              disabled={revealedAnswer !== null}
+              className="btn-push flex-1 sm:flex-initial min-h-[64px] min-w-[140px] sm:min-w-[160px] px-6 py-3 rounded-2xl bg-paper text-ink font-display font-black text-xl flex items-center justify-center gap-2 border-[3px] border-ink shadow-hard disabled:opacity-50"
             >
               <FastForward className="w-5 h-5" />
-              <span>{t('arena.pass', settings.language)}</span>
+              <span>
+                Pass (−3<span style={{ fontSize: '0.45em' }} className="lowercase ml-0.5 align-baseline">s</span>)
+              </span>
             </button>
 
-            {/* Correct Button (Green, min 64px tall, min 160px wide) */}
+            {/* Correct Button: min 64px tall, min 160px wide */}
             <button
               type="button"
               onClick={() => triggerCorrectGuess(currentItem.answer)}
-              disabled={passPenaltyLeft > 0 || correctFlash !== null}
-              className="btn-push flex-1 sm:flex-initial min-h-[64px] min-w-[140px] sm:min-w-[160px] px-6 py-3 rounded-2xl bg-green text-ink font-display font-black text-xl flex items-center justify-center gap-2"
+              disabled={revealedAnswer !== null}
+              className="btn-push flex-1 sm:flex-initial min-h-[64px] min-w-[140px] sm:min-w-[160px] px-6 py-3 rounded-2xl bg-green text-ink font-display font-black text-xl flex items-center justify-center gap-2 border-[3px] border-ink shadow-hard disabled:opacity-50"
             >
               <Check className="w-6 h-6 stroke-[3]" />
               <span>{t('arena.correct', settings.language)}</span>
             </button>
           </div>
 
-          {/* Desktop keyboard hint: one faint line */}
-          <span className="hidden lg:block text-xs font-medium text-paper/60 tracking-wider">
+          {/* Desktop keyboard hint: Never clipped */}
+          <span className="hidden lg:block text-xs font-display font-bold text-paper/70 tracking-wider">
             {t('arena.keyboardHelp', settings.language)}
           </span>
         </div>
@@ -889,7 +1001,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
       {/* Round Winner Celebration Modal */}
       {duelFinishPhase === 'winner' && duelFinishData && (
         <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
-          <div className="card-paper max-w-sm w-full p-6 text-center flex flex-col items-center gap-4 animate-pop-in">
+          <div className="card-paper max-w-sm w-full p-6 text-center flex flex-col items-center gap-4 modal-slap-in">
             <div
               className={`w-20 h-20 rounded-2xl border-[3px] border-ink shadow-hard flex items-center justify-center text-5xl animate-bounce ${
                 duelFinishData.winner === 'p1' ? 'bg-blue text-white' : 'bg-red text-white'
@@ -916,7 +1028,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
               <div>
                 <span className="text-xs text-ink/70 block">{t('arena.timeLeft', settings.language)}</span>
                 <span className="font-display font-black text-2xl text-green">
-                  {duelFinishData.summary.winnerTimeLeft.toFixed(1)}s
+                  <FormattedTime seconds={duelFinishData.summary.winnerTimeLeft} decimals={1} />
                 </span>
               </div>
               <div>
@@ -932,7 +1044,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
             <button
               type="button"
               onClick={handleProceedToDraft}
-              className="btn-push w-full py-3.5 px-6 rounded-xl bg-yellow text-ink font-display font-black text-lg flex items-center justify-center gap-2 uppercase tracking-wide"
+              className="btn-push w-full py-3.5 px-6 rounded-xl bg-yellow text-ink font-display font-black text-lg flex items-center justify-center gap-2 uppercase tracking-wide border-[3px] border-ink shadow-hard"
             >
               <span>{t('arena.chooseNextCategory', settings.language)}</span>
               <ArrowRight className="w-5 h-5" />
@@ -941,20 +1053,32 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         </div>
       )}
 
-      {/* Game Paused Modal */}
+      {/* B2: Game Paused Modal (Slaps in, dark stage, 28px title, 16px body, 2px ink divider, Esc closes) */}
       {isPaused && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
-          <div className="card-paper max-w-sm w-full p-6 text-center flex flex-col items-center gap-4 animate-pop-in">
-            <h2 className="font-display font-black text-3xl text-ink">
-              {t('arena.pausedTitle', settings.language)}
-            </h2>
-            <p className="text-sm font-sans text-ink/80">
+        <div className="fixed inset-0 z-50 bg-[#0F0E1A]/90 flex items-center justify-center p-4">
+          <div className="card-paper max-w-sm w-full p-6 text-center flex flex-col items-center gap-4 modal-slap-in">
+            <div className="w-full flex items-center justify-between pb-3 border-b-2 border-ink">
+              <h2 className="font-display font-black text-[28px] text-ink leading-tight">
+                {t('arena.pausedTitle', settings.language)}
+              </h2>
+              <button
+                type="button"
+                onClick={() => setIsPaused(false)}
+                aria-label="Close"
+                className="btn-push w-8 h-8 rounded-lg bg-paper border-[2.5px] border-ink flex items-center justify-center text-ink"
+              >
+                <X className="w-5 h-5 stroke-[3]" />
+              </button>
+            </div>
+
+            <p className="text-base font-sans font-bold text-ink/80 py-2">
               {t('arena.pausedDesc', settings.language)}
             </p>
+
             <button
               type="button"
               onClick={() => setIsPaused(false)}
-              className="btn-push w-full py-3.5 rounded-xl bg-yellow text-ink font-display font-black text-lg uppercase tracking-wide"
+              className="btn-push w-full py-3.5 rounded-xl bg-yellow text-ink font-display font-black text-lg uppercase tracking-wide border-[3px] border-ink shadow-hard"
             >
               {t('arena.resume', settings.language)}
             </button>

@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
   Settings,
-  Volume2,
-  VolumeX,
   Copy,
   Check,
   X,
   Download,
   Mic,
-  Smartphone,
 } from 'lucide-react';
 import {
   Category,
@@ -21,9 +18,10 @@ import {
 import { SmartSpeechRecognizer } from '../engine/speechRecognition';
 import { gameConfig } from '../services/configService';
 import { pwaInstallService } from '../services/pwaInstallService';
-import { hapticsService } from '../services/hapticsService';
-import { t, filterCategories, localizePlayerName } from '../services/i18n';
+import { t, filterCategories, localizePlayerName, getCategoryTitle } from '../services/i18n';
 import { TheFloorBackground } from './TheFloorBackground';
+import { TheFloorLogo } from './TheFloorLogo';
+import { getPlayerColor, PLAYER_COLORS } from '../utils/playerColors';
 
 interface LobbyScreenProps {
   p1: PlayerConfig;
@@ -71,32 +69,38 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
   const [copiedLink, setCopiedLink] = useState(false);
   const [canInstallPwa, setCanInstallPwa] = useState(false);
   const [showSettingsModal, setShowSettingsModal] = useState(false);
-  const [avatarPickerFor, setAvatarPickerFor] = useState<
-    'p1' | 'p2' | string | null
-  >(null);
+  const [avatarPickerFor, setAvatarPickerFor] = useState<string | null>(null);
 
   const recognizerRef = useRef<SmartSpeechRecognizer | null>(null);
-  const availableCategories = filterCategories(categories, settings.language);
-  const currentMode: GameMode = settings.mode || 'duel';
 
   useEffect(() => {
-    const unsub = pwaInstallService.subscribe((can) => {
-      setCanInstallPwa(can);
+    setCanInstallPwa(pwaInstallService.canInstall());
+    const unsub = pwaInstallService.subscribe((canInstall) => {
+      setCanInstallPwa(canInstall);
     });
-    return () => {
-      unsub();
-      recognizerRef.current?.stop();
+    return unsub;
+  }, []);
+
+  // Esc closes settings or avatar picker
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setShowSettingsModal(false);
+        setAvatarPickerFor(null);
+      }
     };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
   }, []);
 
   const handleInstallClick = async () => {
-    hapticsService.vibrateTap();
     await pwaInstallService.triggerInstall();
   };
 
   const toggleMicTest = () => {
     if (testingMic) {
       recognizerRef.current?.stop();
+      recognizerRef.current = null;
       setTestingMic(false);
       setTestVolume(0);
       setTestTranscript('');
@@ -142,44 +146,64 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
     } else if (avatarPickerFor === 'p2') {
       onUpdatePlayer('p2', p2.name, avatar);
     } else if (avatarPickerFor && onUpdatePartyPlayer) {
-      const p = partyPlayers.find((item) => item.id === avatarPickerFor);
-      if (p) {
-        onUpdatePartyPlayer(p.id, p.name, avatar);
+      const pl = partyPlayers.find((p) => p.id === avatarPickerFor);
+      if (pl) {
+        onUpdatePartyPlayer(pl.id, pl.name, avatar);
       }
     }
     setAvatarPickerFor(null);
   };
 
+  const currentMode = settings.mode;
+  const availableCategories = filterCategories(categories, settings.language, 'all');
+
   return (
-    <div className="relative min-h-[100dvh] w-full flex flex-col justify-between p-4 sm:p-6 select-none overflow-x-hidden">
-      {/* 96px Checkerboard Floor Background */}
-      <TheFloorBackground stage="neutral" />
+    <div className="relative min-h-[100dvh] w-full flex flex-col justify-between p-4 sm:p-6 select-none overflow-x-hidden pb-[max(1rem,env(safe-area-inset-bottom))]">
+      {/* 1. Signature Floor Background with home random flip every 2.5s (C1) */}
+      <TheFloorBackground
+        stage={showSettingsModal ? 'modal' : 'neutral'}
+        isHome={!showSettingsModal}
+      />
 
       {/* Main Single Container: Max 1100px Centered */}
-      <div className="w-full max-w-[1100px] mx-auto flex-1 flex flex-col justify-between py-2 sm:py-4 gap-6">
+      <div
+        aria-hidden={showSettingsModal}
+        className={`w-full max-w-[1100px] mx-auto flex-1 flex flex-col justify-between py-2 sm:py-4 gap-6 transition-opacity ${
+          showSettingsModal ? 'opacity-0 pointer-events-none' : 'opacity-100'
+        }`}
+      >
         {/* ============================================================== */}
-        {/* HEADER: HERO STICKER TITLE (LEFT) | SETTINGS BUTTON (RIGHT)    */}
+        {/* HEADER: PWA INSTALL (LEFT) | SETTINGS BUTTON (RIGHT)           */}
         {/* ============================================================== */}
         <header className="w-full flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-yellow border-[3px] border-ink shadow-hard flex items-center justify-center text-2xl font-black text-ink shrink-0">
-              ⚡
-            </div>
-            {/* Sticker title with hard shadow and -2deg rotation */}
-            <h1 className="font-display font-black text-2xl sm:text-4xl text-ink bg-yellow px-4 py-1.5 rounded-2xl border-[3px] border-ink shadow-hard -rotate-2 tracking-wide uppercase">
-              THE FLOOR
-            </h1>
+          <div className="flex items-center gap-2">
+            {canInstallPwa && (
+              <button
+                type="button"
+                onClick={handleInstallClick}
+                className="btn-push px-3.5 py-2 rounded-xl bg-yellow text-ink font-display font-bold text-xs sm:text-sm border-[3px] border-ink shadow-hard-sm flex items-center gap-1.5"
+              >
+                <span>{t('app.install', settings.language)}</span>
+              </button>
+            )}
           </div>
 
           <button
             type="button"
             onClick={() => setShowSettingsModal(true)}
             aria-label={t('lobby.settings', settings.language)}
-            className="btn-push w-12 h-12 rounded-2xl bg-paper border-[3px] border-ink text-ink flex items-center justify-center hover:bg-yellow"
+            className="btn-push w-12 h-12 rounded-2xl bg-paper border-[3px] border-ink text-ink flex items-center justify-center hover:bg-yellow shadow-hard-sm"
           >
             <Settings className="w-6 h-6 stroke-[2.5]" />
           </button>
         </header>
+
+        {/* ============================================================== */}
+        {/* C1: HOME HERO WORDMARK (~35vh)                                 */}
+        {/* ============================================================== */}
+        <div className="w-full flex flex-col items-center justify-center my-1 sm:my-3">
+          <TheFloorLogo size="hero" />
+        </div>
 
         {/* ============================================================== */}
         {/* MODE: 3-OPTION SEGMENTED CONTROL (LABEL ONLY)                  */}
@@ -246,7 +270,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                   maxLength={18}
                   onChange={(e) => onUpdatePlayer('p1', e.target.value, p1.avatar)}
                   placeholder={t('lobby.p1Placeholder', settings.language)}
-                  className="w-full bg-paper text-ink border-[3px] border-ink rounded-xl px-3.5 py-2 font-display font-bold text-center text-lg focus:outline-none focus:ring-2 focus:ring-yellow"
+                  className="w-full min-w-0 bg-paper text-ink border-[3px] border-ink rounded-xl px-3.5 py-2 font-display font-bold text-center text-lg focus:outline-none focus:ring-2 focus:ring-yellow"
                 />
               </div>
 
@@ -274,7 +298,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                   maxLength={18}
                   onChange={(e) => onUpdatePlayer('p2', e.target.value, p2.avatar)}
                   placeholder={t('lobby.p2Placeholder', settings.language)}
-                  className="w-full bg-paper text-ink border-[3px] border-ink rounded-xl px-3.5 py-2 font-display font-bold text-center text-lg focus:outline-none focus:ring-2 focus:ring-yellow"
+                  className="w-full min-w-0 bg-paper text-ink border-[3px] border-ink rounded-xl px-3.5 py-2 font-display font-bold text-center text-lg focus:outline-none focus:ring-2 focus:ring-yellow"
                 />
               </div>
             </div>
@@ -396,7 +420,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                 </div>
               </div>
 
-              {/* Time per player */}
+              {/* Time per player (A2 lowercase 's') */}
               <div className="card-paper p-4 flex flex-col gap-2">
                 <span className="font-display font-bold text-xs uppercase tracking-wider text-ink/70">
                   {t('lobby.timePerPlayer', settings.language)}
@@ -413,7 +437,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                           : 'bg-white text-ink/80 hover:bg-paper font-bold'
                       }`}
                     >
-                      {sec}s
+                      {sec}<span style={{ fontSize: '0.45em' }} className="lowercase ml-0.5 align-baseline">s</span>
                     </button>
                   ))}
                 </div>
@@ -498,20 +522,20 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                   maxLength={18}
                   onChange={(e) => onUpdatePlayer('p1', e.target.value, p1.avatar)}
                   placeholder={t('lobby.p1Placeholder', settings.language)}
-                  className="min-w-0 flex-1 bg-white border-[3px] border-ink rounded-xl px-4 py-2.5 font-display text-lg text-ink focus:outline-none focus:ring-2 focus:ring-yellow"
+                  className="min-w-0 flex-1 bg-white border-[3px] border-ink rounded-xl px-3.5 py-2.5 font-display font-bold text-base text-ink focus:outline-none focus:ring-2 focus:ring-yellow"
                 />
               </div>
             </div>
 
-            {/* Duration */}
+            {/* Duration Selector */}
             <div className="flex flex-col gap-1.5">
               <label className="font-display font-bold text-sm text-ink/80">
-                {t('solo.duration', settings.language)}
+                {t('lobby.duration', settings.language)}
               </label>
               <div className="grid grid-cols-4 gap-2">
-                {gameConfig.options.soloDurations.slice(0, 4).map((sec) => (
+                {gameConfig.options.soloDurations.map((sec) => (
                   <button
-                    key={`solo-${sec}`}
+                    key={`solo-dur-${sec}`}
                     type="button"
                     onClick={() => onUpdateSettings({ soloDurationSeconds: sec })}
                     className={`min-h-[44px] py-2 rounded-xl font-display text-sm border-[3px] border-ink transition-all ${
@@ -520,33 +544,16 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                         : 'bg-white text-ink/80 hover:bg-paper font-bold'
                     }`}
                   >
-                    {sec === 0 ? t('solo.durationFree', settings.language) : `${sec}s`}
+                    {sec === 0 ? (
+                      t('lobby.freePlay', settings.language)
+                    ) : (
+                      <span>
+                        {sec}<span style={{ fontSize: '0.45em' }} className="lowercase ml-0.5 align-baseline">s</span>
+                      </span>
+                    )}
                   </button>
                 ))}
               </div>
-            </div>
-
-            {/* Test mic link */}
-            <div className="text-left">
-              <button
-                type="button"
-                onClick={toggleMicTest}
-                className="text-xs font-bold text-ink hover:text-blue underline cursor-pointer"
-              >
-                {testingMic
-                  ? t('lobby.closeVoiceBtn', settings.language)
-                  : t('lobby.testVoiceBtn', settings.language)}
-              </button>
-              {testingMic && (
-                <div className="card-paper p-3 mt-2 flex items-center justify-between text-xs">
-                  <span className="font-display font-bold text-ink truncate">
-                    {testTranscript || t('lobby.testingMic', settings.language)}
-                  </span>
-                  <span className="text-[10px] font-bold text-green uppercase">
-                    Level: {Math.round(testVolume * 100)}%
-                  </span>
-                </div>
-              )}
             </div>
 
             {/* ONE BIG YELLOW START BUTTON */}
@@ -556,7 +563,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                 recognizerRef.current?.stop();
                 onStartGame();
               }}
-              className="btn-push w-full py-4 rounded-xl bg-yellow text-ink font-display font-black text-2xl border-[3px] border-ink shadow-hard active:translate-x-[3px] active:translate-y-[3px] active:shadow-hard-pressed transition-all mt-2 cursor-pointer uppercase"
+              className="btn-push w-full py-4 rounded-xl bg-yellow text-ink font-display font-black text-2xl border-[3px] border-ink shadow-hard active:translate-x-[3px] active:translate-y-[3px] active:shadow-hard-pressed transition-all mt-2 cursor-pointer uppercase tracking-wider"
             >
               {t('solo.startTraining', settings.language)}
             </button>
@@ -564,7 +571,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
         )}
 
         {/* ============================================================== */}
-        {/* PARTY MODE SETUP                                               */}
+        {/* PARTY MODE SETUP (Part D: 8 players, color dots, remove btns)   */}
         {/* ============================================================== */}
         {currentMode === 'party' && (
           <div className="card-paper p-6 sm:p-8 flex flex-col gap-6 w-full max-w-xl mx-auto">
@@ -572,47 +579,58 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
               <label className="font-display font-bold text-sm text-ink/80">
                 {t('party.players', settings.language, { n: partyPlayers.length })}
               </label>
-              <div className="flex flex-col gap-2 max-h-52 overflow-y-auto pr-1">
-                {partyPlayers.map((player) => (
-                  <div key={player.id} className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setAvatarPickerFor(player.id)}
-                      aria-label="Player Avatar"
-                      className="w-10 h-10 rounded-xl bg-white border-[3px] border-ink shadow-hard-sm text-xl flex items-center justify-center shrink-0 hover:bg-yellow active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
-                    >
-                      {player.avatar}
-                    </button>
-                    <input
-                      type="text"
-                      value={localizePlayerName(player.name, settings.language)}
-                      maxLength={18}
-                      onChange={(e) =>
-                        onUpdatePartyPlayer &&
-                        onUpdatePartyPlayer(player.id, e.target.value, player.avatar)
-                      }
-                      placeholder={t('party.playerNamePlaceholder', settings.language)}
-                      className="min-w-0 flex-1 bg-white border-[3px] border-ink rounded-xl px-3 py-2 font-display text-base text-ink focus:outline-none focus:ring-2 focus:ring-yellow"
-                    />
-                    {partyPlayers.length > 3 && onRemovePartyPlayer && (
+              <div className="flex flex-col gap-2.5 max-h-60 overflow-y-auto pr-1">
+                {partyPlayers.map((player, idx) => {
+                  const colorDef = getPlayerColor(idx);
+                  return (
+                    <div key={player.id} className="flex items-center gap-2.5">
+                      {/* Player Color Indicator Ring + Avatar */}
                       <button
                         type="button"
-                        onClick={() => onRemovePartyPlayer(player.id)}
-                        aria-label="Remove player"
-                        className="w-9 h-9 rounded-xl bg-white border-[3px] border-ink text-red font-black text-sm flex items-center justify-center hover:bg-red hover:text-white"
+                        onClick={() => setAvatarPickerFor(player.id)}
+                        aria-label="Player Avatar"
+                        style={{
+                          backgroundColor: colorDef.bgHex,
+                          color: colorDef.onColorHex,
+                        }}
+                        className="w-11 h-11 rounded-xl border-[3px] border-ink shadow-hard-sm text-2xl flex items-center justify-center shrink-0 hover:scale-105 active:translate-x-[2px] active:translate-y-[2px] transition-transform"
                       >
-                        ×
+                        {player.avatar}
                       </button>
-                    )}
-                  </div>
-                ))}
+
+                      <input
+                        type="text"
+                        value={localizePlayerName(player.name, settings.language)}
+                        maxLength={18}
+                        onChange={(e) =>
+                          onUpdatePartyPlayer &&
+                          onUpdatePartyPlayer(player.id, e.target.value, player.avatar)
+                        }
+                        placeholder={t('party.playerNamePlaceholder', settings.language)}
+                        className="min-w-0 flex-1 bg-white border-[3px] border-ink rounded-xl px-3 py-2 font-display text-base text-ink focus:outline-none focus:ring-2 focus:ring-yellow"
+                      />
+
+                      {/* Part D: Every player row beyond the 2 minimum has a visible remove button */}
+                      {partyPlayers.length > 2 && onRemovePartyPlayer && (
+                        <button
+                          type="button"
+                          onClick={() => onRemovePartyPlayer(player.id)}
+                          aria-label="Remove player"
+                          className="w-9 h-9 rounded-xl bg-white border-[3px] border-ink text-red font-black text-lg flex items-center justify-center hover:bg-red hover:text-white shrink-0 shadow-hard-sm"
+                        >
+                          ×
+                        </button>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
 
               {partyPlayers.length < 8 && onAddPartyPlayer && (
                 <button
                   type="button"
                   onClick={onAddPartyPlayer}
-                  className="btn-push py-2.5 rounded-xl bg-paper text-ink font-display font-bold text-sm"
+                  className="btn-push py-2.5 rounded-xl bg-paper text-ink font-display font-bold text-sm border-[3px] border-ink shadow-hard-sm"
                 >
                   {t('party.addPlayer', settings.language)}
                 </button>
@@ -636,7 +654,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                         : 'bg-white text-ink/80 hover:bg-paper font-bold'
                     }`}
                   >
-                    {sec}s
+                    {sec}<span style={{ fontSize: '0.45em' }} className="lowercase ml-0.5 align-baseline">s</span>
                   </button>
                 ))}
               </div>
@@ -649,7 +667,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                 recognizerRef.current?.stop();
                 onStartGame();
               }}
-              className="btn-push w-full py-4 rounded-xl bg-yellow text-ink font-display font-black text-2xl border-[3px] border-ink shadow-hard active:translate-x-[3px] active:translate-y-[3px] active:shadow-hard-pressed transition-all mt-2 cursor-pointer uppercase"
+              className="btn-push w-full py-4 rounded-xl bg-yellow text-ink font-display font-black text-2xl border-[3px] border-ink shadow-hard active:translate-x-[3px] active:translate-y-[3px] active:shadow-hard-pressed transition-all mt-2 cursor-pointer uppercase tracking-wider"
             >
               {t('lobby.startParty', settings.language)}
             </button>
@@ -657,16 +675,41 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
         )}
 
         {/* ============================================================== */}
-        {/* SECONDARY ACTION: BROWSE CATEGORIES (OPENS SEARCHABLE MODAL)   */}
+        {/* B5: HOME TEASER - 6 TILTED STICKERS CROPPED AT BOTTOM EDGE     */}
         {/* ============================================================== */}
-        <div className="text-center">
+        <div className="w-full flex flex-col items-center mt-6 relative overflow-hidden pt-4 pb-0">
           <button
             type="button"
             onClick={onOpenCategoryEditor}
-            className="btn-push px-6 py-2.5 rounded-xl bg-paper text-ink font-display font-bold text-sm"
+            className="btn-push px-8 py-3.5 rounded-2xl bg-paper text-ink font-display font-black text-base sm:text-lg border-[3px] border-ink shadow-hard uppercase tracking-wider relative z-20"
           >
-            {t('home.exploreCategories', settings.language)} ({availableCategories.length})
+            {t('lobby.browseAllCount', settings.language, { n: availableCategories.length })}
           </button>
+
+          {/* Fanned row of 6 tilted category stickers cropped by bottom edge */}
+          <div className="flex items-end justify-center -space-x-4 sm:-space-x-6 mt-4 -mb-10 pointer-events-auto overflow-hidden max-w-full px-4">
+            {availableCategories.slice(0, 6).map((cat, i) => {
+              const tilts = [-12, -7, -2, 3, 8, 13];
+              const tilt = tilts[i] || 0;
+              return (
+                <button
+                  key={`teaser-${cat.id}`}
+                  type="button"
+                  onClick={onOpenCategoryEditor}
+                  style={{
+                    backgroundColor: cat.themeHex || '#FFC933',
+                    transform: `rotate(${tilt}deg) translateY(${Math.abs(tilt) * 1.5}px)`,
+                  }}
+                  className="w-28 sm:w-36 h-36 sm:h-44 rounded-2xl border-[3px] border-ink shadow-hard p-2.5 sm:p-3 flex flex-col justify-between shrink-0 hover:translate-y-[-12px] transition-transform cursor-pointer"
+                >
+                  <span className="text-3xl sm:text-4xl">{cat.icon}</span>
+                  <span className="font-display font-black text-xs sm:text-sm text-ink leading-tight line-clamp-2 text-left">
+                    {getCategoryTitle(cat, settings.language)}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Quiet footer hint */}
@@ -682,18 +725,18 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
       {/* ============================================================== */}
       {avatarPickerFor && (
         <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
-          <div className="card-paper max-w-xs w-full p-5 animate-pop-in">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="font-display font-black text-lg text-ink">
+          <div className="card-paper max-w-xs w-full p-5 modal-slap-in">
+            <div className="flex items-center justify-between mb-4 pb-2 border-b-2 border-ink">
+              <h3 className="font-display font-black text-xl text-ink">
                 Choose Avatar
               </h3>
               <button
                 type="button"
                 onClick={() => setAvatarPickerFor(null)}
                 aria-label="Close"
-                className="w-8 h-8 rounded-lg bg-paper border-[3px] border-ink flex items-center justify-center text-ink"
+                className="w-8 h-8 rounded-lg bg-paper border-[2.5px] border-ink flex items-center justify-center text-ink"
               >
-                <X className="w-4 h-4" />
+                <X className="w-4 h-4 stroke-[3]" />
               </button>
             </div>
             <div className="grid grid-cols-4 gap-2.5">
@@ -713,38 +756,38 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
       )}
 
       {/* ============================================================== */}
-      {/* SETTINGS MODAL (LANGUAGE, SOUND, INSTALL APP)                  */}
+      {/* B2: SETTINGS MODAL (SLAPS IN, 28px TITLE, 16px BODY, SWITCHES) */}
       {/* ============================================================== */}
       {showSettingsModal && (
-        <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
-          <div className="card-paper max-w-sm w-full p-6 flex flex-col gap-5 animate-pop-in">
-            <div className="flex items-center justify-between">
-              <h2 className="font-display font-black text-2xl text-ink">
+        <div className="fixed inset-0 z-50 bg-[#0F0E1A]/90 flex items-center justify-center p-4">
+          <div className="card-paper max-w-md w-full p-6 sm:p-8 flex flex-col gap-5 modal-slap-in">
+            <div className="flex items-center justify-between pb-3 border-b-2 border-ink">
+              <h2 className="font-display font-black text-[28px] text-ink leading-tight">
                 {t('lobby.settings', settings.language)}
               </h2>
               <button
                 type="button"
                 onClick={() => setShowSettingsModal(false)}
                 aria-label="Close"
-                className="btn-push w-9 h-9 rounded-xl bg-paper text-ink flex items-center justify-center"
+                className="btn-push w-10 h-10 rounded-xl bg-paper text-ink flex items-center justify-center border-[2.5px] border-ink shadow-hard-sm"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5 stroke-[3]" />
               </button>
             </div>
 
-            {/* Language */}
-            <div className="flex flex-col gap-1.5">
-              <label className="font-display font-bold text-sm text-ink/80">
+            {/* Language Selector */}
+            <div className="flex flex-col gap-2">
+              <label className="font-display font-bold text-base text-ink">
                 {t('app.language', settings.language)}
               </label>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-2.5">
                 <button
                   type="button"
                   onClick={() => onUpdateSettings({ language: 'it' })}
-                  className={`py-2 rounded-xl font-display font-bold text-sm border-[3px] border-ink ${
+                  className={`py-3 rounded-xl font-display text-base border-[3px] border-ink transition-all ${
                     settings.language === 'it'
-                      ? 'bg-yellow text-ink shadow-hard-sm'
-                      : 'bg-white text-ink/80'
+                      ? 'bg-yellow text-ink shadow-hard font-black'
+                      : 'bg-white text-ink/80 hover:bg-paper font-bold'
                   }`}
                 >
                   Italiano
@@ -752,10 +795,10 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                 <button
                   type="button"
                   onClick={() => onUpdateSettings({ language: 'en' })}
-                  className={`py-2 rounded-xl font-display font-bold text-sm border-[3px] border-ink ${
+                  className={`py-3 rounded-xl font-display text-base border-[3px] border-ink transition-all ${
                     settings.language === 'en'
-                      ? 'bg-yellow text-ink shadow-hard-sm'
-                      : 'bg-white text-ink/80'
+                      ? 'bg-yellow text-ink shadow-hard font-black'
+                      : 'bg-white text-ink/80 hover:bg-paper font-bold'
                   }`}
                 >
                   English
@@ -763,64 +806,69 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
               </div>
             </div>
 
-            {/* Sound Toggle */}
-            <div className="flex items-center justify-between py-2 border-y-[3px] border-ink/20">
-              <span className="font-display font-bold text-sm text-ink">
+            {/* Sound Real Toggle Switch */}
+            <div className="flex items-center justify-between py-3 border-y-2 border-ink">
+              <span className="font-display font-bold text-base text-ink">
                 {t('lobby.sound', settings.language)}
               </span>
               <button
                 type="button"
+                role="switch"
+                aria-checked={settings.soundEnabled}
                 onClick={() => onUpdateSettings({ soundEnabled: !settings.soundEnabled })}
-                className={`btn-push px-3 py-1.5 rounded-xl font-display font-bold text-xs flex items-center gap-1.5 ${
-                  settings.soundEnabled ? 'bg-green text-ink' : 'bg-paper text-ink'
+                className={`w-18 h-10 rounded-full border-[3px] border-ink p-1 transition-colors relative flex items-center ${
+                  settings.soundEnabled ? 'bg-green justify-end' : 'bg-paper justify-start'
                 }`}
               >
-                {settings.soundEnabled ? (
-                  <>
-                    <Volume2 className="w-4 h-4" />
-                    <span>ON</span>
-                  </>
-                ) : (
-                  <>
-                    <VolumeX className="w-4 h-4" />
-                    <span>OFF</span>
-                  </>
-                )}
+                <span className="font-display font-black text-xs px-1.5 text-ink select-none">
+                  {settings.soundEnabled
+                    ? t('lobby.switchOn', settings.language)
+                    : t('lobby.switchOff', settings.language)}
+                </span>
+                <span className="w-7 h-7 rounded-full bg-white border-2 border-ink shadow-hard-sm block shrink-0" />
               </button>
             </div>
 
-            {/* Haptics Toggle */}
-            <div className="flex items-center justify-between py-2 border-b-[3px] border-ink/20">
-              <span className="font-display font-bold text-sm text-ink">
+            {/* Haptics Real Toggle Switch */}
+            <div className="flex items-center justify-between py-3 border-b-2 border-ink">
+              <span className="font-display font-bold text-base text-ink">
                 {t('lobby.haptics', settings.language)}
               </span>
               <button
                 type="button"
+                role="switch"
+                aria-checked={settings.hapticsEnabled}
                 onClick={() => onUpdateSettings({ hapticsEnabled: !settings.hapticsEnabled })}
-                className={`btn-push px-3 py-1.5 rounded-xl font-display font-bold text-xs flex items-center gap-1.5 ${
-                  settings.hapticsEnabled ? 'bg-green text-ink' : 'bg-paper text-ink'
+                className={`w-18 h-10 rounded-full border-[3px] border-ink p-1 transition-colors relative flex items-center ${
+                  settings.hapticsEnabled ? 'bg-green justify-end' : 'bg-paper justify-start'
                 }`}
               >
-                <span>{settings.hapticsEnabled ? 'ON' : 'OFF'}</span>
+                <span className="font-display font-black text-xs px-1.5 text-ink select-none">
+                  {settings.hapticsEnabled
+                    ? t('lobby.switchOn', settings.language)
+                    : t('lobby.switchOff', settings.language)}
+                </span>
+                <span className="w-7 h-7 rounded-full bg-white border-2 border-ink shadow-hard-sm block shrink-0" />
               </button>
             </div>
 
-            {/* Install App Button (NO EMOJI) */}
+            {/* Install App Button */}
             {canInstallPwa && (
               <button
                 type="button"
                 onClick={handleInstallClick}
-                className="btn-push w-full py-2.5 rounded-xl bg-paper text-ink font-display font-bold text-sm flex items-center justify-center gap-2"
+                className="btn-push w-full py-3 rounded-xl bg-paper text-ink font-display font-bold text-base flex items-center justify-center gap-2 border-[3px] border-ink shadow-hard-sm"
               >
-                <Download className="w-4 h-4" />
+                <Download className="w-5 h-5" />
                 <span>{t('app.install', settings.language)}</span>
               </button>
             )}
 
+            {/* B2: Done primary button */}
             <button
               type="button"
               onClick={() => setShowSettingsModal(false)}
-              className="btn-push w-full py-3 rounded-xl bg-yellow text-ink font-display font-black text-base"
+              className="btn-push w-full py-3.5 rounded-xl bg-yellow text-ink font-display font-black text-base uppercase border-[3px] border-ink shadow-hard"
             >
               Done
             </button>

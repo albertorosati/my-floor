@@ -11,8 +11,9 @@ import {
 import { soundEngine } from '../engine/soundEffects';
 import { rankPartyPlayers } from '../utils/partyUtils';
 import { t, localizePlayerName } from '../services/i18n';
-import { TheFloorBackground, FloorStage } from './TheFloorBackground';
-import { ScorePips } from './ScorePips';
+import { TheFloorBackground } from './TheFloorBackground';
+import { InlineCrown } from './InlineCrown';
+import { getPlayerColor } from '../utils/playerColors';
 
 interface VictoryScreenProps {
   mode?: GameMode;
@@ -48,6 +49,7 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
   const partyRanked = rankPartyPlayers(partyPlayers);
   const partyWinner = partyRanked[0];
   const winner = isParty ? partyWinner || p1 : winnerId === 'p1' ? p1 : p2;
+  const winnerColor = getPlayerColor(winner.id);
 
   useEffect(() => {
     soundEngine.playDuelVictory();
@@ -63,18 +65,12 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
   const totalP1Correct = history.reduce((acc, h) => acc + h.p1Correct, 0);
   const totalP2Correct = history.reduce((acc, h) => acc + h.p2Correct, 0);
 
-  const activeStage: FloorStage = isDraw
-    ? 'neutral'
-    : isParty
-    ? 'neutral'
-    : winnerId === 'p1'
-    ? 'p1'
-    : 'p2';
+  const activeStage = isDraw ? 'neutral' : winner.id;
 
   return (
     <div className="h-[100dvh] max-h-[100dvh] w-full relative overflow-hidden flex flex-col items-center justify-center p-3 sm:p-6 text-center select-none touch-none">
       {/* 1. Signature Floor Background in winner's stage color */}
-      <TheFloorBackground activeStage={activeStage} />
+      <TheFloorBackground stage={activeStage} />
 
       {/* 2. Flat CSS Confetti Squares */}
       <div className="absolute top-10 left-12 w-7 h-7 bg-yellow border-[3px] border-ink rotate-12 animate-confetti-flat z-20 pointer-events-none" />
@@ -86,10 +82,18 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
 
       {/* 3. Victory Card (1100px Max, Centered, Tactile) */}
       <div className="relative z-10 card-paper max-w-xl w-full p-6 sm:p-8 flex flex-col items-center gap-6 animate-starburst-pop max-h-[96dvh] overflow-y-auto">
-        {/* Starburst + Large Winner Avatar */}
+        {/* Starburst + Large Winner Avatar with Crown */}
         <div className="relative flex items-center justify-center my-2">
-          {/* Flat 12-point starburst shape behind avatar */}
-          <div className="w-32 h-32 rounded-3xl bg-yellow border-[3px] border-ink shadow-hard flex items-center justify-center text-7xl animate-pip-bounce -rotate-3">
+          {!isDraw && (
+            <div className="absolute -top-7 left-1/2 -translate-x-1/2 z-20">
+              <InlineCrown size="lg" />
+            </div>
+          )}
+          {/* Flat starburst shape behind avatar */}
+          <div
+            className="w-32 h-32 rounded-3xl border-[3px] border-ink shadow-hard flex items-center justify-center text-7xl animate-pip-bounce -rotate-3"
+            style={{ backgroundColor: winnerColor.bgHex }}
+          >
             {winner.avatar}
           </div>
         </div>
@@ -117,21 +121,25 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
           )}
         </div>
 
-        {/* Final Score Recap with ScorePips for 1v1 */}
+        {/* Final Score Recap for 1v1: Plain Numbers + Winner Crown */}
         {!isParty && (
           <div className="w-full flex items-center justify-center gap-4 sm:gap-8 py-4 px-3 bg-white/70 border-[3px] border-ink rounded-2xl shadow-hard-sm">
             {/* P1 Recap */}
             <div className="flex flex-col items-center gap-1.5 flex-1 min-w-0">
-              <span className="text-2xl">{p1.avatar}</span>
+              <div className="relative flex items-center justify-center">
+                <span className="text-3xl">{p1.avatar}</span>
+                {p1Score > p2Score && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                    <InlineCrown size="sm" />
+                  </div>
+                )}
+              </div>
               <span className="font-display font-black text-sm text-blue truncate max-w-full">
                 {localizePlayerName(p1.name, language)}
               </span>
-              <ScorePips
-                score={p1Score}
-                targetWins={Math.max(p1Score, p2Score, 1)}
-                playerColor="blue"
-                size="md"
-              />
+              <span className="font-display font-black text-3xl text-ink tabular-nums">
+                {p1Score}
+              </span>
             </div>
 
             <div className="font-display font-black text-xl text-ink/40 shrink-0">
@@ -140,16 +148,20 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
 
             {/* P2 Recap */}
             <div className="flex flex-col items-center gap-1.5 flex-1 min-w-0">
-              <span className="text-2xl">{p2.avatar}</span>
+              <div className="relative flex items-center justify-center">
+                <span className="text-3xl">{p2.avatar}</span>
+                {p2Score > p1Score && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                    <InlineCrown size="sm" />
+                  </div>
+                )}
+              </div>
               <span className="font-display font-black text-sm text-red truncate max-w-full">
                 {localizePlayerName(p2.name, language)}
               </span>
-              <ScorePips
-                score={p2Score}
-                targetWins={Math.max(p1Score, p2Score, 1)}
-                playerColor="red"
-                size="md"
-              />
+              <span className="font-display font-black text-3xl text-ink tabular-nums">
+                {p2Score}
+              </span>
             </div>
           </div>
         )}
@@ -163,15 +175,22 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
                 className="py-2.5 px-3 flex items-center justify-between"
               >
                 <div className="flex items-center gap-3">
-                  <span className="font-display font-black text-sm text-ink/70">
-                    #{idx + 1}
-                  </span>
-                  <span className="text-2xl">{p.avatar}</span>
+                  <div className="relative flex items-center justify-center">
+                    <span className="font-display font-black text-sm text-ink/70 mr-1.5">
+                      #{idx + 1}
+                    </span>
+                    <span className="text-2xl">{p.avatar}</span>
+                    {idx === 0 && (
+                      <div className="absolute -top-3 right-0">
+                        <InlineCrown size="sm" />
+                      </div>
+                    )}
+                  </div>
                   <span className="font-display font-bold text-sm text-ink">
                     {localizePlayerName(p.name, language)}
                   </span>
                 </div>
-                <div className="font-display font-black text-sm text-ink">
+                <div className="font-display font-black text-sm text-ink tabular-nums">
                   {p.wins} {t('party.wins', language).toLowerCase()}
                 </div>
               </div>
@@ -183,7 +202,7 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
               <span className="text-xs font-bold text-ink/60 uppercase block">
                 {t('victory.rounds', language)}
               </span>
-              <span className="font-display font-black text-3xl text-ink">
+              <span className="font-display font-black text-3xl text-ink tabular-nums">
                 {history.length}
               </span>
             </div>
@@ -191,7 +210,7 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
               <span className="text-xs font-bold text-blue uppercase block truncate">
                 {localizePlayerName(p1.name, language)}
               </span>
-              <span className="font-display font-black text-3xl text-blue">
+              <span className="font-display font-black text-3xl text-blue tabular-nums">
                 {totalP1Correct}
               </span>
             </div>
@@ -199,7 +218,7 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
               <span className="text-xs font-bold text-red uppercase block truncate">
                 {localizePlayerName(p2.name, language)}
               </span>
-              <span className="font-display font-black text-3xl text-red">
+              <span className="font-display font-black text-3xl text-red tabular-nums">
                 {totalP2Correct}
               </span>
             </div>

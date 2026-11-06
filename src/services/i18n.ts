@@ -134,6 +134,7 @@ export const DICTIONARY = {
   'lobby.haptics': { it: 'Vibrazione', en: 'Haptic feedback' },
   'lobby.duelSettings': { it: 'Impostazioni duello', en: 'Match settings' },
   'lobby.timePerPlayer': { it: 'Tempo per giocatore', en: 'Time per player' },
+  'lobby.duration': { it: 'Durata', en: 'Duration' },
   'lobby.pointsToWin': { it: 'Punti per vincere', en: 'Points to win' },
   'lobby.freePlay': { it: 'Partita libera', en: 'Free play' },
   'lobby.pointsCount': { it: '{n} punti', en: '{n} points' },
@@ -315,6 +316,13 @@ export const DICTIONARY = {
   'arena.pass': { it: 'Passo (-3s)', en: 'Pass (-3s)' },
   'arena.listening': { it: 'Di’ cosa vedi o "Passo"...', en: 'Say what you see or "Pass"...' },
   'arena.micActive': { it: 'Microfono attivo', en: 'Microphone active' },
+  'arena.answerTag': { it: 'RISPOSTA', en: 'ANSWER' },
+  'arena.yesTag': { it: 'ESATTO', en: 'YES' },
+  'arena.takesLead': { it: '{name} passa in vantaggio!', en: '{name} takes the lead!' },
+  'party.challengeStep': { it: 'Sfida:', en: 'Challenge:' },
+  'lobby.browseAllCount': { it: 'Sfoglia tutte le {n} categorie', en: 'Browse all {n} categories' },
+  'lobby.switchOn': { it: 'On', en: 'On' },
+  'lobby.switchOff': { it: 'Off', en: 'Off' },
 
   // Victory Screen
   'victory.champion': { it: 'CAMPIONE DELL\'ARENA!', en: 'ARENA CHAMPION!' },
