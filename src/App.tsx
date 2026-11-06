@@ -29,6 +29,10 @@ import { SoloTrainingScreen } from './components/SoloTrainingScreen';
 import { RemoteMicScreen } from './components/RemoteMicScreen';
 import { CategoryGalleryModal } from './components/CategoryGalleryModal';
 import { VictoryScreen } from './components/VictoryScreen';
+import {
+  discordActivityService,
+  isDiscordActivity,
+} from './services/discordActivityService';
 
 function getInitialLanguage(): AppLanguage {
   if (typeof window !== 'undefined') {
@@ -107,6 +111,8 @@ export const App: React.FC = () => {
     },
   ]);
 
+  const [isDiscord] = useState<boolean>(() => isDiscordActivity());
+
   const [settings, setSettings] = useState<GameSettings>(() => {
     return {
       mode: (gameConfig.defaults.mode as GameMode) || 'duel',
@@ -114,7 +120,7 @@ export const App: React.FC = () => {
       duelDurationSeconds: gameConfig.defaults.duelDurationSeconds,
       soloDurationSeconds: gameConfig.defaults.soloDurationSeconds || 60,
       passPenaltySeconds: gameConfig.defaults.passPenaltySeconds,
-      micMode: gameConfig.defaults.micMode,
+      micMode: isDiscordActivity() ? 'discord-p2p' : gameConfig.defaults.micMode,
       soundEnabled: gameConfig.defaults.soundEnabled,
       announcerEnabled: gameConfig.defaults.announcerEnabled,
       hapticsEnabled: true,
@@ -133,7 +139,10 @@ export const App: React.FC = () => {
   const [winnerId, setWinnerId] = useState<PlayerId>('p1');
 
   // Stato Discord P2P Host
-  const [roomCode] = useState<string>(() => generateRoomCode());
+  const [roomCode] = useState<string>(() => {
+    const derived = discordActivityService.getDerivedRoomCode();
+    return derived || generateRoomCode();
+  });
   const [p2RemoteConnected, setP2RemoteConnected] = useState(false);
   const [latestRemotePacket, setLatestRemotePacket] =
     useState<RemoteMicPacket | null>(null);
@@ -145,6 +154,13 @@ export const App: React.FC = () => {
     soundEngine.announcerEnabled = settings.announcerEnabled;
     hapticsService.enabled = settings.hapticsEnabled;
   }, [settings.soundEnabled, settings.announcerEnabled, settings.hapticsEnabled]);
+
+  // Handshake Discord Activity se avviato all'interno di Discord
+  useEffect(() => {
+    if (isDiscord) {
+      discordActivityService.init().catch(() => {});
+    }
+  }, [isDiscord]);
 
   useEffect(() => {
     if (remoteRoomParam) return;
@@ -414,6 +430,7 @@ export const App: React.FC = () => {
           roomCode={roomCode}
           p2RemoteConnected={p2RemoteConnected}
           remoteTranscriptPreview={remoteTranscriptPreview}
+          isDiscordActivity={isDiscord}
           onOpenCategoryEditor={() => setGalleryOpen(true)}
           onStartGame={handleStartNewGame}
         />

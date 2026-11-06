@@ -37,6 +37,7 @@ interface LobbyScreenProps {
   roomCode: string;
   p2RemoteConnected: boolean;
   remoteTranscriptPreview?: string;
+  isDiscordActivity?: boolean;
   onOpenCategoryEditor: () => void;
   onStartGame: () => void;
 }
@@ -60,6 +61,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
   roomCode,
   p2RemoteConnected,
   remoteTranscriptPreview,
+  isDiscordActivity = false,
   onOpenCategoryEditor,
   onStartGame,
 }) => {
@@ -173,11 +175,15 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
         }`}
       >
         {/* ============================================================== */}
-        {/* HEADER: PWA INSTALL (LEFT) | SETTINGS BUTTON (RIGHT)           */}
+        {/* HEADER: DISCORD / PWA (LEFT) | SETTINGS BUTTON (RIGHT)         */}
         {/* ============================================================== */}
         <header className="w-full flex items-center justify-between">
           <div className="flex items-center gap-2">
-            {canInstallPwa && (
+            {isDiscordActivity ? (
+              <div className="px-3.5 py-1.5 rounded-xl bg-[#5865F2] text-white font-display font-black text-xs sm:text-sm border-[3px] border-ink shadow-hard-sm flex items-center gap-1.5">
+                <span>🎮 DISCORD ACTIVITY</span>
+              </div>
+            ) : canInstallPwa ? (
               <button
                 type="button"
                 onClick={handleInstallClick}
@@ -185,7 +191,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
               >
                 <span>{t('app.install', settings.language)}</span>
               </button>
-            )}
+            ) : null}
           </div>
 
           <button
@@ -367,31 +373,53 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
               </div>
 
               {settings.micMode === 'discord-p2p' && (
-                <div className="card-paper p-3 mt-1 flex flex-col sm:flex-row items-center gap-2">
-                  <input
-                    type="text"
-                    readOnly
-                    value={getCompanionUrl()}
-                    className="min-w-0 flex-1 px-3 py-2 rounded-xl bg-white border-[3px] border-ink text-xs text-ink select-all font-sans"
-                  />
-                  <button
-                    type="button"
-                    onClick={handleCopyCompanionUrl}
-                    className="btn-push px-4 py-2 rounded-xl bg-yellow text-ink font-display font-bold text-xs flex items-center gap-1.5 shrink-0"
-                  >
-                    {copiedLink ? (
-                      <>
-                        <Check className="w-4 h-4 text-green" />
-                        <span>{t('lobby.copied', settings.language)}</span>
-                      </>
+                isDiscordActivity ? (
+                  <div className="card-paper p-3 mt-1 flex flex-col sm:flex-row items-center justify-between gap-2 border-[3px] border-ink bg-[#5865F2]/10">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xl">🎮</span>
+                      <span className="font-display font-black text-xs sm:text-sm text-ink">
+                        {settings.language === 'en'
+                          ? `Discord Call Linked • Room: ${roomCode}`
+                          : `Canale Discord Collegato • Stanza: ${roomCode}`}
+                      </span>
+                    </div>
+                    {p2RemoteConnected ? (
+                      <span className="px-3 py-1 rounded-full bg-green text-ink font-display font-black text-xs border-[2px] border-ink shadow-hard-sm">
+                        {settings.language === 'en' ? 'P2 Ready' : 'G2 Pronto'}
+                      </span>
                     ) : (
-                      <>
-                        <Copy className="w-4 h-4" />
-                        <span>{t('lobby.copyLink', settings.language)}</span>
-                      </>
+                      <span className="px-3 py-1 rounded-full bg-yellow text-ink font-display font-bold text-xs border-[2px] border-ink">
+                        {settings.language === 'en' ? 'Waiting for friend in call' : 'In attesa del rivale'}
+                      </span>
                     )}
-                  </button>
-                </div>
+                  </div>
+                ) : (
+                  <div className="card-paper p-3 mt-1 flex flex-col sm:flex-row items-center gap-2">
+                    <input
+                      type="text"
+                      readOnly
+                      value={getCompanionUrl()}
+                      className="min-w-0 flex-1 px-3 py-2 rounded-xl bg-white border-[3px] border-ink text-xs text-ink select-all font-sans"
+                    />
+                    <button
+                      type="button"
+                      onClick={handleCopyCompanionUrl}
+                      className="btn-push px-4 py-2 rounded-xl bg-yellow text-ink font-display font-bold text-xs flex items-center gap-1.5 shrink-0"
+                    >
+                      {copiedLink ? (
+                        <>
+                          <Check className="w-4 h-4 text-green" />
+                          <span>{t('lobby.copied', settings.language)}</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-4 h-4" />
+                          <span>{t('lobby.copyLink', settings.language)}</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                )
               )}
             </div>
 

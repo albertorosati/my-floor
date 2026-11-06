@@ -16,6 +16,7 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@discord/embedded-app-sdk": "^2.5.0",
     "canvas-confetti": "^1.9.3",
     "lucide-react": "^0.468.0",
     "peerjs": "^1.5.4",

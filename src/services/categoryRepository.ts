@@ -1,6 +1,7 @@
 import { Category } from '../types/game';
 import { gameConfig } from './configService';
 import generatedCatalog from '../data/generatedCatalog.json';
+import { remapDiscordImageUrl } from '../utils/discordUrlMapper';
 
 export const DEFAULT_CATEGORIES: Category[] = generatedCatalog as Category[];
 
@@ -65,10 +66,11 @@ export class CategoryRepository {
   public static getBackupImageUrl(originalUrl: string): string {
     if (!originalUrl || originalUrl.startsWith('data:')) return originalUrl;
     const cleanUrl = originalUrl.split('?')[0];
-    return gameConfig.network.imageBackupProxyTemplate.replace(
+    const rawBackup = gameConfig.network.imageBackupProxyTemplate.replace(
       '{url}',
       encodeURIComponent(cleanUrl)
     );
+    return remapDiscordImageUrl(rawBackup);
   }
 
   private static decodedCache = new Map<string, HTMLImageElement>();
@@ -84,6 +86,7 @@ export class CategoryRepository {
 
     return new Promise((resolve) => {
       const cleanUrl = url.split('?')[0];
+      const targetUrl = remapDiscordImageUrl(cleanUrl);
       const img = new Image();
       img.decoding = 'async';
 
@@ -100,7 +103,7 @@ export class CategoryRepository {
       img.onerror = () => {
         // Tenta subito con il proxy WebP
         const backup = CategoryRepository.getBackupImageUrl(cleanUrl);
-        if (backup && backup !== cleanUrl) {
+        if (backup && backup !== targetUrl) {
           const img2 = new Image();
           img2.decoding = 'async';
           img2.onload = () => {
@@ -112,12 +115,12 @@ export class CategoryRepository {
             }
           };
           img2.onerror = () => resolve();
-          img2.src = backup;
+          img2.src = remapDiscordImageUrl(backup);
         } else {
           resolve();
         }
       };
-      img.src = cleanUrl;
+      img.src = targetUrl;
     });
   }
 
