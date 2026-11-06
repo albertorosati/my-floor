@@ -7,9 +7,6 @@ import {
   Search,
   X,
   Flag,
-  Target,
-  Crown,
-  Users,
 } from 'lucide-react';
 import {
   Category,
@@ -22,18 +19,14 @@ import {
   AppLanguage,
 } from '../types/game';
 import {
-  getBackupImageUrl,
   preloadCategoryImages,
   primeImage,
 } from '../data/categories';
 import { gameConfig } from '../services/configService';
-import { soloScoreService } from '../services/soloScoreService';
-import { APP_VERSION } from '../config/version';
 import { soundEngine } from '../engine/soundEffects';
 import {
   t,
   getCategoryTitle,
-  getCategorySubtitle,
   filterCategories,
   localizePlayerName,
 } from '../services/i18n';
@@ -109,7 +102,6 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
   const isSolo = mode === 'solo';
   const isParty = mode === 'party';
 
-  // Filtro prioritario: in lingua inglese NESSUNA categoria con scope 'it-only' è mai ammessa!
   const availableCategories = useMemo(() => {
     return filterCategories(categories, language);
   }, [categories, language]);
@@ -120,15 +112,11 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
   const [selectedCat, setSelectedCat] = useState<Category | null>(null);
   const [countdown, setCountdown] = useState<number | null>(null);
   const [showAllModal, setShowAllModal] = useState(false);
-  const [showPartyLeaderboardModal, setShowPartyLeaderboardModal] =
-    useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [tabFilter, setTabFilter] = useState<'all' | 'intl' | 'it-only'>('all');
 
   const chooser = chooserId === 'p1' ? p1 : p2;
   const opponent = chooserId === 'p1' ? p2 : p1;
 
-  // Precarica e decodifica via GPU le copertine delle 4 carte proposte
   useEffect(() => {
     offered.forEach((cat) => {
       const cover = cat.coverImage || cat.items[0]?.imageUrl;
@@ -138,7 +126,6 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
     });
   }, [offered]);
 
-  // Conto alla rovescia 3 - 2 - 1 prima dell'inizio del duello o allenamento
   useEffect(() => {
     if (countdown === null || !selectedCat) return;
 
@@ -153,7 +140,7 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
       soundEngine.stopAnnouncements();
       const launch = setTimeout(() => {
         onSelectCategory(selectedCat);
-      }, 420);
+      }, 400);
       return () => clearTimeout(launch);
     }
   }, [countdown, selectedCat, onSelectCategory]);
@@ -185,181 +172,104 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
     setCountdown(3);
   };
 
-  const modalCatalog: Category[] = useMemo(() => {
-    return filterCategories(categories, language, tabFilter);
-  }, [categories, language, tabFilter]);
-
-  const filteredCatalog: Category[] = modalCatalog.filter((c: Category) => {
+  const filteredCatalog = useMemo(() => {
     const q = searchQuery.toLowerCase().trim();
-    if (!q) return true;
-    const title = getCategoryTitle(c, language).toLowerCase();
-    const sub = getCategorySubtitle(c, language).toLowerCase();
-    return title.includes(q) || sub.includes(q) || c.name.toLowerCase().includes(q);
-  });
+    if (!q) return availableCategories;
+    return availableCategories.filter((c) => {
+      const title = getCategoryTitle(c, language).toLowerCase();
+      return title.includes(q) || c.name.toLowerCase().includes(q);
+    });
+  }, [availableCategories, searchQuery, language]);
 
   return (
-    <div className="h-[100dvh] max-h-[100dvh] w-full party-stage-bg flex flex-col justify-between p-2.5 sm:p-4 md:p-6 select-none overflow-hidden touch-none">
+    <div className="h-[100dvh] max-h-[100dvh] w-full bg-bg text-ink flex flex-col justify-between p-4 sm:p-6 select-none overflow-hidden touch-none">
       {/* Top Bar */}
-      <header className="max-w-6xl w-full mx-auto flex flex-col gap-1.5 sm:gap-2 shrink-0">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <button
-            onClick={onBackToLobby}
-            className="btn-push px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-cream text-ink font-display font-bold text-xs flex items-center gap-1.5"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Menu</span>
-          </button>
+      <header className="max-w-4xl w-full mx-auto flex items-center justify-between gap-3 shrink-0">
+        <button
+          onClick={onBackToLobby}
+          aria-label="Back to menu"
+          className="btn-push px-3.5 py-2 rounded-xl bg-paper text-ink font-display font-bold text-sm flex items-center gap-1.5"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Menu</span>
+        </button>
 
-          {/* Intestazione Centrale in base alla modalità */}
-          {isSolo ? (
-            <div className="card-cream rounded-2xl px-4 py-1.5 flex items-center gap-2.5 shadow-chunky-sm">
-              <span className="text-xl sm:text-2xl">{p1.avatar}</span>
-              <span className="font-display font-black text-sm sm:text-base text-ink">
-                {p1.name}
-              </span>
-              <span className="px-2.5 py-0.5 rounded-xl bg-p1 text-white font-display font-bold text-xs border border-ink">
-                {t('solo.title', language)}
-              </span>
-            </div>
-          ) : (
-            <div className="card-cream rounded-2xl px-3 py-1.5 sm:px-4 sm:py-2 flex items-center gap-3 sm:gap-6 shadow-chunky-sm">
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="text-xl sm:text-2xl">{p1.avatar}</span>
-                <span className="font-display font-bold text-xs sm:text-base text-ink max-w-[85px] sm:max-w-[110px] truncate">
-                  {p1.name}
-                </span>
-                <span className="px-2.5 py-0.5 rounded-xl bg-p1 text-white font-display font-bold text-sm sm:text-lg border-2 border-ink">
-                  {p1Score}
-                </span>
-              </div>
-
-              <div className="text-[10px] sm:text-xs font-display font-bold text-ink/50 uppercase">
-                {targetWins > 0
-                  ? (language === 'en' ? `First to ${targetWins}` : `A ${targetWins}`)
-                  : `Round ${roundNumber}`}
-              </div>
-
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="px-2.5 py-0.5 rounded-xl bg-p2 text-white font-display font-bold text-sm sm:text-lg border-2 border-ink">
-                  {p2Score}
-                </span>
-                <span className="font-display font-bold text-xs sm:text-base text-ink max-w-[85px] sm:max-w-[110px] truncate">
-                  {localizePlayerName(p2.name, language)}
-                </span>
-                <span className="text-xl sm:text-2xl">{p2.avatar}</span>
-              </div>
-            </div>
-          )}
-
-          <div className="flex items-center gap-2">
-            {isParty && (
-              <button
-                onClick={() => setShowPartyLeaderboardModal(true)}
-                className="btn-push px-3 py-1.5 rounded-xl bg-gold text-ink font-display font-bold text-xs flex items-center gap-1.5"
-              >
-                <Crown className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">{t('party.leaderboard', language)}</span>
-              </button>
-            )}
-
-            {!isSolo && (p1Score + p2Score > 0 || isParty) ? (
-              <button
-                onClick={onFinishMatchEarly}
-                className="btn-push px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-gold text-ink font-display font-bold text-xs flex items-center gap-1.5"
-              >
-                <Flag className="w-3.5 h-3.5" />
-                <span>{t('draft.finishEarly', language)}</span>
-              </button>
-            ) : (
-              <div className="w-[84px] hidden sm:block" />
-            )}
-          </div>
-        </div>
-
-        {/* Riepilogo dell'ultimo duello appena concluso */}
-        {lastSummary && !isSolo && (
-          <div className="max-w-3xl mx-auto w-full px-3 py-1.5 rounded-xl bg-[#2a2142] border border-gold/60 text-cream text-[11px] sm:text-xs flex items-center justify-center gap-1.5 text-center truncate">
-            <Trophy className="w-3.5 h-3.5 text-gold shrink-0" />
-            <span className="truncate">
-              {t('draft.pointTo', language, {
-                winner: localizePlayerName(lastSummary.winner === 'p1' ? p1.name : p2.name, language),
-                icon: lastSummary.categoryIcon,
-                category: lastSummary.categoryName,
-                time: lastSummary.winnerTimeLeft.toFixed(1),
-              })}
+        {/* Status in Center */}
+        {isSolo ? (
+          <div className="card-paper px-4 py-2 flex items-center gap-2">
+            <span className="text-xl">{p1.avatar}</span>
+            <span className="font-display font-bold text-sm text-ink">
+              {p1.name}
             </span>
           </div>
+        ) : (
+          <div className="card-paper px-4 py-1.5 flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <span className="text-xl">{p1.avatar}</span>
+              <span className="font-display font-bold text-sm text-ink truncate max-w-[90px]">
+                {p1.name}
+              </span>
+              <span className="px-2 py-0.5 rounded-lg bg-blue text-white font-display font-bold text-sm border-2 border-ink">
+                {p1Score}
+              </span>
+            </div>
+            <span className="text-xs font-bold text-ink/40">•</span>
+            <div className="flex items-center gap-2">
+              <span className="px-2 py-0.5 rounded-lg bg-red text-white font-display font-bold text-sm border-2 border-ink">
+                {p2Score}
+              </span>
+              <span className="font-display font-bold text-sm text-ink truncate max-w-[90px]">
+                {p2.name}
+              </span>
+              <span className="text-xl">{p2.avatar}</span>
+            </div>
+          </div>
+        )}
+
+        {!isSolo && (p1Score + p2Score > 0 || isParty) ? (
+          <button
+            onClick={onFinishMatchEarly}
+            className="btn-push px-3.5 py-2 rounded-xl bg-paper text-ink font-display font-bold text-sm flex items-center gap-1.5"
+          >
+            <Flag className="w-4 h-4 text-red" />
+            <span className="hidden sm:inline">{t('draft.finishEarly', language)}</span>
+          </button>
+        ) : (
+          <div className="w-16" />
         )}
       </header>
 
-      {/* Titolo Turno di Scelta */}
-      <div className="max-w-4xl w-full mx-auto text-center my-1 sm:my-2 shrink-0">
-        <div
-          className={`inline-flex items-center gap-1.5 px-3 py-0.5 sm:px-4 sm:py-1 rounded-full border-2 sm:border-[3px] border-ink font-display font-bold text-xs sm:text-sm shadow-chunky-sm mb-1 ${
-            isSolo
-              ? 'bg-p1 text-white'
-              : chooserId === 'p1'
-              ? 'bg-p1 text-white'
-              : 'bg-p2 text-white'
-          }`}
-        >
-          {isSolo ? (
-            <>
-              <Target className="w-3.5 h-3.5" />
-              <span>{t('solo.title', language)}</span>
-            </>
-          ) : isParty ? (
-            <>
-              <Crown className="w-3.5 h-3.5" />
-              <span>{t('draft.partyRound', language, { round: roundNumber })}</span>
-            </>
-          ) : (
-            <>
-              <span>Round {roundNumber}</span>
-              <span>•</span>
-              <span>{t('draft.categoryDraft', language)}</span>
-            </>
-          )}
-        </div>
-
-        <h1 className="font-display text-lg sm:text-2xl lg:text-3xl font-bold text-cream leading-tight">
+      {/* Title & Chooser banner */}
+      <div className="max-w-2xl w-full mx-auto text-center my-2 shrink-0">
+        <h1 className="font-display font-black text-2xl sm:text-3xl text-paper">
           {isSolo ? (
             t('solo.chooseCategory', language)
           ) : language === 'en' ? (
-            <>It’s <span className="text-gold">{chooser.avatar} {localizePlayerName(chooser.name, language)}</span>’s turn to pick!</>
+            <>{chooser.avatar} {localizePlayerName(chooser.name, language)}: choose category</>
           ) : (
-            <>Tocca a <span className="text-gold">{chooser.avatar} {localizePlayerName(chooser.name, language)}</span> scegliere!</>
+            <>{chooser.avatar} {localizePlayerName(chooser.name, language)}: scegli categoria</>
           )}
         </h1>
 
-        <p className="text-[10px] sm:text-xs text-cream/70 mt-0.5 line-clamp-1">
-          {isSolo
-            ? t('solo.chooseCategorySub', language)
-            : language === 'en'
-            ? `Choose one of the 4 categories below to challenge ${localizePlayerName(opponent.name, language)}`
-            : `Scegli una delle 4 categorie qui sotto per sfidare ${localizePlayerName(opponent.name, language)}`}
-        </p>
-
-        {/* Selettore Sfidante in Modalità Party */}
         {isParty && partyPlayers.length > 2 && onSelectOpponent && (
           <div className="mt-2 flex items-center justify-center gap-2 flex-wrap">
-            <span className="text-xs text-cream/80 font-bold">
-              {t('party.selectOpponent', language)}
+            <span className="text-xs text-paper/80 font-bold">
+              {t('party.selectOpponent', language)}:
             </span>
-            <div className="flex items-center gap-1.5 overflow-x-auto py-0.5">
+            <div className="flex items-center gap-1.5">
               {partyPlayers
                 .filter((p) => p.id !== chooser.id)
                 .map((p) => (
                   <button
                     key={`opp-${p.id}`}
                     onClick={() => onSelectOpponent(p.id)}
-                    className={`px-2.5 py-1 rounded-xl text-xs font-display font-bold border-2 transition-transform ${
+                    className={`px-3 py-1 rounded-xl text-xs font-display font-bold border-[3px] border-ink transition-all ${
                       selectedOpponentId === p.id
-                        ? 'bg-gold text-ink border-ink scale-105 shadow-sm'
-                        : 'bg-paper/80 text-ink border-ink/20 hover:bg-paper'
+                        ? 'bg-yellow text-ink shadow-hard-sm'
+                        : 'bg-paper text-ink hover:bg-yellow/40'
                     }`}
                   >
-                    <span>{p.avatar} {p.name}</span>
+                    {p.avatar} {p.name}
                   </button>
                 ))}
             </div>
@@ -367,392 +277,115 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
         )}
       </div>
 
-      {/* Le 4 Carte Categoria Proposte */}
-      <main className="max-w-6xl w-full mx-auto my-1 flex-1 min-h-0 grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 items-stretch">
+      {/* 4 Big Cards in a Grid: Icon + Title only (Descriptions hidden) */}
+      <main className="max-w-2xl w-full mx-auto my-auto grid grid-cols-2 gap-4 items-stretch">
         {offered.map((cat) => {
-          const cover = cat.coverImage || cat.items[0]?.imageUrl;
-          const bestScore = isSolo ? soloScoreService.getSoloBest(cat.id) : 0;
+          const isSelected = selectedCat?.id === cat.id;
 
           return (
             <button
               key={cat.id}
               onClick={() => handleChooseCard(cat)}
               disabled={countdown !== null}
-              className="group relative rounded-2xl sm:rounded-3xl border-2 sm:border-[3px] border-ink bg-[#1a1329] overflow-hidden text-left flex flex-col justify-between shadow-chunky transition-all duration-200 hover:-translate-y-1 hover:shadow-card-hover active:translate-y-1 animate-pop-in min-h-0"
+              className={`p-6 sm:p-8 rounded-card border-[3px] border-ink flex flex-col items-center justify-center gap-3 text-center transition-all cursor-pointer ${
+                isSelected
+                  ? 'bg-yellow shadow-hard translate-x-[2px] translate-y-[2px]'
+                  : 'bg-paper shadow-hard hover:bg-yellow active:translate-x-[3px] active:translate-y-[3px] active:shadow-hard-pressed'
+              }`}
             >
-              {/* Copertina fotografica */}
-              <div className="relative flex-1 min-h-0 w-full bg-[#140e22] overflow-hidden flex items-center justify-center p-2">
-                {cover && (
-                  <>
-                    <img
-                      src={cover}
-                      alt=""
-                      aria-hidden="true"
-                      decoding="async"
-                      className="absolute inset-0 w-full h-full object-cover blur-md scale-110 opacity-30 pointer-events-none"
-                    />
-                    <img
-                      src={cover}
-                      alt={cat.name}
-                      decoding="async"
-                      loading="eager"
-                      onLoad={(e) => {
-                        e.currentTarget.classList.remove('opacity-0');
-                        e.currentTarget.classList.add('opacity-100');
-                      }}
-                      onError={(e) => {
-                        const img = e.currentTarget;
-                        if (!img.dataset.fallback) {
-                          img.dataset.fallback = '1';
-                          img.src = getBackupImageUrl(cover);
-                        }
-                      }}
-                      className="relative z-10 max-h-full max-w-full w-auto h-auto object-contain rounded-xl group-hover:scale-105 transition-all duration-300 drop-shadow-md opacity-0"
-                    />
-                  </>
-                )}
-                <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#140e22] to-transparent pointer-events-none z-10" />
-
-                {/* Icona categoria */}
-                <div className="absolute top-2 left-2 w-7 h-7 sm:w-9 sm:h-9 rounded-xl bg-cream border-2 border-ink shadow-sm flex items-center justify-center text-sm sm:text-lg z-20">
-                  {cat.icon}
-                </div>
-
-                {/* Badge Record o Conteggio Foto */}
-                <div className="absolute top-2 right-2 flex items-center gap-1 z-20">
-                  {isSolo && bestScore > 0 && (
-                    <span className="px-2 py-0.5 rounded-full bg-gold text-ink text-[9px] sm:text-[10px] font-black border border-ink shadow-sm flex items-center gap-0.5">
-                      <Trophy className="w-2.5 h-2.5" />
-                      {bestScore}
-                    </span>
-                  )}
-                  <span className="px-2 py-0.5 rounded-full bg-ink/85 text-cream text-[9px] sm:text-[10px] font-bold border border-cream/20 shadow-sm backdrop-blur-xs">
-                    {t('draft.photosCount', language, {
-                      n: cat.items.reduce((acc, it) => acc + (it.imageUrls?.length || 1), 0),
-                    })}
-                  </span>
-                </div>
-              </div>
-
-              {/* Striscia Dati */}
-              <div className="p-2 sm:p-2.5 shrink-0 bg-[#fffdf7] border-t-2 border-ink flex flex-col justify-between gap-1">
-                <div>
-                  <h2 className="font-display font-bold text-xs sm:text-base text-ink leading-tight truncate group-hover:text-p1 transition-colors">
-                    {getCategoryTitle(cat, language)}
-                  </h2>
-                  <p className="text-[10px] sm:text-xs text-ink/70 mt-0.5 line-clamp-1 leading-tight">
-                    {getCategorySubtitle(cat, language)}
-                  </p>
-                </div>
-
-                <div
-                  className={`w-full py-1 sm:py-1.5 px-2 rounded-lg sm:rounded-xl font-display font-bold text-[10px] sm:text-xs text-center border border-ink sm:border-2 transition-all leading-tight shadow-sm ${
-                    isSolo
-                      ? 'bg-gold text-ink group-hover:bg-yellow-400'
-                      : chooserId === 'p1'
-                      ? 'bg-p1 text-white group-hover:bg-blue-600'
-                      : 'bg-p2 text-white group-hover:bg-red-600'
-                  }`}
-                >
-                  {isSolo
-                    ? t('draft.startSoloCard', language)
-                    : t('draft.selectCard', language)}
-                </div>
-              </div>
+              <span className="text-5xl sm:text-6xl select-none">{cat.icon}</span>
+              <h2 className="font-display font-black text-xl sm:text-2xl text-ink leading-tight">
+                {getCategoryTitle(cat, language)}
+              </h2>
             </button>
           );
         })}
       </main>
 
-      {/* Azioni in basso */}
-      <footer className="max-w-4xl w-full mx-auto mt-1 sm:mt-2 flex flex-col items-center gap-1 shrink-0">
-        <div className="flex flex-wrap items-center justify-center gap-2">
-          <button
-            onClick={handleReroll}
-            disabled={countdown !== null}
-            className="btn-push px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-2xl bg-gold text-ink font-display font-bold text-xs sm:text-sm flex items-center gap-1.5"
-          >
-            <Shuffle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <span>{t('draft.reroll', language)}</span>
-          </button>
+      {/* Bottom Actions */}
+      <footer className="max-w-md w-full mx-auto flex items-center justify-center gap-3 shrink-0">
+        <button
+          onClick={handleReroll}
+          disabled={countdown !== null}
+          className="btn-push flex-1 py-3 px-4 rounded-xl bg-paper text-ink font-display font-bold text-sm flex items-center justify-center gap-2"
+        >
+          <Shuffle className="w-4 h-4" />
+          <span>{t('draft.reroll', language)}</span>
+        </button>
 
-          <button
-            onClick={() => setShowAllModal(true)}
-            disabled={countdown !== null}
-            className="btn-push px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-2xl bg-cream text-ink font-display font-bold text-xs sm:text-sm flex items-center gap-1.5"
-          >
-            <Grid className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-p1" />
-            <span>
-              {language === 'en'
-                ? `All Categories (${availableCategories.length})`
-                : `Tutte le ${categories.length}`}
-            </span>
-          </button>
-        </div>
-
-        <span className="font-mono text-[9px] sm:text-[10px] text-cream/40">
-          v{APP_VERSION}
-        </span>
+        <button
+          onClick={() => setShowAllModal(true)}
+          disabled={countdown !== null}
+          className="btn-push flex-1 py-3 px-4 rounded-xl bg-paper text-ink font-display font-bold text-sm flex items-center justify-center gap-2"
+        >
+          <Grid className="w-4 h-4" />
+          <span>
+            {language === 'en'
+              ? `All (${availableCategories.length})`
+              : `Tutte (${availableCategories.length})`}
+          </span>
+        </button>
       </footer>
 
-      {/* Finestra Scelta Libera da tutte le categorie */}
+      {/* Modal: All Categories List */}
       {showAllModal && (
-        <div className="fixed inset-0 z-40 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="card-cream max-w-4xl w-full max-h-[85vh] rounded-3xl flex flex-col overflow-hidden">
-            <div className="p-4 sm:p-5 bg-paper border-b-[3px] border-ink flex flex-col gap-2.5">
-              <div className="flex items-center justify-between gap-3">
-                <h2 className="font-display font-bold text-lg sm:text-xl text-ink">
-                  {language === 'en'
-                    ? `All Categories (${modalCatalog.length})`
-                    : `Tutte le Categorie (${modalCatalog.length})`}
-                </h2>
-                <div className="flex items-center gap-2">
-                  <div className="relative">
-                    <Search className="w-4 h-4 text-ink/50 absolute left-3 top-1/2 -translate-y-1/2" />
-                    <input
-                      type="text"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder={t('draft.searchPlaceholder', language)}
-                      className="pl-9 pr-3 py-1.5 rounded-xl bg-white border-2 border-ink/25 text-sm text-ink focus:outline-none focus:border-p1"
-                    />
-                  </div>
-                  <button
-                    onClick={() => setShowAllModal(false)}
-                    className="p-2 rounded-xl bg-white border-2 border-ink text-ink hover:bg-p2 hover:text-white"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Filtri a schede */}
-              {language === 'it' && (
-                <div className="flex items-center gap-1.5 overflow-x-auto pt-1">
-                  <button
-                    onClick={() => setTabFilter('all')}
-                    className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
-                      tabFilter === 'all'
-                        ? 'bg-ink text-cream shadow-sm'
-                        : 'bg-white text-ink/70 border border-ink/20 hover:text-ink'
-                    }`}
-                  >
-                    Tutte ({categories.length})
-                  </button>
-                  <button
-                    onClick={() => setTabFilter('intl')}
-                    className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
-                      tabFilter === 'intl'
-                        ? 'bg-ink text-cream shadow-sm'
-                        : 'bg-white text-ink/70 border border-ink/20 hover:text-ink'
-                    }`}
-                  >
-                    Internazionali 🌍 ({categories.filter((c) => c.scope !== 'it-only').length})
-                  </button>
-                  <button
-                    onClick={() => setTabFilter('it-only')}
-                    className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
-                      tabFilter === 'it-only'
-                        ? 'bg-ink text-cream shadow-sm'
-                        : 'bg-white text-ink/70 border border-ink/20 hover:text-ink'
-                    }`}
-                  >
-                    Esclusive Italiane 🇮🇹 ({categories.filter((c) => c.scope === 'it-only').length})
-                  </button>
-                </div>
-              )}
-            </div>
-
-            <div className="p-5 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 max-h-[70vh]">
-              {filteredCatalog.map((cat) => {
-                const cover = cat.coverImage || cat.items[0]?.imageUrl;
-                const alreadyPlayed = playedCategoryIds.includes(cat.id);
-                const soloBest = isSolo ? soloScoreService.getSoloBest(cat.id) : 0;
-
-                return (
-                  <button
-                    key={cat.id}
-                    onClick={() => handleChooseCard(cat)}
-                    className={`group p-2.5 rounded-2xl border-2 border-ink text-left flex items-center gap-3 transition-all hover:-translate-y-1 hover:shadow-card-hover ${
-                      alreadyPlayed && !isSolo
-                        ? 'bg-paper/50 opacity-60'
-                        : 'bg-white hover:bg-gold/15 shadow-chunky-sm'
-                    }`}
-                  >
-                    <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-xl overflow-hidden bg-[#181226] border-2 border-ink shrink-0 flex items-center justify-center">
-                      {cover && (
-                        <>
-                          <img
-                            src={cover}
-                            alt=""
-                            aria-hidden="true"
-                            decoding="async"
-                            loading="lazy"
-                            className="absolute inset-0 w-full h-full object-cover blur-sm scale-110 opacity-35 pointer-events-none"
-                          />
-                          <img
-                            src={cover}
-                            alt=""
-                            decoding="async"
-                            loading="lazy"
-                            onLoad={(e) => {
-                              e.currentTarget.classList.remove('opacity-0');
-                              e.currentTarget.classList.add('opacity-100');
-                            }}
-                            onError={(e) => {
-                              const img = e.currentTarget;
-                              if (!img.dataset.fallback) {
-                                img.dataset.fallback = '1';
-                                img.src = getBackupImageUrl(cover);
-                              }
-                            }}
-                            className="relative z-10 max-w-full max-h-full object-contain p-1 group-hover:scale-105 transition-all duration-200 opacity-0"
-                          />
-                        </>
-                      )}
-                      <div className="absolute top-1 left-1 w-6 h-6 rounded-lg bg-cream/90 backdrop-blur-sm border border-ink flex items-center justify-center text-xs shadow-sm z-20">
-                        {cat.icon}
-                      </div>
-                    </div>
-
-                    <div className="min-w-0 flex-1">
-                      <div className="font-display font-bold text-sm text-ink truncate group-hover:text-p1 transition-colors">
-                        {getCategoryTitle(cat, language)}
-                      </div>
-                      <div className="text-[11px] text-ink/65 line-clamp-1 font-medium mt-0.5">
-                        {getCategorySubtitle(cat, language)}
-                      </div>
-                      <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
-                        {isSolo && soloBest > 0 && (
-                          <span className="px-2 py-0.5 rounded-full bg-gold text-ink text-[10px] font-black border border-ink flex items-center gap-0.5">
-                            <Trophy className="w-2.5 h-2.5" />
-                            Record: {soloBest}
-                          </span>
-                        )}
-                        <span className="px-2 py-0.5 rounded-full bg-paper border border-ink/20 text-[10px] font-bold text-ink/75">
-                          {cat.items.length} {language === 'en' ? 'items' : 'soggetti'}
-                        </span>
-                        {alreadyPlayed && !isSolo && (
-                          <span className="text-[10px] font-bold text-p2">
-                            • {language === 'en' ? 'Already played' : 'Già giocata'}
-                          </span>
-                        )}
-                        {cat.scope === 'it-only' && (
-                          <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded border border-emerald-300">
-                            🇮🇹 Solo IT
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Modale Classifica Party Torneo */}
-      {showPartyLeaderboardModal && (
-        <div className="fixed inset-0 z-50 bg-[#140e24]/90 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="card-cream max-w-md w-full rounded-3xl p-6 text-center flex flex-col items-center gap-4 animate-pop-in border-[4px] border-ink shadow-chunky">
-            <div className="w-16 h-16 rounded-2xl bg-gold border-[3px] border-ink flex items-center justify-center text-3xl shadow-sm">
-              👑
-            </div>
-            <div>
-              <h3 className="font-display font-black text-2xl text-ink">
-                {t('party.leaderboard', language)}
-              </h3>
-              <p className="text-xs text-ink/70 mt-0.5">
-                {t('party.standingsDesc', language)}
-              </p>
-            </div>
-
-            <div className="w-full flex flex-col gap-2 max-h-[50vh] overflow-y-auto">
-              {[...partyPlayers]
-                .sort((a, b) => b.wins - a.wins || a.duelsPlayed - b.duelsPlayed)
-                .map((p, idx) => (
-                  <div
-                    key={p.id}
-                    className="p-3 rounded-2xl bg-paper border-2 border-ink flex items-center justify-between"
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="w-7 h-7 rounded-xl bg-ink text-cream font-display font-bold text-sm flex items-center justify-center">
-                        #{idx + 1}
-                      </span>
-                      <span className="text-2xl">{p.avatar}</span>
-                      <div className="text-left">
-                        <span className="font-display font-bold text-sm text-ink block">
-                          {localizePlayerName(p.name, language)}
-                        </span>
-                        <span className="text-[11px] text-ink/60 font-semibold">
-                          {p.duelsPlayed} {t('party.duels', language).toLowerCase()}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="px-3 py-1 rounded-xl bg-gold text-ink font-display font-black text-base border border-ink">
-                      {p.wins} {t('party.wins', language)}
-                    </div>
-                  </div>
-                ))}
-            </div>
-
-            <button
-              onClick={() => setShowPartyLeaderboardModal(false)}
-              className="btn-push w-full py-2.5 rounded-xl bg-mint text-ink font-display font-bold text-sm"
-            >
-              {t('draft.closeModal', language)}
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Overlay Conto alla Rovescia 3 - 2 - 1 - VIA! */}
-      {selectedCat && countdown !== null && (
-        <div className="fixed inset-0 z-50 bg-[#140e22]/90 backdrop-blur-md flex items-center justify-center p-6">
-          <div className="card-cream max-w-lg w-full rounded-3xl p-8 text-center flex flex-col items-center gap-5 animate-pop-in">
-            <div className="w-20 h-20 rounded-3xl bg-gold border-[3px] border-ink shadow-chunky-sm flex items-center justify-center text-5xl">
-              {selectedCat.icon}
-            </div>
-
-            <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-ink/60">
-                {isSolo
-                  ? t('solo.title', language)
-                  : t('draft.chosenBy', language, { name: localizePlayerName(chooser.name, language) })}
-              </span>
-              <h2 className="font-display font-bold text-3xl sm:text-4xl text-ink mt-1">
-                {getCategoryTitle(selectedCat, language)}
+        <div className="fixed inset-0 z-40 bg-black/70 flex items-center justify-center p-4">
+          <div className="card-paper max-w-2xl w-full max-h-[85vh] flex flex-col overflow-hidden animate-pop-in">
+            <div className="p-4 bg-paper border-b-[3px] border-ink flex items-center justify-between gap-3">
+              <h2 className="font-display font-black text-xl text-ink">
+                {language === 'en'
+                  ? `Choose Category (${filteredCatalog.length})`
+                  : `Scegli Categoria (${filteredCatalog.length})`}
               </h2>
-              <p className="text-sm text-ink/70 mt-1">
-                {getCategorySubtitle(selectedCat, language)}
-              </p>
+              <div className="flex items-center gap-2">
+                <div className="relative">
+                  <Search className="w-4 h-4 text-ink/50 absolute left-3 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder={t('draft.searchPlaceholder', language)}
+                    className="pl-9 pr-3 py-1.5 rounded-xl bg-white border-[3px] border-ink text-sm text-ink focus:outline-none focus:ring-2 focus:ring-yellow"
+                  />
+                </div>
+                <button
+                  onClick={() => setShowAllModal(false)}
+                  aria-label="Close"
+                  className="w-9 h-9 rounded-xl bg-white border-[3px] border-ink flex items-center justify-center hover:bg-yellow"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
             </div>
 
-            {isSolo ? (
-              <div className="w-full py-3 px-4 rounded-2xl bg-paper border-2 border-ink/15 flex items-center justify-center gap-2">
-                <span className="text-2xl">{p1.avatar}</span>
-                <span className="font-display font-bold text-p1 text-lg">
-                  {localizePlayerName(p1.name, language)}
-                </span>
-              </div>
-            ) : (
-              <div className="w-full py-3 px-4 rounded-2xl bg-paper border-2 border-ink/15 flex items-center justify-around">
-                <div className="flex items-center gap-2 font-display font-bold text-p1">
-                  <span className="text-2xl">{p1.avatar}</span>
-                  <span>{localizePlayerName(p1.name, language)}</span>
-                </div>
-                <span className="font-display font-bold text-ink/40">VS</span>
-                <div className="flex items-center gap-2 font-display font-bold text-p2">
-                  <span>{localizePlayerName(p2.name, language)}</span>
-                  <span className="text-2xl">{p2.avatar}</span>
-                </div>
-              </div>
-            )}
+            <div className="p-4 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {filteredCatalog.map((cat) => (
+                <button
+                  key={`all-${cat.id}`}
+                  onClick={() => handleChooseCard(cat)}
+                  className="p-3 rounded-xl bg-white border-[3px] border-ink shadow-hard-sm hover:bg-yellow flex items-center gap-2.5 text-left transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+                >
+                  <span className="text-2xl shrink-0">{cat.icon}</span>
+                  <span className="font-display font-bold text-sm text-ink truncate">
+                    {getCategoryTitle(cat, language)}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
-            <div className="font-display font-bold text-6xl sm:text-7xl text-p2 animate-bounce">
-              {countdown > 0 ? countdown : t('draft.countdownReady', language)}
+      {/* Countdown Modal with Big Number (3 - 2 - 1 - GO!) - Preserved as requested */}
+      {countdown !== null && selectedCat && (
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
+          <div className="card-paper max-w-sm w-full p-8 text-center flex flex-col items-center gap-4 animate-pop-in">
+            <span className="text-5xl">{selectedCat.icon}</span>
+            <h2 className="font-display font-black text-2xl text-ink">
+              {getCategoryTitle(selectedCat, language)}
+            </h2>
+            <div className="w-28 h-28 rounded-full bg-yellow border-[3px] border-ink shadow-hard flex items-center justify-center font-display font-black text-6xl text-ink">
+              {countdown === 0 ? t('draft.countdownReady', language) : countdown}
             </div>
           </div>
         </div>

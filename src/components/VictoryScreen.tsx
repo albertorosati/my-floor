@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import confetti from 'canvas-confetti';
-import { RotateCcw, Home, Trophy, Crown, Medal } from 'lucide-react';
+import { RotateCcw, Home } from 'lucide-react';
 import {
   DuelSummary,
   GameMode,
@@ -11,7 +11,6 @@ import {
 } from '../types/game';
 import { soundEngine } from '../engine/soundEffects';
 import { rankPartyPlayers } from '../utils/partyUtils';
-import { APP_VERSION } from '../config/version';
 import { t, localizePlayerName } from '../services/i18n';
 
 interface VictoryScreenProps {
@@ -84,120 +83,108 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
   const totalP2Correct = history.reduce((acc, h) => acc + h.p2Correct, 0);
 
   return (
-    <div className="h-[100dvh] max-h-[100dvh] w-full party-stage-bg flex flex-col items-center justify-center p-3 sm:p-6 text-center select-none overflow-hidden touch-none">
-      <div className="card-cream max-w-xl w-full rounded-3xl p-6 sm:p-8 flex flex-col items-center gap-5 animate-pop-in border-[4px] border-ink shadow-chunky max-h-[96dvh] overflow-y-auto">
-        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-gold border-[3px] border-ink shadow-chunky flex items-center justify-center text-4xl sm:text-5xl animate-bounce-soft shrink-0">
-          {isParty ? <Crown className="w-12 h-12 text-ink" /> : <Trophy className="w-12 h-12 text-ink" />}
+    <div className="h-[100dvh] max-h-[100dvh] w-full bg-bg flex flex-col items-center justify-center p-3 sm:p-6 text-center select-none overflow-hidden touch-none">
+      <div className="card-paper max-w-xl w-full p-6 sm:p-8 flex flex-col items-center gap-6 animate-pop-in max-h-[96dvh] overflow-y-auto">
+        <div className="w-24 h-24 rounded-2xl bg-yellow border-[3px] border-ink shadow-hard flex items-center justify-center text-5xl shrink-0">
+          {winner.avatar}
         </div>
 
         <div>
-          <span className="px-3.5 py-1 rounded-full bg-paper border-2 border-ink font-display font-bold text-xs uppercase text-ink">
+          <span className="px-4 py-1 rounded-full bg-yellow border-[3px] border-ink font-display font-black text-xs uppercase tracking-wider text-ink">
             {isParty
               ? t('party.champion', language)
               : isDraw
               ? t('victory.tieMatch', language)
               : t('victory.champion', language)}
           </span>
-          <h1 className="font-display font-black text-3xl sm:text-5xl text-ink mt-2">
+          <h1 className="font-display font-black text-3xl sm:text-5xl text-ink mt-3">
             {isDraw
               ? `${p1.avatar} ${t('victory.equalPoints', language)} ${p2.avatar}`
               : `${winner.avatar} ${localizePlayerName(winner.name, language)}`}
           </h1>
 
           {!isParty && (
-            <p className="text-ink/70 font-semibold text-sm mt-1">
+            <p className="text-ink/80 font-sans font-bold text-base mt-2">
               {t('victory.finalScore', language)}{' '}
-              <strong>
+              <span className="text-blue">
                 {localizePlayerName(p1.name, language)} {p1Score}
-              </strong>{' '}
+              </span>{' '}
               —{' '}
-              <strong>
+              <span className="text-red">
                 {p2Score} {localizePlayerName(p2.name, language)}
-              </strong>
+              </span>
             </p>
           )}
         </div>
 
         {/* Podio / Classifica Party oppure Statistiche 1v1 */}
         {isParty ? (
-          <div className="w-full flex flex-col gap-2 max-h-48 overflow-y-auto">
+          <div className="w-full flex flex-col divide-y-2 divide-ink/10 border-y-[3px] border-ink/20 py-1 max-h-48 overflow-y-auto">
             {partyRanked.map((p, idx) => (
               <div
                 key={p.id}
-                className={`p-2.5 sm:p-3 rounded-2xl border-2 border-ink flex items-center justify-between ${
-                  idx === 0
-                    ? 'bg-gold/30 shadow-sm'
-                    : 'bg-paper'
-                }`}
+                className="py-2.5 px-3 flex items-center justify-between"
               >
-                <div className="flex items-center gap-2.5">
-                  <span
-                    className={`w-7 h-7 rounded-xl font-display font-bold text-xs flex items-center justify-center ${
-                      idx === 0
-                        ? 'bg-gold text-ink border border-ink'
-                        : 'bg-ink text-cream'
-                    }`}
-                  >
-                    {idx === 0 ? '👑' : `#${idx + 1}`}
+                <div className="flex items-center gap-3">
+                  <span className="font-display font-black text-sm text-ink/70">
+                    #{idx + 1}
                   </span>
-                  <span className="text-xl sm:text-2xl">{p.avatar}</span>
+                  <span className="text-2xl">{p.avatar}</span>
                   <span className="font-display font-bold text-sm text-ink">
                     {localizePlayerName(p.name, language)}
                   </span>
                 </div>
-                <div className="px-2.5 py-0.5 rounded-lg bg-white border border-ink/20 font-display font-black text-sm text-ink">
+                <div className="font-display font-black text-sm text-ink">
                   {p.wins} {t('party.wins', language).toLowerCase()}
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <div className="w-full grid grid-cols-3 gap-2.5 bg-paper p-3 sm:p-4 rounded-2xl border-2 border-ink shrink-0">
-            <div>
-              <span className="text-xs font-bold text-ink/60 block">{t('victory.rounds', language)}</span>
-              <span className="font-display font-bold text-xl sm:text-2xl text-ink">
+          <div className="w-full flex items-center justify-around py-4 border-y-[3px] border-ink/20">
+            <div className="text-center">
+              <span className="text-xs font-bold text-ink/60 uppercase block">
+                {t('victory.rounds', language)}
+              </span>
+              <span className="font-display font-black text-3xl text-ink">
                 {history.length}
               </span>
             </div>
-            <div>
-              <span className="text-xs font-bold text-p1 block truncate">
-                {t('victory.playerPhotos', language, { name: localizePlayerName(p1.name, language) })}
+            <div className="text-center">
+              <span className="text-xs font-bold text-blue uppercase block truncate">
+                {localizePlayerName(p1.name, language)}
               </span>
-              <span className="font-display font-bold text-xl sm:text-2xl text-ink">
+              <span className="font-display font-black text-3xl text-blue">
                 {totalP1Correct}
               </span>
             </div>
-            <div>
-              <span className="text-xs font-bold text-p2 block truncate">
-                {t('victory.playerPhotos', language, { name: localizePlayerName(p2.name, language) })}
+            <div className="text-center">
+              <span className="text-xs font-bold text-red uppercase block truncate">
+                {localizePlayerName(p2.name, language)}
               </span>
-              <span className="font-display font-bold text-xl sm:text-2xl text-ink">
+              <span className="font-display font-black text-3xl text-red">
                 {totalP2Correct}
               </span>
             </div>
           </div>
         )}
 
-        {/* Pulsanti Azione */}
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 shrink-0">
+        {/* Action Buttons */}
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 shrink-0">
           <button
             onClick={onPlayAgain}
-            className="btn-push py-3 px-5 rounded-2xl bg-gold text-ink font-display font-bold text-base sm:text-lg flex items-center justify-center gap-2 border-2 border-ink"
+            className="btn-push py-3.5 px-5 rounded-xl bg-yellow text-ink font-display font-black text-base sm:text-lg flex items-center justify-center gap-2 border-[3px] border-ink shadow-hard active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
           >
             <RotateCcw className="w-5 h-5" />
             <span>{t('victory.rematch', language)}</span>
           </button>
           <button
             onClick={onBackToLobby}
-            className="btn-push py-3 px-5 rounded-2xl bg-white text-ink font-display font-bold text-base sm:text-lg flex items-center justify-center gap-2 border-2 border-ink"
+            className="btn-push py-3.5 px-5 rounded-xl bg-paper text-ink font-display font-bold text-base sm:text-lg flex items-center justify-center gap-2 border-[3px] border-ink shadow-hard active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
           >
             <Home className="w-5 h-5" />
             <span>{t('victory.backMenu', language)}</span>
           </button>
-        </div>
-
-        <div className="text-[11px] font-mono text-ink/40">
-          v{APP_VERSION}
         </div>
       </div>
     </div>

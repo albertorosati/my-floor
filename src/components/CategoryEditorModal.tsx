@@ -85,9 +85,9 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
     const newCat: Category = {
       id: `cat-custom-${Date.now()}`,
       name: name.trim(),
-      subtitle: subtitle.trim() || 'Categoria personalizzata',
+      subtitle: subtitle.trim() || 'Custom Category',
       icon: icon || '⭐',
-      themeHex: '#FFB800',
+      themeHex: '#FFC933',
       coverImage: items[0]?.imageUrl,
       items,
       isCustom: true,
@@ -114,7 +114,7 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'the-floor-categorie-custom.json';
+    a.download = 'the-floor-categories.json';
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -132,28 +132,31 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
           onCategoriesUpdated();
         }
       } catch {
-        alert('File JSON non valido');
+        alert(language === 'en' ? 'Invalid JSON file' : 'File JSON non valido');
       }
     };
     reader.readAsText(file);
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-      <div className="card-cream max-w-5xl w-full max-h-[90vh] rounded-3xl flex flex-col overflow-hidden">
+    <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4 overflow-y-auto">
+      <div className="card-paper max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden">
         {/* Header */}
         <div className="p-5 bg-paper border-b-[3px] border-ink flex items-center justify-between">
           <div>
-            <h2 className="font-display font-bold text-2xl text-ink">
-              Mazzo Categorie ({allCategories.length})
+            <h2 className="font-display font-black text-2xl text-ink">
+              {language === 'en' ? `Category Deck (${allCategories.length})` : `Mazzo Categorie (${allCategories.length})`}
             </h2>
-            <p className="text-xs text-ink/70 font-medium">
-              Sfoglia le categorie incluse o creane di tue con foto dal PC o link
+            <p className="text-xs text-ink/70 font-sans font-medium">
+              {language === 'en'
+                ? 'Browse included categories or create your own with custom photos.'
+                : 'Sfoglia le categorie incluse o creane di tue con foto dal PC o link.'}
             </p>
           </div>
           <button
             onClick={onClose}
-            className="btn-push p-2 rounded-xl bg-white text-ink"
+            aria-label="Close"
+            className="btn-push p-2 rounded-xl bg-paper border-[3px] border-ink text-ink"
           >
             <X className="w-5 h-5" />
           </button>
@@ -161,39 +164,39 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
 
         {/* Body */}
         <div className="p-6 overflow-y-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Crea nuova categoria */}
-          <div className="lg:col-span-6 flex flex-col gap-4 bg-paper p-5 rounded-2xl border-2 border-ink">
-            <h3 className="font-display font-bold text-lg text-ink">
-              Crea una tua categoria
+          {/* Create new category */}
+          <div className="lg:col-span-6 flex flex-col gap-4">
+            <h3 className="font-display font-black text-lg text-ink">
+              {language === 'en' ? 'Create a category' : 'Crea una tua categoria'}
             </h3>
 
             <div className="grid grid-cols-4 gap-2.5">
               <div className="col-span-1">
-                <label className="text-[11px] font-bold text-ink/60 block mb-1">
-                  Icona
+                <label className="text-xs font-bold text-ink/70 block mb-1">
+                  {language === 'en' ? 'Icon' : 'Icona'}
                 </label>
                 <input
                   type="text"
                   value={icon}
                   onChange={(e) => setIcon(e.target.value)}
-                  className="w-full px-2 py-2 rounded-xl bg-white border-2 border-ink/25 text-center text-xl"
+                  className="w-full px-2 py-2 rounded-xl bg-white border-[3px] border-ink text-center text-xl"
                 />
               </div>
               <div className="col-span-3">
-                <label className="text-[11px] font-bold text-ink/60 block mb-1">
-                  Titolo categoria
+                <label className="text-xs font-bold text-ink/70 block mb-1">
+                  {language === 'en' ? 'Category title' : 'Titolo categoria'}
                 </label>
                 <input
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Es. Amici del gruppo, Meme interni..."
-                  className="w-full px-3 py-2 rounded-xl bg-white border-2 border-ink/25 text-sm font-bold text-ink"
+                  placeholder={language === 'en' ? 'e.g. Friends, Memes...' : 'Es. Amici del gruppo, Meme...'}
+                  className="w-full px-3 py-2 rounded-xl bg-white border-[3px] border-ink text-sm font-bold text-ink"
                 />
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-white border-2 border-ink/20 flex flex-col gap-2.5">
+            <div className="p-4 rounded-2xl bg-white border-[3px] border-ink flex flex-col gap-2.5">
               <span className="text-xs font-bold text-ink">
                 {t('editor.addSubject', language, { n: items.length })}
               </span>
@@ -204,14 +207,14 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
                   value={itemAnswer}
                   onChange={(e) => setItemAnswer(e.target.value)}
                   placeholder={t('editor.answer', language)}
-                  className="px-3 py-2 rounded-lg bg-paper border border-ink/25 text-xs text-ink font-semibold"
+                  className="px-3 py-2 rounded-xl bg-paper border-[3px] border-ink text-xs text-ink font-bold"
                 />
                 <input
                   type="text"
                   value={itemAliases}
                   onChange={(e) => setItemAliases(e.target.value)}
                   placeholder={t('editor.aliases', language)}
-                  className="px-3 py-2 rounded-lg bg-paper border border-ink/25 text-xs text-ink"
+                  className="px-3 py-2 rounded-xl bg-paper border-[3px] border-ink text-xs text-ink font-semibold"
                 />
               </div>
 
@@ -221,9 +224,9 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
                   value={itemImageUrl}
                   onChange={(e) => setItemImageUrl(e.target.value)}
                   placeholder={t('editor.urls', language)}
-                  className="flex-1 px-3 py-2 rounded-lg bg-paper border border-ink/25 text-xs text-ink"
+                  className="flex-1 px-3 py-2 rounded-xl bg-paper border-[3px] border-ink text-xs text-ink font-semibold"
                 />
-                <label className="btn-push px-3 py-2 rounded-lg bg-gold text-ink text-xs font-display font-bold cursor-pointer flex items-center gap-1.5">
+                <label className="btn-push px-3 py-2 rounded-xl bg-yellow text-ink text-xs font-display font-black cursor-pointer flex items-center gap-1.5 border-[3px] border-ink shadow-hard-sm">
                   <ImageIcon className="w-3.5 h-3.5" />
                   <span>{t('editor.upload', language)}</span>
                   <input
@@ -238,15 +241,15 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
 
               {itemUploadedUrls.length > 0 && (
                 <div className="flex items-center gap-1.5 overflow-x-auto py-1">
-                  <span className="text-[10px] font-bold text-ink/60 whitespace-nowrap">
-                    {itemUploadedUrls.length} caricate:
+                  <span className="text-xs font-bold text-ink/70 whitespace-nowrap">
+                    {itemUploadedUrls.length} {language === 'en' ? 'uploaded:' : 'caricate:'}
                   </span>
                   {itemUploadedUrls.map((url, i) => (
                     <div key={i} className="relative group shrink-0">
                       <img
                         src={url}
                         alt="Preview"
-                        className="w-8 h-8 rounded-md object-cover border border-ink/20"
+                        className="w-9 h-9 rounded-lg object-cover border-[3px] border-ink"
                       />
                       <button
                         type="button"
@@ -255,7 +258,7 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
                             prev.filter((_, idx) => idx !== i)
                           )
                         }
-                        className="absolute -top-1 -right-1 bg-p2 text-white rounded-full w-3.5 h-3.5 flex items-center justify-center text-[9px] font-bold"
+                        className="absolute -top-1 -right-1 bg-red text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] font-black border border-ink"
                       >
                         ×
                       </button>
@@ -267,7 +270,7 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
               <button
                 onClick={handleAddItem}
                 disabled={!itemAnswer.trim() || (!itemImageUrl.trim() && itemUploadedUrls.length === 0)}
-                className="btn-push w-full py-2 rounded-xl bg-p1 text-white font-display font-bold text-xs flex items-center justify-center gap-1.5"
+                className="btn-push w-full py-2.5 rounded-xl bg-blue text-white font-display font-black text-xs flex items-center justify-center gap-1.5 border-[3px] border-ink shadow-hard-sm disabled:opacity-50"
               >
                 <Plus className="w-4 h-4" />
                 <span>{t('editor.addBtn', language)}</span>
@@ -279,13 +282,13 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
                 {items.map((it, idx) => (
                   <div
                     key={it.id}
-                    className="px-3 py-1.5 rounded-lg bg-white border border-ink/20 flex items-center justify-between text-xs text-ink"
+                    className="px-3 py-1.5 rounded-xl bg-white border-[3px] border-ink flex items-center justify-between text-xs text-ink font-bold"
                   >
                     <div className="flex items-center gap-2 truncate">
-                      <span className="truncate font-semibold">
+                      <span className="truncate">
                         {idx + 1}. {it.answer}
                       </span>
-                      <span className="text-[10px] bg-paper px-1.5 py-0.5 rounded font-mono font-bold text-ink/60 border border-ink/10 shrink-0">
+                      <span className="text-[10px] bg-paper px-2 py-0.5 rounded-full border border-ink/30 shrink-0">
                         📸 {(it.imageUrls && it.imageUrls.length) || 1} {t('arena.photos', language)}
                       </span>
                     </div>
@@ -293,9 +296,9 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
                       onClick={() =>
                         setItems((prev) => prev.filter((x) => x.id !== it.id))
                       }
-                      className="text-p2 hover:opacity-75 shrink-0 ml-2"
+                      className="text-red hover:opacity-75 shrink-0 ml-2"
                     >
-                      <Trash2 className="w-3.5 h-3.5" />
+                      <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
                 ))}
@@ -305,28 +308,28 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
             <button
               onClick={handleSaveCategory}
               disabled={!name.trim() || items.length < 3}
-              className="btn-push w-full py-3 rounded-xl bg-mint text-ink font-display font-bold text-sm"
+              className="btn-push w-full py-3 rounded-xl bg-green text-ink font-display font-black text-sm border-[3px] border-ink shadow-hard active:translate-x-[2px] active:translate-y-[2px] active:shadow-none disabled:opacity-50"
             >
               {t('editor.saveBtn', language, { n: items.length })}
             </button>
           </div>
 
-          {/* Lista categorie */}
+          {/* Active categories list */}
           <div className="lg:col-span-6 flex flex-col justify-between gap-4">
             <div>
               <div className="flex items-center justify-between mb-3">
-                <h3 className="font-display font-bold text-lg text-ink">
+                <h3 className="font-display font-black text-lg text-ink">
                   {language === 'en' ? 'Active Categories' : 'Categorie attive'}
                 </h3>
                 <div className="flex items-center gap-2">
                   <button
                     onClick={handleExportJson}
-                    className="px-2.5 py-1.5 rounded-lg bg-paper border border-ink/30 text-xs font-bold text-ink flex items-center gap-1"
+                    className="btn-push px-3 py-1.5 rounded-xl bg-paper border-[3px] border-ink text-xs font-bold text-ink flex items-center gap-1 shadow-hard-sm"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>{t('editor.exportBtn', language)}</span>
                   </button>
-                  <label className="px-2.5 py-1.5 rounded-lg bg-paper border border-ink/30 text-xs font-bold text-ink flex items-center gap-1 cursor-pointer">
+                  <label className="btn-push px-3 py-1.5 rounded-xl bg-paper border-[3px] border-ink text-xs font-bold text-ink flex items-center gap-1 cursor-pointer shadow-hard-sm">
                     <Upload className="w-3.5 h-3.5" />
                     <span>{t('editor.importBtn', language)}</span>
                     <input
@@ -345,54 +348,21 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
                   return (
                     <div
                       key={cat.id}
-                      className="p-2.5 rounded-xl bg-paper border-2 border-ink/20 flex items-center justify-between gap-2.5 shadow-sm"
+                      className="p-2.5 rounded-xl bg-white border-[3px] border-ink flex items-center justify-between gap-2.5 shadow-hard-sm"
                     >
                       <div className="flex items-center gap-2.5 min-w-0">
-                        {/* Thumbnail tematico */}
-                        <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-[#181226] border border-ink/30 shrink-0 flex items-center justify-center">
-                          {cover && (
-                            <>
-                              <img
-                                src={cover}
-                                alt=""
-                                aria-hidden="true"
-                                decoding="async"
-                                loading="lazy"
-                                className="absolute inset-0 w-full h-full object-cover blur-sm scale-110 opacity-40 pointer-events-none"
-                              />
-                              <img
-                                src={cover}
-                                alt=""
-                                decoding="async"
-                                loading="lazy"
-                                onLoad={(e) => {
-                                  e.currentTarget.classList.remove('opacity-0');
-                                  e.currentTarget.classList.add('opacity-100');
-                                }}
-                                onError={(e) => {
-                                  const img = e.currentTarget;
-                                  if (!img.dataset.fallback) {
-                                    img.dataset.fallback = '1';
-                                    img.src = getBackupImageUrl(cover);
-                                  }
-                                }}
-                                className="relative z-10 max-w-full max-h-full object-contain p-0.5 transition-opacity duration-200 opacity-0"
-                              />
-                            </>
-                          )}
-                          <div className="absolute top-0.5 left-0.5 w-4 h-4 rounded-md bg-cream/90 border border-ink/40 flex items-center justify-center text-[10px] z-20">
-                            {cat.icon}
-                          </div>
+                        <div className="w-10 h-10 rounded-lg bg-yellow border-[3px] border-ink shrink-0 flex items-center justify-center text-xl">
+                          {cat.icon}
                         </div>
 
                         <div className="min-w-0">
                           <div className="font-display font-bold text-xs sm:text-sm text-ink truncate">
                             {cat.name}
                           </div>
-                          <div className="text-[10px] font-semibold text-ink/60">
-                            {cat.items.length} foto{' '}
+                          <div className="text-[10px] font-bold text-ink/60">
+                            {cat.items.length} {language === 'en' ? 'photos' : 'foto'}{' '}
                             {cat.isCustom && (
-                              <span className="text-p1 font-bold">• Tua</span>
+                              <span className="text-blue font-bold">• {language === 'en' ? 'Custom' : 'Tua'}</span>
                             )}
                           </div>
                         </div>
@@ -400,7 +370,8 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
                       {cat.isCustom && (
                         <button
                           onClick={() => handleDeleteCustomCategory(cat.id)}
-                          className="p-1.5 text-p2 hover:bg-p2Light rounded-lg shrink-0"
+                          aria-label="Delete"
+                          className="p-1.5 text-red hover:opacity-75 rounded-lg shrink-0"
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>
@@ -413,7 +384,7 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
 
             <button
               onClick={onClose}
-              className="btn-push w-full py-3 rounded-xl bg-white text-ink font-display font-bold text-sm"
+              className="btn-push w-full py-3 rounded-xl bg-paper text-ink font-display font-bold text-sm border-[3px] border-ink shadow-hard active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
             >
               {t('editor.close', language)}
             </button>

@@ -7,10 +7,7 @@ import {
   Pause,
   Play,
   Radio,
-  AlertTriangle,
-  Trophy,
   ArrowRight,
-  Sparkles,
 } from 'lucide-react';
 import {
   Category,
@@ -27,13 +24,11 @@ import { soundEngine } from '../engine/soundEffects';
 import { hapticsService } from '../services/hapticsService';
 import {
   getBackupImageUrl,
-  getItemImagePool,
   isImageCached,
   prepareArenaDeck,
   primeImage,
 } from '../data/categories';
 import { gameConfig } from '../services/configService';
-import { APP_VERSION } from '../config/version';
 import { t, localizePlayerName } from '../services/i18n';
 
 interface DuelArenaScreenProps {
@@ -91,7 +86,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
   const [micErrorMsg, setMicErrorMsg] = useState<string | null>(null);
   const [usingBackupUrl, setUsingBackupUrl] = useState(false);
 
-  // Sequenza di fine duello super animata:
+  // Sequenza di fine duello:
   const [duelFinishPhase, setDuelFinishPhase] = useState<'reveal' | 'winner' | null>(null);
   const [duelFinishData, setDuelFinishData] = useState<{
     winner: PlayerId;
@@ -112,7 +107,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
 
   const [imageLoaded, setImageLoaded] = useState(() => isImageCached(displaySrc));
 
-  // Quando cambia l'immagine corrente, controlla se è già in cache GPU o ne forza la decodifica istantanea
+  // Precaricamento GPU
   useEffect(() => {
     const cached = isImageCached(displaySrc);
     setImageLoaded(cached);
@@ -121,13 +116,11 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         .then(() => {
           setImageLoaded(true);
         })
-        .catch(() => {
-          // In caso di errore interverrà onError dell'elemento img
-        });
+        .catch(() => {});
     }
   }, [displaySrc]);
 
-  // Preloader rolling: decodifica offscreen via GPU le prossime fotografie configurate
+  // Preloader rolling
   useEffect(() => {
     const preloadCount = gameConfig.options.preloaderWindowSize;
     for (let offset = 1; offset <= preloadCount; offset++) {
@@ -145,7 +138,6 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
           resolvedUrlsRef.current.set(candidate.id, candidate.imageUrl);
         })
         .catch(() => {
-          // Prova subito il proxy WebP di emergenza
           const backup = getBackupImageUrl(candidate.imageUrl);
           primeImage(backup)
             .then(() => {
@@ -347,7 +339,6 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     setMicErrorMsg(null);
     const rec = new SmartSpeechRecognizer(
       (alternatives) => {
-        // Passa sempre l'activePlayer corrente (funziona per entrambi i giocatori anche in single-screen!)
         processSpokenAlternativesRef.current(
           alternatives,
           stateRef.current.activePlayer
@@ -368,7 +359,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     );
     recognizerRef.current = rec;
     rec.start();
-  }, []);
+  }, [settings.language]);
 
   useEffect(() => {
     startMicSession();
@@ -467,7 +458,6 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         summary,
       });
 
-      // 1. Schock visivo e svelamento dell'ultima risposta non data
       setScreenShake(true);
       soundEngine.playTimeOutBuzzer();
       soundEngine.playRevealAnswer();
@@ -480,7 +470,6 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         setScreenShake(false);
       }, 550);
 
-      // 2. Dopo 2.4 secondi, passa alla celebrazione del vincitore
       setTimeout(() => {
         setDuelFinishPhase('winner');
         soundEngine.playGrandFanfare();
@@ -493,32 +482,13 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
           t('arena.pointScoredAnnounce', settings.language, { name: winName })
         );
 
-        // Coriandoli e scintille dorate
         confetti({
           particleCount: 90,
           spread: 80,
           origin: { y: 0.55 },
-          colors: ['#FFB800', '#FF4757', '#2563EB', '#10B981', '#FFFFFF'],
+          colors: ['#FFC933', '#FF3D6E', '#2F6BFF', '#19C37D', '#FFFFFF'],
         });
 
-        setTimeout(() => {
-          confetti({
-            particleCount: 50,
-            angle: 60,
-            spread: 60,
-            origin: { x: 0.1, y: 0.7 },
-            colors: ['#FFB800', '#FF007A', '#00F0FF'],
-          });
-          confetti({
-            particleCount: 50,
-            angle: 120,
-            spread: 60,
-            origin: { x: 0.9, y: 0.7 },
-            colors: ['#FFB800', '#FF007A', '#00F0FF'],
-          });
-        }, 280);
-
-        // 3. Procede alla selezione della categoria successiva
         finishTimerRef.current = setTimeout(() => {
           onDuelFinished(summary);
         }, 3600);
@@ -532,6 +502,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
       p1,
       p2,
       roundNumber,
+      settings.language,
     ]
   );
 
@@ -620,500 +591,297 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
     return () => clearInterval(interval);
   }, [
     advanceToNextImage,
-    category.id,
-    category.icon,
-    category.name,
-    onDuelFinished,
-    roundNumber,
+    handleTimeExpired,
   ]);
-
-  const urgentLimit = gameConfig.options.urgentThresholdSeconds;
-  const p1Urgent = activePlayer === 'p1' && timeP1 <= urgentLimit;
-  const p2Urgent = activePlayer === 'p2' && timeP2 <= urgentLimit;
-  const isUrgentNow = p1Urgent || p2Urgent;
 
   return (
     <div
-      className={`h-[100dvh] max-h-[100dvh] w-full party-stage-bg flex flex-col justify-between p-2.5 sm:p-4 md:p-6 select-none overflow-hidden touch-none ${
+      className={`h-[100dvh] max-h-[100dvh] w-full bg-bg text-ink flex flex-col justify-between p-3 sm:p-5 select-none overflow-hidden touch-none ${
         screenShake ? 'animate-screen-shake' : ''
       }`}
     >
-      {/* Vignettatura Arcade Rosso Emergenza negli Ultimi 5 Secondi */}
-      {isUrgentNow && !duelFinishPhase && (
-        <div className="fixed inset-0 pointer-events-none z-30 ring-inset ring-[10px] sm:ring-[18px] ring-p2/50 animate-emergency" />
-      )}
-
-      {/* Barra Superiore: Categoria & Pausa */}
-      <header className="max-w-6xl w-full mx-auto flex items-center justify-between gap-3 shrink-0">
-        <div className="flex items-center gap-2.5 min-w-0">
-          <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-gold border-[2.5px] border-ink shadow-chunky-sm flex items-center justify-center text-xl sm:text-2xl shrink-0">
-            {category.icon}
-          </div>
-          <div className="min-w-0">
-            <span className="text-[10px] sm:text-xs font-bold text-cream/60 block leading-tight">
-              Round {roundNumber}
-            </span>
-            <h1 className="font-display font-bold text-base sm:text-2xl text-cream leading-tight truncate">
-              {category.name}
-            </h1>
-          </div>
+      {/* 1. TOP BAR: Category name left, pause right */}
+      <header className="max-w-5xl w-full mx-auto flex items-center justify-between gap-3 shrink-0">
+        <div className="flex items-center gap-2 text-paper min-w-0">
+          <span className="text-2xl sm:text-3xl shrink-0">{category.icon}</span>
+          <h1 className="font-display font-black text-xl sm:text-2xl truncate">
+            {category.name}
+          </h1>
         </div>
 
         <button
           onClick={() => setIsPaused((p) => !p)}
-          className="btn-push px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-cream text-ink font-display font-bold text-xs flex items-center gap-1.5 shrink-0"
+          className="btn-push px-4 py-1.5 rounded-xl bg-paper text-ink font-display font-bold text-sm flex items-center gap-1.5 shrink-0"
+          aria-label={isPaused ? t('arena.resume', settings.language) : t('arena.pause', settings.language)}
         >
-          {isPaused ? (
-            <>
-              <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-mint" />
-              <span>Riprendi</span>
-            </>
-          ) : (
-            <>
-              <Pause className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-ink" />
-              <span>Pausa</span>
-            </>
-          )}
+          {isPaused ? <Play className="w-4 h-4 text-green" /> : <Pause className="w-4 h-4" />}
+          <span>{isPaused ? t('arena.resume', settings.language) : t('arena.pause', settings.language)}</span>
         </button>
       </header>
 
-      {/* Barra Cronometri Mobile (Visibili entrambi fianco a fianco, zero scroll verticale!) */}
-      <div className="grid grid-cols-2 gap-2 w-full max-w-6xl mx-auto my-1 lg:hidden shrink-0">
-        {/* P1 Compact Card Mobile */}
+      {/* 2. MAIN DUEL STAGE */}
+      <main className="max-w-5xl w-full mx-auto my-auto flex-1 flex flex-col lg:flex-row lg:items-center lg:justify-between lg:gap-6 min-h-0">
+        {/* Player 1 Card (Desktop: Left) */}
         <div
-          className={`p-2 rounded-2xl border-2 border-ink flex items-center justify-between gap-2 transition-all duration-150 ${
+          className={`hidden lg:flex w-52 p-5 rounded-card border-[3px] border-ink flex-col items-center justify-center gap-2 text-center transition-all duration-100 ${
             activePlayer === 'p1'
-              ? p1Urgent
-                ? 'bg-p2 text-white shadow-chunky-sm scale-[1.01] animate-pulse ring-2 ring-white/50'
-                : 'bg-p1 text-white shadow-chunky-sm scale-[1.01]'
-              : 'bg-cream/90 text-ink opacity-65'
+              ? 'bg-blue text-white shadow-hard'
+              : 'bg-paper text-ink opacity-60 shadow-hard'
           }`}
         >
-          <div className="flex items-center gap-1.5 min-w-0">
-            <span className="text-2xl shrink-0">{p1.avatar}</span>
-            <div className="min-w-0">
-              <div className="font-display font-bold text-xs truncate leading-tight">
-                {p1.name}
-              </div>
-              <div className="text-[10px] font-bold opacity-85">
-                ✓ {p1Correct}
-              </div>
-            </div>
-          </div>
-          <div className="font-mono font-black text-2xl sm:text-3xl tracking-tight shrink-0">
+          <span className="text-4xl">{p1.avatar}</span>
+          <span className="font-display font-bold text-lg truncate max-w-full">
+            {p1.name}
+          </span>
+          <span className="font-display font-black text-5xl tracking-tight my-1">
             {timeP1.toFixed(1)}
+          </span>
+          <span className="text-xs font-bold opacity-80">
+            {p1Correct} pts
+          </span>
+        </div>
+
+        {/* Hero Photo: ~65% height on plain background, ONE 3px ink outline + shadow */}
+        <div className="flex-1 min-h-0 w-full h-full max-h-[65vh] flex items-center justify-center relative">
+          <div className="w-full h-full rounded-card border-[3px] border-ink shadow-hard overflow-hidden bg-black flex items-center justify-center relative">
+            {/* Reveal on timeout */}
+            {duelFinishPhase === 'reveal' && duelFinishData && (
+              <div className="absolute inset-0 bg-paper z-30 flex flex-col items-center justify-center p-6 text-center text-ink animate-pop-in">
+                <span className="font-display font-bold text-sm text-ink/70 uppercase tracking-wider mb-2">
+                  {settings.language === 'en' ? 'Time ran out! Answer was:' : 'Tempo scaduto! Era:'}
+                </span>
+                <h3 className="font-display font-black text-3xl sm:text-5xl text-ink">
+                  {duelFinishData.lastItem.answer}
+                </h3>
+              </div>
+            )}
+
+            {/* Correct Flash */}
+            {correctFlash && (
+              <div className="absolute inset-0 bg-green text-ink z-20 flex flex-col items-center justify-center p-6 text-center animate-pop-in">
+                <div className="w-16 h-16 rounded-full bg-paper border-[3px] border-ink shadow-hard-sm flex items-center justify-center mb-3">
+                  <Check className="w-9 h-9 text-green stroke-[3]" />
+                </div>
+                <h3 className="font-display font-black text-3xl sm:text-5xl">
+                  {correctFlash.answer}
+                </h3>
+              </div>
+            )}
+
+            {/* Pass Penalty (3s) */}
+            {!correctFlash && passPenaltyLeft > 0 && (
+              <div className="absolute inset-0 bg-yellow text-ink z-20 flex flex-col items-center justify-center p-6 text-center animate-pop-in">
+                <span className="font-display font-bold text-sm uppercase tracking-wider mb-1">
+                  {settings.language === 'en' ? 'Pass! Answer:' : 'Passo! Era:'}
+                </span>
+                <h3 className="font-display font-black text-2xl sm:text-4xl mb-3">
+                  {currentItem.answer}
+                </h3>
+                <span className="font-display font-black text-5xl">
+                  {passPenaltyLeft.toFixed(1)}s
+                </span>
+              </div>
+            )}
+
+            {/* The Photo */}
+            {!correctFlash && passPenaltyLeft === 0 && (
+              <img
+                key={`${currentItem.id}-${usingBackupUrl ? 'b' : 'p'}`}
+                src={displaySrc}
+                alt={currentItem.answer}
+                decoding="async"
+                loading="eager"
+                onLoad={() => setImageLoaded(true)}
+                onError={() => {
+                  if (!usingBackupUrl) {
+                    setUsingBackupUrl(true);
+                  } else {
+                    brokenIdsRef.current.add(currentItem.id);
+                    advanceToNextImage();
+                  }
+                }}
+                className={`max-w-full max-h-full w-auto h-auto object-contain transition-opacity duration-100 ${
+                  imageLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
+              />
+            )}
           </div>
         </div>
 
-        {/* P2 Compact Card Mobile */}
+        {/* Player 2 Card (Desktop: Right) */}
         <div
-          className={`p-2 rounded-2xl border-2 border-ink flex items-center justify-between gap-2 transition-all duration-150 ${
+          className={`hidden lg:flex w-52 p-5 rounded-card border-[3px] border-ink flex-col items-center justify-center gap-2 text-center transition-all duration-100 ${
             activePlayer === 'p2'
-              ? p2Urgent
-                ? 'bg-p2 text-white shadow-chunky-sm scale-[1.01] animate-pulse ring-2 ring-white/50'
-                : 'bg-p2 text-white shadow-chunky-sm scale-[1.01]'
-              : 'bg-cream/90 text-ink opacity-65'
+              ? 'bg-red text-white shadow-hard'
+              : 'bg-paper text-ink opacity-60 shadow-hard'
           }`}
         >
-          <div className="font-mono font-black text-2xl sm:text-3xl tracking-tight shrink-0">
+          <span className="text-4xl">{p2.avatar}</span>
+          <span className="font-display font-bold text-lg truncate max-w-full">
+            {p2.name}
+          </span>
+          <span className="font-display font-black text-5xl tracking-tight my-1">
             {timeP2.toFixed(1)}
-          </div>
-          <div className="flex items-center gap-1.5 min-w-0 text-right justify-end">
+          </span>
+          <span className="text-xs font-bold opacity-80">
+            {p2Correct} pts
+          </span>
+        </div>
+      </main>
+
+      {/* Mobile Player Cards (Row directly below photo) */}
+      <div className="grid grid-cols-2 gap-3 w-full max-w-5xl mx-auto my-2 lg:hidden shrink-0">
+        <div
+          className={`p-3 rounded-card border-[3px] border-ink flex items-center justify-between gap-2 transition-all ${
+            activePlayer === 'p1'
+              ? 'bg-blue text-white shadow-hard'
+              : 'bg-paper text-ink opacity-60 shadow-hard'
+          }`}
+        >
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="text-2xl shrink-0">{p1.avatar}</span>
             <div className="min-w-0">
-              <div className="font-display font-bold text-xs truncate leading-tight">
+              <span className="font-display font-bold text-xs truncate block leading-tight">
+                {p1.name}
+              </span>
+              <span className="text-[10px] font-bold opacity-80 block">
+                {p1Correct} pts
+              </span>
+            </div>
+          </div>
+          <span className="font-display font-black text-2xl shrink-0">
+            {timeP1.toFixed(1)}
+          </span>
+        </div>
+
+        <div
+          className={`p-3 rounded-card border-[3px] border-ink flex items-center justify-between gap-2 transition-all ${
+            activePlayer === 'p2'
+              ? 'bg-red text-white shadow-hard'
+              : 'bg-paper text-ink opacity-60 shadow-hard'
+          }`}
+        >
+          <span className="font-display font-black text-2xl shrink-0">
+            {timeP2.toFixed(1)}
+          </span>
+          <div className="flex items-center gap-2 min-w-0 text-right justify-end">
+            <div className="min-w-0">
+              <span className="font-display font-bold text-xs truncate block leading-tight">
                 {p2.name}
-              </div>
-              <div className="text-[10px] font-bold opacity-85">
-                ✓ {p2Correct}
-              </div>
+              </span>
+              <span className="text-[10px] font-bold opacity-80 block">
+                {p2Correct} pts
+              </span>
             </div>
             <span className="text-2xl shrink-0">{p2.avatar}</span>
           </div>
         </div>
       </div>
 
-      {/* Palco Centrale: Timer P1 Desktop | Grande Cornice Fotografica Responsiva | Timer P2 Desktop */}
-      <main className="max-w-6xl w-full mx-auto my-1 sm:my-2 flex-1 min-h-0 flex flex-col lg:grid lg:grid-cols-12 lg:gap-5 lg:items-center">
-        {/* Blocco Cronometro Giocatore 1 (Desktop) */}
-        <div
-          className={`hidden lg:flex lg:col-span-3 rounded-3xl border-[3px] border-ink p-5 flex-col items-center gap-3 transition-all duration-200 ${
-            activePlayer === 'p1'
-              ? p1Urgent
-                ? 'bg-p2 text-white shadow-chunky-lg scale-[1.03] animate-pulse'
-                : 'bg-p1 text-white shadow-chunky-lg scale-[1.03]'
-              : 'bg-cream/90 text-ink opacity-60 shadow-chunky-sm'
-          }`}
-        >
-          <span className="text-4xl">{p1.avatar}</span>
-          <h2 className="font-display font-bold text-xl truncate max-w-full">
-            {p1.name}
-          </h2>
-          {activePlayer === 'p1' && (
-            <span className="px-3 py-0.5 rounded-full bg-gold text-ink border-2 border-ink font-display font-bold text-xs">
-              Tocca a te!
-            </span>
-          )}
-
-          <div className="font-mono font-extrabold text-5xl sm:text-6xl tracking-tight my-1">
-            {timeP1.toFixed(1)}
-          </div>
-
-          <div className="w-full h-3 bg-black/25 rounded-full overflow-hidden border border-black/20">
-            <div
-              className="h-full bg-gold transition-all duration-100"
-              style={{
-                width: `${(timeP1 / settings.duelDurationSeconds) * 100}%`,
-              }}
-            />
-          </div>
-
-          <div className="text-xs font-bold opacity-85">
-            Indovinate: {p1Correct}
-          </div>
-        </div>
-
-        {/* Cornice Centrale della Fotografia Vera (Occupa tutto lo spazio libero in altezza senza scroll!) */}
-        <div className="flex-1 min-h-0 w-full lg:col-span-6 flex flex-col h-full justify-center relative">
-          {/* Badge Arcade Combo Multiplier Fluttuante */}
-          {streak >= 2 && !correctFlash && passPenaltyLeft === 0 && !duelFinishPhase && (
-            <div className="absolute top-2.5 left-1/2 -translate-x-1/2 z-30 animate-combo-pop pointer-events-none">
-              <div
-                className={`px-3.5 py-1 rounded-full border-2 border-ink font-display font-black text-xs sm:text-sm tracking-wide shadow-chunky-sm flex items-center gap-1.5 ${
-                  streak >= 5
-                    ? 'bg-gradient-to-r from-gold via-mint to-gold text-ink animate-bounce'
-                    : streak >= 3
-                    ? 'bg-gradient-to-r from-gold to-p2 text-white animate-pulse'
-                    : 'bg-gold text-ink'
-                }`}
-              >
-                <span>{streak >= 5 ? '👑' : streak >= 3 ? '⚡' : '🔥'}</span>
-                <span>
-                  {streak >= 5
-                    ? `GOD MODE x${streak}!`
-                    : streak >= 3
-                    ? `ON FIRE x${streak}!`
-                    : `COMBO x${streak}`}
-                </span>
-              </div>
-            </div>
-          )}
-
-          <div
-            className={`relative w-full flex-1 min-h-0 rounded-2xl sm:rounded-3xl border-[3px] sm:border-[4px] border-ink shadow-chunky-lg overflow-hidden flex items-center justify-center transition-all duration-200 ${
-              streak >= 3 ? 'animate-fire-aura' : ''
-            } ${
-              correctFlash
-                ? 'bg-mint'
-                : passPenaltyLeft > 0
-                ? 'bg-gold'
-                : 'bg-[radial-gradient(circle,#ffffff_0%,#f7f2e7_68%,#e6decb_100%)]'
-            }`}
-          >
-            {/* Schermata Svelamento Ultima Risposta non data a tempo scaduto */}
-            {duelFinishPhase === 'reveal' && duelFinishData && (
-              <div className="absolute inset-0 bg-black/75 backdrop-blur-md z-30 flex flex-col items-center justify-center p-4 sm:p-6 text-center animate-reveal-pop">
-                <div className="px-4 py-1.5 rounded-full bg-p2 text-white border-[2.5px] border-ink font-display font-bold text-xs uppercase tracking-wider shadow-chunky-sm mb-2.5 flex items-center gap-1.5 animate-bounce">
-                  <AlertTriangle className="w-4 h-4" />
-                  <span>Tempo Scaduto!</span>
-                </div>
-                <span className="text-xs uppercase tracking-widest font-bold text-cream/70 mb-1">
-                  L’ultima risposta corretta era:
-                </span>
-                <h3 className="font-display font-black text-2xl sm:text-4xl text-gold drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)] max-w-lg leading-tight animate-reveal-pop">
-                  {duelFinishData.lastItem.answer}
-                </h3>
-                <div className="mt-3 px-4 py-1.5 rounded-xl bg-white/10 text-cream/90 text-xs font-semibold backdrop-blur-sm border border-white/15">
-                  Assegnazione vittoria in corso...
-                </div>
-              </div>
-            )}
-
-            {/* Flash Risposta Indovinata con Badge Clutch e Streak */}
-            {correctFlash && (
-              <div className="p-4 sm:p-6 text-center text-ink flex flex-col items-center gap-2 sm:gap-2.5 animate-pop-in z-20">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-cream border-[3px] border-ink flex items-center justify-center shadow-chunky-sm">
-                  <Check className="w-8 h-8 sm:w-9 sm:h-9 text-mint stroke-[3]" />
-                </div>
-                {correctFlash.isClutch && (
-                  <span className="px-3 py-0.5 rounded-full bg-p2 text-white border-2 border-ink font-display font-black text-xs uppercase tracking-wider animate-bounce shadow-sm">
-                    🎯 CLUTCH GUESS! SUL FILO DEL RASOIO!
-                  </span>
-                )}
-                {correctFlash.streak && correctFlash.streak >= 2 && !correctFlash.isClutch && (
-                  <span className="px-3 py-0.5 rounded-full bg-gold text-ink border-2 border-ink font-display font-black text-xs uppercase tracking-wider shadow-sm">
-                    🔥 COMBO x{correctFlash.streak}!
-                  </span>
-                )}
-                <span className="font-display font-bold text-xs sm:text-sm uppercase tracking-wider">
-                  Esatto!
-                </span>
-                <h3 className="font-display font-bold text-2xl sm:text-4xl">
-                  {correctFlash.answer}
-                </h3>
-              </div>
-            )}
-
-            {/* Schermata 3 Secondi dopo aver detto PASSO */}
-            {!correctFlash && passPenaltyLeft > 0 && (
-              <div className="p-4 sm:p-6 text-center text-ink flex flex-col items-center gap-2 z-20 animate-pop-in">
-                <span className="font-display font-bold text-xs sm:text-sm uppercase">
-                  Passo! Era:
-                </span>
-                <h3 className="font-display font-bold text-2xl sm:text-4xl">
-                  {currentItem.answer}
-                </h3>
-                <div className="mt-1 sm:mt-2 px-4 sm:px-5 py-1.5 sm:py-2 rounded-2xl bg-cream border-[3px] border-ink font-mono font-extrabold text-3xl sm:text-4xl shadow-chunky-sm">
-                  {passPenaltyLeft.toFixed(1)}s
-                </div>
-              </div>
-            )}
-
-            {/* Fotografia Reale HD su passepartout chiaro (visibilità 100% sia per foto piene sia per PNG trasparenti!) */}
-            {!correctFlash && passPenaltyLeft === 0 && (
-              <>
-                <img
-                  src={displaySrc}
-                  alt=""
-                  aria-hidden="true"
-                  decoding="async"
-                  className={`absolute inset-0 w-full h-full object-cover blur-3xl scale-110 pointer-events-none transition-opacity duration-300 ${
-                    imageLoaded ? 'opacity-25' : 'opacity-0'
-                  }`}
-                />
-
-                {/* Shimmer / Skeleton fluido prima della comparsa (zero scanlines o rendering a fette progressivo) */}
-                {!imageLoaded && (
-                  <div className="absolute inset-4 rounded-2xl bg-black/5 animate-pulse flex flex-col items-center justify-center gap-3 z-0 pointer-events-none">
-                    <div className="w-10 h-10 rounded-full border-4 border-ink/20 border-t-ink animate-spin" />
-                    <span className="font-display font-semibold text-xs text-ink/40 tracking-wider uppercase">
-                      {t('arena.loadingPhoto', settings.language)}
-                    </span>
-                  </div>
-                )}
-
-                <div className="relative z-10 w-full h-full p-2.5 sm:p-4 flex items-center justify-center">
-                  <img
-                    key={`${currentItem.id}-${usingBackupUrl ? 'b' : 'p'}`}
-                    src={displaySrc}
-                    alt="Cosa vedi nella foto?"
-                    decoding="async"
-                    loading="eager"
-                    onLoad={() => {
-                      setImageLoaded(true);
-                    }}
-                    onError={() => {
-                      if (!usingBackupUrl) {
-                        setUsingBackupUrl(true);
-                      } else {
-                        brokenIdsRef.current.add(currentItem.id);
-                        advanceToNextImage();
-                      }
-                    }}
-                    className={`max-w-full max-h-full w-auto h-auto object-contain rounded-xl sm:rounded-2xl drop-shadow-[0_10px_22px_rgba(24,18,38,0.22)] transition-all duration-200 ease-out ${
-                      imageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-                    }`}
-                  />
-                </div>
-              </>
-            )}
-          </div>
-        </div>
-
-        {/* Blocco Cronometro Giocatore 2 (Desktop) */}
-        <div
-          className={`hidden lg:flex lg:col-span-3 rounded-3xl border-[3px] border-ink p-5 flex-col items-center gap-3 transition-all duration-200 ${
-            activePlayer === 'p2'
-              ? p2Urgent
-                ? 'bg-p2 text-white shadow-chunky-lg scale-[1.03] animate-pulse'
-                : 'bg-p2 text-white shadow-chunky-lg scale-[1.03]'
-              : 'bg-cream/90 text-ink opacity-60 shadow-chunky-sm'
-          }`}
-        >
-          <span className="text-4xl">{p2.avatar}</span>
-          <h2 className="font-display font-bold text-xl truncate max-w-full">
-            {p2.name}
-          </h2>
-          {activePlayer === 'p2' && (
-            <span className="px-3 py-0.5 rounded-full bg-gold text-ink border-2 border-ink font-display font-bold text-xs">
-              Tocca a te!
-            </span>
-          )}
-
-          <div className="font-mono font-extrabold text-5xl sm:text-6xl tracking-tight my-1">
-            {timeP2.toFixed(1)}
-          </div>
-
-          <div className="w-full h-3 bg-black/25 rounded-full overflow-hidden border border-black/20">
-            <div
-              className="h-full bg-gold transition-all duration-100"
-              style={{
-                width: `${(timeP2 / settings.duelDurationSeconds) * 100}%`,
-              }}
-            />
-          </div>
-
-          <div className="text-xs font-bold opacity-85">
-            Indovinate: {p2Correct}
-          </div>
-        </div>
-      </main>
-
-      {/* Barra Voce & Pulsanti Rapidi Touch per Mobile (Sotto al centro, sempre a portata di pollice!) */}
-      <div className="w-full max-w-6xl mx-auto shrink-0 card-cream rounded-2xl p-2 sm:p-3 flex items-center justify-between gap-2 shadow-chunky-sm">
-        <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
-          {/* Bottone Microfono Interattivo: tocca per attivare o riavviare */}
+      {/* 3. BOTTOM ACTION BAR */}
+      <div className="w-full max-w-5xl mx-auto shrink-0 card-paper p-3 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-3 min-w-0 flex-1">
           <button
             type="button"
             onClick={startMicSession}
-            title={
-              micListening
-                ? 'Microfono attivo (tocca per riavviare)'
-                : 'Tocca per attivare il microfono'
-            }
-            className={`relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl border-2 border-ink flex items-center justify-center shrink-0 transition-transform active:scale-95 ${
-              micListening
-                ? 'bg-mint text-ink shadow-sm'
-                : 'bg-p2 text-white animate-pulse'
+            aria-label="Microphone"
+            className={`w-11 h-11 rounded-xl border-[3px] border-ink shadow-hard-sm flex items-center justify-center shrink-0 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all ${
+              micListening ? 'bg-green text-ink' : 'bg-paper text-ink'
             }`}
           >
             {settings.micMode === 'discord-p2p' &&
             activePlayer === 'p2' &&
             p2RemoteConnected ? (
-              <Radio className="w-5 h-5 text-ink animate-pulse" />
+              <Radio className="w-5 h-5 text-ink" />
             ) : (
-              <Mic
-                className={`w-5 h-5 sm:w-6 sm:h-6 ${
-                  micListening ? 'text-ink' : 'text-white'
-                }`}
-              />
-            )}
-            {micListening && micVolume > 0.05 && (
-              <span className="absolute inset-0 rounded-xl sm:rounded-2xl border-2 border-mint pointer-events-none animate-ping opacity-60" />
+              <Mic className="w-5 h-5 text-ink" />
             )}
           </button>
 
           <div className="min-w-0 flex-1">
-            <div className="text-[10px] sm:text-[11px] font-bold text-ink/60 truncate flex items-center gap-1.5">
-              <span>{activePlayer === 'p1' ? p1.name : p2.name} {settings.language === 'en' ? 'speaking' : 'al mic'}</span>
-              {!micListening && (
-                <span className="text-p2 font-bold">{settings.language === 'en' ? '(Tap mic)' : '(Tocca il mic)'}</span>
-              )}
-            </div>
-            <div className="text-xs sm:text-sm font-display font-bold text-ink truncate leading-tight">
+            <div className="text-xs sm:text-sm font-display font-bold text-ink truncate">
               {liveTranscript ? (
-                <span className="text-p1 font-extrabold">“{liveTranscript}”</span>
+                <span className="text-blue">“{liveTranscript}”</span>
               ) : micListening ? (
-                settings.language === 'en' ? 'Say what you see or "Pass"...' : 'Di’ cos’è o di’ “Passo”...'
+                settings.language === 'en' ? 'Say what you see or "Pass"...' : 'Di’ cosa vedi o "Passo"...'
               ) : micErrorMsg ? (
-                <span className="text-p2">{micErrorMsg}</span>
+                <span className="text-red">{micErrorMsg}</span>
               ) : (
-                settings.language === 'en' ? 'Tap mic icon to start' : 'Tocca l’icona mic per iniziare'
+                settings.language === 'en' ? 'Tap mic to start' : 'Tocca il mic per iniziare'
               )}
             </div>
           </div>
         </div>
 
-        {/* Pulsanti Rapidi Touch per PASSO e BUONA */}
-        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <div className="flex items-center gap-2 shrink-0">
           <button
+            type="button"
             onClick={triggerPass}
             disabled={passPenaltyLeft > 0 || correctFlash !== null}
-            className="btn-push px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-gold text-ink font-display font-black text-xs flex items-center gap-1 shadow-sm active:translate-y-1"
+            className="btn-push px-3.5 py-2 rounded-xl bg-paper text-ink font-display font-black text-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
           >
-            <FastForward className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <span>{settings.language === 'en' ? 'Pass (-3s)' : 'Passo (-3s)'}</span>
+            <FastForward className="w-4 h-4 inline mr-1" />
+            <span>Pass (-3s)</span>
           </button>
 
           <button
+            type="button"
             onClick={() => triggerCorrectGuess(currentItem.answer)}
             disabled={passPenaltyLeft > 0 || correctFlash !== null}
-            title={settings.language === 'en' ? 'Mark correct manually [Enter]' : 'Segna buona manualmente [Invio]'}
-            className="btn-push px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-xl bg-mint text-ink font-display font-black text-xs flex items-center gap-1 shadow-sm active:translate-y-1"
+            className="btn-push px-4 py-2 rounded-xl bg-green text-ink font-display font-black text-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
           >
-            <Check className="w-4 h-4 stroke-[3]" />
+            <Check className="w-4 h-4 inline mr-1 stroke-[3]" />
             <span>{settings.language === 'en' ? 'Correct' : 'Buona'}</span>
           </button>
         </div>
       </div>
 
-      {/* Schermata di Celebrazione Vincitore del Duello */}
-      {duelFinishPhase === 'winner' && duelFinishData && (
-        <div className="fixed inset-0 z-50 bg-[#140e24]/92 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-hidden">
-          {/* Raggi luminosi rotanti da game show */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-25">
-            <div className="w-[850px] h-[850px] rounded-full bg-[conic-gradient(from_0deg,#FFB800_0deg,transparent_60deg,#FF007A_120deg,transparent_180deg,#00F0FF_240deg,transparent_300deg,#FFB800_360deg)] animate-spin-slow" />
-          </div>
+      {/* Desktop Keyboard Hints */}
+      <div className="hidden lg:block text-center text-xs text-paper/40 font-medium mt-1">
+        [Space] Pass • [Enter] Correct • [P] Pause
+      </div>
 
-          <div className="relative card-cream max-w-lg w-full rounded-3xl p-6 sm:p-8 text-center flex flex-col items-center gap-4 animate-reveal-pop border-[4px] border-ink shadow-card-hover z-10">
-            {/* Avatar del vincitore con corona */}
-            <div className="relative">
-              <div
-                className={`w-24 h-24 sm:w-28 sm:h-28 rounded-3xl border-[3.5px] border-ink shadow-chunky flex items-center justify-center text-6xl sm:text-7xl animate-bounce ${
-                  duelFinishData.winner === 'p1'
-                    ? 'bg-p1 text-white'
-                    : 'bg-p2 text-white'
-                }`}
-              >
-                {duelFinishData.winner === 'p1' ? p1.avatar : p2.avatar}
-              </div>
-              <div className="absolute -top-4 -right-3 text-4xl animate-pulse">
-                👑
-              </div>
+      {/* Round Winner Modal */}
+      {duelFinishPhase === 'winner' && duelFinishData && (
+        <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
+          <div className="card-paper max-w-sm w-full p-6 text-center flex flex-col items-center gap-4 animate-pop-in">
+            <div className="w-20 h-20 rounded-2xl bg-yellow border-[3px] border-ink shadow-hard flex items-center justify-center text-5xl">
+              {duelFinishData.winner === 'p1' ? p1.avatar : p2.avatar}
             </div>
 
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gold text-ink font-display font-bold text-xs uppercase tracking-wider border-2 border-ink shadow-chunky-sm mb-2">
-                <Trophy className="w-3.5 h-3.5" />
-                <span>{t('arena.pointScoredTitle', settings.language)}</span>
-              </div>
-              <h2 className="font-display font-bold text-3xl sm:text-5xl text-ink leading-tight">
-                {t('arena.hasWon', settings.language, {
-                  name: localizePlayerName(
-                    duelFinishData.winner === 'p1' ? p1.name : p2.name,
-                    settings.language
-                  ),
-                })}
+              <span className="text-xs font-bold text-ink/60 uppercase tracking-wider block mb-1">
+                {t('arena.pointScoredTitle', settings.language)}
+              </span>
+              <h2 className="font-display font-black text-3xl text-ink">
+                {localizePlayerName(
+                  duelFinishData.winner === 'p1' ? p1.name : p2.name,
+                  settings.language
+                )}
               </h2>
-              <p className="text-sm font-semibold text-ink/70 mt-1">
-                {t('arena.timeRanOutOn', settings.language, {
-                  loser: localizePlayerName(
-                    duelFinishData.loser === 'p1' ? p1.name : p2.name,
-                    settings.language
-                  ),
-                  category: category.name,
-                })}
-              </p>
             </div>
 
-            {/* Statistiche del Round */}
-            <div className="w-full grid grid-cols-2 gap-3 bg-paper p-3.5 rounded-2xl border-2 border-ink">
+            <div className="w-full flex items-center justify-around py-3 border-y-[3px] border-ink/20">
               <div>
-                <span className="text-[11px] font-bold text-ink/60 uppercase block">
-                  {t('arena.timeLeft', settings.language)}
-                </span>
-                <span className="font-mono font-extrabold text-2xl text-mint">
+                <span className="text-xs text-ink/60 block">{t('arena.timeLeft', settings.language)}</span>
+                <span className="font-display font-black text-2xl text-green">
                   {duelFinishData.summary.winnerTimeLeft.toFixed(1)}s
                 </span>
               </div>
               <div>
-                <span className="text-[11px] font-bold text-ink/60 uppercase block">
-                  {t('arena.correctPhotos', settings.language)}
-                </span>
-                <span className="font-display font-bold text-2xl text-ink">
+                <span className="text-xs text-ink/60 block">{t('arena.correctPhotos', settings.language)}</span>
+                <span className="font-display font-black text-2xl text-ink">
                   {duelFinishData.winner === 'p1'
                     ? duelFinishData.summary.p1Correct
-                    : duelFinishData.summary.p2Correct}{' '}
-                  {t('arena.photos', settings.language)}
+                    : duelFinishData.summary.p2Correct}
                 </span>
               </div>
             </div>
 
-            {/* Pulsante Prossima Categoria */}
             <button
               onClick={handleProceedToDraft}
-              className="btn-push w-full py-4 px-6 rounded-2xl bg-gold text-ink font-display font-bold text-lg flex items-center justify-center gap-2 mt-1 animate-bounce-soft"
+              className="btn-push w-full py-3.5 px-6 rounded-xl bg-yellow text-ink font-display font-black text-lg flex items-center justify-center gap-2 border-[3px] border-ink shadow-hard active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
             >
-              <Sparkles className="w-5 h-5 text-ink" />
               <span>{t('arena.chooseNextCategory', settings.language)}</span>
               <ArrowRight className="w-5 h-5" />
             </button>
@@ -1121,30 +889,25 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         </div>
       )}
 
-      {/* Modale Pausa */}
+      {/* Pause Modal */}
       {isPaused && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-6">
-          <div className="card-cream max-w-sm w-full rounded-3xl p-8 text-center flex flex-col items-center gap-4">
-            <h2 className="font-display font-bold text-3xl text-ink">
+        <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
+          <div className="card-paper max-w-sm w-full p-6 text-center flex flex-col items-center gap-4 animate-pop-in">
+            <h2 className="font-display font-black text-3xl text-ink">
               {t('arena.pausedTitle', settings.language)}
             </h2>
-            <p className="text-sm text-ink/70">
+            <p className="text-sm font-sans text-ink/80">
               {t('arena.pausedDesc', settings.language)}
             </p>
             <button
               onClick={() => setIsPaused(false)}
-              className="btn-push w-full py-3.5 rounded-2xl bg-gold text-ink font-display font-bold text-lg"
+              className="btn-push w-full py-3.5 rounded-xl bg-yellow text-ink font-display font-black text-lg border-[3px] border-ink shadow-hard active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
             >
               {t('arena.resume', settings.language)}
             </button>
           </div>
         </div>
       )}
-
-      <footer className="max-w-6xl w-full mx-auto flex items-center justify-between text-xs text-cream/45 px-2">
-        <span>{t('arena.keyboardHelp', settings.language)}</span>
-        <span className="font-mono text-[11px] text-cream/40">v{APP_VERSION}</span>
-      </footer>
     </div>
   );
 };

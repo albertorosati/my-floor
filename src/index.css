@@ -3,223 +3,146 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --bg: #1B1B3A;
+    --ink: #14121F;
+    --paper: #FFFDF5;
+    --yellow: #FFC933;
+    --blue: #2F6BFF;
+    --red: #FF3D6E;
+    --green: #19C37D;
+    --outline: 3px solid #14121F;
+    --shadow-hard: 4px 4px 0px #14121F;
+    --shadow-pressed: 1px 1px 0px #14121F;
+    --radius-card: 16px;
+    --radius-pill: 999px;
+  }
+
   body {
-    background-color: #080a12;
-    color: #fffdf9;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #1B1B3A;
+    color: #14121F;
+    font-family: 'Nunito', sans-serif;
     overflow-x: hidden;
+  }
+
+  /* Accessible focus states: 3px yellow outline with 2px offset */
+  :focus-visible {
+    outline: 3px solid #FFC933;
+    outline-offset: 2px;
   }
 }
 
-/* Sfondo TV Broadcast Arena: Dark Slate Carbon con faretti scenografici ad alto contrasto */
-.broadcast-stage-bg {
-  background-color: #080a12;
-  background-image:
-    radial-gradient(ellipse at 8% 0%, rgba(0, 210, 255, 0.18) 0%, transparent 45%),
-    radial-gradient(ellipse at 92% 0%, rgba(255, 0, 85, 0.18) 0%, transparent 45%),
-    radial-gradient(ellipse at 50% -5%, rgba(255, 184, 0, 0.22) 0%, transparent 50%),
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 28px 28px, 28px 28px;
+/* Disciplined Cartoon Neo-Brutalist Classes */
+.card-paper {
+  background-color: #FFFDF5;
+  color: #14121F;
+  border: 3px solid #14121F;
+  border-radius: 16px;
+  box-shadow: 4px 4px 0px #14121F;
 }
 
-.party-stage-bg {
-  background-color: #080a12;
-  background-image:
-    radial-gradient(ellipse at 8% 0%, rgba(0, 210, 255, 0.18) 0%, transparent 45%),
-    radial-gradient(ellipse at 92% 0%, rgba(255, 0, 85, 0.18) 0%, transparent 45%),
-    radial-gradient(ellipse at 50% -5%, rgba(255, 184, 0, 0.22) 0%, transparent 50%),
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 28px 28px, 28px 28px;
-}
-
-/* Chamfered Broadcast Panels & Cut-Corners (Anti-Slop Geometry) */
-.chamfer-clip {
-  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
-}
-
-.chamfer-clip-sm {
-  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
-}
-
-.chamfer-clip-left {
-  clip-path: polygon(16px 0, 100% 0, 100% 100%, 0 100%, 0 16px);
-}
-
-.chamfer-clip-right {
-  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
-}
-
-/* Subtle CRT Scanlines for studio screens */
-.scanline-grid {
-  background-image: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.2) 1px,
-    transparent 1px,
-    transparent 3px
-  );
-}
-
-/* Technical LED broadcast borders */
-.broadcast-bezel {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 12px 30px rgba(0, 0, 0, 0.6);
-}
-
-/* Bottoni e Carte Tattili con bordo inchiostro e ombra 3D piena */
 .card-cream {
-  background-color: #fffdf7;
-  color: #181226;
-  border: 3px solid #181226;
-  box-shadow: 0 7px 0 #0d0917;
+  background-color: #FFFDF5;
+  color: #14121F;
+  border: 3px solid #14121F;
+  border-radius: 16px;
+  box-shadow: 4px 4px 0px #14121F;
 }
 
 .card-dark {
-  background-color: #241c38;
-  color: #fffdf9;
-  border: 3px solid #0d0917;
-  box-shadow: 0 7px 0 #0d0917;
+  background-color: #FFFDF5;
+  color: #14121F;
+  border: 3px solid #14121F;
+  border-radius: 16px;
+  box-shadow: 4px 4px 0px #14121F;
+}
+
+.party-stage-bg,
+.broadcast-stage-bg {
+  background-color: #1B1B3A;
 }
 
 .btn-push {
-  border: 3px solid #181226;
-  box-shadow: 0 5px 0 #0d0917;
-  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.15s ease;
+  border: 3px solid #14121F;
+  box-shadow: 4px 4px 0px #14121F;
+  border-radius: 16px;
+  transition: transform 100ms ease, box-shadow 100ms ease;
+  user-select: none;
 }
 
 .btn-push:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 7px 0 #0d0917;
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0px #14121F;
 }
 
 .btn-push:active:not(:disabled) {
-  transform: translateY(4px);
-  box-shadow: 0 1px 0 #0d0917;
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0px #14121F;
 }
 
 .btn-push:disabled {
-  opacity: 0.45;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
-/* Scrollbar morbida */
+.btn-pill {
+  border: 3px solid #14121F;
+  box-shadow: 3px 3px 0px #14121F;
+  border-radius: 999px;
+  transition: transform 100ms ease, box-shadow 100ms ease;
+}
+
+.btn-pill:hover:not(:disabled) {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px #14121F;
+}
+
+.btn-pill:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #14121F;
+}
+
+/* Discrete non-looping animations */
+@keyframes passShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+@keyframes scorePop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+
+.animate-pass-shake {
+  animation: passShake 0.3s ease-in-out;
+}
+
+.animate-screen-shake {
+  animation: passShake 0.35s ease-in-out;
+}
+
+.animate-score-pop {
+  animation: scorePop 0.25s ease-out;
+}
+
+.animate-pop-in {
+  animation: scorePop 0.2s ease-out;
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #140f21;
+  background: #1B1B3A;
 }
 ::-webkit-scrollbar-thumb {
-  background: #392e56;
-  border-radius: 9999px;
+  background: #2e2e54;
+  border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #514278;
-}
-
-/* Animazioni Dinamiche TV Game Show */
-@keyframes screenShake {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  15% { transform: translate(-6px, 3px) rotate(-1deg); }
-  30% { transform: translate(6px, -3px) rotate(1deg); }
-  45% { transform: translate(-5px, -2px) rotate(-0.5deg); }
-  60% { transform: translate(5px, 2px) rotate(0.5deg); }
-  75% { transform: translate(-3px, 1px) rotate(-0.2deg); }
-  90% { transform: translate(2px, -1px) rotate(0deg); }
-}
-
-@keyframes revealPop {
-  0% { transform: scale(0.6) translateY(30px); opacity: 0; }
-  65% { transform: scale(1.08) translateY(-4px); opacity: 1; }
-  100% { transform: scale(1) translateY(0); opacity: 1; }
-}
-
-@keyframes spinSlow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 25px rgba(255, 184, 0, 0.4), inset 0 0 15px rgba(255, 184, 0, 0.2); }
-  50% { box-shadow: 0 0 45px rgba(255, 184, 0, 0.8), inset 0 0 30px rgba(255, 184, 0, 0.4); }
-}
-
-.animate-screen-shake {
-  animation: screenShake 0.55s ease-in-out;
-}
-
-.animate-reveal-pop {
-  animation: revealPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-.animate-spin-slow {
-  animation: spinSlow 20s linear infinite;
-}
-
-.animate-glow-pulse {
-  animation: glowPulse 2s ease-in-out infinite;
-}
-
-@keyframes fireAura {
-  0%, 100% {
-    box-shadow: 0 0 22px rgba(255, 184, 0, 0.75), 0 0 45px rgba(255, 71, 87, 0.45), inset 0 0 15px rgba(255, 184, 0, 0.3);
-    border-color: #FFB800;
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(255, 71, 87, 0.9), 0 0 70px rgba(255, 184, 0, 0.7), inset 0 0 25px rgba(255, 71, 87, 0.4);
-    border-color: #FF4757;
-  }
-}
-
-@keyframes arcadeComboPop {
-  0% { transform: scale(0.4) rotate(-6deg); opacity: 0; }
-  60% { transform: scale(1.18) rotate(2deg); opacity: 1; }
-  100% { transform: scale(1) rotate(0deg); opacity: 1; }
-}
-
-@keyframes emergencyPulse {
-  0%, 100% { opacity: 0.15; }
-  50% { opacity: 0.55; }
-}
-
-.animate-fire-aura {
-  animation: fireAura 1.1s ease-in-out infinite;
-}
-
-.animate-combo-pop {
-  animation: arcadeComboPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-.animate-emergency {
-  animation: emergencyPulse 0.8s ease-in-out infinite;
-}
-
-/* Floor LED Stage Lights */
-.floor-stage-marquee {
-  background: radial-gradient(ellipse at 50% 0%, rgba(255, 184, 0, 0.22) 0%, rgba(255, 71, 87, 0.12) 40%, transparent 75%);
-}
-
-.floor-grid-perspective {
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 36px 36px;
-}
-
-@keyframes marqueeScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee-scroll {
-  display: flex;
-  width: max-content;
-  animation: marqueeScroll 35s linear infinite;
-}
-
-.animate-marquee-scroll:hover {
-  animation-play-state: paused;
+  background: #444474;
 }
