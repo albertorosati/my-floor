@@ -18,7 +18,13 @@
       "aliases": [
         "spielberg"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/MKr25402_Steven_Spielberg_%28Berlinale_2023%29_%283x4_cropped%29.jpg/960px-MKr25402_Steven_Spielberg_%28Berlinale_2023%29_%283x4_cropped%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/MKr25402_Steven_Spielberg_%28Berlinale_2023%29_%283x4_cropped%29.jpg/960px-MKr25402_Steven_Spielberg_%28Berlinale_2023%29_%283x4_cropped%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/MKr25402_Steven_Spielberg_%28Berlinale_2023%29_%283x4_cropped%29.jpg/960px-MKr25402_Steven_Spielberg_%28Berlinale_2023%29_%283x4_cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/8/8f/Steven_Spielberg_1999.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/0/0e/Steven_Spielberg_2011.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/29/Steven_Spielberg_Masterclass_Cin%C3%A9math%C3%A8que_Fran%C3%A7aise_2_cropped.jpg"
+      ]
     },
     {
       "id": "registi-cinema-2",
@@ -26,7 +32,13 @@
       "aliases": [
         "tarantino"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Quentin_Tarantino_by_Gage_Skidmore.jpg/960px-Quentin_Tarantino_by_Gage_Skidmore.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Quentin_Tarantino_by_Gage_Skidmore.jpg/960px-Quentin_Tarantino_by_Gage_Skidmore.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Quentin_Tarantino_by_Gage_Skidmore.jpg/960px-Quentin_Tarantino_by_Gage_Skidmore.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/f/fb/Quentin_Tarantino.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/8/8d/Quentin_Tarantino_y_Robert_Rodriguez.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/4/47/Quentin_Tarantino_and_Diane_Kruger_%40_2010_Academy_Awards.jpg"
+      ]
     },
     {
       "id": "registi-cinema-3",
@@ -34,7 +46,13 @@
       "aliases": [
         "scorsese"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Martin_Scorsese-68749.jpg/960px-Martin_Scorsese-68749.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Martin_Scorsese-68749.jpg/960px-Martin_Scorsese-68749.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Martin_Scorsese-68749.jpg/960px-Martin_Scorsese-68749.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/24/Martin_Scorsese_03.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/24/Martin_Scorsese_02_CROPPED.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/1c/Martin_Scorsese_Berlinale_2010_%28cropped2%29.jpg"
+      ]
     },
     {
       "id": "registi-cinema-4",
@@ -42,7 +60,13 @@
       "aliases": [
         "kubrick"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Stanley_Kubrick_in_Dr._Strangelove_Trailer_%284%29_Cropped.jpg/960px-Stanley_Kubrick_in_Dr._Strangelove_Trailer_%284%29_Cropped.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Stanley_Kubrick_in_Dr._Strangelove_Trailer_%284%29_Cropped.jpg/960px-Stanley_Kubrick_in_Dr._Strangelove_Trailer_%284%29_Cropped.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Stanley_Kubrick_in_Dr._Strangelove_Trailer_%284%29_Cropped.jpg/960px-Stanley_Kubrick_in_Dr._Strangelove_Trailer_%284%29_Cropped.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/f/f6/Stanley_Kubrick_1949_with_Rosemary_Williams_a_showgirl.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/56/Stanley_Kubrick%2C_Re%C4%9Disoro.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/9/94/Stanley_Kubrick_in_Dr._Strangelove.jpg"
+      ]
     },
     {
       "id": "registi-cinema-5",
@@ -50,7 +74,13 @@
       "aliases": [
         "hitchcock"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/Hitchcock%2C_Alfred_02.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/Hitchcock%2C_Alfred_02.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/9/94/Hitchcock%2C_Alfred_02.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/63/Alfred_Hitchcock_NYWTS.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/9/9d/Alfred_Hitchcock_by_Jack_Mitchell.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/a/a9/Alfred_Hitchcock_and_family_circa_1955.JPG"
+      ]
     },
     {
       "id": "registi-cinema-6",
@@ -58,7 +88,13 @@
       "aliases": [
         "nolan"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/ChristopherNolan-byPhilipRomano_%28cropped%29.jpg/960px-ChristopherNolan-byPhilipRomano_%28cropped%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/ChristopherNolan-byPhilipRomano_%28cropped%29.jpg/960px-ChristopherNolan-byPhilipRomano_%28cropped%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/ChristopherNolan-byPhilipRomano_%28cropped%29.jpg/960px-ChristopherNolan-byPhilipRomano_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/c4/Christopher_Nolan_at_WonderCon_2010_3.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/3/3e/Emma_Thomas_%26_Christopher_Nolan_at_WonderCon_2010_1.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/0/01/Christopher_nolan.jpg"
+      ]
     },
     {
       "id": "registi-cinema-7",
@@ -66,7 +102,13 @@
       "aliases": [
         "burton"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Tim_Burton-63605.jpg/960px-Tim_Burton-63605.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Tim_Burton-63605.jpg/960px-Tim_Burton-63605.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Tim_Burton-63605.jpg/960px-Tim_Burton-63605.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/8/8a/Tim_Burton_01_cut.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/02/Tim_Burton_at_the_Cin%C3%A9math%C3%A8que_Fran%C3%A7aise.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/d/d8/Tim_Burton_by_Gage_Skidmore.jpg"
+      ]
     },
     {
       "id": "registi-cinema-8",
@@ -75,7 +117,13 @@
         "miyazaki",
         "studio ghibli"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Studio_Ghibli_studio_3.jpg/960px-Studio_Ghibli_studio_3.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Studio_Ghibli_studio_3.jpg/960px-Studio_Ghibli_studio_3.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Studio_Ghibli_studio_3.jpg/960px-Studio_Ghibli_studio_3.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/ef/Hayao_Miyazaki.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/f/ff/HayaoMiyazakiCCJuly09.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/da/Nibariki_%28Hayao_Miyazaki%27s_personal_studio%2C_Butaya%29.jpg"
+      ]
     },
     {
       "id": "registi-cinema-9",
@@ -83,7 +131,13 @@
       "aliases": [
         "fellini"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Federico_Fellini_010.jpg/960px-Federico_Fellini_010.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Federico_Fellini_010.jpg/960px-Federico_Fellini_010.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Federico_Fellini_010.jpg/960px-Federico_Fellini_010.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/9/97/Federico_Fellini_NYWTS_2.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/0a/Federico_Fellini%2C_Re%C4%9Disoro.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/62/Funerailles_Federico_Fellini_02.jpg"
+      ]
     },
     {
       "id": "registi-cinema-10",
@@ -91,7 +145,13 @@
       "aliases": [
         "leone"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Sergio_Leone_1975.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Sergio_Leone_1975.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/c/c1/Sergio_Leone_1975.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/7/78/SERGIO_LEONE.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/0a/Sergio_leone_vincenzo_salvia.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/10/Sergio_Leone%2C_Re%C4%9Disoro.jpg"
+      ]
     },
     {
       "id": "registi-cinema-11",
@@ -99,7 +159,13 @@
       "aliases": [
         "sorrentino"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Paolo_Sorrentino_2018.jpg/960px-Paolo_Sorrentino_2018.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Paolo_Sorrentino_2018.jpg/960px-Paolo_Sorrentino_2018.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Paolo_Sorrentino_2018.jpg/960px-Paolo_Sorrentino_2018.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/3/3e/Paolo_Sorrentino_2008.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/b1/Paolo_Sorrentino_2008_cropped.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/d8/Paolo_Sorrentino_%282008%29_cropped.jpg"
+      ]
     },
     {
       "id": "registi-cinema-12",
@@ -107,7 +173,13 @@
       "aliases": [
         "coppola"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Lena_Herzog_Francis_Ford_Coppola_Wernder_Herzog_Venice_Film_Festival_%28cropped%29.jpg/960px-Lena_Herzog_Francis_Ford_Coppola_Wernder_Herzog_Venice_Film_Festival_%28cropped%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Lena_Herzog_Francis_Ford_Coppola_Wernder_Herzog_Venice_Film_Festival_%28cropped%29.jpg/960px-Lena_Herzog_Francis_Ford_Coppola_Wernder_Herzog_Venice_Film_Festival_%28cropped%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Lena_Herzog_Francis_Ford_Coppola_Wernder_Herzog_Venice_Film_Festival_%28cropped%29.jpg/960px-Lena_Herzog_Francis_Ford_Coppola_Wernder_Herzog_Venice_Film_Festival_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/9/9e/Francis_Ford_Coppola_2007_crop.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/05/Francis_Ford_Coppola_Cannes.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/05/Francis_Ford_Coppola_2011_CC.jpg"
+      ]
     },
     {
       "id": "registi-cinema-13",
@@ -115,7 +187,13 @@
       "aliases": [
         "cameron"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/James_Cameron_at_53rd_Saturn_Awards_2026-01_%28cropped%29.jpg/960px-James_Cameron_at_53rd_Saturn_Awards_2026-01_%28cropped%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/James_Cameron_at_53rd_Saturn_Awards_2026-01_%28cropped%29.jpg/960px-James_Cameron_at_53rd_Saturn_Awards_2026-01_%28cropped%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/James_Cameron_at_53rd_Saturn_Awards_2026-01_%28cropped%29.jpg/960px-James_Cameron_at_53rd_Saturn_Awards_2026-01_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/f/fe/James_Cameron_by_Gage_Skidmore.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/7/77/James_Cameron_October_2012.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/4/43/James_Cameron_-_2012.jpg"
+      ]
     },
     {
       "id": "registi-cinema-14",
@@ -123,7 +201,13 @@
       "aliases": [
         "del toro"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Guillermo_del_Toro_at_the_2026_Sundance_Film_Festival_01_%28cropped%29.jpg/960px-Guillermo_del_Toro_at_the_2026_Sundance_Film_Festival_01_%28cropped%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Guillermo_del_Toro_at_the_2026_Sundance_Film_Festival_01_%28cropped%29.jpg/960px-Guillermo_del_Toro_at_the_2026_Sundance_Film_Festival_01_%28cropped%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Guillermo_del_Toro_at_the_2026_Sundance_Film_Festival_01_%28cropped%29.jpg/960px-Guillermo_del_Toro_at_the_2026_Sundance_Film_Festival_01_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/a/af/Guillermo_del_Toro_2014_Comic_Con_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/f/f1/Guillermo_del_Toro_in_2017.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/3/34/Guillermo_del_Toro_2023_%28cropped%29.jpg"
+      ]
     },
     {
       "id": "registi-cinema-15",
@@ -131,7 +215,13 @@
       "aliases": [
         "scott"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Ridley_Scott_At_BFI_-_BFI_Southbank_-_Saturday_4th_October_2025.jpg/960px-Ridley_Scott_At_BFI_-_BFI_Southbank_-_Saturday_4th_October_2025.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Ridley_Scott_At_BFI_-_BFI_Southbank_-_Saturday_4th_October_2025.jpg/960px-Ridley_Scott_At_BFI_-_BFI_Southbank_-_Saturday_4th_October_2025.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Ridley_Scott_At_BFI_-_BFI_Southbank_-_Saturday_4th_October_2025.jpg/960px-Ridley_Scott_At_BFI_-_BFI_Southbank_-_Saturday_4th_October_2025.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/5c/Ridley_Scott_by_Gage_Skidmore.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/de/Ridley_Scott%2C_Charlize_Theron_%26_Michael_Fassbender_by_Gage_Skidmore.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/eb/Ridley_Scott_%286852647452%29.jpg"
+      ]
     },
     {
       "id": "registi-cinema-16",
@@ -139,7 +229,13 @@
       "aliases": [
         "lucas"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/George_Lucas_by_Gage_Skidmore.jpg/960px-George_Lucas_by_Gage_Skidmore.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/George_Lucas_by_Gage_Skidmore.jpg/960px-George_Lucas_by_Gage_Skidmore.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/George_Lucas_by_Gage_Skidmore.jpg/960px-George_Lucas_by_Gage_Skidmore.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/7/7f/George_Lucas.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/54/George_Lucas%2C_Pasadena.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/a/a0/George_Lucas_cropped_2009.jpg"
+      ]
     },
     {
       "id": "registi-cinema-17",
@@ -147,7 +243,13 @@
       "aliases": [
         "jackson"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Peter_Jackson_SDCC_2014.jpg/960px-Peter_Jackson_SDCC_2014.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Peter_Jackson_SDCC_2014.jpg/960px-Peter_Jackson_SDCC_2014.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Peter_Jackson_SDCC_2014.jpg/960px-Peter_Jackson_SDCC_2014.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e0/Peter_Jackson01.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/ec/PeterJackson.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/1/15/Peter_%22Black_Prince%22_Jackson.jpg"
+      ]
     },
     {
       "id": "registi-cinema-18",
@@ -155,7 +257,13 @@
       "aliases": [
         "fincher"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/TheKillerBFILFF051023_%288_of_22%29_%2853255176376%29_%28cropped2%29.jpg/960px-TheKillerBFILFF051023_%288_of_22%29_%2853255176376%29_%28cropped2%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/TheKillerBFILFF051023_%288_of_22%29_%2853255176376%29_%28cropped2%29.jpg/960px-TheKillerBFILFF051023_%288_of_22%29_%2853255176376%29_%28cropped2%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/TheKillerBFILFF051023_%288_of_22%29_%2853255176376%29_%28cropped2%29.jpg/960px-TheKillerBFILFF051023_%288_of_22%29_%2853255176376%29_%28cropped2%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/7/78/David_Fincher.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e0/David_Fincher_%282012%29_1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/3/3b/David_Fincher_%282012%29_2.jpg"
+      ]
     },
     {
       "id": "registi-cinema-19",
@@ -163,7 +271,13 @@
       "aliases": [
         "villeneuve"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/DVilleneuveRFH121024_%2812_of_23%29_%2854061976489%29_%28cropped%29.jpg/960px-DVilleneuveRFH121024_%2812_of_23%29_%2854061976489%29_%28cropped%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/DVilleneuveRFH121024_%2812_of_23%29_%2854061976489%29_%28cropped%29.jpg/960px-DVilleneuveRFH121024_%2812_of_23%29_%2854061976489%29_%28cropped%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/DVilleneuveRFH121024_%2812_of_23%29_%2854061976489%29_%28cropped%29.jpg/960px-DVilleneuveRFH121024_%2812_of_23%29_%2854061976489%29_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/6e/Denis_Villeneuve%2C_2013.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/a/a4/Denis_Villeneuve_by_Gage_Skidmore.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/4/4a/Denis_Villeneuve_%2836201329815%29.jpg"
+      ]
     },
     {
       "id": "registi-cinema-20",
@@ -171,7 +285,13 @@
       "aliases": [
         "anderson"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Wes_Anderson-7541_%28cropped%29.jpg/960px-Wes_Anderson-7541_%28cropped%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Wes_Anderson-7541_%28cropped%29.jpg/960px-Wes_Anderson-7541_%28cropped%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Wes_Anderson-7541_%28cropped%29.jpg/960px-Wes_Anderson-7541_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/4/43/Wes_Anderson.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/e/ea/Wes_Anderson_2012.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/0e/Wes_Anderson_at_the_2018_Berlin_Film_Festival.jpg"
+      ]
     },
     {
       "id": "registi-cinema-21",
@@ -179,7 +299,13 @@
       "aliases": [
         "lynch"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/David_Lynch_%281990%29.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/David_Lynch_%281990%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/a/a9/David_Lynch_%281990%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/de/David_Lynch_at_the_1990_Emmy_Awards.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/7/72/David_Lynch_2008.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/04/David_Lynch_%28cropped%29.jpg"
+      ]
     },
     {
       "id": "registi-cinema-22",
@@ -187,7 +313,13 @@
       "aliases": [
         "eastwood"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Clint_Eastwood_visits_MCB_Camp_Pendleton_%281%29_%28cropped%29.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Clint_Eastwood_visits_MCB_Camp_Pendleton_%281%29_%28cropped%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/9/9d/Clint_Eastwood_visits_MCB_Camp_Pendleton_%281%29_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/ea/Clint_Eastwood%2C_NASA.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/68/ClintEastwoodSept10TIFF.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/bc/Clint_Eastwood-Holden-Breezy.jpg"
+      ]
     },
     {
       "id": "registi-cinema-23",
@@ -195,7 +327,13 @@
       "aliases": [
         "allen"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Woody_Allen_Cannes_2016.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Woody_Allen_Cannes_2016.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/8/89/Woody_Allen_Cannes_2016.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/3/3c/Woody_Allen_%282006%29.jpeg",
+        "https://upload.wikimedia.org/wikipedia/commons/7/7f/Woody_Allen_Lisbon_2006.JPEG",
+        "https://upload.wikimedia.org/wikipedia/commons/5/51/Woody_Allen_Lisbon_2006-2.JPEG"
+      ]
     },
     {
       "id": "registi-cinema-24",
@@ -203,7 +341,13 @@
       "aliases": [
         "lee"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Neil_Grabosky_-_Spike_Lee_-_NEG_0876_%2854865282335%29.jpg/960px-Neil_Grabosky_-_Spike_Lee_-_NEG_0876_%2854865282335%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Neil_Grabosky_-_Spike_Lee_-_NEG_0876_%2854865282335%29.jpg/960px-Neil_Grabosky_-_Spike_Lee_-_NEG_0876_%2854865282335%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Neil_Grabosky_-_Spike_Lee_-_NEG_0876_%2854865282335%29.jpg/960px-Neil_Grabosky_-_Spike_Lee_-_NEG_0876_%2854865282335%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e4/Spike_Lee_Cannes_2018.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/de/Spike_lee333.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/4/47/Spike_Lee_Headshot.jpg"
+      ]
     },
     {
       "id": "registi-cinema-25",
@@ -211,7 +355,13 @@
       "aliases": [
         "cuaron"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/DisclaimerBFILFF101024_%2888_of_113%29_%2854062275143%29_%28cropped%29.jpg/960px-DisclaimerBFILFF101024_%2888_of_113%29_%2854062275143%29_%28cropped%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/DisclaimerBFILFF101024_%2888_of_113%29_%2854062275143%29_%28cropped%29.jpg/960px-DisclaimerBFILFF101024_%2888_of_113%29_%2854062275143%29_%28cropped%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/DisclaimerBFILFF101024_%2888_of_113%29_%2854062275143%29_%28cropped%29.jpg/960px-DisclaimerBFILFF101024_%2888_of_113%29_%2854062275143%29_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e2/Alfonso_Cuar%C3%B3n_%281998%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/00/Alfonso_Cuar%C3%B3n_%282013%29_cropped.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/b8/Alfonso_Cuar%C3%B3n_2013_%28cropped%29.jpg"
+      ]
     },
     {
       "id": "registi-cinema-26",
@@ -219,7 +369,13 @@
       "aliases": [
         "parasite regista"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Bong_Joon_Ho_at_Busan_Film_Festival%2C_smaller.jpg/960px-Bong_Joon_Ho_at_Busan_Film_Festival%2C_smaller.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Bong_Joon_Ho_at_Busan_Film_Festival%2C_smaller.jpg/960px-Bong_Joon_Ho_at_Busan_Film_Festival%2C_smaller.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Bong_Joon_Ho_at_Busan_Film_Festival%2C_smaller.jpg/960px-Bong_Joon_Ho_at_Busan_Film_Festival%2C_smaller.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/8/8b/Okja_Japan_Premiere-_Bong_Joon-ho_%2838527206906%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/68/Okja_Japan_Premiere-_Bong_Joon-ho_%2837867629864%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/14/Bong_Joon-ho_FilmFest_Muenchen_04Jul2019.jpg"
+      ]
     },
     {
       "id": "registi-cinema-27",
@@ -227,7 +383,13 @@
       "aliases": [
         "almodovar"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Pedro_Almod%C3%B3var-69720_%28cropped%29.jpg/960px-Pedro_Almod%C3%B3var-69720_%28cropped%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Pedro_Almod%C3%B3var-69720_%28cropped%29.jpg/960px-Pedro_Almod%C3%B3var-69720_%28cropped%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Pedro_Almod%C3%B3var-69720_%28cropped%29.jpg/960px-Pedro_Almod%C3%B3var-69720_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/4/48/Pedro_Almodovar_and_Pen%C3%A9lope_Cruz.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/68/Pedro_Almod%C3%B3var_and_Tim_Burton_01.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/be/Pedro_Almod%C3%B3var_%28Guadalajara%29_3.jpg"
+      ]
     },
     {
       "id": "registi-cinema-28",
@@ -235,13 +397,25 @@
       "aliases": [
         "rossellini"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Isabella_Rossellini_at_the_2026_Locarno_Film_Festival_06_%28cropped%29.jpg/960px-Isabella_Rossellini_at_the_2026_Locarno_Film_Festival_06_%28cropped%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Isabella_Rossellini_at_the_2026_Locarno_Film_Festival_06_%28cropped%29.jpg/960px-Isabella_Rossellini_at_the_2026_Locarno_Film_Festival_06_%28cropped%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Isabella_Rossellini_at_the_2026_Locarno_Film_Festival_06_%28cropped%29.jpg/960px-Isabella_Rossellini_at_the_2026_Locarno_Film_Festival_06_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/9/95/Rossellini%2Bgatta.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/15/Mario_Monicelli_Roberto_Rossellini_Leone_d%27Oro.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/50/Roberto_Rossellini_and_Ingrid_Bergman%2C_1953.jpg"
+      ]
     },
     {
       "id": "registi-cinema-29",
       "answer": "Vittorio De Sica",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/S_Kragujevic%2C_Vittorio_De_Sica%2C_1959.JPG/960px-S_Kragujevic%2C_Vittorio_De_Sica%2C_1959.JPG"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/S_Kragujevic%2C_Vittorio_De_Sica%2C_1959.JPG/960px-S_Kragujevic%2C_Vittorio_De_Sica%2C_1959.JPG",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/S_Kragujevic%2C_Vittorio_De_Sica%2C_1959.JPG/960px-S_Kragujevic%2C_Vittorio_De_Sica%2C_1959.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/a/a4/S_Kragujevic%2C_Vittorio_De_Sica%2C_1959.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/4/4f/Vittorio_De_Sica.png",
+        "https://upload.wikimedia.org/wikipedia/commons/a/af/Vittorio_De_Sica_%281962%29.jpg"
+      ]
     },
     {
       "id": "registi-cinema-30",
@@ -249,7 +423,13 @@
       "aliases": [
         "visconti"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Luchino_Visconti_1972b.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Luchino_Visconti_1972b.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/c/c1/Luchino_Visconti_1972b.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/b7/Visconti%2C_Luchino_%2812.._1349%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/b2/LuchinoVisconti-1.png",
+        "https://upload.wikimedia.org/wikipedia/commons/7/7b/Luchino-visconti.jpg"
+      ]
     },
     {
       "id": "registi-cinema-31",
@@ -257,7 +437,13 @@
       "aliases": [
         "pasolini"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/PierPaoloPasolini_%28crop%29.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/PierPaoloPasolini_%28crop%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/2/26/PierPaoloPasolini_%28crop%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/f/fc/Pier_Paolo_Pasolini_Bologna_1937.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/20/Pier_Paolo_Pasolini_casarsa.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/04/Pier_Paolo_Pasolini_1975.jpg"
+      ]
     },
     {
       "id": "registi-cinema-32",
@@ -265,7 +451,13 @@
       "aliases": [
         "bertolucci"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Bernardo_Bertolucci%2C_film_director.jpg/960px-Bernardo_Bertolucci%2C_film_director.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Bernardo_Bertolucci%2C_film_director.jpg/960px-Bernardo_Bertolucci%2C_film_director.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Bernardo_Bertolucci%2C_film_director.jpg/960px-Bernardo_Bertolucci%2C_film_director.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/c0/Bernardo_Bertolucci.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/0f/Bernardo_Bertolucci_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/7/78/Bertolucci_Apr%C3%A0_Salsomaggiore_Terme.jpg"
+      ]
     },
     {
       "id": "registi-cinema-33",
@@ -273,7 +465,13 @@
       "aliases": [
         "argento"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Dario_Argento_2014.jpg/960px-Dario_Argento_2014.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Dario_Argento_2014.jpg/960px-Dario_Argento_2014.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Dario_Argento_2014.jpg/960px-Dario_Argento_2014.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/ce/Dario_Argento_at_Torino_Film_Festival_2006.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/df/Dario_Argento_in_1994.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/d4/Dario_Argento_at_the_Brussels_International_Fantastic_Film_Festival_in_2007.jpg"
+      ]
     },
     {
       "id": "registi-cinema-34",
@@ -281,7 +479,13 @@
       "aliases": [
         "garrone"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Matteo_Garrone-5903.jpg/960px-Matteo_Garrone-5903.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Matteo_Garrone-5903.jpg/960px-Matteo_Garrone-5903.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Matteo_Garrone-5903.jpg/960px-Matteo_Garrone-5903.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/a/af/Matteo_Garrone.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/8/85/Matteo_Garrone_cropped.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/56/Matteo_Garrone-5573.jpg"
+      ]
     },
     {
       "id": "registi-cinema-35",
@@ -289,7 +493,13 @@
       "aliases": [
         "guadagnino"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Luca_Guadagnino_at_the_2026_New_York_Film_Festival-40.jpg/960px-Luca_Guadagnino_at_the_2026_New_York_Film_Festival-40.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Luca_Guadagnino_at_the_2026_New_York_Film_Festival-40.jpg/960px-Luca_Guadagnino_at_the_2026_New_York_Film_Festival-40.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Luca_Guadagnino_at_the_2026_New_York_Film_Festival-40.jpg/960px-Luca_Guadagnino_at_the_2026_New_York_Film_Festival-40.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/c1/Luca_Guadagnino_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/d6/Luca_Guadagnino_at_Berlinale_2017_%28cropped_2%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/5d/Luca_Guadagnino_2018.png"
+      ]
     },
     {
       "id": "registi-cinema-36",
@@ -297,7 +507,13 @@
       "aliases": [
         "moretti"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Nanni_Moretti_Cannes_2011.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Nanni_Moretti_Cannes_2011.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/0/08/Nanni_Moretti_Cannes_2011.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/c9/Nanni_Moretti.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/3/35/Nanni_Moretti_Cannes.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/6c/Nanni_Moretti_%282007%29.jpg"
+      ]
     }
   ]
 }

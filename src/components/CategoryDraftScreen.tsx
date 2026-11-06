@@ -288,9 +288,9 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
                   {cat.icon}
                 </div>
 
-                {/* Conteggio foto */}
+                {/* Conteggio foto totali nel pool */}
                 <span className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-ink/85 text-cream text-[9px] sm:text-[10px] font-bold z-20 border border-cream/20 shadow-sm backdrop-blur-xs">
-                  {cat.items.length} foto
+                  {cat.items.reduce((acc, it) => acc + (it.imageUrls?.length || 1), 0)} foto
                 </span>
               </div>
 
@@ -436,7 +436,7 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
                       </div>
                       <div className="flex items-center gap-1.5 mt-1.5">
                         <span className="px-2 py-0.5 rounded-full bg-paper border border-ink/20 text-[10px] font-bold text-ink/75">
-                          {cat.items.length} foto
+                          {cat.items.length} soggetti ({cat.items.reduce((acc, it) => acc + (it.imageUrls?.length || 1), 0)} foto)
                         </span>
                         {alreadyPlayed && (
                           <span className="text-[10px] font-bold text-p2">

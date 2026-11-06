@@ -128,8 +128,16 @@ export class CategoryRepository {
     if (typeof window === 'undefined') return;
     const targets = category.items.slice(0, count);
     targets.forEach((item) => {
+      // Precarica sia l'immagine primaria che le foto alternative del pool
       if (item.imageUrl) {
         CategoryRepository.primeImage(item.imageUrl).catch(() => {});
+      }
+      if (Array.isArray(item.imageUrls)) {
+        item.imageUrls.forEach((altUrl) => {
+          if (altUrl) {
+            CategoryRepository.primeImage(altUrl).catch(() => {});
+          }
+        });
       }
     });
   }

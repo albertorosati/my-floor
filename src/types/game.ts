@@ -11,6 +11,8 @@ export interface DuelItem {
   answer: string;
   aliases: string[];
   imageUrl: string;
+  /** Pool di foto alternative per lo stesso soggetto (anti-memorizzazione del singolo scatto) */
+  imageUrls?: string[];
 }
 
 export interface Category {

@@ -33,21 +33,32 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
   const [itemAnswer, setItemAnswer] = useState('');
   const [itemAliases, setItemAliases] = useState('');
   const [itemImageUrl, setItemImageUrl] = useState('');
+  const [itemUploadedUrls, setItemUploadedUrls] = useState<string[]>([]);
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (typeof reader.result === 'string') {
-        setItemImageUrl(reader.result);
-      }
-    };
-    reader.readAsDataURL(file);
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
+    Array.from(files).forEach((file) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (typeof reader.result === 'string') {
+          const res = reader.result;
+          setItemUploadedUrls((prev) => [...prev, res]);
+        }
+      };
+      reader.readAsDataURL(file);
+    });
   };
 
   const handleAddItem = () => {
-    if (!itemAnswer.trim() || !itemImageUrl.trim()) return;
+    const textUrls = itemImageUrl
+      .split(/[\n,]+/)
+      .map((s) => s.trim())
+      .filter((s) => s.startsWith('http://') || s.startsWith('https://') || s.startsWith('data:'));
+    const allUrls = Array.from(new Set([...textUrls, ...itemUploadedUrls]));
+
+    if (!itemAnswer.trim() || allUrls.length === 0) return;
+
     const newItem: DuelItem = {
       id: `custom-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
       answer: itemAnswer.trim(),
@@ -55,12 +66,14 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
         .split(',')
         .map((s) => s.trim())
         .filter(Boolean),
-      imageUrl: itemImageUrl.trim(),
+      imageUrl: allUrls[0],
+      imageUrls: allUrls.length > 1 ? allUrls : undefined,
     };
     setItems((prev) => [...prev, newItem]);
     setItemAnswer('');
     setItemAliases('');
     setItemImageUrl('');
+    setItemUploadedUrls([]);
   };
 
   const handleSaveCategory = () => {
@@ -203,7 +216,7 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
                   type="text"
                   value={itemImageUrl}
                   onChange={(e) => setItemImageUrl(e.target.value)}
-                  placeholder="Incolla URL foto oppure carica ->"
+                  placeholder="URL foto (uno o più separati da virgola)"
                   className="flex-1 px-3 py-2 rounded-lg bg-paper border border-ink/25 text-xs text-ink"
                 />
                 <label className="btn-push px-3 py-2 rounded-lg bg-gold text-ink text-xs font-display font-bold cursor-pointer flex items-center gap-1.5">
@@ -212,19 +225,48 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
                   <input
                     type="file"
                     accept="image/*"
+                    multiple
                     onChange={handleFileUpload}
                     className="hidden"
                   />
                 </label>
               </div>
 
+              {itemUploadedUrls.length > 0 && (
+                <div className="flex items-center gap-1.5 overflow-x-auto py-1">
+                  <span className="text-[10px] font-bold text-ink/60 whitespace-nowrap">
+                    {itemUploadedUrls.length} caricate:
+                  </span>
+                  {itemUploadedUrls.map((url, i) => (
+                    <div key={i} className="relative group shrink-0">
+                      <img
+                        src={url}
+                        alt="Preview"
+                        className="w-8 h-8 rounded-md object-cover border border-ink/20"
+                      />
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setItemUploadedUrls((prev) =>
+                            prev.filter((_, idx) => idx !== i)
+                          )
+                        }
+                        className="absolute -top-1 -right-1 bg-p2 text-white rounded-full w-3.5 h-3.5 flex items-center justify-center text-[9px] font-bold"
+                      >
+                        ×
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+
               <button
                 onClick={handleAddItem}
-                disabled={!itemAnswer.trim() || !itemImageUrl.trim()}
+                disabled={!itemAnswer.trim() || (!itemImageUrl.trim() && itemUploadedUrls.length === 0)}
                 className="btn-push w-full py-2 rounded-xl bg-p1 text-white font-display font-bold text-xs flex items-center justify-center gap-1.5"
               >
                 <Plus className="w-4 h-4" />
-                <span>Aggiungi foto</span>
+                <span>Aggiungi soggetto</span>
               </button>
             </div>
 
@@ -235,14 +277,19 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
                     key={it.id}
                     className="px-3 py-1.5 rounded-lg bg-white border border-ink/20 flex items-center justify-between text-xs text-ink"
                   >
-                    <span className="truncate font-semibold">
-                      {idx + 1}. {it.answer}
-                    </span>
+                    <div className="flex items-center gap-2 truncate">
+                      <span className="truncate font-semibold">
+                        {idx + 1}. {it.answer}
+                      </span>
+                      <span className="text-[10px] bg-paper px-1.5 py-0.5 rounded font-mono font-bold text-ink/60 border border-ink/10 shrink-0">
+                        📸 {(it.imageUrls && it.imageUrls.length) || 1} foto
+                      </span>
+                    </div>
                     <button
                       onClick={() =>
                         setItems((prev) => prev.filter((x) => x.id !== it.id))
                       }
-                      className="text-p2 hover:opacity-75"
+                      className="text-p2 hover:opacity-75 shrink-0 ml-2"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>

@@ -4,6 +4,12 @@ import {
   DEFAULT_CATEGORIES,
 } from '../services/categoryRepository';
 
+export {
+  getItemImagePool,
+  getRandomItemImage,
+  prepareArenaDeck,
+} from '../utils/itemUtils';
+
 export { DEFAULT_CATEGORIES };
 
 export function loadAllCategories(): Category[] {

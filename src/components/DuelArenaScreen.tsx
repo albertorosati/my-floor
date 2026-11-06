@@ -27,7 +27,9 @@ import { soundEngine } from '../engine/soundEffects';
 import { hapticsService } from '../services/hapticsService';
 import {
   getBackupImageUrl,
+  getItemImagePool,
   isImageCached,
+  prepareArenaDeck,
   primeImage,
 } from '../data/categories';
 import { gameConfig } from '../services/configService';
@@ -46,15 +48,6 @@ interface DuelArenaScreenProps {
   onDuelFinished: (summary: DuelSummary) => void;
 }
 
-function shuffleItems(items: DuelItem[]): DuelItem[] {
-  const copy = [...items];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
-
 export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
   roundNumber,
   category,
@@ -68,7 +61,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
   onDuelFinished,
 }) => {
   const [deck, setDeck] = useState<DuelItem[]>(() =>
-    shuffleItems(category.items)
+    prepareArenaDeck(category.items)
   );
   const [itemIndex, setItemIndex] = useState(0);
   const [activePlayer, setActivePlayer] = useState<PlayerId>(initialPlayer);
@@ -216,7 +209,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         safety++;
       }
       if (next >= deck.length) {
-        setDeck(shuffleItems(category.items));
+        setDeck(prepareArenaDeck(category.items));
         return 0;
       }
       return next;

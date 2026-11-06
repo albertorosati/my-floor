@@ -18,7 +18,13 @@
       "aliases": [
         "einstein"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Albert_Einstein_Head_cleaned.jpg/960px-Albert_Einstein_Head_cleaned.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Albert_Einstein_Head_cleaned.jpg/960px-Albert_Einstein_Head_cleaned.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Albert_Einstein_Head_cleaned.jpg/960px-Albert_Einstein_Head_cleaned.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/14/Albert_Einstein_1947.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/c8/Einstein_cross.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-2",
@@ -26,7 +32,13 @@
       "aliases": [
         "leonardo"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png/960px-Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png/960px-Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png/960px-Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png",
+        "https://upload.wikimedia.org/wikipedia/commons/2/22/Da_Vinci_Vitruve_Luc_Viatour.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/c9/Da_Vinci_Studies_of_Embryos_Luc_Viatour.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-3",
@@ -34,7 +46,13 @@
       "aliases": [
         "galileo"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Justus_Sustermans_-_Portrait_of_Galileo_Galilei_%28Uffizi%29.jpg/960px-Justus_Sustermans_-_Portrait_of_Galileo_Galilei_%28Uffizi%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Justus_Sustermans_-_Portrait_of_Galileo_Galilei_%28Uffizi%29.jpg/960px-Justus_Sustermans_-_Portrait_of_Galileo_Galilei_%28Uffizi%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Justus_Sustermans_-_Portrait_of_Galileo_Galilei_%28Uffizi%29.jpg/960px-Justus_Sustermans_-_Portrait_of_Galileo_Galilei_%28Uffizi%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/cc/Galileo.arp.300pix.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/8/85/Galileo_by_leoni.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/7/7a/Galileo_moon_phases.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-4",
@@ -42,7 +60,13 @@
       "aliases": [
         "cesare"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Retrato_de_Julio_C%C3%A9sar_%2826724093101%29_%28cropped%29.jpg/960px-Retrato_de_Julio_C%C3%A9sar_%2826724093101%29_%28cropped%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Retrato_de_Julio_C%C3%A9sar_%2826724093101%29_%28cropped%29.jpg/960px-Retrato_de_Julio_C%C3%A9sar_%2826724093101%29_%28cropped%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Retrato_de_Julio_C%C3%A9sar_%2826724093101%29_%28cropped%29.jpg/960px-Retrato_de_Julio_C%C3%A9sar_%2826724093101%29_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/cc/Giulio_Cesare_opera.PNG",
+        "https://upload.wikimedia.org/wikipedia/commons/7/7f/Salzburger_Festspiele_2012_-_Giulio_Cesare_in_Egitto.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/9/94/Giulio_Cesare_Egyptian_Chorus_G%C3%B6ttingen_1922.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-5",
@@ -50,7 +74,13 @@
       "aliases": [
         "napoleone"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Alexandre_Cabanel_002.jpg/960px-Alexandre_Cabanel_002.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Alexandre_Cabanel_002.jpg/960px-Alexandre_Cabanel_002.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Alexandre_Cabanel_002.jpg/960px-Alexandre_Cabanel_002.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/a/a9/Fran%C3%A7ois_G%C3%A9rard%2C_ritratto_di_napoleone_bonaparte_primo_console.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/6/6c/Bonaparte_premier_Consul_G%C3%A9rard_Chantilly.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/24/Princess_Charlotte_Bonaparte%2C_Infanta_of_Spain.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-6",
@@ -58,7 +88,13 @@
       "aliases": [
         "dante"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Bargello_-_Kapelle_Fresko_2a.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Bargello_-_Kapelle_Fresko_2a.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/e/ea/Bargello_-_Kapelle_Fresko_2a.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/3/32/Gustave_Dor%C3%A9_-_Dante_Alighieri_-_Inferno_-_Plate_9_%28Canto_III_-_Charon%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/4/4c/Gustave_Dor%C3%A9_-_Dante_Alighieri_-_Inferno_-_Plate_65_%28Canto_XXXI_-_The_Titans%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/7/75/Italian_battleship_Dante_Alighieri_aerial_view.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-7",
@@ -66,7 +102,13 @@
       "aliases": [
         "garibaldi"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Giuseppe_Garibaldi_1861.jpg/960px-Giuseppe_Garibaldi_1861.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Giuseppe_Garibaldi_1861.jpg/960px-Giuseppe_Garibaldi_1861.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Giuseppe_Garibaldi_1861.jpg/960px-Giuseppe_Garibaldi_1861.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/7/7b/Garibaldi_%281866%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/da/Corso_Giuseppe_Garibaldi%2C_Barletta.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/61/Giardini_Pubblici_Giuseppe_Garibaldi_02.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-8",
@@ -75,7 +117,13 @@
         "lincoln",
         "abramo lincoln"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Abraham_Lincoln_O-77_matte_collodion_print.jpg/960px-Abraham_Lincoln_O-77_matte_collodion_print.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Abraham_Lincoln_O-77_matte_collodion_print.jpg/960px-Abraham_Lincoln_O-77_matte_collodion_print.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Abraham_Lincoln_O-77_matte_collodion_print.jpg/960px-Abraham_Lincoln_O-77_matte_collodion_print.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/ea/The_Assassination_of_President_Lincoln_-_Currier_and_Ives_2.png",
+        "https://upload.wikimedia.org/wikipedia/commons/4/44/F-18F_after_launch_from_USS_Abraham_Lincoln_%28CVN-72%29.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-9",
@@ -83,7 +131,13 @@
       "aliases": [
         "churchill"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Sir_Winston_Churchill_-_19086236948_%28restored%29.jpg/960px-Sir_Winston_Churchill_-_19086236948_%28restored%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Sir_Winston_Churchill_-_19086236948_%28restored%29.jpg/960px-Sir_Winston_Churchill_-_19086236948_%28restored%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Sir_Winston_Churchill_-_19086236948_%28restored%29.jpg/960px-Sir_Winston_Churchill_-_19086236948_%28restored%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/d2/Yalta_summit_1945_with_Churchill%2C_Roosevelt%2C_Stalin.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/f/f8/Franklin_D._Roosevelt%2C_Chiang_Kai-shek%2C_and_Winston_Churchill_at_the_Cairo_Conference%2C_1943.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/05/Yalta_Conference_%28Churchill%2C_Roosevelt%2C_Stalin%29_%28B%26W%29.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-10",
@@ -91,7 +145,13 @@
       "aliases": [
         "mandela"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Nelson_Mandela_1994.jpg/960px-Nelson_Mandela_1994.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Nelson_Mandela_1994.jpg/960px-Nelson_Mandela_1994.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Nelson_Mandela_1994.jpg/960px-Nelson_Mandela_1994.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/6a/Nelson_Mandela%2C_2000.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/da/Nelson_Mandela%2C_2000_%285%29_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/02/Nelson_Mandela_1994.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-11",
@@ -99,7 +159,13 @@
       "aliases": [
         "gandhi"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Mahatma-Gandhi%2C_studio%2C_1931.jpg/960px-Mahatma-Gandhi%2C_studio%2C_1931.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Mahatma-Gandhi%2C_studio%2C_1931.jpg/960px-Mahatma-Gandhi%2C_studio%2C_1931.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Mahatma-Gandhi%2C_studio%2C_1931.jpg/960px-Mahatma-Gandhi%2C_studio%2C_1931.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/2e/Gandhi_Boer_War.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/f/f3/Gandhi_spinning.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/1c/Gandhi_and_Abdul_Ghaffar_Khan_during_prayer_Cropped_Brighter.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-12",
@@ -107,7 +173,13 @@
       "aliases": [
         "luther king"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Martin_Luther_King%2C_Jr._and_Lyndon_Johnson_%28cropped%29.jpg/960px-Martin_Luther_King%2C_Jr._and_Lyndon_Johnson_%28cropped%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Martin_Luther_King%2C_Jr._and_Lyndon_Johnson_%28cropped%29.jpg/960px-Martin_Luther_King%2C_Jr._and_Lyndon_Johnson_%28cropped%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Martin_Luther_King%2C_Jr._and_Lyndon_Johnson_%28cropped%29.jpg/960px-Martin_Luther_King%2C_Jr._and_Lyndon_Johnson_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/f/f6/Martin_Luther_King_Jr_with_medallion_NYWTS.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/65/Martin_Luther_King_memorial_during_Allt_ljus_p%C3%A5_Uppsala_2008-11-15.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/52/Martin_Luther_King_Sr%2C_c1977-81.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-13",
@@ -116,7 +188,13 @@
         "elisabetta",
         "regina elisabetta"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Queen_Elizabeth_II_official_portrait_for_1959_tour_%28retouched%29_%28cropped%29_%283-to-4_aspect_ratio%29.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Queen_Elizabeth_II_official_portrait_for_1959_tour_%28retouched%29_%28cropped%29_%283-to-4_aspect_ratio%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/1/11/Queen_Elizabeth_II_official_portrait_for_1959_tour_%28retouched%29_%28cropped%29_%283-to-4_aspect_ratio%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/f/f3/Federigo_Sicuteri_e_la_Regina_Elisabetta_II.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e0/Esequie_solenni_della_Regina_Elisabetta_II_%282%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/7/76/Esequie_solenni_della_Regina_Elisabetta_II_%281%29.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-14",
@@ -125,7 +203,13 @@
         "principessa diana",
         "diana"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Diana%2C_Princess_of_Wales_1997_%282%29.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Diana%2C_Princess_of_Wales_1997_%282%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/5/5e/Diana%2C_Princess_of_Wales_1997_%282%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/c4/Lady_Diana.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/8/80/Lady_Diana_Duff-Cooper.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e2/Princess_Diana_Dancing_with_John_Travolta_in_Cross_Hall_at_The_White_House_-_DPLA_-_3842af096c213b9aca61e06931ee8150.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-15",
@@ -133,7 +217,10 @@
       "aliases": [
         "bergoglio"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Pope_Francis_Korea_Haemi_Castle_19_%284x5_cropped%29.jpg/960px-Pope_Francis_Korea_Haemi_Castle_19_%284x5_cropped%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Pope_Francis_Korea_Haemi_Castle_19_%284x5_cropped%29.jpg/960px-Pope_Francis_Korea_Haemi_Castle_19_%284x5_cropped%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Pope_Francis_Korea_Haemi_Castle_19_%284x5_cropped%29.jpg/960px-Pope_Francis_Korea_Haemi_Castle_19_%284x5_cropped%29.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-16",
@@ -141,7 +228,13 @@
       "aliases": [
         "wojtyla"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9c/ADAMELLO_-_PAPA_-_Giovanni_Paolo_II_-_panoramio_%28cropped%29.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9c/ADAMELLO_-_PAPA_-_Giovanni_Paolo_II_-_panoramio_%28cropped%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/9/9c/ADAMELLO_-_PAPA_-_Giovanni_Paolo_II_-_panoramio_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/4/44/San_Giovanni_Paolo_II.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/b1/San_Giovanni_Paolo_II_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/59/Visita_Giovanni_Paolo_II_Parlamento.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-17",
@@ -149,7 +242,13 @@
       "aliases": [
         "madre teresa di calcutta"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Mother_Teresa_1.jpg/960px-Mother_Teresa_1.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Mother_Teresa_1.jpg/960px-Mother_Teresa_1.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Mother_Teresa_1.jpg/960px-Mother_Teresa_1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/d4/Madre_Teresa_in_Rome.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/7/70/Memorial_de_la_Madre_Teresa%2C_Skopie%2C_Macedonia%2C_2014-04-16%2C_DD_12.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/a/a7/Catedral_de_la_Madre_Teresa%2C_Pristina%2C_Kosovo%2C_2014-04-16%2C_DD_11.JPG"
+      ]
     },
     {
       "id": "personaggi-storici-18",
@@ -157,7 +256,13 @@
       "aliases": [
         "frida"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg/960px-Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg/960px-Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg/960px-Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/9/98/2013-12-22_Frida_Kahlo_Totenmaske_anagoria.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/0/06/Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/4/4c/Frida_Kahlo%2C_by_Guillermo_Kahlo_3.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-19",
@@ -165,7 +270,13 @@
       "aliases": [
         "picasso"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Pablo_picasso_1.jpg/960px-Pablo_picasso_1.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Pablo_picasso_1.jpg/960px-Pablo_picasso_1.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Pablo_picasso_1.jpg/960px-Pablo_picasso_1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/9/98/Pablo_picasso_1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/7/77/Modigliani%2C_Picasso_and_Andr%C3%A9_Salmon.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/b8/Portrait_de_Picasso%2C_1908.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-20",
@@ -173,7 +284,13 @@
       "aliases": [
         "van gogh"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg/960px-Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg/960px-Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg/960px-Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/b4/Vincent_Willem_van_Gogh_128.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/5a/Vincent_van_Gogh_-_Sorrow.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/d0/La_Chambre_%C3%A0_Arles%2C_by_Vincent_van_Gogh%2C_from_C2RMF.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-21",
@@ -181,7 +298,13 @@
       "aliases": [
         "dali"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Salvador_Dal%C3%AD_1939.jpg/960px-Salvador_Dal%C3%AD_1939.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Salvador_Dal%C3%AD_1939.jpg/960px-Salvador_Dal%C3%AD_1939.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Salvador_Dal%C3%AD_1939.jpg/960px-Salvador_Dal%C3%AD_1939.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/27/Salvador_Dali_NYWTS.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/24/Salvador_Dal%C3%AD_1939.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/8/8b/Salvador_Dali_A_%28Dali_Atomicus%29_09633u.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-22",
@@ -189,7 +312,13 @@
       "aliases": [
         "wolfgang amadeus mozart"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/The_Mozart_Family_-_Wolfgang_Amadeus_Mozart_headshot.jpg/960px-The_Mozart_Family_-_Wolfgang_Amadeus_Mozart_headshot.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/The_Mozart_Family_-_Wolfgang_Amadeus_Mozart_headshot.jpg/960px-The_Mozart_Family_-_Wolfgang_Amadeus_Mozart_headshot.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/The_Mozart_Family_-_Wolfgang_Amadeus_Mozart_headshot.jpg/960px-The_Mozart_Family_-_Wolfgang_Amadeus_Mozart_headshot.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/1e/Wolfgang-amadeus-mozart_1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/3/3f/Wolfgang-amadeus-mozart_2.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/28/Mozart_Santos.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-23",
@@ -197,7 +326,13 @@
       "aliases": [
         "ludwig van beethoven"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Joseph_Karl_Stieler%27s_Beethoven_mit_dem_Manuskript_der_Missa_solemnis.jpg/960px-Joseph_Karl_Stieler%27s_Beethoven_mit_dem_Manuskript_der_Missa_solemnis.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Joseph_Karl_Stieler%27s_Beethoven_mit_dem_Manuskript_der_Missa_solemnis.jpg/960px-Joseph_Karl_Stieler%27s_Beethoven_mit_dem_Manuskript_der_Missa_solemnis.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Joseph_Karl_Stieler%27s_Beethoven_mit_dem_Manuskript_der_Missa_solemnis.jpg/960px-Joseph_Karl_Stieler%27s_Beethoven_mit_dem_Manuskript_der_Missa_solemnis.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/6f/Beethoven.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/2a/Beethoven_opus_101_manuscript.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/c0/Ludwig_van_Beethoven_Franz_Klein_1812.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-24",
@@ -205,7 +340,13 @@
       "aliases": [
         "tesla"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/Tesla_circa_1890.jpeg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/Tesla_circa_1890.jpeg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/7/79/Tesla_circa_1890.jpeg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/d4/N.Tesla.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/4/43/Naselje_Nikola_Tesla%2C_Ni%C5%A1ka_Banja.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/dc/Nikola_Tesla_by_Sarony_c1898.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-25",
@@ -213,7 +354,13 @@
       "aliases": [
         "curie"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Marie_Curie_c._1920s.jpg/960px-Marie_Curie_c._1920s.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Marie_Curie_c._1920s.jpg/960px-Marie_Curie_c._1920s.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Marie_Curie_c._1920s.jpg/960px-Marie_Curie_c._1920s.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/d9/Mariecurie.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/9/93/Marie_Curie_1903.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/7/7e/Marie_Curie_c1920.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-26",
@@ -221,7 +368,13 @@
       "aliases": [
         "hawking"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Hawking.PNG"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Hawking.PNG",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/7/71/Hawking.PNG",
+        "https://upload.wikimedia.org/wikipedia/commons/3/31/Stephen_Hawking_050506.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/08/Physicist_Stephen_Hawking_in_Zero_Gravity_NASA.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/ed/Stephen_Hawking_%2828190432302%29.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-27",
@@ -229,7 +382,13 @@
       "aliases": [
         "jobs"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Steve_Jobs_Headshot_2010_%28cropped_6%29.jpg/960px-Steve_Jobs_Headshot_2010_%28cropped_6%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Steve_Jobs_Headshot_2010_%28cropped_6%29.jpg/960px-Steve_Jobs_Headshot_2010_%28cropped_6%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Steve_Jobs_Headshot_2010_%28cropped_6%29.jpg/960px-Steve_Jobs_Headshot_2010_%28cropped_6%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/58/Stevejobs_Macworld2005.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/a/a2/Steve_Jobs_and_Bill_Gates_%28522695099%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e5/Steve_Jobs_WWDC07.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-28",
@@ -237,7 +396,13 @@
       "aliases": [
         "musk"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Elon_Musk_-_54820081119_%283x4_cropped%2C_Rule_of_thirds%29.jpg/960px-Elon_Musk_-_54820081119_%283x4_cropped%2C_Rule_of_thirds%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Elon_Musk_-_54820081119_%283x4_cropped%2C_Rule_of_thirds%29.jpg/960px-Elon_Musk_-_54820081119_%283x4_cropped%2C_Rule_of_thirds%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Elon_Musk_-_54820081119_%283x4_cropped%2C_Rule_of_thirds%29.jpg/960px-Elon_Musk_-_54820081119_%283x4_cropped%2C_Rule_of_thirds%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/a/a5/Elon_Musk_2011_Shankbone.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/4/49/Elon_Musk_2015.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-29",
@@ -245,7 +410,13 @@
       "aliases": [
         "gates"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg/960px-Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg/960px-Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg/960px-Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/a/a2/Steve_Jobs_and_Bill_Gates_%28522695099%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/28/Bill_og_Melinda_Gates_2009-06-03_%28bilde_01%29.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/0/01/Bill_Gates_July_2014.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-30",
@@ -253,7 +424,13 @@
       "aliases": [
         "zuckerberg"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/P20260929DT-1655_%2855561811540%29_%28cropped_2%29.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/P20260929DT-1655_%2855561811540%29_%28cropped_2%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/1/12/P20260929DT-1655_%2855561811540%29_%28cropped_2%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/3/31/Mark_Zuckerberg_at_the_37th_G8_Summit_in_Deauville_018_v1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/23/Mark_Zuckerberg_F8_2018_Keynote.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/c4/Mark_Zuckerberg_F8_2018_Keynote_%28cropped%29.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-31",
@@ -261,7 +438,13 @@
       "aliases": [
         "bezos"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/260202-D-PM193-2205_SECWAR_Arsenal_of_Freedom_Tour_-_Florida_%283x4_cropped_on_Bezos_and_rotated%29.jpg/960px-260202-D-PM193-2205_SECWAR_Arsenal_of_Freedom_Tour_-_Florida_%283x4_cropped_on_Bezos_and_rotated%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/260202-D-PM193-2205_SECWAR_Arsenal_of_Freedom_Tour_-_Florida_%283x4_cropped_on_Bezos_and_rotated%29.jpg/960px-260202-D-PM193-2205_SECWAR_Arsenal_of_Freedom_Tour_-_Florida_%283x4_cropped_on_Bezos_and_rotated%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/260202-D-PM193-2205_SECWAR_Arsenal_of_Freedom_Tour_-_Florida_%283x4_cropped_on_Bezos_and_rotated%29.jpg/960px-260202-D-PM193-2205_SECWAR_Arsenal_of_Freedom_Tour_-_Florida_%283x4_cropped_on_Bezos_and_rotated%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/6b/Jeff_Bezos%27_iconic_laugh.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/9/91/Jeff_Bezos%27_iconic_laugh_crop.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/3/33/Jeff_Bezos_2016.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-32",
@@ -269,7 +452,13 @@
       "aliases": [
         "armstrong"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Neil_Armstrong_pose.jpg/960px-Neil_Armstrong_pose.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Neil_Armstrong_pose.jpg/960px-Neil_Armstrong_pose.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Neil_Armstrong_pose.jpg/960px-Neil_Armstrong_pose.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/1c/Neil_Armstrong.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/0d/Neil_Armstrong_pose.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/14/Pilot_Neil_Armstrong_and_X-15_-1_-_GPN-2000-000121.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-33",
@@ -277,7 +466,13 @@
       "aliases": [
         "ernesto guevara"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Che_Guevara_-_Guerrillero_Heroico_by_Alberto_Korda.jpg/960px-Che_Guevara_-_Guerrillero_Heroico_by_Alberto_Korda.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Che_Guevara_-_Guerrillero_Heroico_by_Alberto_Korda.jpg/960px-Che_Guevara_-_Guerrillero_Heroico_by_Alberto_Korda.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Che_Guevara_-_Guerrillero_Heroico_by_Alberto_Korda.jpg/960px-Che_Guevara_-_Guerrillero_Heroico_by_Alberto_Korda.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/5e/Che_Guevara_-_Grab_in_Santa_Clara%2C_Kuba.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/c1/Che_Guevara_-_ca._1945.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/58/CheHigh.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-34",
@@ -285,7 +480,13 @@
       "aliases": [
         "monroe"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Monroecirca1953.jpg/960px-Monroecirca1953.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Monroecirca1953.jpg/960px-Monroecirca1953.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Monroecirca1953.jpg/960px-Monroecirca1953.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/d9/Marilyn_Monroe%2C_The_Prince_and_the_Showgirl%2C_1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/59/Marilyn_Monroe_postcard.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/8/8d/Marilyn_Monroe_photo_pose_Seven_Year_Itch.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-35",
@@ -293,7 +494,13 @@
       "aliases": [
         "elvis"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Elvis_Presley_promoting_Jailhouse_Rock.jpg/960px-Elvis_Presley_promoting_Jailhouse_Rock.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Elvis_Presley_promoting_Jailhouse_Rock.jpg/960px-Elvis_Presley_promoting_Jailhouse_Rock.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Elvis_Presley_promoting_Jailhouse_Rock.jpg/960px-Elvis_Presley_promoting_Jailhouse_Rock.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/4/41/Elvis-nixon.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/8/82/Elvis_Presley_1970.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/9/99/Elvis_Presley_promoting_Jailhouse_Rock.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-36",
@@ -302,7 +509,13 @@
         "jfk",
         "kennedy"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/John_F._Kennedy%2C_White_House_color_photo_portrait.jpg/960px-John_F._Kennedy%2C_White_House_color_photo_portrait.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/John_F._Kennedy%2C_White_House_color_photo_portrait.jpg/960px-John_F._Kennedy%2C_White_House_color_photo_portrait.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/John_F._Kennedy%2C_White_House_color_photo_portrait.jpg/960px-John_F._Kennedy%2C_White_House_color_photo_portrait.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/3/3f/John_F_Kennedy.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/c3/John_F._Kennedy%2C_White_House_color_photo_portrait.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/21/John_F_Kennedy_Official_Portrait.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-37",
@@ -310,7 +523,13 @@
       "aliases": [
         "obama"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/960px-President_Barack_Obama.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/960px-President_Barack_Obama.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/960px-President_Barack_Obama.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/8/81/Barack_Michelle.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/c3/Obama_Portrait_2006.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e9/Official_portrait_of_Barack_Obama.jpg"
+      ]
     },
     {
       "id": "personaggi-storici-38",
@@ -318,7 +537,13 @@
       "aliases": [
         "trump"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29.jpg/960px-Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29.jpg/960px-Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29.jpg",
+      "imageUrls": [
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29.jpg/960px-Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e9/Donald_Trump_NYMA.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/59/Donald_Trump_RNC_July_2016.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/6c/Donald_Trump_swearing_in_ceremony.jpg"
+      ]
     }
   ]
 }

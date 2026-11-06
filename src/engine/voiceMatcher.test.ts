@@ -85,6 +85,25 @@ describe('voiceMatcher Engine & Real-Photo Catalog', () => {
     expect(totalPhotos).toBeGreaterThan(2100);
   });
 
+  it('include pool multi-foto (anti-memorizzazione) per oltre 400 personaggi celebri', () => {
+    let multiPhotoSubjects = 0;
+    let totalPhotosInPools = 0;
+    for (const cat of DEFAULT_CATEGORIES) {
+      for (const item of cat.items) {
+        if (Array.isArray(item.imageUrls) && item.imageUrls.length > 1) {
+          multiPhotoSubjects++;
+          totalPhotosInPools += item.imageUrls.length;
+          item.imageUrls.forEach((url) => {
+            expect(url).toMatch(/^https:\/\//);
+            expect(url).not.toContain('?');
+          });
+        }
+      }
+    }
+    expect(multiPhotoSubjects).toBeGreaterThan(400);
+    expect(totalPhotosInPools).toBeGreaterThan(1500);
+  });
+
   it('ha un formato di versione semver valido (es. 1.0.0, 1.0.1)', () => {
     expect(APP_VERSION).toMatch(/^\d+\.\d+\.\d+$/);
   });
