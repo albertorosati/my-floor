@@ -114,6 +114,14 @@ export const FORBIDDEN_SEMANTIC_KEYWORDS = [
   'coat_of_arms',
   'signature',
   'autograph',
+
+  // Flat banners, ribbons, pancake ultra-wide crops
+  'library_hero',
+  'hero_capsule',
+  'header_capsule',
+  'capsule_616x353',
+  'banner',
+  'panoramica',
 ];
 
 /**
@@ -152,13 +160,7 @@ export function evaluateImageQuality(candidate) {
     .join(' ')
     .toLowerCase();
 
-  for (const bad of FORBIDDEN_SEMANTIC_KEYWORDS) {
-    if (combinedText.includes(bad)) {
-      return { valid: false, score: 0, reason: `forbidden_keyword: ${bad}` };
-    }
-  }
-
-  // 2.1 Anti-Spoiler: Rilevamento nome risposta associato a copertine, poster o loghi
+  // 2. Anti-Spoiler: Rilevamento nome risposta associato a copertine, poster o loghi
   if (candidate.answer && typeof candidate.answer === 'string') {
     const normAnswer = candidate.answer.toLowerCase().trim();
     if (
@@ -176,6 +178,13 @@ export function evaluateImageQuality(candidate) {
     }
   }
 
+  // 3. Controllo parole chiave vietate su URL, Titolo e Categorie
+  for (const bad of FORBIDDEN_SEMANTIC_KEYWORDS) {
+    if (combinedText.includes(bad)) {
+      return { valid: false, score: 0, reason: `forbidden_keyword: ${bad}` };
+    }
+  }
+
   // 3. Controllo Tecnico (Risoluzione e Aspetto)
   const w = candidate.width || 0;
   const h = candidate.height || 0;
@@ -184,7 +193,7 @@ export function evaluateImageQuality(candidate) {
       return { valid: false, score: 10, reason: 'resolution_too_low' };
     }
     const ratio = w / h;
-    if (ratio < 0.6 || ratio > 2.2) {
+    if (ratio < 0.65 || ratio > 1.85) {
       return { valid: false, score: 15, reason: `extreme_aspect_ratio: ${ratio.toFixed(2)}` };
     }
   }

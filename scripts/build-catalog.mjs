@@ -53,6 +53,12 @@ const BASE_FORBIDDEN_KEYWORDS = [
   'autograph',
   'map_of_',
   'locator_map',
+  'library_hero',
+  'hero_capsule',
+  'header_capsule',
+  'capsule_616x353',
+  'banner',
+  'panoramica',
 ];
 
 const FORBIDDEN_KEYWORDS = Array.from(
@@ -104,7 +110,7 @@ function isHighQualityPhoto(thumbObj, pageImageName = '') {
   if (w > 0 && h > 0) {
     if (w < 360 || h < 260) return false;
     const ratio = w / h;
-    if (ratio < 0.62 || ratio > 2.15) return false;
+    if (ratio < 0.65 || ratio > 1.85) return false;
   }
 
   return true;

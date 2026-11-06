@@ -48,6 +48,15 @@ describe('blacklistService', () => {
         'https://upload.wikimedia.org/wikipedia/it/1/19/Batman_3_variant.jpg';
       expect(blacklistService.isBlacklisted(batmanCover)).toBe(true);
 
+      // Banner schiacciati (library_hero 3.1:1) dei videogiochi bloccati
+      const gtaBanner =
+        'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/library_hero.jpg';
+      expect(blacklistService.isBlacklisted(gtaBanner)).toBe(true);
+
+      const rdr2Banner =
+        'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/library_hero.jpg';
+      expect(blacklistService.isBlacklisted(rdr2Banner)).toBe(true);
+
       const cleanPhoto =
         'https://upload.wikimedia.org/wikipedia/commons/1/12/Living_clean_fish.jpg';
       expect(blacklistService.isBlacklisted(cleanPhoto)).toBe(false);
