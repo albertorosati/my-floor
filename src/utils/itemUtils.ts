@@ -27,9 +27,9 @@ export function getItemImagePool(item: DuelItem): string[] {
     }
   }
 
-  // Se tutte le foto sono in blacklist ma c'è item.imageUrl, restituisce l'originale
-  // come estremo fallback solo per evitare crash, altrimenti l'elenco pulito.
-  return pool.size > 0 ? Array.from(pool) : (item.imageUrl ? [item.imageUrl] : []);
+  // Se tutte le foto sono in blacklist, restituisce array vuoto così
+  // il chiamante sa che non ci sono più foto pulite disponibili.
+  return Array.from(pool);
 }
 
 /**

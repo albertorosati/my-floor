@@ -324,12 +324,28 @@ export const DICTIONARY = {
     en: 'Bad, unreadable or wrong photo? Report it to remove it!',
   },
   'arena.photoReported': {
-    it: 'Foto segnalata e rimossa!',
-    en: 'Photo reported & removed!',
+    it: 'Foto segnalata! Tempo recuperato (+5s)',
+    en: 'Photo reported! Time refunded (+5s)',
   },
   'arena.flaggedCount': {
     it: '{count} foto segnalate',
     en: '{count} photos reported',
+  },
+  'arena.noFlaggedPhotos': {
+    it: 'Nessuna foto segnalata',
+    en: 'No reported photos',
+  },
+  'arena.exportBlacklistJson': {
+    it: 'Esporta JSON Segnalazioni',
+    en: 'Export Blacklist JSON',
+  },
+  'arena.downloadBlacklistFile': {
+    it: 'Scarica file JSON',
+    en: 'Download JSON file',
+  },
+  'arena.copiedToClipboard': {
+    it: 'Copiato negli appunti!',
+    en: 'Copied to clipboard!',
   },
   'arena.takesLead': { it: '{name} passa in vantaggio!', en: '{name} takes the lead!' },
   'party.challengeStep': { it: 'Sfida:', en: 'Challenge:' },

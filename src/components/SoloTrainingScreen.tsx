@@ -224,22 +224,24 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
 
     hapticsService.vibrateTap();
 
+    // Rimborso del tempo perso sulla foto errata (+5s in modalità timer o -3s in free mode)
+    if (isFreeMode) {
+      setTimeRemaining(prev => Math.max(0, prev - 3));
+    } else {
+      setTimeRemaining(prev => Math.min(initialDuration, prev + 5));
+    }
+
     setReportToast(true);
     if (reportTimerRef.current) clearTimeout(reportTimerRef.current);
     reportTimerRef.current = setTimeout(() => {
       setReportToast(false);
-    }, 1800);
+    }, 2000);
 
-    // Controlla se esistono scatti alternativi validi non ancora blacktlistati
-    const cleanPool = getItemImagePool(currentItem);
-    if (cleanPool.length > 0) {
-      const nextPhoto = cleanPool[Math.floor(Math.random() * cleanPool.length)];
-      setPhotoOverride(nextPhoto);
-      setImageLoaded(false);
-    } else {
-      advanceToNextImage();
-    }
-  }, [currentItem, displaySrc, advanceToNextImage]);
+    // Salta subito alla foto successiva senza rimanere bloccati
+    setPhotoOverride(null);
+    setImageLoaded(false);
+    advanceToNextImage();
+  }, [currentItem, displaySrc, isFreeMode, initialDuration, advanceToNextImage]);
 
   // Risposta corretta
   // Risposta corretta (A1)
@@ -626,7 +628,7 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
             {/* The Photo with 12px mat */}
             <div className="w-full h-full flex items-center justify-center bg-paper/50 rounded-lg overflow-hidden">
               <img
-                key={`${currentItem.id}-${usingBackupUrl ? 'b' : 'p'}`}
+                key={displaySrc}
                 src={displaySrc}
                 alt={currentItem.answer}
                 decoding="async"

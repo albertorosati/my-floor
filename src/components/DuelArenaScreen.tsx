@@ -264,22 +264,24 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
 
     hapticsService.vibrateTap();
 
+    // Rimborso del tempo perso sulla foto errata (+5s all'orologio del giocatore di turno)
+    if (activePlayer === 'p1') {
+      setTimeP1(prev => Math.min(settings.duelDurationSeconds, prev + 5));
+    } else {
+      setTimeP2(prev => Math.min(settings.duelDurationSeconds, prev + 5));
+    }
+
     setReportToast(true);
     if (reportTimerRef.current) clearTimeout(reportTimerRef.current);
     reportTimerRef.current = setTimeout(() => {
       setReportToast(false);
-    }, 1800);
+    }, 2000);
 
-    // Controlla se esistono scatti alternativi validi non ancora blacktlistati
-    const cleanPool = getItemImagePool(currentItem);
-    if (cleanPool.length > 0) {
-      const nextPhoto = cleanPool[Math.floor(Math.random() * cleanPool.length)];
-      setPhotoOverride(nextPhoto);
-      setImageLoaded(false);
-    } else {
-      advanceToNextImage();
-    }
-  }, [currentItem, displaySrc, advanceToNextImage]);
+    // Salta subito alla foto successiva senza rimanere bloccati
+    setPhotoOverride(null);
+    setImageLoaded(false);
+    advanceToNextImage();
+  }, [currentItem, displaySrc, activePlayer, settings.duelDurationSeconds, advanceToNextImage]);
 
   // A1: Correct Guess Handler
   const triggerCorrectGuess = useCallback(
@@ -862,6 +864,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
 
               {/* The Photo Itself: Fits Real Aspect Ratio */}
               <img
+                key={displaySrc}
                 src={displaySrc}
                 alt={currentItem.answer}
                 decoding="async"

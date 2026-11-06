@@ -938,25 +938,54 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
               </button>
             )}
 
-            {/* Reported Photos Management (Zero-Backend Blacklist) */}
-            {flaggedCount > 0 && (
-              <div className="flex flex-col gap-2 p-3 bg-paper/60 rounded-xl border-2 border-ink">
-                <div className="flex items-center justify-between">
-                  <span className="font-display font-bold text-sm text-ink flex items-center gap-1.5">
-                    <span>🚩</span>
-                    <span>{t('arena.flaggedCount', settings.language, { count: flaggedCount })}</span>
+            {/* Reported Photos Management (Zero-Backend Blacklist & Export) */}
+            <div className="flex flex-col gap-2.5 p-3.5 bg-paper/60 rounded-xl border-2 border-ink">
+              <div className="flex items-center justify-between">
+                <span className="font-display font-bold text-sm text-ink flex items-center gap-1.5">
+                  <span>🚩</span>
+                  <span>
+                    {flaggedCount > 0
+                      ? t('arena.flaggedCount', settings.language, { count: flaggedCount })
+                      : t('arena.noFlaggedPhotos', settings.language)}
                   </span>
+                </span>
+                {flaggedCount > 0 && (
                   <button
                     type="button"
                     onClick={() => {
                       blacklistService.clearUserFlags();
                       setFlaggedCount(0);
                     }}
-                    className="text-xs font-sans font-bold text-red hover:underline"
+                    className="text-xs font-sans font-bold text-red hover:underline cursor-pointer"
                   >
                     {settings.language === 'en' ? 'Reset' : 'Ripristina'}
                   </button>
-                </div>
+                )}
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                {/* Download File JSON */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    const json = blacklistService.exportBlacklistJson();
+                    const blob = new Blob([json], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = `yappik-blacklist-${new Date().toISOString().slice(0, 10)}.json`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(url);
+                  }}
+                  className="btn-push py-2 px-3 rounded-lg bg-white text-ink font-display font-bold text-xs border-2 border-ink flex items-center justify-center gap-1.5 hover:bg-yellow transition-colors cursor-pointer"
+                >
+                  <Download className="w-4 h-4 shrink-0" />
+                  <span className="truncate">{t('arena.downloadBlacklistFile', settings.language)}</span>
+                </button>
+
+                {/* Copia JSON negli appunti */}
                 <button
                   type="button"
                   onClick={() => {
@@ -968,17 +997,17 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                       });
                     }
                   }}
-                  className="btn-push w-full py-2 px-3 rounded-lg bg-paper text-ink font-display font-bold text-xs border-2 border-ink flex items-center justify-center gap-1.5 hover:bg-yellow transition-colors"
+                  className="btn-push py-2 px-3 rounded-lg bg-white text-ink font-display font-bold text-xs border-2 border-ink flex items-center justify-center gap-1.5 hover:bg-yellow transition-colors cursor-pointer"
                 >
                   <span>📋</span>
-                  <span>
+                  <span className="truncate">
                     {copiedBlacklist
-                      ? (settings.language === 'en' ? 'JSON Copied to clipboard!' : 'JSON Copiato negli appunti!')
-                      : (settings.language === 'en' ? 'Export Blacklist JSON' : 'Esporta JSON Segnalazioni')}
+                      ? t('arena.copiedToClipboard', settings.language)
+                      : t('arena.exportBlacklistJson', settings.language)}
                   </span>
                 </button>
               </div>
-            )}
+            </div>
 
             {/* B2: Done primary button */}
             <button
