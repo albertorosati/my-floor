@@ -54,9 +54,9 @@ export const DICTIONARY: Translations = {
   },
 
   // Game Modes
-  'mode.solo': { it: '🎯 Allenamento (1P)', en: '🎯 Solo Practice (1P)' },
-  'mode.duel': { it: '⚔️ Duello 1v1 (2P)', en: '⚔️ 1v1 Duel (2P)' },
-  'mode.party': { it: '👑 Party (3-8P)', en: '👑 Party (3-8P)' },
+  'mode.solo': { it: 'Allenamento (1P)', en: 'Solo Practice (1P)' },
+  'mode.duel': { it: 'Duello 1v1 (2P)', en: '1v1 Duel (2P)' },
+  'mode.party': { it: 'Party (3-8P)', en: 'Party (3-8P)' },
   'mode.soloDesc': {
     it: 'Allenati da solo su qualsiasi categoria e batti i tuoi record!',
     en: 'Practice solo on any category and beat your high scores!',
@@ -122,7 +122,7 @@ export const DICTIONARY: Translations = {
     en: 'Add at least 3 players for Party mode!',
   },
   'party.nextDuel': { it: 'PROSSIMO DUELLO', en: 'NEXT DUEL' },
-  'party.champion': { it: '👑 CAMPIONE DEL TORNEO PARTY!', en: '👑 PARTY TOURNAMENT CHAMPION!' },
+  'party.champion': { it: 'CAMPIONE DEL TORNEO PARTY!', en: 'PARTY TOURNAMENT CHAMPION!' },
   'party.standingsDesc': {
     it: 'Vittorie accumulate e duelli disputati nel torneo',
     en: 'Total wins and duels played in the tournament',
@@ -240,7 +240,7 @@ export const DICTIONARY: Translations = {
   'draft.searchPlaceholder': { it: 'Cerca categoria...', en: 'Search categories...' },
   'draft.select': { it: 'Scegli questa categoria →', en: 'Select this category →' },
   'draft.selectCard': { it: 'Scegli questa →', en: 'Select this →' },
-  'draft.startSoloCard': { it: 'Inizia Allenamento 🎯', en: 'Start Practice 🎯' },
+  'draft.startSoloCard': { it: 'Inizia Allenamento', en: 'Start Practice' },
   'draft.recordBadge': { it: 'Record: {n}', en: 'Record: {n}' },
   'draft.reroll': { it: 'Altre 4 proposte', en: 'Shuffle (Reroll)' },
   'draft.closeModal': { it: 'Chiudi', en: 'Close' },
