@@ -4,12 +4,12 @@
   "subtitle": "Marvel, DC Comics e i personaggi più iconici dei fumetti",
   "icon": "🦸",
   "themeHex": "#EF4444",
-  "coverImage": "https://upload.wikimedia.org/wikipedia/it/8/82/Copertina_Uomo_Ragno_MI_430.png",
+  "coverImage": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Asia_Comic_Expo_2023_-_Spider-Man_cosplay_1.jpg",
   "previewImages": [
-    "https://upload.wikimedia.org/wikipedia/it/8/82/Copertina_Uomo_Ragno_MI_430.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "https://upload.wikimedia.org/wikipedia/it/1/19/Batman_3_variant.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "https://upload.wikimedia.org/wikipedia/it/1/13/DC_Absolute_Superman_per_il_Domani.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "https://upload.wikimedia.org/wikipedia/it/6/61/Wonder_Woman_%28Adam_Hughes%29.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    "https://upload.wikimedia.org/wikipedia/commons/b/bf/Asia_Comic_Expo_2023_-_Spider-Man_cosplay_1.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/b/b7/Cosplay_of_Batman_at_Florida_Supercon_2013_%289364594115%29.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/8/82/Cosplay_of_Superman_at_Florida_Supercon_2013_%289359693687%29.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/1/18/Cosplay_of_Wonder_Woman_at_Florida_Supercon_2013_%289359718063%29.jpg"
   ],
   "items": [
     {
@@ -20,7 +20,10 @@
         "spiderman",
         "peter parker"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/8/82/Copertina_Uomo_Ragno_MI_430.png"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Asia_Comic_Expo_2023_-_Spider-Man_cosplay_1.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/b/bf/Asia_Comic_Expo_2023_-_Spider-Man_cosplay_1.jpg"
+      ]
     },
     {
       "id": "supereroi-2",
@@ -29,7 +32,10 @@
         "uomo pipistrello",
         "bruce wayne"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/1/19/Batman_3_variant.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Cosplay_of_Batman_at_Florida_Supercon_2013_%289364594115%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/b/b7/Cosplay_of_Batman_at_Florida_Supercon_2013_%289364594115%29.jpg"
+      ]
     },
     {
       "id": "supereroi-3",
@@ -37,7 +43,10 @@
       "aliases": [
         "clark kent"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/1/13/DC_Absolute_Superman_per_il_Domani.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/82/Cosplay_of_Superman_at_Florida_Supercon_2013_%289359693687%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/8/82/Cosplay_of_Superman_at_Florida_Supercon_2013_%289359693687%29.jpg"
+      ]
     },
     {
       "id": "supereroi-4",
@@ -45,7 +54,10 @@
       "aliases": [
         "diana prince"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/6/61/Wonder_Woman_%28Adam_Hughes%29.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/Cosplay_of_Wonder_Woman_at_Florida_Supercon_2013_%289359718063%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/1/18/Cosplay_of_Wonder_Woman_at_Florida_Supercon_2013_%289359718063%29.jpg"
+      ]
     },
     {
       "id": "supereroi-5",
@@ -54,7 +66,10 @@
         "tony stark",
         "ironman"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/7/7c/Iron_Man_Extremis.jpg/960px-Iron_Man_Extremis.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/WonderCon_2014_-_Iron_Man_Cosplay_%2813955026033%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/7/79/WonderCon_2014_-_Iron_Man_Cosplay_%2813955026033%29.jpg"
+      ]
     },
     {
       "id": "supereroi-6",
@@ -63,7 +78,10 @@
         "capitan america",
         "steve rogers"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/f/f3/Capitan_America_%28Maguire%29.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Cosplay_of_Captain_America_at_GalaxyCon_Richmond_2020_%2849666814012%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/a/aa/Cosplay_of_Captain_America_at_GalaxyCon_Richmond_2020_%2849666814012%29.jpg"
+      ]
     },
     {
       "id": "supereroi-7",
@@ -71,7 +89,10 @@
       "aliases": [
         "dio del tuono"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/e/e0/Thor_%28Alan_Davis%29.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Cosplay_of_Thor_%28Marvel%29_at_Made_in_Asia_2022_%2852104540946%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/e/ed/Cosplay_of_Thor_%28Marvel%29_at_Made_in_Asia_2022_%2852104540946%29.jpg"
+      ]
     },
     {
       "id": "supereroi-8",
@@ -80,7 +101,10 @@
         "incredibile hulk",
         "bruce banner"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/9/90/Hulk_%28Dale_Keown%29.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/Denis_Bourez_-_Madame_Tussauds%2C_London_%288747024027%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/9/92/Denis_Bourez_-_Madame_Tussauds%2C_London_%288747024027%29.jpg"
+      ]
     },
     {
       "id": "supereroi-9",
@@ -89,19 +113,28 @@
         "black widow",
         "natasha romanoff"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/1/1b/Vedova_Nera_%28Natasha_Romanoff%29.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/SDCC_2012_-_Black_Widow_%287573771320%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/6/67/SDCC_2012_-_Black_Widow_%287573771320%29.jpg"
+      ]
     },
     {
       "id": "supereroi-10",
       "answer": "Thanos",
       "aliases": [],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/c/c2/Thanos.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/52/THANOS-Cosplay.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/5/52/THANOS-Cosplay.jpg"
+      ]
     },
     {
       "id": "supereroi-11",
       "answer": "Loki",
       "aliases": [],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/6/64/Loki_%28Jay_Anacleto%29.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/30/Cosplay_of_Loki_at_the_2021_New_York_Comic_Con_%2851573884794%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/3/30/Cosplay_of_Loki_at_the_2021_New_York_Comic_Con_%2851573884794%29.jpg"
+      ]
     },
     {
       "id": "supereroi-12",
@@ -109,7 +142,10 @@
       "aliases": [
         "dottor strange"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/5/53/Dottor_Strange.webp"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Dr._Strange_%2830175130414%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/f/ff/Dr._Strange_%2830175130414%29.jpg"
+      ]
     },
     {
       "id": "supereroi-13",
@@ -118,7 +154,10 @@
         "pantera nera",
         "tchalla"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Chadwick_Boseman_by_Gage_Skidmore_July_2017_%28cropped%29.jpg/960px-Chadwick_Boseman_by_Gage_Skidmore_July_2017_%28cropped%29.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Black_Panther_cosplay_-_2018_Atlanta_Comic_Con.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/c/c9/Black_Panther_cosplay_-_2018_Atlanta_Comic_Con.jpg"
+      ]
     },
     {
       "id": "supereroi-14",
@@ -126,7 +165,10 @@
       "aliases": [
         "wade wilson"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/b/b1/Marvel-Verse_Deadpool.webp"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/30/Deadpool_Cosplay_at_NYCC_2017.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/3/30/Deadpool_Cosplay_at_NYCC_2017.jpg"
+      ]
     },
     {
       "id": "supereroi-15",
@@ -134,13 +176,19 @@
       "aliases": [
         "logan"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Hugh_Jackman_as_Wolverine.png"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Hugh_Jackman_aka_Wolverine_figure_at_Madame_Tussauds_London_%2833783637622%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/6/67/Hugh_Jackman_aka_Wolverine_figure_at_Madame_Tussauds_London_%2833783637622%29.jpg"
+      ]
     },
     {
       "id": "supereroi-16",
       "answer": "Magneto",
       "aliases": [],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/a/ac/MarvelMix21.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Comic_Con_2013_-_Magneto_%289333184139%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/7/7b/Comic_Con_2013_-_Magneto_%289333184139%29.jpg"
+      ]
     },
     {
       "id": "supereroi-17",
@@ -148,7 +196,10 @@
       "aliases": [
         "simbionte"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/5/52/Batman_contro_bane.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Venom_%283262554966%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/e/e3/Venom_%283262554966%29.jpg"
+      ]
     },
     {
       "id": "supereroi-18",
@@ -156,7 +207,10 @@
       "aliases": [
         "matt murdock"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/5/54/The_Punisher_One_Last_Kill.logo.jpeg/960px-The_Punisher_One_Last_Kill.logo.jpeg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Daredevil_cosplay_at_C2E2_2012.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/a/ae/Daredevil_cosplay_at_C2E2_2012.jpg"
+      ]
     },
     {
       "id": "supereroi-19",
@@ -165,7 +219,10 @@
         "il punitore",
         "frank castle"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/4/49/Punisher_Barracuda.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Punisher_at_C2E2_2012_Marvel_Costume_contest.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/9/9a/Punisher_at_C2E2_2012_Marvel_Costume_contest.jpg"
+      ]
     },
     {
       "id": "supereroi-20",
@@ -173,7 +230,10 @@
       "aliases": [
         "barry allen"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/c/ce/TheFlashMovie.png/960px-TheFlashMovie.png"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Cosplay_of_the_Flash_at_Japan_Expo_2016_%2829201238343%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/4/47/Cosplay_of_the_Flash_at_Japan_Expo_2016_%2829201238343%29.jpg"
+      ]
     },
     {
       "id": "supereroi-21",
@@ -181,7 +241,10 @@
       "aliases": [
         "arthur curry"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/f/f5/M1ANTO013ISBN_0.webp"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e7/NYCC_2014_-_Iceman_%26_Aquaman_%2815508303951%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/e/e7/NYCC_2014_-_Iceman_%26_Aquaman_%2815508303951%29.jpg"
+      ]
     },
     {
       "id": "supereroi-22",
@@ -189,7 +252,10 @@
       "aliases": [
         "harley"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/1/1d/Harley_Quinn_%28Terry_Dodson%29.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Cosplay_of_Harley_Quinn_at_Florida_Supercon_2013_%289358519997%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/b/b3/Cosplay_of_Harley_Quinn_at_Florida_Supercon_2013_%289358519997%29.jpg"
+      ]
     },
     {
       "id": "supereroi-23",
@@ -198,7 +264,10 @@
         "donna gatto",
         "selina kyle"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/4/46/Catwoman_4.webp"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Catwoman_cosplay_%2814049837130%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/1/1b/Catwoman_cosplay_%2814049837130%29.jpg"
+      ]
     },
     {
       "id": "supereroi-24",
@@ -207,7 +276,10 @@
         "pinguino batman",
         "oswald cobblepot"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/South_Shetland-2016-Deception_Island%E2%80%93Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg/960px-South_Shetland-2016-Deception_Island%E2%80%93Chinstrap_penguin_%28Pygoscelis_antarctica%29_04.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Cosplay_of_the_Penguin_at_Brussels_Comic_Con_2019_%2832358886967%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/1/1d/Cosplay_of_the_Penguin_at_Brussels_Comic_Con_2019_%2832358886967%29.jpg"
+      ]
     },
     {
       "id": "supereroi-25",
@@ -215,7 +287,10 @@
       "aliases": [
         "the riddler"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/4/4b/Batman-_L%27Ultimo_Halloween_3.webp"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Riddler_%26_royal_flush_gang_member%3F_cosplay_%2814049755598%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/1/12/Riddler_%26_royal_flush_gang_member%3F_cosplay_%2814049755598%29.jpg"
+      ]
     },
     {
       "id": "supereroi-26",
@@ -224,7 +299,10 @@
         "goblin",
         "norman osborn"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/e/ef/Goblin.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/Wondercon_2016_-_Green_Goblin_Cosplay_%2825478311013%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/7/72/Wondercon_2016_-_Green_Goblin_Cosplay_%2825478311013%29.jpg"
+      ]
     },
     {
       "id": "supereroi-27",
@@ -233,7 +311,10 @@
         "doc ock",
         "octopus"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/19/Sinister_Six.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/WonderCon_2014_-_Doctor_Octopus_cosplay_%2813955404834%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/2/23/WonderCon_2014_-_Doctor_Octopus_cosplay_%2813955404834%29.jpg"
+      ]
     },
     {
       "id": "supereroi-28",
@@ -241,7 +322,10 @@
       "aliases": [
         "io sono groot"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/3/3d/Groot_-_Sradicato.webp"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/2014_Dragon_Con_Cosplay_-_Groot_%2814937100589%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/8/87/2014_Dragon_Con_Cosplay_-_Groot_%2814937100589%29.jpg"
+      ]
     },
     {
       "id": "supereroi-29",
@@ -249,7 +333,10 @@
       "aliases": [
         "rocket"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/4/4c/Rocket_Raccoon_%28Joe_Quesada%29.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/91/2014_Dragon_Con_Cosplay_-_Rocket_Raccoon_%2814937639390%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/9/91/2014_Dragon_Con_Cosplay_-_Rocket_Raccoon_%2814937639390%29.jpg"
+      ]
     },
     {
       "id": "supereroi-30",
@@ -258,7 +345,10 @@
         "antman",
         "uomo formica"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/e/e4/Ant-Man_film.jpg/960px-Ant-Man_film.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/Ant-Man_cosplay.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/d/de/Ant-Man_cosplay.jpg"
+      ]
     },
     {
       "id": "supereroi-31",
@@ -266,7 +356,10 @@
       "aliases": [
         "wanda"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/7/72/Scarlet_%28Alex_Ross%29.jpg/960px-Scarlet_%28Alex_Ross%29.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Cosplay_of_Scarlet_Witch_at_the_2021_New_York_Comic_Con_%2851573366608%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/1/19/Cosplay_of_Scarlet_Witch_at_the_2021_New_York_Comic_Con_%2851573366608%29.jpg"
+      ]
     },
     {
       "id": "supereroi-32",
@@ -274,7 +367,10 @@
       "aliases": [
         "carol danvers"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/f/f3/Generations_Captain_Marvel_%26_Captain_Mar-Vell.webp"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Carol_danvers_%283261589209%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/3/34/Carol_danvers_%283261589209%29.jpg"
+      ]
     },
     {
       "id": "supereroi-33",
@@ -282,7 +378,10 @@
       "aliases": [
         "il joker"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/f/f2/Joker_%28film_2019%29.png/960px-Joker_%28film_2019%29.png"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Cosplay_of_Joker_at_Florida_Supercon_2013_%289362484686%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/e/ec/Cosplay_of_Joker_at_Florida_Supercon_2013_%289362484686%29.jpg"
+      ]
     },
     {
       "id": "supereroi-34",
@@ -290,7 +389,10 @@
       "aliases": [
         "luthor"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/0/06/Luthor.webp"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/SDCC13_-_Lex_Luthor_%289348047086%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/b/b3/SDCC13_-_Lex_Luthor_%289348047086%29.jpg"
+      ]
     },
     {
       "id": "supereroi-35",
@@ -298,7 +400,10 @@
       "aliases": [
         "harvey dent"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/3/30/Batman-_L%27Ultimo_Halloween_10.webp"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/af/Two-Face_cosplayer_at_WonderCon_2010_Masquerade_1.JPG",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/a/af/Two-Face_cosplayer_at_WonderCon_2010_Masquerade_1.JPG"
+      ]
     },
     {
       "id": "supereroi-36",
@@ -307,25 +412,37 @@
         "la cosa",
         "ben grimm"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/b/bd/X_swamp_thing_1.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3d/C2E2_%28Day_2%29_2014%2C_The_Thing_from_Fantastic_Four.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/3/3d/C2E2_%28Day_2%29_2014%2C_The_Thing_from_Fantastic_Four.jpg"
+      ]
     },
     {
       "id": "supereroi-37",
       "answer": "Silver Surfer",
       "aliases": [],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/2/2a/Silver_Surfer_%28John_Buscema%29.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Silver_Surfer_%287265762760%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/a/a2/Silver_Surfer_%287265762760%29.jpg"
+      ]
     },
     {
       "id": "supereroi-38",
       "answer": "Hellboy",
       "aliases": [],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/2/2c/Hellboy_038.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/Hellboy_cosplay.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/8/86/Hellboy_cosplay.jpg"
+      ]
     },
     {
       "id": "supereroi-39",
       "answer": "Spawn",
       "aliases": [],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/a/a3/Spawn_75.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Spawn_cosplayer_%288422454102%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/4/4b/Spawn_cosplayer_%288422454102%29.jpg"
+      ]
     },
     {
       "id": "supereroi-40",
@@ -334,7 +451,10 @@
         "ninja turtles",
         "leonardo donatello"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/6/66/Tartarughe_Ninja.png"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/ff/London_Comic_Con_Oct_14_-_Teenage_Mutant_Ninja_Turtles_%2815627055125%29.jpg",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/commons/f/ff/London_Comic_Con_Oct_14_-_Teenage_Mutant_Ninja_Turtles_%2815627055125%29.jpg"
+      ]
     }
   ],
   "scope": "intl",

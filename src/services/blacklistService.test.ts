@@ -39,6 +39,15 @@ describe('blacklistService', () => {
         'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Starfish_montage.png/960px-Starfish_montage.png';
       expect(blacklistService.isBlacklisted(collageThumb)).toBe(true);
 
+      // Copertine con titoli spoiler supereroi bloccate
+      const spidermanCover =
+        'https://upload.wikimedia.org/wikipedia/it/8/82/Copertina_Uomo_Ragno_MI_430.png';
+      expect(blacklistService.isBlacklisted(spidermanCover)).toBe(true);
+
+      const batmanCover =
+        'https://upload.wikimedia.org/wikipedia/it/1/19/Batman_3_variant.jpg';
+      expect(blacklistService.isBlacklisted(batmanCover)).toBe(true);
+
       const cleanPhoto =
         'https://upload.wikimedia.org/wikipedia/commons/1/12/Living_clean_fish.jpg';
       expect(blacklistService.isBlacklisted(cleanPhoto)).toBe(false);

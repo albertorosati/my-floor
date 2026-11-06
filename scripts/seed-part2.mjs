@@ -160,7 +160,7 @@ export const SEED_PART_2 = [
     subtitle: 'Marvel, DC Comics e i personaggi più iconici dei fumetti',
     icon: '🦸',
     accent: '#EF4444',
-    pilicense: 'any',
+    pilicense: 'free',
     entries: [
       ['Spider-Man', 'Spider-Man', ['uomo ragno', 'spiderman', 'peter parker']],
       ['Batman', 'Batman', ['uomo pipistrello', 'bruce wayne']],

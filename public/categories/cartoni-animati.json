@@ -223,7 +223,10 @@
       "aliases": [
         "donald duck"
       ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/it/1/10/Copertina_Topolino_3294.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/2/2e/Donald_Duck_-_temper.png",
+      "imageUrls": [
+        "https://upload.wikimedia.org/wikipedia/en/2/2e/Donald_Duck_-_temper.png"
+      ]
     },
     {
       "id": "cartoni-animati-27",

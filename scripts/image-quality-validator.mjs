@@ -74,7 +74,7 @@ export const FORBIDDEN_SEMANTIC_KEYWORDS = [
   'x-ray',
   'radiografia',
 
-  // Branding / Flags / Placeholders
+  // Branding / Flags / Placeholders / Spoilers
   '.svg',
   '.gif',
   '.pdf',
@@ -87,14 +87,29 @@ export const FORBIDDEN_SEMANTIC_KEYWORDS = [
   'commons-logo',
   'flag_of_',
   '_wordmark',
+  'wordmark',
   '_logo',
   'logo_',
   '_poster',
   'poster_',
-  'title_card',
-  'intertitle',
-  'album_cover',
+  'movie_poster',
+  'film_poster',
+  'theatrical_poster',
   'locandina',
+  'title_card',
+  'titlecard',
+  'title_screen',
+  'title_logo',
+  'masthead',
+  'album_cover',
+  'copertina',
+  'comic_cover',
+  'comicbook_cover',
+  'comic_book_cover',
+  'variant_cover',
+  'variant',
+  'issue_',
+  'panini_comics',
   'stemma',
   'coat_of_arms',
   'signature',
@@ -140,6 +155,24 @@ export function evaluateImageQuality(candidate) {
   for (const bad of FORBIDDEN_SEMANTIC_KEYWORDS) {
     if (combinedText.includes(bad)) {
       return { valid: false, score: 0, reason: `forbidden_keyword: ${bad}` };
+    }
+  }
+
+  // 2.1 Anti-Spoiler: Rilevamento nome risposta associato a copertine, poster o loghi
+  if (candidate.answer && typeof candidate.answer === 'string') {
+    const normAnswer = candidate.answer.toLowerCase().trim();
+    if (
+      normAnswer.length >= 3 &&
+      combinedText.includes(normAnswer) &&
+      (combinedText.includes('cover') ||
+        combinedText.includes('copertina') ||
+        combinedText.includes('poster') ||
+        combinedText.includes('issue') ||
+        combinedText.includes('variant') ||
+        combinedText.includes('comic') ||
+        combinedText.includes('film'))
+    ) {
+      return { valid: false, score: 0, reason: `spoiler_cover_or_poster_for_${normAnswer}` };
     }
   }
 
