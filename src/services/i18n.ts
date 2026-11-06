@@ -11,12 +11,74 @@ export const DICTIONARY: Translations = {
   // App & Header
   'app.title': { it: 'FLOOR ARENA', en: 'FLOOR ARENA' },
   'app.subtitle': {
-    it: 'Il gioco vocale 1v1 ispirato a The Floor',
-    en: 'The 1v1 voice duel game inspired by The Floor',
+    it: 'Il gioco vocale ispirato a The Floor',
+    en: 'The voice duel game inspired by The Floor',
   },
   'app.install': { it: 'Installa App 📲', en: 'Install App 📲' },
   'app.installed': { it: 'App Installata ✨', en: 'App Installed ✨' },
   'app.language': { it: 'Lingua', en: 'Language' },
+
+  // Game Modes
+  'mode.solo': { it: '🎯 Allenamento (1P)', en: '🎯 Solo Practice (1P)' },
+  'mode.duel': { it: '⚔️ Duello 1v1 (2P)', en: '⚔️ 1v1 Duel (2P)' },
+  'mode.party': { it: '👑 Party (3-8P)', en: '👑 Party (3-8P)' },
+  'mode.soloDesc': {
+    it: 'Allenati da solo su qualsiasi categoria e batti i tuoi record!',
+    en: 'Practice solo on any category and beat your high scores!',
+  },
+  'mode.duelDesc': {
+    it: 'Sfida testa a testa a tempo alternato come in TV!',
+    en: 'Head-to-head match with alternate clock like on TV!',
+  },
+  'mode.partyDesc': {
+    it: 'Torneo party fino a 8 giocatori con classifica live!',
+    en: 'Party tournament up to 8 players with live standings!',
+  },
+
+  // Solo Training
+  'solo.title': { it: 'Allenamento Solitario', en: 'Solo Practice' },
+  'solo.chooseCategory': { it: 'Scegli la Categoria di Allenamento', en: 'Choose Practice Category' },
+  'solo.chooseCategorySub': {
+    it: 'Seleziona una categoria e mettiti alla prova contro il tempo!',
+    en: 'Pick a category and test yourself against the clock!',
+  },
+  'solo.duration': { it: 'Durata Allenamento', en: 'Practice Duration' },
+  'solo.durationSec': { it: '{n} secondi', en: '{n} seconds' },
+  'solo.durationFree': { it: 'Libera (senza limite)', en: 'Free (no timer)' },
+  'solo.bestScore': { it: 'Miglior record: {n}', en: 'Personal best: {n}' },
+  'solo.noBestYet': { it: 'Nessun record ancora', en: 'No record yet' },
+  'solo.startTraining': { it: 'INIZIA ALLENAMENTO', en: 'START PRACTICE' },
+  'solo.streak': { it: 'Serie', en: 'Streak' },
+  'solo.correct': { it: 'Indovinati', en: 'Guessed' },
+  'solo.passes': { it: 'Passi', en: 'Passes' },
+  'solo.accuracy': { it: 'Precisione', en: 'Accuracy' },
+  'solo.completed': { it: 'ALLENAMENTO COMPLETATO!', en: 'PRACTICE COMPLETED!' },
+  'solo.newRecord': { it: '🎉 NUOVO RECORD PERSONALE!', en: '🎉 NEW PERSONAL BEST!' },
+  'solo.previousBest': { it: 'Record precedente: {n}', en: 'Previous best: {n}' },
+  'solo.playAgain': { it: 'Riprova Categoria', en: 'Try Again' },
+  'solo.changeCategory': { it: 'Cambia Categoria', en: 'Change Category' },
+  'solo.backHome': { it: 'Menu Principale', en: 'Main Menu' },
+  'solo.finishEarly': { it: 'Termina Sessione', en: 'End Session' },
+  'solo.manualCorrect': { it: 'Segna Corretta ✓', en: 'Mark Correct ✓' },
+
+  // Party Mode
+  'party.title': { it: 'Party Tournament', en: 'Party Tournament' },
+  'party.players': { it: 'Giocatori nel Party ({n}/8)', en: 'Party Players ({n}/8)' },
+  'party.addPlayer': { it: '+ Aggiungi Giocatore', en: '+ Add Player' },
+  'party.removePlayer': { it: 'Rimuovi', en: 'Remove' },
+  'party.playerNamePlaceholder': { it: 'Nome giocatore...', en: 'Player name...' },
+  'party.turnOf': { it: 'Turno di {name}', en: "{name}'s Turn" },
+  'party.selectOpponent': { it: 'Scegli chi sfidare nel prossimo duello:', en: 'Choose who to challenge next:' },
+  'party.challenge': { it: 'Sfida', en: 'Challenge' },
+  'party.leaderboard': { it: 'Classifica Torneo', en: 'Tournament Standings' },
+  'party.wins': { it: 'Vittorie', en: 'Wins' },
+  'party.duels': { it: 'Duelli', en: 'Duels' },
+  'party.minPlayersWarning': {
+    it: 'Aggiungi almeno 3 giocatori per la modalità Party!',
+    en: 'Add at least 3 players for Party mode!',
+  },
+  'party.nextDuel': { it: 'PROSSIMO DUELLO', en: 'NEXT DUEL' },
+  'party.champion': { it: '👑 CAMPIONE DEL TORNEO PARTY!', en: '👑 PARTY TOURNAMENT CHAMPION!' },
 
   // Lobby Screen
   'lobby.duelSettings': { it: 'Impostazioni Duello', en: 'Match Settings' },

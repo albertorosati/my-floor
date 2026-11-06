@@ -2,8 +2,10 @@
   "appTitle": "The Floor",
   "appSubtitle": "Sfida a Voce",
   "defaults": {
+    "mode": "duel",
     "targetWins": 3,
     "duelDurationSeconds": 45,
+    "soloDurationSeconds": 60,
     "passPenaltySeconds": 3,
     "micMode": "local-shared",
     "soundEnabled": true,
@@ -13,6 +15,7 @@
   "options": {
     "targetWins": [3, 5, 7, 0],
     "duelDurations": [30, 45, 60],
+    "soloDurations": [30, 45, 60, 90, 0],
     "draftCardsCount": 4,
     "preloaderWindowSize": 10,
     "correctFlashDurationMs": 520,

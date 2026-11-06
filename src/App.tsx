@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   Category,
   DuelSummary,
+  GameMode,
   GameSettings,
+  PartyPlayer,
   PlayerConfig,
   PlayerId,
   RemoteMicPacket,
@@ -15,14 +17,20 @@ import { DiscordHostPeer, generateRoomCode } from './engine/discordMicSync';
 import { soundEngine } from './engine/soundEffects';
 import { hapticsService } from './services/hapticsService';
 import { localizeCategoryForGame } from './services/i18n';
+import {
+  getNextChallengerId,
+  getDefaultOpponentId,
+  rankPartyPlayers,
+} from './utils/partyUtils';
 import { LobbyScreen } from './components/LobbyScreen';
 import { CategoryDraftScreen } from './components/CategoryDraftScreen';
 import { DuelArenaScreen } from './components/DuelArenaScreen';
+import { SoloTrainingScreen } from './components/SoloTrainingScreen';
 import { RemoteMicScreen } from './components/RemoteMicScreen';
 import { CategoryEditorModal } from './components/CategoryEditorModal';
 import { VictoryScreen } from './components/VictoryScreen';
 
-type ScreenState = 'lobby' | 'draft' | 'duel' | 'victory';
+type ScreenState = 'lobby' | 'draft' | 'duel' | 'solo-arena' | 'victory';
 
 export const App: React.FC = () => {
   const [remoteRoomParam] = useState<string | null>(() => {
@@ -37,6 +45,7 @@ export const App: React.FC = () => {
   );
   const [editorOpen, setEditorOpen] = useState(false);
 
+  // Giocatori 1v1 Classico
   const [p1, setP1] = useState<PlayerConfig>({
     id: 'p1',
     name: gameConfig.players.defaultP1.name,
@@ -49,6 +58,38 @@ export const App: React.FC = () => {
     avatar: gameConfig.players.defaultP2.avatar,
   });
 
+  // Giocatori Modalità Party (da 3 a 8 partecipanti)
+  const [partyPlayers, setPartyPlayers] = useState<PartyPlayer[]>([
+    {
+      id: 'p1',
+      name: gameConfig.players.defaultP1.name,
+      avatar: gameConfig.players.defaultP1.avatar,
+      wins: 0,
+      duelsPlayed: 0,
+    },
+    {
+      id: 'p2',
+      name: gameConfig.players.defaultP2.name,
+      avatar: gameConfig.players.defaultP2.avatar,
+      wins: 0,
+      duelsPlayed: 0,
+    },
+    {
+      id: 'p3',
+      name: 'Giocatore 3',
+      avatar: '🐼',
+      wins: 0,
+      duelsPlayed: 0,
+    },
+    {
+      id: 'p4',
+      name: 'Giocatore 4',
+      avatar: '🐸',
+      wins: 0,
+      duelsPlayed: 0,
+    },
+  ]);
+
   const [settings, setSettings] = useState<GameSettings>(() => {
     let initialLang: AppLanguage = 'it';
     if (typeof window !== 'undefined') {
@@ -60,8 +101,10 @@ export const App: React.FC = () => {
       }
     }
     return {
+      mode: (gameConfig.defaults.mode as GameMode) || 'duel',
       targetWins: gameConfig.defaults.targetWins,
       duelDurationSeconds: gameConfig.defaults.duelDurationSeconds,
+      soloDurationSeconds: gameConfig.defaults.soloDurationSeconds || 60,
       passPenaltySeconds: gameConfig.defaults.passPenaltySeconds,
       micMode: gameConfig.defaults.micMode,
       soundEnabled: gameConfig.defaults.soundEnabled,
@@ -75,6 +118,7 @@ export const App: React.FC = () => {
   const [p1Score, setP1Score] = useState(0);
   const [p2Score, setP2Score] = useState(0);
   const [chooserId, setChooserId] = useState<PlayerId>('p1');
+  const [selectedOpponentId, setSelectedOpponentId] = useState<string>('p2');
   const [activeCategory, setActiveCategory] = useState<Category | null>(null);
   const [playedCategoryIds, setPlayedCategoryIds] = useState<string[]>([]);
   const [duelHistory, setDuelHistory] = useState<DuelSummary[]>([]);
@@ -96,7 +140,7 @@ export const App: React.FC = () => {
 
   useEffect(() => {
     if (remoteRoomParam) return;
-    if (settings.micMode !== 'discord-p2p') {
+    if (settings.micMode !== 'discord-p2p' || settings.mode !== 'duel') {
       hostPeerRef.current?.destroy();
       hostPeerRef.current = null;
       setP2RemoteConnected(false);
@@ -121,7 +165,7 @@ export const App: React.FC = () => {
     return () => {
       host.destroy();
     };
-  }, [settings.micMode, roomCode, remoteRoomParam]);
+  }, [settings.micMode, settings.mode, roomCode, remoteRoomParam]);
 
   const handleSendRemoteState = useCallback((packet: RemoteMicPacket) => {
     hostPeerRef.current?.sendState(packet);
@@ -143,6 +187,39 @@ export const App: React.FC = () => {
     }
   };
 
+  const handleAddPartyPlayer = () => {
+    if (partyPlayers.length >= 8) return;
+    const usedAvatars = new Set(partyPlayers.map((p) => p.avatar));
+    const nextAvatar =
+      gameConfig.players.avatars.find((a) => !usedAvatars.has(a)) || '⭐';
+    const nextId = `p${Date.now().toString().slice(-4)}`;
+    setPartyPlayers((prev) => [
+      ...prev,
+      {
+        id: nextId,
+        name: `Giocatore ${prev.length + 1}`,
+        avatar: nextAvatar,
+        wins: 0,
+        duelsPlayed: 0,
+      },
+    ]);
+  };
+
+  const handleRemovePartyPlayer = (id: string) => {
+    if (partyPlayers.length <= 3) return;
+    setPartyPlayers((prev) => prev.filter((p) => p.id !== id));
+  };
+
+  const handleUpdatePartyPlayer = (
+    id: string,
+    name: string,
+    avatar: string
+  ) => {
+    setPartyPlayers((prev) =>
+      prev.map((p) => (p.id === id ? { ...p, name, avatar } : p))
+    );
+  };
+
   const handleUpdateSettings = (partial: Partial<GameSettings>) => {
     setSettings((prev) => {
       const updated = { ...prev, ...partial };
@@ -160,7 +237,17 @@ export const App: React.FC = () => {
     setP2Score(0);
     setPlayedCategoryIds([]);
     setDuelHistory([]);
-    setChooserId('p1');
+
+    if (settings.mode === 'party') {
+      setPartyPlayers((prev) =>
+        prev.map((p) => ({ ...p, wins: 0, duelsPlayed: 0 }))
+      );
+      setChooserId(partyPlayers[0]?.id || 'p1');
+      setSelectedOpponentId(partyPlayers[1]?.id || 'p2');
+    } else {
+      setChooserId('p1');
+    }
+
     setScreen('draft');
   };
 
@@ -170,10 +257,57 @@ export const App: React.FC = () => {
     const localized = localizeCategoryForGame(chosen, settings.language);
     setActiveCategory(localized);
     setPlayedCategoryIds((prev) => [...prev, cat.id]);
-    setScreen('duel');
+
+    if (settings.mode === 'solo') {
+      setScreen('solo-arena');
+    } else {
+      setScreen('duel');
+    }
   };
 
   const handleDuelFinished = (summary: DuelSummary) => {
+    if (settings.mode === 'party') {
+      // Calcola vincitore e perdente nel Party
+      const p1Contestant = partyPlayers.find((p) => p.id === chooserId);
+      const p2Contestant = partyPlayers.find((p) => p.id === selectedOpponentId);
+
+      const winnerPlayer = summary.winner === 'p1' ? p1Contestant : p2Contestant;
+
+      setPartyPlayers((prev) =>
+        prev.map((p) => {
+          if (p.id === winnerPlayer?.id) {
+            return { ...p, wins: p.wins + 1, duelsPlayed: p.duelsPlayed + 1 };
+          }
+          if (
+            p.id === p1Contestant?.id ||
+            p.id === p2Contestant?.id
+          ) {
+            return { ...p, duelsPlayed: p.duelsPlayed + 1 };
+          }
+          return p;
+        })
+      );
+
+      setDuelHistory((prev) => [...prev, summary]);
+
+      // Verifica vittoria del torneo party
+      const maxWins = (winnerPlayer?.wins || 0) + 1;
+      if (settings.targetWins > 0 && maxWins >= settings.targetWins) {
+        setWinnerId(winnerPlayer?.id || 'p1');
+        setScreen('victory');
+        return;
+      }
+
+      // Prossimo turno: passa il ruolo di sfidante al giocatore successivo nel party
+      const nextChooser = getNextChallengerId(partyPlayers, chooserId);
+      setChooserId(nextChooser);
+      setSelectedOpponentId(getDefaultOpponentId(partyPlayers, nextChooser));
+
+      setScreen('draft');
+      return;
+    }
+
+    // Modalità Duello 1v1 Classico
     const newP1Score = summary.winner === 'p1' ? p1Score + 1 : p1Score;
     const newP2Score = summary.winner === 'p2' ? p2Score + 1 : p2Score;
 
@@ -181,7 +315,6 @@ export const App: React.FC = () => {
     setP2Score(newP2Score);
     setDuelHistory((prev) => [...prev, summary]);
 
-    // Controlla se uno dei due giocatori ha raggiunto i punti vittoria
     if (
       settings.targetWins > 0 &&
       (newP1Score >= settings.targetWins || newP2Score >= settings.targetWins)
@@ -191,17 +324,32 @@ export const App: React.FC = () => {
       return;
     }
 
-    // Passa rigorosamente a giro la scelta della prossima categoria all'altro giocatore!
     setChooserId((prev) => (prev === 'p1' ? 'p2' : 'p1'));
     setScreen('draft');
   };
 
   const handleFinishMatchEarly = () => {
-    setWinnerId(p1Score >= p2Score ? 'p1' : 'p2');
+    if (settings.mode === 'party') {
+      const topPlayer = rankPartyPlayers(partyPlayers)[0];
+      setWinnerId(topPlayer?.id || 'p1');
+    } else {
+      setWinnerId(p1Score >= p2Score ? 'p1' : 'p2');
+    }
     setScreen('victory');
   };
 
   const currentRound = duelHistory.length + 1;
+
+  // Risolve i due giocatori attivi per il duello corrente
+  const activeDuelP1: PlayerConfig =
+    settings.mode === 'party'
+      ? partyPlayers.find((p) => p.id === chooserId) || p1
+      : p1;
+
+  const activeDuelP2: PlayerConfig =
+    settings.mode === 'party'
+      ? partyPlayers.find((p) => p.id === selectedOpponentId) || p2
+      : p2;
 
   return (
     <>
@@ -210,6 +358,10 @@ export const App: React.FC = () => {
           p1={p1}
           p2={p2}
           onUpdatePlayer={handleUpdatePlayer}
+          partyPlayers={partyPlayers}
+          onAddPartyPlayer={handleAddPartyPlayer}
+          onRemovePartyPlayer={handleRemovePartyPlayer}
+          onUpdatePartyPlayer={handleUpdatePartyPlayer}
           settings={settings}
           onUpdateSettings={handleUpdateSettings}
           categories={categories}
@@ -225,12 +377,16 @@ export const App: React.FC = () => {
         <CategoryDraftScreen
           categories={categories}
           playedCategoryIds={playedCategoryIds}
-          p1={p1}
-          p2={p2}
+          mode={settings.mode}
+          p1={activeDuelP1}
+          p2={activeDuelP2}
+          partyPlayers={partyPlayers}
+          selectedOpponentId={selectedOpponentId}
+          onSelectOpponent={(oppId) => setSelectedOpponentId(oppId)}
           p1Score={p1Score}
           p2Score={p2Score}
           targetWins={settings.targetWins}
-          chooserId={chooserId}
+          chooserId={settings.mode === 'party' ? 'p1' : chooserId}
           roundNumber={currentRound}
           language={settings.language}
           lastSummary={
@@ -244,13 +400,23 @@ export const App: React.FC = () => {
         />
       )}
 
+      {screen === 'solo-arena' && activeCategory && (
+        <SoloTrainingScreen
+          category={activeCategory}
+          player={p1}
+          settings={settings}
+          onBackToDraft={() => setScreen('draft')}
+          onBackToLobby={() => setScreen('lobby')}
+        />
+      )}
+
       {screen === 'duel' && activeCategory && (
         <DuelArenaScreen
           roundNumber={currentRound}
           category={activeCategory}
-          p1={p1}
-          p2={p2}
-          initialPlayer={chooserId}
+          p1={activeDuelP1}
+          p2={activeDuelP2}
+          initialPlayer="p1"
           settings={settings}
           p2RemoteConnected={p2RemoteConnected}
           latestRemotePacket={latestRemotePacket}
@@ -261,9 +427,11 @@ export const App: React.FC = () => {
 
       {screen === 'victory' && (
         <VictoryScreen
+          mode={settings.mode}
           winnerId={winnerId}
           p1={p1}
           p2={p2}
+          partyPlayers={partyPlayers}
           p1Score={p1Score}
           p2Score={p2Score}
           history={duelHistory}

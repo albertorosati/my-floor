@@ -11,11 +11,18 @@ import {
   Download,
   Smartphone,
   X,
+  UserPlus,
+  Trash2,
+  Target,
+  Swords,
+  Crown,
 } from 'lucide-react';
 import {
   Category,
+  GameMode,
   GameSettings,
   MicMode,
+  PartyPlayer,
   PlayerConfig,
   TargetWinsOption,
 } from '../types/game';
@@ -30,6 +37,10 @@ interface LobbyScreenProps {
   p1: PlayerConfig;
   p2: PlayerConfig;
   onUpdatePlayer: (id: 'p1' | 'p2', name: string, avatar: string) => void;
+  partyPlayers?: PartyPlayer[];
+  onAddPartyPlayer?: () => void;
+  onRemovePartyPlayer?: (id: string) => void;
+  onUpdatePartyPlayer?: (id: string, name: string, avatar: string) => void;
   settings: GameSettings;
   onUpdateSettings: (partial: Partial<GameSettings>) => void;
   categories: Category[];
@@ -44,6 +55,10 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
   p1,
   p2,
   onUpdatePlayer,
+  partyPlayers = [],
+  onAddPartyPlayer,
+  onRemovePartyPlayer,
+  onUpdatePartyPlayer,
   settings,
   onUpdateSettings,
   categories,
@@ -121,6 +136,8 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
     setCopiedLink(true);
     setTimeout(() => setCopiedLink(false), 2200);
   };
+
+  const currentMode = settings.mode || 'duel';
 
   return (
     <div className="min-h-screen party-stage-bg flex flex-col justify-between p-4 sm:p-6 md:p-8 select-none">
@@ -224,287 +241,642 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
         </div>
       )}
 
-      {/* Main Content */}
-      <main className="max-w-5xl w-full mx-auto my-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        {/* Giocatori */}
-        <div className="lg:col-span-5 flex flex-col gap-5">
-          {/* Card Giocatore 1 */}
-          <div className="card-cream rounded-3xl overflow-hidden">
-            <div className="bg-p1 px-5 py-3 border-b-[3px] border-ink flex items-center justify-between text-white">
-              <span className="font-display font-bold text-lg tracking-wide">
-                Giocatore 1
-              </span>
-              <span className="text-2xl">{p1.avatar}</span>
-            </div>
-            <div className="p-5 flex flex-col gap-3.5">
-              <input
-                type="text"
-                value={p1.name}
-                maxLength={18}
-                onChange={(e) => onUpdatePlayer('p1', e.target.value, p1.avatar)}
-                placeholder="Il tuo nome..."
-                className="w-full px-4 py-2.5 rounded-xl bg-paper border-2 border-ink/25 focus:border-p1 text-ink font-display text-xl font-bold focus:outline-none"
-              />
-              <div className="flex flex-wrap gap-1.5">
-                {avatars.map((av) => (
-                  <button
-                    key={`p1-${av}`}
-                    onClick={() => onUpdatePlayer('p1', p1.name, av)}
-                    className={`w-9 h-9 rounded-xl text-lg flex items-center justify-center transition-transform ${
-                      p1.avatar === av
-                        ? 'bg-p1 text-white border-2 border-ink scale-110 shadow-sm'
-                        : 'bg-paper hover:bg-ink/10'
-                    }`}
-                  >
-                    {av}
-                  </button>
-                ))}
-              </div>
-            </div>
+      {/* Selettore Modalità di Gioco (Solo / Duello / Party) */}
+      <section className="max-w-5xl w-full mx-auto mt-5">
+        <div className="card-cream rounded-3xl p-3 border-[3px] border-ink shadow-chunky-sm">
+          <div className="grid grid-cols-3 gap-2">
+            <button
+              onClick={() => {
+                hapticsService.vibrateTap();
+                onUpdateSettings({ mode: 'solo' });
+              }}
+              className={`py-3 px-2 sm:px-4 rounded-2xl font-display font-extrabold text-xs sm:text-base border-[3px] transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
+                currentMode === 'solo'
+                  ? 'bg-p1 text-white border-ink shadow-chunky-sm scale-[1.02]'
+                  : 'bg-paper text-ink border-transparent hover:border-ink/20'
+              }`}
+            >
+              <Target className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span>{t('mode.solo', settings.language)}</span>
+            </button>
+
+            <button
+              onClick={() => {
+                hapticsService.vibrateTap();
+                onUpdateSettings({ mode: 'duel' });
+              }}
+              className={`py-3 px-2 sm:px-4 rounded-2xl font-display font-extrabold text-xs sm:text-base border-[3px] transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
+                currentMode === 'duel'
+                  ? 'bg-p2 text-white border-ink shadow-chunky-sm scale-[1.02]'
+                  : 'bg-paper text-ink border-transparent hover:border-ink/20'
+              }`}
+            >
+              <Swords className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span>{t('mode.duel', settings.language)}</span>
+            </button>
+
+            <button
+              onClick={() => {
+                hapticsService.vibrateTap();
+                onUpdateSettings({ mode: 'party' });
+              }}
+              className={`py-3 px-2 sm:px-4 rounded-2xl font-display font-extrabold text-xs sm:text-base border-[3px] transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
+                currentMode === 'party'
+                  ? 'bg-gold text-ink border-ink shadow-chunky-sm scale-[1.02]'
+                  : 'bg-paper text-ink border-transparent hover:border-ink/20'
+              }`}
+            >
+              <Crown className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span>{t('mode.party', settings.language)}</span>
+            </button>
           </div>
 
-          {/* Card Giocatore 2 */}
-          <div className="card-cream rounded-3xl overflow-hidden">
-            <div className="bg-p2 px-5 py-3 border-b-[3px] border-ink flex items-center justify-between text-white">
-              <span className="font-display font-bold text-lg tracking-wide">
-                Giocatore 2
-              </span>
-              <span className="text-2xl">{p2.avatar}</span>
-            </div>
-            <div className="p-5 flex flex-col gap-3.5">
-              <input
-                type="text"
-                value={p2.name}
-                maxLength={18}
-                onChange={(e) => onUpdatePlayer('p2', e.target.value, p2.avatar)}
-                placeholder="Nome sfidante..."
-                className="w-full px-4 py-2.5 rounded-xl bg-paper border-2 border-ink/25 focus:border-p2 text-ink font-display text-xl font-bold focus:outline-none"
-              />
-              <div className="flex flex-wrap gap-1.5">
-                {avatars.map((av) => (
-                  <button
-                    key={`p2-${av}`}
-                    onClick={() => onUpdatePlayer('p2', p2.name, av)}
-                    className={`w-9 h-9 rounded-xl text-lg flex items-center justify-center transition-transform ${
-                      p2.avatar === av
-                        ? 'bg-p2 text-white border-2 border-ink scale-110 shadow-sm'
-                        : 'bg-paper hover:bg-ink/10'
-                    }`}
-                  >
-                    {av}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
+          <p className="text-center text-xs text-ink/75 font-semibold mt-2.5">
+            {currentMode === 'solo' && t('mode.soloDesc', settings.language)}
+            {currentMode === 'duel' && t('mode.duelDesc', settings.language)}
+            {currentMode === 'party' && t('mode.partyDesc', settings.language)}
+          </p>
         </div>
+      </section>
 
-        {/* Impostazioni Partita */}
-        <div className="lg:col-span-7 card-cream rounded-3xl p-6 flex flex-col gap-6">
-          <div>
-            <h2 className="font-display font-bold text-lg text-ink mb-2.5">
-              Come giocate?
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <button
-                onClick={() =>
-                  onUpdateSettings({ micMode: 'local-shared' as MicMode })
-                }
-                className={`p-4 rounded-2xl border-[3px] text-left transition-all ${
-                  settings.micMode === 'local-shared'
-                    ? 'bg-p1Light border-ink shadow-chunky-sm'
-                    : 'bg-paper border-transparent hover:border-ink/30'
-                }`}
-              >
-                <div className="font-display font-bold text-base text-ink flex items-center gap-2">
-                  <span>🏠</span>
-                  <span>Stessa stanza</span>
-                </div>
-                <p className="text-xs text-ink/70 mt-1 leading-relaxed">
-                  Usate un solo microfono per entrambi parlando a turno davanti allo schermo.
-                </p>
-              </button>
-
-              <button
-                onClick={() =>
-                  onUpdateSettings({ micMode: 'discord-p2p' as MicMode })
-                }
-                className={`p-4 rounded-2xl border-[3px] text-left transition-all ${
-                  settings.micMode === 'discord-p2p'
-                    ? 'bg-p2Light border-ink shadow-chunky-sm'
-                    : 'bg-paper border-transparent hover:border-ink/30'
-                }`}
-              >
-                <div className="font-display font-bold text-base text-ink flex items-center gap-2">
-                  <span>🎧</span>
-                  <span>Su Discord</span>
-                </div>
-                <p className="text-xs text-ink/70 mt-1 leading-relaxed">
-                  Condividi lo schermo su Discord e manda un link rapido a {p2.name || 'Giocatore 2'} per il suo microfono.
-                </p>
-              </button>
-            </div>
-
-            {settings.micMode === 'discord-p2p' && (
-              <div className="mt-3 p-4 rounded-2xl bg-paper border-2 border-ink flex flex-col gap-2.5">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="text-xs font-bold text-ink/80">
-                    Link microfono per {p2.name || 'Giocatore 2'}:
+      {/* Main Content dinamico in base alla Modalità */}
+      <main className="max-w-5xl w-full mx-auto my-5">
+        {/* ============================================================ */}
+        {/* MODALITÀ 1: ALLENAMENTO SOLITARIO (1 GIOCATORE)              */}
+        {/* ============================================================ */}
+        {currentMode === 'solo' && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            {/* Giocatore Singolo */}
+            <div className="lg:col-span-5 flex flex-col gap-4">
+              <div className="card-cream rounded-3xl overflow-hidden border-[3px] border-ink shadow-chunky-sm">
+                <div className="bg-p1 px-5 py-3 border-b-[3px] border-ink flex items-center justify-between text-white">
+                  <span className="font-display font-bold text-lg tracking-wide">
+                    {t('solo.title', settings.language)}
                   </span>
-                  <span
-                    className={`px-2.5 py-0.5 rounded-full text-xs font-bold border border-ink ${
-                      p2RemoteConnected
-                        ? 'bg-mint text-ink'
-                        : 'bg-gold/40 text-ink'
-                    }`}
-                  >
-                    {p2RemoteConnected
-                      ? `✓ ${p2.name} collegato!`
-                      : 'In attesa che apra il link...'}
-                  </span>
+                  <span className="text-2xl">{p1.avatar}</span>
                 </div>
-
-                <div className="flex flex-col sm:flex-row gap-2">
+                <div className="p-5 flex flex-col gap-3.5">
+                  <label className="text-xs font-bold text-ink/70">
+                    Nome del giocatore:
+                  </label>
                   <input
                     type="text"
-                    readOnly
-                    value={getCompanionUrl()}
-                    className="flex-1 px-3 py-2 rounded-xl bg-white border-2 border-ink/20 text-xs font-mono text-ink select-all"
+                    value={p1.name}
+                    maxLength={18}
+                    onChange={(e) => onUpdatePlayer('p1', e.target.value, p1.avatar)}
+                    placeholder="Il tuo nome..."
+                    className="w-full px-4 py-2.5 rounded-xl bg-paper border-2 border-ink/25 focus:border-p1 text-ink font-display text-xl font-bold focus:outline-none"
                   />
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {avatars.map((av) => (
+                      <button
+                        key={`solo-${av}`}
+                        onClick={() => onUpdatePlayer('p1', p1.name, av)}
+                        className={`w-9 h-9 rounded-xl text-lg flex items-center justify-center transition-transform ${
+                          p1.avatar === av
+                            ? 'bg-p1 text-white border-2 border-ink scale-110 shadow-sm'
+                            : 'bg-paper hover:bg-ink/10'
+                        }`}
+                      >
+                        {av}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Impostazioni Allenamento */}
+            <div className="lg:col-span-7 card-cream rounded-3xl p-6 flex flex-col gap-5 border-[3px] border-ink shadow-chunky-sm">
+              <div>
+                <h3 className="font-display font-bold text-base text-ink mb-2">
+                  {t('solo.duration', settings.language)}
+                </h3>
+                <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                  {gameConfig.options.soloDurations.map((sec) => (
+                    <button
+                      key={`solo-dur-${sec}`}
+                      onClick={() =>
+                        onUpdateSettings({ soloDurationSeconds: sec })
+                      }
+                      className={`py-3 px-2 rounded-xl font-display font-bold text-xs sm:text-sm border-2 transition-all ${
+                        settings.soloDurationSeconds === sec
+                          ? 'bg-ink text-cream border-ink shadow-sm'
+                          : 'bg-paper text-ink border-ink/20 hover:border-ink/50'
+                      }`}
+                    >
+                      {sec === 0
+                        ? settings.language === 'en'
+                          ? 'Free'
+                          : 'Libera'
+                        : `${sec}s`}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Prova microfono */}
+              <div className="p-3.5 rounded-2xl bg-paper border-2 border-ink/15 flex flex-col gap-2">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-xs font-bold text-ink/75 flex items-center gap-1.5">
+                    <Mic className="w-4 h-4 text-p1" />
+                    Prova microfono vocale
+                  </span>
                   <button
-                    onClick={handleCopyCompanionUrl}
-                    className="btn-push px-4 py-2 rounded-xl bg-p2 text-white font-display font-bold text-xs flex items-center justify-center gap-1.5 shrink-0"
+                    onClick={toggleMicTest}
+                    className={`px-3 py-1 rounded-lg font-display font-bold text-xs border-2 border-ink ${
+                      testingMic
+                        ? 'bg-p2 text-white'
+                        : 'bg-white text-ink hover:bg-gold/30'
+                    }`}
                   >
-                    {copiedLink ? (
-                      <>
-                        <Check className="w-4 h-4" />
-                        <span>Copiato!</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-4 h-4" />
-                        <span>Copia link</span>
-                      </>
-                    )}
+                    {testingMic ? 'Chiudi prova' : 'Prova voce'}
                   </button>
                 </div>
 
-                {remoteTranscriptPreview && (
-                  <div className="text-xs font-semibold text-ink bg-white px-3 py-1.5 rounded-lg border border-ink/20">
-                    🎙️ {p2.name}: &ldquo;{remoteTranscriptPreview}&rdquo;
+                {testingMic && (
+                  <div className="flex items-center gap-3 pt-1">
+                    <div className="w-20 h-2.5 bg-ink/15 rounded-full overflow-hidden shrink-0">
+                      <div
+                        className="h-full bg-mint transition-all duration-75"
+                        style={{ width: `${Math.max(10, testVolume * 100)}%` }}
+                      />
+                    </div>
+                    <span className="text-xs font-bold text-ink truncate">
+                      &ldquo;{testTranscript}&rdquo;
+                    </span>
+                  </div>
+                )}
+                {micError && (
+                  <p className="text-xs text-p2 font-bold">{micError}</p>
+                )}
+              </div>
+
+              <button
+                onClick={() => {
+                  recognizerRef.current?.stop();
+                  onStartGame();
+                }}
+                className="btn-push w-full py-4 px-6 rounded-2xl bg-gold text-ink font-display font-black text-2xl flex items-center justify-center gap-3 border-[3px] border-ink"
+              >
+                <Target className="w-6 h-6 stroke-[2.5]" />
+                <span>{t('solo.startTraining', settings.language)}</span>
+                <Sparkles className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* ============================================================ */}
+        {/* MODALITÀ 2: DUELLO CLASSICO 1v1 (2 GIOCATORI)                */}
+        {/* ============================================================ */}
+        {currentMode === 'duel' && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            {/* Giocatori 1 e 2 */}
+            <div className="lg:col-span-5 flex flex-col gap-5">
+              {/* Card Giocatore 1 */}
+              <div className="card-cream rounded-3xl overflow-hidden border-[3px] border-ink shadow-chunky-sm">
+                <div className="bg-p1 px-5 py-3 border-b-[3px] border-ink flex items-center justify-between text-white">
+                  <span className="font-display font-bold text-lg tracking-wide">
+                    Giocatore 1
+                  </span>
+                  <span className="text-2xl">{p1.avatar}</span>
+                </div>
+                <div className="p-5 flex flex-col gap-3.5">
+                  <input
+                    type="text"
+                    value={p1.name}
+                    maxLength={18}
+                    onChange={(e) => onUpdatePlayer('p1', e.target.value, p1.avatar)}
+                    placeholder="Il tuo nome..."
+                    className="w-full px-4 py-2.5 rounded-xl bg-paper border-2 border-ink/25 focus:border-p1 text-ink font-display text-xl font-bold focus:outline-none"
+                  />
+                  <div className="flex flex-wrap gap-1.5">
+                    {avatars.map((av) => (
+                      <button
+                        key={`p1-${av}`}
+                        onClick={() => onUpdatePlayer('p1', p1.name, av)}
+                        className={`w-9 h-9 rounded-xl text-lg flex items-center justify-center transition-transform ${
+                          p1.avatar === av
+                            ? 'bg-p1 text-white border-2 border-ink scale-110 shadow-sm'
+                            : 'bg-paper hover:bg-ink/10'
+                        }`}
+                      >
+                        {av}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Card Giocatore 2 */}
+              <div className="card-cream rounded-3xl overflow-hidden border-[3px] border-ink shadow-chunky-sm">
+                <div className="bg-p2 px-5 py-3 border-b-[3px] border-ink flex items-center justify-between text-white">
+                  <span className="font-display font-bold text-lg tracking-wide">
+                    Giocatore 2
+                  </span>
+                  <span className="text-2xl">{p2.avatar}</span>
+                </div>
+                <div className="p-5 flex flex-col gap-3.5">
+                  <input
+                    type="text"
+                    value={p2.name}
+                    maxLength={18}
+                    onChange={(e) => onUpdatePlayer('p2', e.target.value, p2.avatar)}
+                    placeholder="Nome sfidante..."
+                    className="w-full px-4 py-2.5 rounded-xl bg-paper border-2 border-ink/25 focus:border-p2 text-ink font-display text-xl font-bold focus:outline-none"
+                  />
+                  <div className="flex flex-wrap gap-1.5">
+                    {avatars.map((av) => (
+                      <button
+                        key={`p2-${av}`}
+                        onClick={() => onUpdatePlayer('p2', p2.name, av)}
+                        className={`w-9 h-9 rounded-xl text-lg flex items-center justify-center transition-transform ${
+                          p2.avatar === av
+                            ? 'bg-p2 text-white border-2 border-ink scale-110 shadow-sm'
+                            : 'bg-paper hover:bg-ink/10'
+                        }`}
+                      >
+                        {av}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Impostazioni Duello */}
+            <div className="lg:col-span-7 card-cream rounded-3xl p-6 flex flex-col gap-6 border-[3px] border-ink shadow-chunky-sm">
+              <div>
+                <h2 className="font-display font-bold text-lg text-ink mb-2.5">
+                  Come giocate?
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <button
+                    onClick={() =>
+                      onUpdateSettings({ micMode: 'local-shared' as MicMode })
+                    }
+                    className={`p-4 rounded-2xl border-[3px] text-left transition-all ${
+                      settings.micMode === 'local-shared'
+                        ? 'bg-p1Light border-ink shadow-chunky-sm'
+                        : 'bg-paper border-transparent hover:border-ink/30'
+                    }`}
+                  >
+                    <div className="font-display font-bold text-base text-ink flex items-center gap-2">
+                      <span>🏠</span>
+                      <span>Stessa stanza</span>
+                    </div>
+                    <p className="text-xs text-ink/70 mt-1 leading-relaxed">
+                      Usate un solo microfono per entrambi parlando a turno davanti allo schermo.
+                    </p>
+                  </button>
+
+                  <button
+                    onClick={() =>
+                      onUpdateSettings({ micMode: 'discord-p2p' as MicMode })
+                    }
+                    className={`p-4 rounded-2xl border-[3px] text-left transition-all ${
+                      settings.micMode === 'discord-p2p'
+                        ? 'bg-p2Light border-ink shadow-chunky-sm'
+                        : 'bg-paper border-transparent hover:border-ink/30'
+                    }`}
+                  >
+                    <div className="font-display font-bold text-base text-ink flex items-center gap-2">
+                      <span>🎧</span>
+                      <span>Su Discord</span>
+                    </div>
+                    <p className="text-xs text-ink/70 mt-1 leading-relaxed">
+                      Condividi lo schermo su Discord e manda un link rapido a {p2.name || 'Giocatore 2'} per il suo microfono.
+                    </p>
+                  </button>
+                </div>
+
+                {settings.micMode === 'discord-p2p' && (
+                  <div className="mt-3 p-4 rounded-2xl bg-paper border-2 border-ink flex flex-col gap-2.5">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="text-xs font-bold text-ink/80">
+                        Link microfono per {p2.name || 'Giocatore 2'}:
+                      </span>
+                      <span
+                        className={`px-2.5 py-0.5 rounded-full text-xs font-bold border border-ink ${
+                          p2RemoteConnected
+                            ? 'bg-mint text-ink'
+                            : 'bg-gold/40 text-ink'
+                        }`}
+                      >
+                        {p2RemoteConnected
+                          ? `✓ ${p2.name} collegato!`
+                          : 'In attesa che apra il link...'}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-2">
+                      <input
+                        type="text"
+                        readOnly
+                        value={getCompanionUrl()}
+                        className="flex-1 px-3 py-2 rounded-xl bg-white border-2 border-ink/20 text-xs font-mono text-ink select-all"
+                      />
+                      <button
+                        onClick={handleCopyCompanionUrl}
+                        className="btn-push px-4 py-2 rounded-xl bg-p2 text-white font-display font-bold text-xs flex items-center justify-center gap-1.5 shrink-0"
+                      >
+                        {copiedLink ? (
+                          <>
+                            <Check className="w-4 h-4" />
+                            <span>Copiato!</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="w-4 h-4" />
+                            <span>Copia link</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+
+                    {remoteTranscriptPreview && (
+                      <div className="text-xs font-semibold text-ink bg-white px-3 py-1.5 rounded-lg border border-ink/20">
+                        🎙️ {p2.name}: &ldquo;{remoteTranscriptPreview}&rdquo;
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
-            )}
-          </div>
 
-          {/* Traguardo, Secondi & Lingua */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <h3 className="font-display font-bold text-sm text-ink/80 mb-2">
-                {t('lobby.pointsToWin', settings.language)}
-              </h3>
-              <div className="grid grid-cols-4 gap-1.5">
-                {gameConfig.options.targetWins.map((pts) => (
+              {/* Traguardo & Secondi */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <h3 className="font-display font-bold text-sm text-ink/80 mb-2">
+                    {t('lobby.pointsToWin', settings.language)}
+                  </h3>
+                  <div className="grid grid-cols-4 gap-1.5">
+                    {gameConfig.options.targetWins.map((pts) => (
+                      <button
+                        key={pts}
+                        onClick={() =>
+                          onUpdateSettings({ targetWins: pts as TargetWinsOption })
+                        }
+                        className={`py-2.5 px-2 rounded-xl font-display font-bold text-xs sm:text-sm border-2 transition-all ${
+                          settings.targetWins === pts
+                            ? 'bg-ink text-cream border-ink'
+                            : 'bg-paper text-ink border-ink/20 hover:border-ink/50'
+                        }`}
+                      >
+                        {pts === 0
+                          ? settings.language === 'en'
+                            ? 'Free'
+                            : 'Libera'
+                          : `${pts} ${settings.language === 'en' ? 'pts' : 'pt'}`}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="font-display font-bold text-sm text-ink/80 mb-2">
+                    {t('lobby.timePerPlayer', settings.language)}
+                  </h3>
+                  <div className="grid grid-cols-3 gap-2">
+                    {gameConfig.options.duelDurations.map((sec) => (
+                      <button
+                        key={sec}
+                        onClick={() =>
+                          onUpdateSettings({ duelDurationSeconds: sec })
+                        }
+                        className={`py-2.5 px-3 rounded-xl font-display font-bold text-sm border-2 transition-all ${
+                          settings.duelDurationSeconds === sec
+                            ? 'bg-ink text-cream border-ink'
+                            : 'bg-paper text-ink border-ink/20 hover:border-ink/50'
+                        }`}
+                      >
+                        {sec}s
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Prova microfono */}
+              <div className="p-3.5 rounded-2xl bg-paper border-2 border-ink/15 flex flex-col gap-2">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-xs font-bold text-ink/75 flex items-center gap-1.5">
+                    <Mic className="w-4 h-4 text-p1" />
+                    Vuoi fare una prova veloce del microfono?
+                  </span>
                   <button
-                    key={pts}
-                    onClick={() =>
-                      onUpdateSettings({ targetWins: pts as TargetWinsOption })
-                    }
-                    className={`py-2.5 px-2 rounded-xl font-display font-bold text-xs sm:text-sm border-2 transition-all ${
-                      settings.targetWins === pts
-                        ? 'bg-ink text-cream border-ink'
-                        : 'bg-paper text-ink border-ink/20 hover:border-ink/50'
+                    onClick={toggleMicTest}
+                    className={`px-3 py-1 rounded-lg font-display font-bold text-xs border-2 border-ink ${
+                      testingMic
+                        ? 'bg-p2 text-white'
+                        : 'bg-white text-ink hover:bg-gold/30'
                     }`}
                   >
-                    {pts === 0
-                      ? settings.language === 'en'
-                        ? 'Free'
-                        : 'Libera'
-                      : `${pts} ${settings.language === 'en' ? 'pts' : 'pt'}`}
+                    {testingMic ? 'Chiudi prova' : 'Prova voce'}
                   </button>
-                ))}
-              </div>
-            </div>
+                </div>
 
-            <div>
-              <h3 className="font-display font-bold text-sm text-ink/80 mb-2">
-                {t('lobby.timePerPlayer', settings.language)}
-              </h3>
-              <div className="grid grid-cols-3 gap-2">
-                {gameConfig.options.duelDurations.map((sec) => (
-                  <button
-                    key={sec}
-                    onClick={() =>
-                      onUpdateSettings({ duelDurationSeconds: sec })
-                    }
-                    className={`py-2.5 px-3 rounded-xl font-display font-bold text-sm border-2 transition-all ${
-                      settings.duelDurationSeconds === sec
-                        ? 'bg-ink text-cream border-ink'
-                        : 'bg-paper text-ink border-ink/20 hover:border-ink/50'
-                    }`}
-                  >
-                    {sec}s
-                  </button>
-                ))}
+                {testingMic && (
+                  <div className="flex items-center gap-3 pt-1">
+                    <div className="w-20 h-2.5 bg-ink/15 rounded-full overflow-hidden shrink-0">
+                      <div
+                        className="h-full bg-mint transition-all duration-75"
+                        style={{ width: `${Math.max(10, testVolume * 100)}%` }}
+                      />
+                    </div>
+                    <span className="text-xs font-bold text-ink truncate">
+                      &ldquo;{testTranscript}&rdquo;
+                    </span>
+                  </div>
+                )}
+                {micError && (
+                  <p className="text-xs text-p2 font-bold">{micError}</p>
+                )}
               </div>
-            </div>
-          </div>
 
-          {/* Prova microfono */}
-          <div className="p-3.5 rounded-2xl bg-paper border-2 border-ink/15 flex flex-col gap-2">
-            <div className="flex items-center justify-between gap-2">
-              <span className="text-xs font-bold text-ink/75 flex items-center gap-1.5">
-                <Mic className="w-4 h-4 text-p1" />
-                Vuoi fare una prova veloce del microfono?
-              </span>
               <button
-                onClick={toggleMicTest}
-                className={`px-3 py-1 rounded-lg font-display font-bold text-xs border-2 border-ink ${
-                  testingMic
-                    ? 'bg-p2 text-white'
-                    : 'bg-white text-ink hover:bg-gold/30'
-                }`}
+                onClick={() => {
+                  recognizerRef.current?.stop();
+                  onStartGame();
+                }}
+                className="btn-push w-full py-4 px-6 rounded-2xl bg-gold text-ink font-display font-bold text-2xl flex items-center justify-center gap-3 border-[3px] border-ink"
               >
-                {testingMic ? 'Chiudi prova' : 'Prova voce'}
+                <Play className="w-6 h-6 fill-current" />
+                <span>{t('lobby.startDuel', settings.language)}</span>
+                <Sparkles className="w-5 h-5" />
               </button>
             </div>
-
-            {testingMic && (
-              <div className="flex items-center gap-3 pt-1">
-                <div className="w-20 h-2.5 bg-ink/15 rounded-full overflow-hidden shrink-0">
-                  <div
-                    className="h-full bg-mint transition-all duration-75"
-                    style={{ width: `${Math.max(10, testVolume * 100)}%` }}
-                  />
-                </div>
-                <span className="text-xs font-bold text-ink truncate">
-                  &ldquo;{testTranscript}&rdquo;
-                </span>
-              </div>
-            )}
-            {micError && (
-              <p className="text-xs text-p2 font-bold">{micError}</p>
-            )}
           </div>
+        )}
 
-          <button
-            onClick={() => {
-              recognizerRef.current?.stop();
-              onStartGame();
-            }}
-            className="btn-push w-full py-4 px-6 rounded-2xl bg-gold text-ink font-display font-bold text-2xl flex items-center justify-center gap-3"
-          >
-            <Play className="w-6 h-6 fill-current" />
-            <span>{t('lobby.startDuel', settings.language)}</span>
-            <Sparkles className="w-5 h-5" />
-          </button>
-        </div>
+        {/* ============================================================ */}
+        {/* MODALITÀ 3: PARTY TORNEO (3-8 GIOCATORI)                     */}
+        {/* ============================================================ */}
+        {currentMode === 'party' && (
+          <div className="flex flex-col gap-6">
+            <div className="card-cream rounded-3xl p-5 sm:p-6 border-[3px] border-ink shadow-chunky-sm">
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+                <div>
+                  <h2 className="font-display font-black text-xl sm:text-2xl text-ink">
+                    {t('party.players', settings.language, { n: partyPlayers.length })}
+                  </h2>
+                  <p className="text-xs text-ink/70 font-semibold">
+                    Configura da 3 a 8 partecipanti per il torneo. A ogni round, chi sfida sceglie l&rsquo;avversario e la categoria!
+                  </p>
+                </div>
+
+                {partyPlayers.length < 8 && onAddPartyPlayer && (
+                  <button
+                    onClick={onAddPartyPlayer}
+                    className="btn-push px-4 py-2 rounded-xl bg-mint text-ink font-display font-bold text-sm flex items-center gap-1.5 border-2 border-ink shadow-sm"
+                  >
+                    <UserPlus className="w-4 h-4" />
+                    <span>{t('party.addPlayer', settings.language)}</span>
+                  </button>
+                )}
+              </div>
+
+              {/* Griglia Giocatori Party */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                {partyPlayers.map((player, idx) => (
+                  <div
+                    key={player.id}
+                    className="p-3.5 rounded-2xl bg-paper border-2 border-ink flex flex-col gap-2 relative shadow-sm"
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="w-6 h-6 rounded-lg bg-ink text-cream text-xs font-bold flex items-center justify-center">
+                        #{idx + 1}
+                      </span>
+                      <span className="text-2xl">{player.avatar}</span>
+                      {partyPlayers.length > 3 && onRemovePartyPlayer && (
+                        <button
+                          onClick={() => onRemovePartyPlayer(player.id)}
+                          className="p-1 rounded-lg bg-p2/10 hover:bg-p2 text-p2 hover:text-white transition-colors"
+                          title={t('party.removePlayer', settings.language)}
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      )}
+                    </div>
+
+                    <input
+                      type="text"
+                      value={player.name}
+                      maxLength={18}
+                      onChange={(e) =>
+                        onUpdatePartyPlayer &&
+                        onUpdatePartyPlayer(player.id, e.target.value, player.avatar)
+                      }
+                      placeholder={t('party.playerNamePlaceholder', settings.language)}
+                      className="w-full px-3 py-1.5 rounded-lg bg-white border border-ink/25 focus:border-p1 text-ink font-display font-bold text-sm focus:outline-none"
+                    />
+
+                    {/* Avatar picker rapido */}
+                    <div className="flex flex-wrap gap-1 pt-0.5">
+                      {avatars.slice(0, 8).map((av) => (
+                        <button
+                          key={`${player.id}-${av}`}
+                          onClick={() =>
+                            onUpdatePartyPlayer &&
+                            onUpdatePartyPlayer(player.id, player.name, av)
+                          }
+                          className={`w-6 h-6 rounded-md text-xs flex items-center justify-center ${
+                            player.avatar === av
+                              ? 'bg-ink text-white scale-110'
+                              : 'bg-white hover:bg-ink/10'
+                          }`}
+                        >
+                          {av}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {partyPlayers.length < 3 && (
+                <div className="mt-4 p-3 rounded-xl bg-p2/20 border-2 border-p2 text-p2 font-bold text-xs text-center">
+                  ⚠️ {t('party.minPlayersWarning', settings.language)}
+                </div>
+              )}
+            </div>
+
+            {/* Impostazioni Torneo Party */}
+            <div className="card-cream rounded-3xl p-5 sm:p-6 border-[3px] border-ink shadow-chunky-sm flex flex-col gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <h3 className="font-display font-bold text-sm text-ink/80 mb-2">
+                    {t('lobby.pointsToWin', settings.language)} (Vittorie per trionfare)
+                  </h3>
+                  <div className="grid grid-cols-4 gap-1.5">
+                    {gameConfig.options.targetWins.map((pts) => (
+                      <button
+                        key={`party-pts-${pts}`}
+                        onClick={() =>
+                          onUpdateSettings({ targetWins: pts as TargetWinsOption })
+                        }
+                        className={`py-2.5 px-2 rounded-xl font-display font-bold text-xs sm:text-sm border-2 transition-all ${
+                          settings.targetWins === pts
+                            ? 'bg-ink text-cream border-ink'
+                            : 'bg-paper text-ink border-ink/20 hover:border-ink/50'
+                        }`}
+                      >
+                        {pts === 0
+                          ? settings.language === 'en'
+                            ? 'Free'
+                            : 'Libera'
+                          : `${pts} ${settings.language === 'en' ? 'pts' : 'pt'}`}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="font-display font-bold text-sm text-ink/80 mb-2">
+                    {t('lobby.timePerPlayer', settings.language)} nei Duelli
+                  </h3>
+                  <div className="grid grid-cols-3 gap-2">
+                    {gameConfig.options.duelDurations.map((sec) => (
+                      <button
+                        key={`party-sec-${sec}`}
+                        onClick={() =>
+                          onUpdateSettings({ duelDurationSeconds: sec })
+                        }
+                        className={`py-2.5 px-3 rounded-xl font-display font-bold text-sm border-2 transition-all ${
+                          settings.duelDurationSeconds === sec
+                            ? 'bg-ink text-cream border-ink'
+                            : 'bg-paper text-ink border-ink/20 hover:border-ink/50'
+                        }`}
+                      >
+                        {sec}s
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <button
+                disabled={partyPlayers.length < 3}
+                onClick={() => {
+                  recognizerRef.current?.stop();
+                  onStartGame();
+                }}
+                className="btn-push w-full py-4 px-6 rounded-2xl bg-gold text-ink font-display font-black text-2xl flex items-center justify-center gap-3 border-[3px] border-ink disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <Crown className="w-6 h-6" />
+                <span>INIZIA IL PARTY ARENA</span>
+                <Sparkles className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+        )}
       </main>
 
       <footer className="max-w-5xl w-full mx-auto flex flex-col sm:flex-row items-center justify-between gap-2.5 text-xs text-cream/55 pt-3 border-t border-cream/10">
         <p className="text-center sm:text-left">
-          A turno si sceglie una categoria tra 4 carte proposte • Di’ <strong className="text-gold">“Passo”</strong> (o premi Spazio) per cambiare foto con 3 secondi di penalità
+          {currentMode === 'solo'
+            ? 'Modalità Allenamento: riconosci più soggetti possibili nel tempo stabilito e batti il tuo record!'
+            : 'A turno si sceglie una categoria tra 4 carte proposte • Di’ “Passo” per cambiare foto con 3 secondi di penalità'}
         </p>
         <div className="flex items-center gap-1.5 shrink-0">
           <span

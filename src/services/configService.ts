@@ -9,6 +9,7 @@ export interface AppGameConfig {
   options: {
     targetWins: TargetWinsOption[];
     duelDurations: number[];
+    soloDurations: number[];
     draftCardsCount: number;
     preloaderWindowSize: number;
     correctFlashDurationMs: number;
