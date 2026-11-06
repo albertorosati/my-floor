@@ -14,6 +14,7 @@ import { t, localizePlayerName } from '../services/i18n';
 import { TheFloorBackground } from './TheFloorBackground';
 import { InlineCrown } from './InlineCrown';
 import { getPlayerColor } from '../utils/playerColors';
+import { APP_VERSION } from '../config/version';
 
 interface VictoryScreenProps {
   mode?: GameMode;
@@ -243,6 +244,10 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
             <Home className="w-5 h-5" />
             <span>{t('victory.backMenu', language)}</span>
           </button>
+        </div>
+
+        <div className="text-[11px] font-mono text-ink/40 pt-1">
+          v{APP_VERSION}
         </div>
       </div>
     </div>

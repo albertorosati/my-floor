@@ -15,11 +15,9 @@ import {
   TargetWinsOption,
   AppLanguage,
 } from '../types/game';
-import {
-  preloadCategoryImages,
-  primeImage,
-} from '../data/categories';
+import { preloadCategoryImages, primeImage } from '../data/categories';
 import { gameConfig } from '../services/configService';
+import { APP_VERSION } from '../config/version';
 import { soundEngine } from '../engine/soundEffects';
 import {
   t,
@@ -390,6 +388,10 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
             <span>{t('draft.allCategories', language)}</span>
           </button>
         </div>
+
+        <span className="font-mono text-[11px] text-paper/40 self-center">
+          v{APP_VERSION}
+        </span>
       </div>
 
       {/* ============================================================== */}

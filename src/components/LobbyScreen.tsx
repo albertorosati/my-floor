@@ -18,6 +18,7 @@ import {
 import { SmartSpeechRecognizer } from '../engine/speechRecognition';
 import { gameConfig } from '../services/configService';
 import { pwaInstallService } from '../services/pwaInstallService';
+import { APP_VERSION } from '../config/version';
 import { t, filterCategories, localizePlayerName, getCategoryTitle } from '../services/i18n';
 import { TheFloorBackground } from './TheFloorBackground';
 import { TheFloorLogo } from './TheFloorLogo';
@@ -781,10 +782,15 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
         </div>
 
         {/* Quiet footer hint */}
-        <footer className="text-center text-xs text-paper/70 font-medium py-1">
-          {currentMode === 'solo'
-            ? t('lobby.footerSolo', settings.language)
-            : t('lobby.footerDuel', settings.language)}
+        <footer className="text-center text-xs text-paper/70 font-medium py-1 flex items-center justify-center gap-2">
+          <span>
+            {currentMode === 'solo'
+              ? t('lobby.footerSolo', settings.language)
+              : t('lobby.footerDuel', settings.language)}
+          </span>
+          <span className="text-[10px] font-mono text-paper/40 font-bold">
+            v{APP_VERSION}
+          </span>
         </footer>
       </div>
 
@@ -982,6 +988,10 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
             >
               Done
             </button>
+
+            <div className="text-center text-[11px] font-mono font-bold text-ink/40 pt-1">
+              Yappik v{APP_VERSION}
+            </div>
           </div>
         </div>
       )}
