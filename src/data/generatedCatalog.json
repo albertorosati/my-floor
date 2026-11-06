@@ -17169,7 +17169,11 @@
           "ovetto kinder",
           "kinder"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Kinderchocolate.jpg/960px-Kinderchocolate.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Kinder_Surprise_Egg.jpg/960px-Kinder_Surprise_Egg.jpg",
+        "imageUrls": [
+          "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Kinder_Surprise_Egg.jpg/960px-Kinder_Surprise_Egg.jpg",
+          "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Kinder_egg_open.jpg/960px-Kinder_egg_open.jpg"
+        ]
       },
       {
         "id": "snack-bibite-3",
@@ -17177,7 +17181,11 @@
         "aliases": [
           "bueno"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Kinder_Happy_Hippo.jpg/960px-Kinder_Happy_Hippo.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Kinder_Bueno_-_1_Half_unwrapped.jpg/960px-Kinder_Bueno_-_1_Half_unwrapped.jpg",
+        "imageUrls": [
+          "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Kinder_Bueno_-_1_Half_unwrapped.jpg/960px-Kinder_Bueno_-_1_Half_unwrapped.jpg",
+          "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Kinder_Bueno_-_5_halfed.jpg/960px-Kinder_Bueno_-_5_halfed.jpg"
+        ]
       },
       {
         "id": "snack-bibite-4",
@@ -17201,7 +17209,10 @@
         "aliases": [
           "mon cheri"
         ],
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7a/C%27est_La_Vie%2C_Mon_Ch%C3%A9ri.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/MonCheri.jpg/960px-MonCheri.jpg",
+        "imageUrls": [
+          "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/MonCheri.jpg/960px-MonCheri.jpg"
+        ]
       },
       {
         "id": "snack-bibite-7",
@@ -17218,7 +17229,11 @@
         "aliases": [
           "tubo patatine"
         ],
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Coronel_Pringles.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Pringles_Chip.jpg/960px-Pringles_Chip.jpg",
+        "imageUrls": [
+          "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Pringles_Chip.jpg/960px-Pringles_Chip.jpg",
+          "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Stapelchips.jpg/960px-Stapelchips.jpg"
+        ]
       },
       {
         "id": "snack-bibite-9",
@@ -17226,7 +17241,10 @@
         "aliases": [
           "patatine triangolari"
         ],
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Geoff_Keighley_-_19th_Annual_Game_Developers_Choice_Awards_%28D5X_8647%29_%28cropped%29.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Doritos.jpg/960px-Doritos.jpg",
+        "imageUrls": [
+          "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Doritos.jpg/960px-Doritos.jpg"
+        ]
       },
       {
         "id": "snack-bibite-10",
@@ -17244,7 +17262,10 @@
         "aliases": [
           "lecca lecca"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Enrique_Bernat_Fontlladosa_%28MUNCYT%2C_Eulogia_Merle%29.jpg/960px-Enrique_Bernat_Fontlladosa_%28MUNCYT%2C_Eulogia_Merle%29.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/ChupaChups.jpg/960px-ChupaChups.jpg",
+        "imageUrls": [
+          "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/ChupaChups.jpg/960px-ChupaChups.jpg"
+        ]
       },
       {
         "id": "snack-bibite-12",
@@ -17258,7 +17279,10 @@
         "aliases": [
           "tictac"
         ],
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Tictactoe-wien2006.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Tic-tac-fruit-adventure.jpg/960px-Tic-tac-fruit-adventure.jpg",
+        "imageUrls": [
+          "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Tic-tac-fruit-adventure.jpg/960px-Tic-tac-fruit-adventure.jpg"
+        ]
       },
       {
         "id": "snack-bibite-14",
@@ -17299,7 +17323,10 @@
         "aliases": [
           "barretta twix"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/MarsWrigley.IronsideNewark.jpg/960px-MarsWrigley.IronsideNewark.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Twix_choco_01.jpg/960px-Twix_choco_01.jpg",
+        "imageUrls": [
+          "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Twix_choco_01.jpg/960px-Twix_choco_01.jpg"
+        ]
       },
       {
         "id": "snack-bibite-19",
@@ -17315,7 +17342,10 @@
         "aliases": [
           "cioccolato al cocco"
         ],
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dd/MBar_700.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Bounty_Zartherb_split_(8553109275).jpg/960px-Bounty_Zartherb_split_(8553109275).jpg",
+        "imageUrls": [
+          "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Bounty_Zartherb_split_(8553109275).jpg/960px-Bounty_Zartherb_split_(8553109275).jpg"
+        ]
       },
       {
         "id": "snack-bibite-21",
@@ -17357,7 +17387,10 @@
         "aliases": [
           "bacio perugina"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Luisa_Spagnoli.jpg/960px-Luisa_Spagnoli.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Baci_perugina.jpg/960px-Baci_perugina.jpg",
+        "imageUrls": [
+          "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Baci_perugina.jpg/960px-Baci_perugina.jpg"
+        ]
       },
       {
         "id": "snack-bibite-27",
@@ -17380,7 +17413,11 @@
         "id": "snack-bibite-29",
         "answer": "Pepsi",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/PepsiCoHQPurchaseNY.jpg/960px-PepsiCoHQPurchaseNY.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Glass_of_Pepsi-Cola_at_a_terrace_at_the_Helsinki_Senate_Square_in_July_2025.jpg/960px-Glass_of_Pepsi-Cola_at_a_terrace_at_the_Helsinki_Senate_Square_in_July_2025.jpg",
+        "imageUrls": [
+          "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Glass_of_Pepsi-Cola_at_a_terrace_at_the_Helsinki_Senate_Square_in_July_2025.jpg/960px-Glass_of_Pepsi-Cola_at_a_terrace_at_the_Helsinki_Senate_Square_in_July_2025.jpg",
+          "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/HK_Soft_drink_pre-packed_canned_Pepsi_coke_blue_July_2017_IX1.jpg/960px-HK_Soft_drink_pre-packed_canned_Pepsi_coke_blue_July_2017_IX1.jpg"
+        ]
       },
       {
         "id": "snack-bibite-30",
@@ -17388,7 +17425,10 @@
         "aliases": [
           "aranciata"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Fanta-kaka_%2802%29.jpg/960px-Fanta-kaka_%2802%29.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Fanta_cans_in_Thailand_2021.jpg/960px-Fanta_cans_in_Thailand_2021.jpg",
+        "imageUrls": [
+          "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Fanta_cans_in_Thailand_2021.jpg/960px-Fanta_cans_in_Thailand_2021.jpg"
+        ]
       },
       {
         "id": "snack-bibite-31",
@@ -17402,7 +17442,10 @@
         "aliases": [
           "redbull"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Red_Bull_Headquarters.jpg/960px-Red_Bull_Headquarters.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Red_Bull_energy_drinks.jpg/960px-Red_Bull_energy_drinks.jpg",
+        "imageUrls": [
+          "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Red_Bull_energy_drinks.jpg/960px-Red_Bull_energy_drinks.jpg"
+        ]
       },
       {
         "id": "snack-bibite-33",
@@ -17437,7 +17480,10 @@
           "birra scura",
           "birra"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Sir_Alec_Guinness_Allan_Warren.jpg/960px-Sir_Alec_Guinness_Allan_Warren.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/GuinnessPint.jpg/960px-GuinnessPint.jpg",
+        "imageUrls": [
+          "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/GuinnessPint.jpg/960px-GuinnessPint.jpg"
+        ]
       },
       {
         "id": "snack-bibite-37",

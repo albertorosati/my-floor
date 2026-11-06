@@ -66,6 +66,19 @@ describe('blacklistService', () => {
         'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Rue_du_Faubourg-Saint-Honor%C3%A9%2C_Paris_May_2006.jpg/960px-Rue_du_Faubourg-Saint-Honor%C3%A9%2C_Paris_May_2006.jpg';
       expect(blacklistService.isBlacklisted(hermesStore)).toBe(true);
 
+      // Snack/bibite errati (edificio PepsiCo HQ, film Mon Chéri, meme Doritos) bloccati
+      const pepsiHQ =
+        'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/PepsiCoHQPurchaseNY.jpg/960px-PepsiCoHQPurchaseNY.jpg';
+      expect(blacklistService.isBlacklisted(pepsiHQ)).toBe(true);
+
+      const monCheriMovie =
+        'https://upload.wikimedia.org/wikipedia/commons/7/7a/C%27est_La_Vie%2C_Mon_Ch%C3%A9ri.jpg';
+      expect(blacklistService.isBlacklisted(monCheriMovie)).toBe(true);
+
+      const doritoPope =
+        'https://upload.wikimedia.org/wikipedia/commons/f/f0/Geoff_Keighley_-_19th_Annual_Game_Developers_Choice_Awards_%28D5X_8647%29_%28cropped%29.jpg';
+      expect(blacklistService.isBlacklisted(doritoPope)).toBe(true);
+
       const cleanPhoto =
         'https://upload.wikimedia.org/wikipedia/commons/1/12/Living_clean_fish.jpg';
       expect(blacklistService.isBlacklisted(cleanPhoto)).toBe(false);

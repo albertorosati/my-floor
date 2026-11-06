@@ -102,7 +102,21 @@
     "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Anubis_challenge_screen_%28dark%29.png/960px-Anubis_challenge_screen_%28dark%29.png",
     "https://upload.wikimedia.org/wikipedia/commons/5/5e/ASRG_Labeled_Cutaway_%28English%29.jpg",
     "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/OSIRIS-REx_spacecraft_model.png/960px-OSIRIS-REx_spacecraft_model.png",
-    "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Academy_Sports_%2B_Outdoors_-_Sarah_Stierch_-_May_2024_02.jpg/960px-Academy_Sports_%2B_Outdoors_-_Sarah_Stierch_-_May_2024_02.jpg"
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Academy_Sports_%2B_Outdoors_-_Sarah_Stierch_-_May_2024_02.jpg/960px-Academy_Sports_%2B_Outdoors_-_Sarah_Stierch_-_May_2024_02.jpg",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Kinderchocolate.jpg/960px-Kinderchocolate.jpg",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Kinder_Happy_Hippo.jpg/960px-Kinder_Happy_Hippo.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/7/7a/C%27est_La_Vie%2C_Mon_Ch%C3%A9ri.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/a/ad/Coronel_Pringles.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/f/f0/Geoff_Keighley_-_19th_Annual_Game_Developers_Choice_Awards_%28D5X_8647%29_%28cropped%29.jpg",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Enrique_Bernat_Fontlladosa_%28MUNCYT%2C_Eulogia_Merle%29.jpg/960px-Enrique_Bernat_Fontlladosa_%28MUNCYT%2C_Eulogia_Merle%29.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/9/9f/Tictactoe-wien2006.jpg",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/MarsWrigley.IronsideNewark.jpg/960px-MarsWrigley.IronsideNewark.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/d/dd/MBar_700.jpg",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Luisa_Spagnoli.jpg/960px-Luisa_Spagnoli.jpg",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/PepsiCoHQPurchaseNY.jpg/960px-PepsiCoHQPurchaseNY.jpg",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Fanta-kaka_%2802%29.jpg/960px-Fanta-kaka_%2802%29.jpg",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Red_Bull_Headquarters.jpg/960px-Red_Bull_Headquarters.jpg",
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Sir_Alec_Guinness_Allan_Warren.jpg/960px-Sir_Alec_Guinness_Allan_Warren.jpg"
   ],
   "blacklistedItemIds": [],
   "forbiddenKeywords": [
@@ -168,7 +182,11 @@
     "header_capsule",
     "capsule_616x353",
     "banner",
-    "panoramica"
+    "panoramica",
+    "headquarters",
+    "office_building",
+    "corporate_headquarters",
+    "coronel_pringles"
   ],
   "reports": []
 }
