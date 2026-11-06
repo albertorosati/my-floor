@@ -12,7 +12,7 @@ import {
 import { soundEngine } from '../engine/soundEffects';
 import { rankPartyPlayers } from '../utils/partyUtils';
 import { APP_VERSION } from '../config/version';
-import { t } from '../services/i18n';
+import { t, localizePlayerName } from '../services/i18n';
 
 interface VictoryScreenProps {
   mode?: GameMode;
@@ -54,8 +54,8 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
     if (!isDraw) {
       soundEngine.speakAnnouncement(
         language === 'en'
-          ? `${winner.name} won the match!`
-          : `Vince la sfida ${winner.name}!`
+          ? `${localizePlayerName(winner.name, language)} won the match!`
+          : `Vince la sfida ${localizePlayerName(winner.name, language)}!`
       );
     }
 
@@ -95,28 +95,24 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
             {isParty
               ? t('party.champion', language)
               : isDraw
-              ? language === 'en'
-                ? 'Tie Match!'
-                : 'Pareggio!'
-              : language === 'en'
-              ? 'Arena Champion'
-              : 'Campione dell’Arena'}
+              ? t('victory.tieMatch', language)
+              : t('victory.champion', language)}
           </span>
           <h1 className="font-display font-black text-3xl sm:text-5xl text-ink mt-2">
             {isDraw
-              ? `${p1.avatar} ${language === 'en' ? 'Equal Points!' : 'Pari merito!'} ${p2.avatar}`
-              : `${winner.avatar} ${winner.name}`}
+              ? `${p1.avatar} ${t('victory.equalPoints', language)} ${p2.avatar}`
+              : `${winner.avatar} ${localizePlayerName(winner.name, language)}`}
           </h1>
 
           {!isParty && (
             <p className="text-ink/70 font-semibold text-sm mt-1">
-              {language === 'en' ? 'Final Score:' : 'Punteggio finale:'}{' '}
+              {t('victory.finalScore', language)}{' '}
               <strong>
-                {p1.name} {p1Score}
+                {localizePlayerName(p1.name, language)} {p1Score}
               </strong>{' '}
               —{' '}
               <strong>
-                {p2Score} {p2.name}
+                {p2Score} {localizePlayerName(p2.name, language)}
               </strong>
             </p>
           )}
@@ -146,7 +142,7 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
                   </span>
                   <span className="text-xl sm:text-2xl">{p.avatar}</span>
                   <span className="font-display font-bold text-sm text-ink">
-                    {p.name}
+                    {localizePlayerName(p.name, language)}
                   </span>
                 </div>
                 <div className="px-2.5 py-0.5 rounded-lg bg-white border border-ink/20 font-display font-black text-sm text-ink">
@@ -158,14 +154,14 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
         ) : (
           <div className="w-full grid grid-cols-3 gap-2.5 bg-paper p-3 sm:p-4 rounded-2xl border-2 border-ink shrink-0">
             <div>
-              <span className="text-xs font-bold text-ink/60 block">Rounds</span>
+              <span className="text-xs font-bold text-ink/60 block">{t('victory.rounds', language)}</span>
               <span className="font-display font-bold text-xl sm:text-2xl text-ink">
                 {history.length}
               </span>
             </div>
             <div>
               <span className="text-xs font-bold text-p1 block truncate">
-                {language === 'en' ? `${p1.name} Photos` : `Foto ${p1.name}`}
+                {t('victory.playerPhotos', language, { name: localizePlayerName(p1.name, language) })}
               </span>
               <span className="font-display font-bold text-xl sm:text-2xl text-ink">
                 {totalP1Correct}
@@ -173,7 +169,7 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
             </div>
             <div>
               <span className="text-xs font-bold text-p2 block truncate">
-                {language === 'en' ? `${p2.name} Photos` : `Foto ${p2.name}`}
+                {t('victory.playerPhotos', language, { name: localizePlayerName(p2.name, language) })}
               </span>
               <span className="font-display font-bold text-xl sm:text-2xl text-ink">
                 {totalP2Correct}
@@ -189,14 +185,14 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
             className="btn-push py-3 px-5 rounded-2xl bg-gold text-ink font-display font-bold text-base sm:text-lg flex items-center justify-center gap-2 border-2 border-ink"
           >
             <RotateCcw className="w-5 h-5" />
-            <span>{language === 'en' ? 'Play Again' : 'Rivincita'}</span>
+            <span>{t('victory.rematch', language)}</span>
           </button>
           <button
             onClick={onBackToLobby}
             className="btn-push py-3 px-5 rounded-2xl bg-white text-ink font-display font-bold text-base sm:text-lg flex items-center justify-center gap-2 border-2 border-ink"
           >
             <Home className="w-5 h-5" />
-            <span>{language === 'en' ? 'Back to Lobby' : 'Torna al Menu'}</span>
+            <span>{t('victory.backMenu', language)}</span>
           </button>
         </div>
 

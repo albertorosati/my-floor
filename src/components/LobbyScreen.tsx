@@ -31,7 +31,7 @@ import { gameConfig } from '../services/configService';
 import { pwaInstallService } from '../services/pwaInstallService';
 import { hapticsService } from '../services/hapticsService';
 import { APP_VERSION } from '../config/version';
-import { t } from '../services/i18n';
+import { t, filterCategories, localizePlayerName } from '../services/i18n';
 
 interface LobbyScreenProps {
   p1: PlayerConfig;
@@ -79,7 +79,8 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
   const recognizerRef = useRef<SmartSpeechRecognizer | null>(null);
 
   const speechSupported = SmartSpeechRecognizer.isSupported();
-  const totalPhotos = categories.reduce((acc, c) => acc + c.items.length, 0);
+  const availableCategories = filterCategories(categories, settings.language);
+  const totalPhotos = availableCategories.reduce((acc, c) => acc + c.items.length, 0);
   const avatars = gameConfig.players.avatars;
 
   useEffect(() => {
@@ -138,6 +139,8 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
   };
 
   const currentMode = settings.mode || 'duel';
+  const p1DisplayName = localizePlayerName(p1.name, settings.language);
+  const p2DisplayName = localizePlayerName(p2.name, settings.language);
 
   return (
     <div className="min-h-screen party-stage-bg flex flex-col justify-between p-4 sm:p-6 md:p-8 select-none">
@@ -154,7 +157,10 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
               {gameConfig.appTitle}
             </h1>
             <p className="text-sm text-cream/70 font-medium mt-0.5">
-              {categories.length} categorie • {totalPhotos.toLocaleString('it-IT')} foto HD
+              {t('app.headerStats', settings.language, {
+                categories: availableCategories.length,
+                photos: totalPhotos.toLocaleString(settings.language === 'en' ? 'en-US' : 'it-IT'),
+              })}
             </p>
           </div>
         </div>
@@ -192,9 +198,9 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
           >
             <Layers className="w-4 h-4 text-p1" />
             <span className="hidden sm:inline">
-              {settings.language === 'en' ? 'Categories' : 'Categorie'} ({categories.length})
+              {settings.language === 'en' ? 'Categories' : 'Categorie'} ({availableCategories.length})
             </span>
-            <span className="sm:hidden">{categories.length}</span>
+            <span className="sm:hidden">{availableCategories.length}</span>
           </button>
 
           <button
@@ -237,7 +243,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
 
       {!speechSupported && (
         <div className="max-w-5xl w-full mx-auto mt-4 p-4 rounded-2xl bg-gold text-ink border-[3px] border-ink shadow-chunky-sm font-semibold text-sm">
-          Per giocare con la voce consenti l’accesso al microfono su <strong>Chrome, Safari, Edge o Brave</strong> (anche su mobile).
+          {t('lobby.micBrowserNotice', settings.language)}
         </div>
       )}
 
@@ -317,14 +323,14 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                 </div>
                 <div className="p-5 flex flex-col gap-3.5">
                   <label className="text-xs font-bold text-ink/70">
-                    Nome del giocatore:
+                    {t('lobby.playerName', settings.language)}
                   </label>
                   <input
                     type="text"
-                    value={p1.name}
+                    value={p1DisplayName}
                     maxLength={18}
                     onChange={(e) => onUpdatePlayer('p1', e.target.value, p1.avatar)}
-                    placeholder="Il tuo nome..."
+                    placeholder={t('lobby.p1Placeholder', settings.language)}
                     className="w-full px-4 py-2.5 rounded-xl bg-paper border-2 border-ink/25 focus:border-p1 text-ink font-display text-xl font-bold focus:outline-none"
                   />
                   <div className="flex flex-wrap gap-1.5 pt-1">
@@ -380,7 +386,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                 <div className="flex items-center justify-between gap-2">
                   <span className="text-xs font-bold text-ink/75 flex items-center gap-1.5">
                     <Mic className="w-4 h-4 text-p1" />
-                    Prova microfono vocale
+                    {t('lobby.testMic', settings.language)}
                   </span>
                   <button
                     onClick={toggleMicTest}
@@ -390,7 +396,9 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                         : 'bg-white text-ink hover:bg-gold/30'
                     }`}
                   >
-                    {testingMic ? 'Chiudi prova' : 'Prova voce'}
+                    {testingMic
+                      ? t('lobby.closeVoiceBtn', settings.language)
+                      : t('lobby.testVoiceBtn', settings.language)}
                   </button>
                 </div>
 
@@ -438,17 +446,17 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
               <div className="card-cream rounded-3xl overflow-hidden border-[3px] border-ink shadow-chunky-sm">
                 <div className="bg-p1 px-5 py-3 border-b-[3px] border-ink flex items-center justify-between text-white">
                   <span className="font-display font-bold text-lg tracking-wide">
-                    Giocatore 1
+                    {t('lobby.p1', settings.language)}
                   </span>
                   <span className="text-2xl">{p1.avatar}</span>
                 </div>
                 <div className="p-5 flex flex-col gap-3.5">
                   <input
                     type="text"
-                    value={p1.name}
+                    value={p1DisplayName}
                     maxLength={18}
                     onChange={(e) => onUpdatePlayer('p1', e.target.value, p1.avatar)}
-                    placeholder="Il tuo nome..."
+                    placeholder={t('lobby.p1Placeholder', settings.language)}
                     className="w-full px-4 py-2.5 rounded-xl bg-paper border-2 border-ink/25 focus:border-p1 text-ink font-display text-xl font-bold focus:outline-none"
                   />
                   <div className="flex flex-wrap gap-1.5">
@@ -473,17 +481,17 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
               <div className="card-cream rounded-3xl overflow-hidden border-[3px] border-ink shadow-chunky-sm">
                 <div className="bg-p2 px-5 py-3 border-b-[3px] border-ink flex items-center justify-between text-white">
                   <span className="font-display font-bold text-lg tracking-wide">
-                    Giocatore 2
+                    {t('lobby.p2', settings.language)}
                   </span>
                   <span className="text-2xl">{p2.avatar}</span>
                 </div>
                 <div className="p-5 flex flex-col gap-3.5">
                   <input
                     type="text"
-                    value={p2.name}
+                    value={p2DisplayName}
                     maxLength={18}
                     onChange={(e) => onUpdatePlayer('p2', e.target.value, p2.avatar)}
-                    placeholder="Nome sfidante..."
+                    placeholder={t('lobby.p2Placeholder', settings.language)}
                     className="w-full px-4 py-2.5 rounded-xl bg-paper border-2 border-ink/25 focus:border-p2 text-ink font-display text-xl font-bold focus:outline-none"
                   />
                   <div className="flex flex-wrap gap-1.5">
@@ -509,7 +517,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
             <div className="lg:col-span-7 card-cream rounded-3xl p-6 flex flex-col gap-6 border-[3px] border-ink shadow-chunky-sm">
               <div>
                 <h2 className="font-display font-bold text-lg text-ink mb-2.5">
-                  Come giocate?
+                  {t('lobby.howToPlay', settings.language)}
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <button
@@ -524,10 +532,10 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                   >
                     <div className="font-display font-bold text-base text-ink flex items-center gap-2">
                       <span>🏠</span>
-                      <span>Stessa stanza</span>
+                      <span>{t('lobby.sameRoom', settings.language)}</span>
                     </div>
                     <p className="text-xs text-ink/70 mt-1 leading-relaxed">
-                      Usate un solo microfono per entrambi parlando a turno davanti allo schermo.
+                      {t('lobby.sameRoomDesc', settings.language)}
                     </p>
                   </button>
 
@@ -543,10 +551,10 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                   >
                     <div className="font-display font-bold text-base text-ink flex items-center gap-2">
                       <span>🎧</span>
-                      <span>Su Discord</span>
+                      <span>{t('lobby.onDiscord', settings.language)}</span>
                     </div>
                     <p className="text-xs text-ink/70 mt-1 leading-relaxed">
-                      Condividi lo schermo su Discord e manda un link rapido a {p2.name || 'Giocatore 2'} per il suo microfono.
+                      {t('lobby.onDiscordDesc', settings.language, { p2: p2DisplayName })}
                     </p>
                   </button>
                 </div>
@@ -555,7 +563,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                   <div className="mt-3 p-4 rounded-2xl bg-paper border-2 border-ink flex flex-col gap-2.5">
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <span className="text-xs font-bold text-ink/80">
-                        Link microfono per {p2.name || 'Giocatore 2'}:
+                        {t('lobby.micLinkFor', settings.language, { p2: p2DisplayName })}
                       </span>
                       <span
                         className={`px-2.5 py-0.5 rounded-full text-xs font-bold border border-ink ${
@@ -565,8 +573,8 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                         }`}
                       >
                         {p2RemoteConnected
-                          ? `✓ ${p2.name} collegato!`
-                          : 'In attesa che apra il link...'}
+                          ? t('lobby.connected', settings.language, { p2: p2DisplayName })
+                          : t('lobby.waitingConnection', settings.language)}
                       </span>
                     </div>
 
@@ -584,12 +592,12 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                         {copiedLink ? (
                           <>
                             <Check className="w-4 h-4" />
-                            <span>Copiato!</span>
+                            <span>{t('lobby.copied', settings.language)}</span>
                           </>
                         ) : (
                           <>
                             <Copy className="w-4 h-4" />
-                            <span>Copia link</span>
+                            <span>{t('lobby.copyLink', settings.language)}</span>
                           </>
                         )}
                       </button>
@@ -597,7 +605,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
 
                     {remoteTranscriptPreview && (
                       <div className="text-xs font-semibold text-ink bg-white px-3 py-1.5 rounded-lg border border-ink/20">
-                        🎙️ {p2.name}: &ldquo;{remoteTranscriptPreview}&rdquo;
+                        🎙️ {p2DisplayName}: &ldquo;{remoteTranscriptPreview}&rdquo;
                       </div>
                     )}
                   </div>
@@ -662,7 +670,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                 <div className="flex items-center justify-between gap-2">
                   <span className="text-xs font-bold text-ink/75 flex items-center gap-1.5">
                     <Mic className="w-4 h-4 text-p1" />
-                    Vuoi fare una prova veloce del microfono?
+                    {t('lobby.testVoicePrompt', settings.language)}
                   </span>
                   <button
                     onClick={toggleMicTest}
@@ -672,7 +680,9 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                         : 'bg-white text-ink hover:bg-gold/30'
                     }`}
                   >
-                    {testingMic ? 'Chiudi prova' : 'Prova voce'}
+                    {testingMic
+                      ? t('lobby.closeVoiceBtn', settings.language)
+                      : t('lobby.testVoiceBtn', settings.language)}
                   </button>
                 </div>
 
@@ -721,7 +731,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                     {t('party.players', settings.language, { n: partyPlayers.length })}
                   </h2>
                   <p className="text-xs text-ink/70 font-semibold">
-                    Configura da 3 a 8 partecipanti per il torneo. A ogni round, chi sfida sceglie l&rsquo;avversario e la categoria!
+                    {t('lobby.partySub', settings.language)}
                   </p>
                 </div>
 
@@ -761,7 +771,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
 
                     <input
                       type="text"
-                      value={player.name}
+                      value={localizePlayerName(player.name, settings.language)}
                       maxLength={18}
                       onChange={(e) =>
                         onUpdatePartyPlayer &&
@@ -806,7 +816,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <h3 className="font-display font-bold text-sm text-ink/80 mb-2">
-                    {t('lobby.pointsToWin', settings.language)} (Vittorie per trionfare)
+                    {t('lobby.pointsToWin', settings.language)} ({settings.language === 'en' ? 'Wins to triumph' : 'Vittorie per trionfare'})
                   </h3>
                   <div className="grid grid-cols-4 gap-1.5">
                     {gameConfig.options.targetWins.map((pts) => (
@@ -833,7 +843,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
 
                 <div>
                   <h3 className="font-display font-bold text-sm text-ink/80 mb-2">
-                    {t('lobby.timePerPlayer', settings.language)} nei Duelli
+                    {t('lobby.timePerPlayer', settings.language)} {t('lobby.timeInDuels', settings.language)}
                   </h3>
                   <div className="grid grid-cols-3 gap-2">
                     {gameConfig.options.duelDurations.map((sec) => (
@@ -864,7 +874,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                 className="btn-push w-full py-4 px-6 rounded-2xl bg-gold text-ink font-display font-black text-2xl flex items-center justify-center gap-3 border-[3px] border-ink disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Crown className="w-6 h-6" />
-                <span>INIZIA IL PARTY ARENA</span>
+                <span>{t('lobby.startParty', settings.language)}</span>
                 <Sparkles className="w-5 h-5" />
               </button>
             </div>
@@ -875,8 +885,8 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
       <footer className="max-w-5xl w-full mx-auto flex flex-col sm:flex-row items-center justify-between gap-2.5 text-xs text-cream/55 pt-3 border-t border-cream/10">
         <p className="text-center sm:text-left">
           {currentMode === 'solo'
-            ? 'Modalità Allenamento: riconosci più soggetti possibili nel tempo stabilito e batti il tuo record!'
-            : 'A turno si sceglie una categoria tra 4 carte proposte • Di’ “Passo” per cambiare foto con 3 secondi di penalità'}
+            ? t('lobby.footerSolo', settings.language)
+            : t('lobby.footerDuel', settings.language)}
         </p>
         <div className="flex items-center gap-1.5 shrink-0">
           <span
@@ -905,10 +915,10 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
 
             <div>
               <h3 className="font-display font-bold text-xl text-ink">
-                Installa su iPhone / iPad
+                {t('lobby.iosInstallTitle', settings.language)}
               </h3>
               <p className="text-xs text-ink/70 mt-1">
-                Gioca a tutto schermo senza barre del browser in 2 semplici tocchi:
+                {t('lobby.iosInstallDesc', settings.language)}
               </p>
             </div>
 
@@ -917,17 +927,13 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                 <span className="w-6 h-6 rounded-lg bg-p1 text-white font-bold flex items-center justify-center text-xs shrink-0">
                   1
                 </span>
-                <span>
-                  Tocca il tasto <strong>Condividi</strong> 📤 nella barra inferiore di Safari
-                </span>
+                <span>{t('lobby.iosStep1', settings.language)}</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <span className="w-6 h-6 rounded-lg bg-p2 text-white font-bold flex items-center justify-center text-xs shrink-0">
                   2
                 </span>
-                <span>
-                  Scorri in basso e scegli <strong>&ldquo;Aggiungi alla schermata Home&rdquo;</strong> ➕
-                </span>
+                <span>{t('lobby.iosStep2', settings.language)}</span>
               </div>
             </div>
 
@@ -935,7 +941,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
               onClick={() => setShowIosInstallModal(false)}
               className="btn-push w-full py-2.5 rounded-xl bg-mint text-ink font-display font-bold text-sm"
             >
-              Ho capito!
+              {t('lobby.iosUnderstood', settings.language)}
             </button>
           </div>
         </div>

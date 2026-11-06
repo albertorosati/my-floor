@@ -552,7 +552,7 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
                 {category.icon}
               </div>
               <span className="font-display font-bold text-sm text-ink/60">
-                Caricamento...
+                {t('solo.loading', settings.language)}
               </span>
             </div>
           )}
@@ -596,7 +596,7 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
           {/* Feedback Visivo Penalità Passo */}
           {passPenaltyLeft > 0 && (
             <div className="absolute top-4 right-4 z-20 px-3 py-1.5 rounded-xl bg-p2 text-white font-display font-bold text-xs sm:text-sm border-2 border-ink shadow-sm animate-pulse">
-              PASSO -{settings.passPenaltySeconds}s
+              {t('solo.passPenaltyBadge', settings.language, { n: settings.passPenaltySeconds })}
             </div>
           )}
 
@@ -653,10 +653,10 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
             </div>
             <div>
               <h3 className="font-display font-bold text-xl text-ink">
-                {t('solo.finishEarly', settings.language)}?
+                {t('solo.exitConfirmTitle', settings.language)}
               </h3>
               <p className="text-xs text-ink/70 mt-1">
-                Vuoi terminare adesso questa sessione di allenamento e salvare i tuoi risultati?
+                {t('solo.exitConfirmDesc', settings.language)}
               </p>
             </div>
             <div className="grid grid-cols-2 gap-2.5 w-full pt-2">
@@ -664,7 +664,7 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
                 onClick={() => setShowExitConfirm(false)}
                 className="btn-push py-2.5 rounded-xl bg-paper border-2 border-ink text-ink font-display font-bold text-sm"
               >
-                Continua
+                {t('solo.continueBtn', settings.language)}
               </button>
               <button
                 onClick={() => {
@@ -673,7 +673,7 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
                 }}
                 className="btn-push py-2.5 rounded-xl bg-p2 text-white font-display font-bold text-sm"
               >
-                Termina Ora
+                {t('solo.endNowBtn', settings.language)}
               </button>
             </div>
           </div>

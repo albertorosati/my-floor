@@ -5,6 +5,7 @@ import {
   getCategoryTitle,
   getCategorySubtitle,
   localizeCategoryForGame,
+  localizePlayerName,
 } from './i18n';
 import { Category } from '../types/game';
 
@@ -54,6 +55,23 @@ describe('i18n & Category Scope Filtering', () => {
     expect(t('lobby.pointsCount', 'en', { n: 5 })).toBe('5 points');
     expect(t('arena.passButton', 'it')).toBe('PASSO (-3s)');
     expect(t('arena.passButton', 'en')).toBe('PASS (-3s)');
+    expect(t('lobby.howToPlay', 'en')).toBe('How do you play?');
+    expect(t('lobby.sameRoom', 'en')).toBe('Same room');
+    expect(t('lobby.onDiscord', 'en')).toBe('On Discord');
+    expect(t('lobby.p1', 'en')).toBe('Player 1');
+    expect(t('lobby.p2', 'en')).toBe('Player 2');
+    expect(t('app.headerStats', 'en', { categories: 51, photos: '2,131' })).toBe(
+      '51 categories • 2,131 HD photos'
+    );
+  });
+
+  it('localizza i nomi predefiniti dei giocatori mantenendo i nomi custom', () => {
+    expect(localizePlayerName('Giocatore 1', 'en')).toBe('Player 1');
+    expect(localizePlayerName('Giocatore 2', 'en')).toBe('Player 2');
+    expect(localizePlayerName('Giocatore 4', 'en')).toBe('Player 4');
+    expect(localizePlayerName('Player 1', 'it')).toBe('Giocatore 1');
+    expect(localizePlayerName('Mario', 'en')).toBe('Mario');
+    expect(localizePlayerName('Federica', 'en')).toBe('Federica');
   });
 
   it('in lingua inglese esclude categoricamente le categorie italiane esclusive (scope: it-only)', () => {

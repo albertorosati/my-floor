@@ -34,6 +34,7 @@ import {
 } from '../data/categories';
 import { gameConfig } from '../services/configService';
 import { APP_VERSION } from '../config/version';
+import { t, localizePlayerName } from '../services/i18n';
 
 interface DuelArenaScreenProps {
   roundNumber: number;
@@ -487,8 +488,9 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         hapticsService.vibrateVictory();
 
         const winPlayer = winner === 'p1' ? p1 : p2;
+        const winName = localizePlayerName(winPlayer.name, settings.language);
         soundEngine.speakAnnouncement(
-          `Ha vinto ${winPlayer.name}! Punto conquistato!`
+          t('arena.pointScoredAnnounce', settings.language, { name: winName })
         );
 
         // Coriandoli e scintille dorate
@@ -884,7 +886,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
                   <div className="absolute inset-4 rounded-2xl bg-black/5 animate-pulse flex flex-col items-center justify-center gap-3 z-0 pointer-events-none">
                     <div className="w-10 h-10 rounded-full border-4 border-ink/20 border-t-ink animate-spin" />
                     <span className="font-display font-semibold text-xs text-ink/40 tracking-wider uppercase">
-                      Caricamento foto...
+                      {t('arena.loadingPhoto', settings.language)}
                     </span>
                   </div>
                 )}
@@ -1062,17 +1064,24 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
             <div>
               <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gold text-ink font-display font-bold text-xs uppercase tracking-wider border-2 border-ink shadow-chunky-sm mb-2">
                 <Trophy className="w-3.5 h-3.5" />
-                <span>{settings.language === 'en' ? 'Round Won!' : 'Punto Conquistato!'}</span>
+                <span>{t('arena.pointScoredTitle', settings.language)}</span>
               </div>
               <h2 className="font-display font-bold text-3xl sm:text-5xl text-ink leading-tight">
-                {settings.language === 'en'
-                  ? `${duelFinishData.winner === 'p1' ? p1.name : p2.name} Won!`
-                  : `Ha vinto ${duelFinishData.winner === 'p1' ? p1.name : p2.name}!`}
+                {t('arena.hasWon', settings.language, {
+                  name: localizePlayerName(
+                    duelFinishData.winner === 'p1' ? p1.name : p2.name,
+                    settings.language
+                  ),
+                })}
               </h2>
               <p className="text-sm font-semibold text-ink/70 mt-1">
-                {settings.language === 'en'
-                  ? `${duelFinishData.loser === 'p1' ? p1.name : p2.name} ran out of time on “${category.name}”`
-                  : `${duelFinishData.loser === 'p1' ? p1.name : p2.name} ha esaurito il tempo su “${category.name}”`}
+                {t('arena.timeRanOutOn', settings.language, {
+                  loser: localizePlayerName(
+                    duelFinishData.loser === 'p1' ? p1.name : p2.name,
+                    settings.language
+                  ),
+                  category: category.name,
+                })}
               </p>
             </div>
 
@@ -1080,7 +1089,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
             <div className="w-full grid grid-cols-2 gap-3 bg-paper p-3.5 rounded-2xl border-2 border-ink">
               <div>
                 <span className="text-[11px] font-bold text-ink/60 uppercase block">
-                  {settings.language === 'en' ? 'Time Left' : 'Tempo Rimasto'}
+                  {t('arena.timeLeft', settings.language)}
                 </span>
                 <span className="font-mono font-extrabold text-2xl text-mint">
                   {duelFinishData.summary.winnerTimeLeft.toFixed(1)}s
@@ -1088,13 +1097,13 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
               </div>
               <div>
                 <span className="text-[11px] font-bold text-ink/60 uppercase block">
-                  {settings.language === 'en' ? 'Correct Photos' : 'Foto Indovinate'}
+                  {t('arena.correctPhotos', settings.language)}
                 </span>
                 <span className="font-display font-bold text-2xl text-ink">
                   {duelFinishData.winner === 'p1'
                     ? duelFinishData.summary.p1Correct
                     : duelFinishData.summary.p2Correct}{' '}
-                  {settings.language === 'en' ? 'photos' : 'foto'}
+                  {t('arena.photos', settings.language)}
                 </span>
               </div>
             </div>
@@ -1105,7 +1114,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
               className="btn-push w-full py-4 px-6 rounded-2xl bg-gold text-ink font-display font-bold text-lg flex items-center justify-center gap-2 mt-1 animate-bounce-soft"
             >
               <Sparkles className="w-5 h-5 text-ink" />
-              <span>{settings.language === 'en' ? 'Choose Next Category' : 'Scegli la Prossima Categoria'}</span>
+              <span>{t('arena.chooseNextCategory', settings.language)}</span>
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
@@ -1117,25 +1126,23 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-6">
           <div className="card-cream max-w-sm w-full rounded-3xl p-8 text-center flex flex-col items-center gap-4">
             <h2 className="font-display font-bold text-3xl text-ink">
-              {settings.language === 'en' ? 'Game Paused' : 'Gioco in pausa'}
+              {t('arena.pausedTitle', settings.language)}
             </h2>
             <p className="text-sm text-ink/70">
-              {settings.language === 'en'
-                ? 'Timer is paused. Click below when you are ready to resume!'
-                : 'Il tempo è fermo. Clicca qui sotto quando siete pronti a ripartire!'}
+              {t('arena.pausedDesc', settings.language)}
             </p>
             <button
               onClick={() => setIsPaused(false)}
               className="btn-push w-full py-3.5 rounded-2xl bg-gold text-ink font-display font-bold text-lg"
             >
-              {settings.language === 'en' ? 'Resume' : 'Riprendi'}
+              {t('arena.resume', settings.language)}
             </button>
           </div>
         </div>
       )}
 
       <footer className="max-w-6xl w-full mx-auto flex items-center justify-between text-xs text-cream/45 px-2">
-        <span>Spazio = Passo • Invio = Buona • P = Pausa</span>
+        <span>{t('arena.keyboardHelp', settings.language)}</span>
         <span className="font-mono text-[11px] text-cream/40">v{APP_VERSION}</span>
       </footer>
     </div>

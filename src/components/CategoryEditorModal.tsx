@@ -13,6 +13,7 @@ import {
   saveCustomCategories,
   getBackupImageUrl,
 } from '../data/categories';
+import { t } from '../services/i18n';
 
 interface CategoryEditorModalProps {
   allCategories: Category[];
@@ -194,7 +195,7 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
 
             <div className="p-4 rounded-xl bg-white border-2 border-ink/20 flex flex-col gap-2.5">
               <span className="text-xs font-bold text-ink">
-                Aggiungi foto ({items.length} inserite, min. 3)
+                {t('editor.addSubject', language, { n: items.length })}
               </span>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -202,14 +203,14 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
                   type="text"
                   value={itemAnswer}
                   onChange={(e) => setItemAnswer(e.target.value)}
-                  placeholder="Risposta corretta"
+                  placeholder={t('editor.answer', language)}
                   className="px-3 py-2 rounded-lg bg-paper border border-ink/25 text-xs text-ink font-semibold"
                 />
                 <input
                   type="text"
                   value={itemAliases}
                   onChange={(e) => setItemAliases(e.target.value)}
-                  placeholder="Sinonimi separati da virgola"
+                  placeholder={t('editor.aliases', language)}
                   className="px-3 py-2 rounded-lg bg-paper border border-ink/25 text-xs text-ink"
                 />
               </div>
@@ -219,12 +220,12 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
                   type="text"
                   value={itemImageUrl}
                   onChange={(e) => setItemImageUrl(e.target.value)}
-                  placeholder="URL foto (uno o più separati da virgola)"
+                  placeholder={t('editor.urls', language)}
                   className="flex-1 px-3 py-2 rounded-lg bg-paper border border-ink/25 text-xs text-ink"
                 />
                 <label className="btn-push px-3 py-2 rounded-lg bg-gold text-ink text-xs font-display font-bold cursor-pointer flex items-center gap-1.5">
                   <ImageIcon className="w-3.5 h-3.5" />
-                  <span>Carica foto</span>
+                  <span>{t('editor.upload', language)}</span>
                   <input
                     type="file"
                     accept="image/*"
@@ -269,7 +270,7 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
                 className="btn-push w-full py-2 rounded-xl bg-p1 text-white font-display font-bold text-xs flex items-center justify-center gap-1.5"
               >
                 <Plus className="w-4 h-4" />
-                <span>Aggiungi soggetto</span>
+                <span>{t('editor.addBtn', language)}</span>
               </button>
             </div>
 
@@ -285,7 +286,7 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
                         {idx + 1}. {it.answer}
                       </span>
                       <span className="text-[10px] bg-paper px-1.5 py-0.5 rounded font-mono font-bold text-ink/60 border border-ink/10 shrink-0">
-                        📸 {(it.imageUrls && it.imageUrls.length) || 1} foto
+                        📸 {(it.imageUrls && it.imageUrls.length) || 1} {t('arena.photos', language)}
                       </span>
                     </div>
                     <button
@@ -306,7 +307,7 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
               disabled={!name.trim() || items.length < 3}
               className="btn-push w-full py-3 rounded-xl bg-mint text-ink font-display font-bold text-sm"
             >
-              Salva categoria ({items.length}/3 min)
+              {t('editor.saveBtn', language, { n: items.length })}
             </button>
           </div>
 
@@ -315,7 +316,7 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
             <div>
               <div className="flex items-center justify-between mb-3">
                 <h3 className="font-display font-bold text-lg text-ink">
-                  Categorie attive
+                  {language === 'en' ? 'Active Categories' : 'Categorie attive'}
                 </h3>
                 <div className="flex items-center gap-2">
                   <button
@@ -323,11 +324,11 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
                     className="px-2.5 py-1.5 rounded-lg bg-paper border border-ink/30 text-xs font-bold text-ink flex items-center gap-1"
                   >
                     <Download className="w-3.5 h-3.5" />
-                    <span>Esporta</span>
+                    <span>{t('editor.exportBtn', language)}</span>
                   </button>
                   <label className="px-2.5 py-1.5 rounded-lg bg-paper border border-ink/30 text-xs font-bold text-ink flex items-center gap-1 cursor-pointer">
                     <Upload className="w-3.5 h-3.5" />
-                    <span>Importa</span>
+                    <span>{t('editor.importBtn', language)}</span>
                     <input
                       type="file"
                       accept=".json"
@@ -414,7 +415,7 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
               onClick={onClose}
               className="btn-push w-full py-3 rounded-xl bg-white text-ink font-display font-bold text-sm"
             >
-              Chiudi
+              {t('editor.close', language)}
             </button>
           </div>
         </div>

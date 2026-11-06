@@ -35,6 +35,7 @@ import {
   getCategoryTitle,
   getCategorySubtitle,
   filterCategories,
+  localizePlayerName,
 } from '../services/i18n';
 
 interface CategoryDraftScreenProps {
@@ -233,7 +234,9 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
               </div>
 
               <div className="text-[10px] sm:text-xs font-display font-bold text-ink/50 uppercase">
-                {targetWins > 0 ? `A ${targetWins}` : `Round ${roundNumber}`}
+                {targetWins > 0
+                  ? (language === 'en' ? `First to ${targetWins}` : `A ${targetWins}`)
+                  : `Round ${roundNumber}`}
               </div>
 
               <div className="flex items-center gap-1.5 sm:gap-2">
@@ -241,7 +244,7 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
                   {p2Score}
                 </span>
                 <span className="font-display font-bold text-xs sm:text-base text-ink max-w-[85px] sm:max-w-[110px] truncate">
-                  {p2.name}
+                  {localizePlayerName(p2.name, language)}
                 </span>
                 <span className="text-xl sm:text-2xl">{p2.avatar}</span>
               </div>
@@ -265,7 +268,7 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
                 className="btn-push px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-gold text-ink font-display font-bold text-xs flex items-center gap-1.5"
               >
                 <Flag className="w-3.5 h-3.5" />
-                <span>Concludi</span>
+                <span>{t('draft.finishEarly', language)}</span>
               </button>
             ) : (
               <div className="w-[84px] hidden sm:block" />
@@ -278,11 +281,12 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
           <div className="max-w-3xl mx-auto w-full px-3 py-1.5 rounded-xl bg-[#2a2142] border border-gold/60 text-cream text-[11px] sm:text-xs flex items-center justify-center gap-1.5 text-center truncate">
             <Trophy className="w-3.5 h-3.5 text-gold shrink-0" />
             <span className="truncate">
-              Punto a{' '}
-              <strong className="text-gold">
-                {lastSummary.winner === 'p1' ? p1.name : p2.name}
-              </strong>{' '}
-              ({lastSummary.categoryIcon} {lastSummary.categoryName}) con {lastSummary.winnerTimeLeft.toFixed(1)}s!
+              {t('draft.pointTo', language, {
+                winner: localizePlayerName(lastSummary.winner === 'p1' ? p1.name : p2.name, language),
+                icon: lastSummary.categoryIcon,
+                category: lastSummary.categoryName,
+                time: lastSummary.winnerTimeLeft.toFixed(1),
+              })}
             </span>
           </div>
         )}
@@ -307,13 +311,13 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
           ) : isParty ? (
             <>
               <Crown className="w-3.5 h-3.5" />
-              <span>Round {roundNumber} • Party Arena</span>
+              <span>{t('draft.partyRound', language, { round: roundNumber })}</span>
             </>
           ) : (
             <>
               <span>Round {roundNumber}</span>
               <span>•</span>
-              <span>{language === 'en' ? 'Category Draft' : 'Scelta categoria'}</span>
+              <span>{t('draft.categoryDraft', language)}</span>
             </>
           )}
         </div>
@@ -322,9 +326,9 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
           {isSolo ? (
             t('solo.chooseCategory', language)
           ) : language === 'en' ? (
-            <>It’s <span className="text-gold">{chooser.avatar} {chooser.name}</span>’s turn to pick!</>
+            <>It’s <span className="text-gold">{chooser.avatar} {localizePlayerName(chooser.name, language)}</span>’s turn to pick!</>
           ) : (
-            <>Tocca a <span className="text-gold">{chooser.avatar} {chooser.name}</span> scegliere!</>
+            <>Tocca a <span className="text-gold">{chooser.avatar} {localizePlayerName(chooser.name, language)}</span> scegliere!</>
           )}
         </h1>
 
@@ -332,8 +336,8 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
           {isSolo
             ? t('solo.chooseCategorySub', language)
             : language === 'en'
-            ? `Choose one of the 4 categories below to challenge ${opponent.name}`
-            : `Scegli una delle 4 categorie qui sotto per sfidare ${opponent.name}`}
+            ? `Choose one of the 4 categories below to challenge ${localizePlayerName(opponent.name, language)}`
+            : `Scegli una delle 4 categorie qui sotto per sfidare ${localizePlayerName(opponent.name, language)}`}
         </p>
 
         {/* Selettore Sfidante in Modalità Party */}
@@ -423,7 +427,9 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
                     </span>
                   )}
                   <span className="px-2 py-0.5 rounded-full bg-ink/85 text-cream text-[9px] sm:text-[10px] font-bold border border-cream/20 shadow-sm backdrop-blur-xs">
-                    {cat.items.reduce((acc, it) => acc + (it.imageUrls?.length || 1), 0)} foto
+                    {t('draft.photosCount', language, {
+                      n: cat.items.reduce((acc, it) => acc + (it.imageUrls?.length || 1), 0),
+                    })}
                   </span>
                 </div>
               </div>
@@ -449,10 +455,8 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
                   }`}
                 >
                   {isSolo
-                    ? 'Inizia Allenamento 🎯'
-                    : language === 'en'
-                    ? 'Select this →'
-                    : 'Scegli questa →'}
+                    ? t('draft.startSoloCard', language)
+                    : t('draft.selectCard', language)}
                 </div>
               </div>
             </button>
@@ -469,7 +473,7 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
             className="btn-push px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-2xl bg-gold text-ink font-display font-bold text-xs sm:text-sm flex items-center gap-1.5"
           >
             <Shuffle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <span>{language === 'en' ? 'Shuffle (Reroll)' : 'Altre 4 proposte'}</span>
+            <span>{t('draft.reroll', language)}</span>
           </button>
 
           <button
@@ -660,7 +664,7 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
                 {t('party.leaderboard', language)}
               </h3>
               <p className="text-xs text-ink/70 mt-0.5">
-                Vittorie accumulate e duelli disputati nel torneo
+                {t('party.standingsDesc', language)}
               </p>
             </div>
 
@@ -679,7 +683,7 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
                       <span className="text-2xl">{p.avatar}</span>
                       <div className="text-left">
                         <span className="font-display font-bold text-sm text-ink block">
-                          {p.name}
+                          {localizePlayerName(p.name, language)}
                         </span>
                         <span className="text-[11px] text-ink/60 font-semibold">
                           {p.duelsPlayed} {t('party.duels', language).toLowerCase()}
@@ -698,7 +702,7 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
               onClick={() => setShowPartyLeaderboardModal(false)}
               className="btn-push w-full py-2.5 rounded-xl bg-mint text-ink font-display font-bold text-sm"
             >
-              Chiudi
+              {t('draft.closeModal', language)}
             </button>
           </div>
         </div>
@@ -716,9 +720,7 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
               <span className="text-xs font-bold uppercase tracking-wider text-ink/60">
                 {isSolo
                   ? t('solo.title', language)
-                  : language === 'en'
-                  ? `Chosen by ${chooser.name}`
-                  : `Scelta di ${chooser.name}`}
+                  : t('draft.chosenBy', language, { name: localizePlayerName(chooser.name, language) })}
               </span>
               <h2 className="font-display font-bold text-3xl sm:text-4xl text-ink mt-1">
                 {getCategoryTitle(selectedCat, language)}
@@ -732,25 +734,25 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
               <div className="w-full py-3 px-4 rounded-2xl bg-paper border-2 border-ink/15 flex items-center justify-center gap-2">
                 <span className="text-2xl">{p1.avatar}</span>
                 <span className="font-display font-bold text-p1 text-lg">
-                  {p1.name}
+                  {localizePlayerName(p1.name, language)}
                 </span>
               </div>
             ) : (
               <div className="w-full py-3 px-4 rounded-2xl bg-paper border-2 border-ink/15 flex items-center justify-around">
                 <div className="flex items-center gap-2 font-display font-bold text-p1">
                   <span className="text-2xl">{p1.avatar}</span>
-                  <span>{p1.name}</span>
+                  <span>{localizePlayerName(p1.name, language)}</span>
                 </div>
                 <span className="font-display font-bold text-ink/40">VS</span>
                 <div className="flex items-center gap-2 font-display font-bold text-p2">
-                  <span>{p2.name}</span>
+                  <span>{localizePlayerName(p2.name, language)}</span>
                   <span className="text-2xl">{p2.avatar}</span>
                 </div>
               </div>
             )}
 
             <div className="font-display font-bold text-6xl sm:text-7xl text-p2 animate-bounce">
-              {countdown > 0 ? countdown : 'VIA!'}
+              {countdown > 0 ? countdown : t('draft.countdownReady', language)}
             </div>
           </div>
         </div>

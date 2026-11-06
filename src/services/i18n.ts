@@ -17,6 +17,10 @@ export const DICTIONARY: Translations = {
   'app.install': { it: 'Installa App 📲', en: 'Install App 📲' },
   'app.installed': { it: 'App Installata ✨', en: 'App Installed ✨' },
   'app.language': { it: 'Lingua', en: 'Language' },
+  'app.headerStats': {
+    it: '{categories} categorie • {photos} foto HD',
+    en: '{categories} categories • {photos} HD photos',
+  },
 
   // Game Modes
   'mode.solo': { it: '🎯 Allenamento (1P)', en: '🎯 Solo Practice (1P)' },
@@ -60,6 +64,15 @@ export const DICTIONARY: Translations = {
   'solo.backHome': { it: 'Menu Principale', en: 'Main Menu' },
   'solo.finishEarly': { it: 'Termina Sessione', en: 'End Session' },
   'solo.manualCorrect': { it: 'Segna Corretta ✓', en: 'Mark Correct ✓' },
+  'solo.exitConfirmTitle': { it: 'Termina Sessione?', en: 'End Session?' },
+  'solo.exitConfirmDesc': {
+    it: 'Vuoi terminare adesso questa sessione di allenamento e salvare i tuoi risultati?',
+    en: 'Do you want to end this practice session and save your results?',
+  },
+  'solo.continueBtn': { it: 'Continua', en: 'Keep Going' },
+  'solo.endNowBtn': { it: 'Termina Ora', en: 'End Now' },
+  'solo.loading': { it: 'Caricamento...', en: 'Loading...' },
+  'solo.passPenaltyBadge': { it: 'PASSO -{n}s', en: 'PASS -{n}s' },
 
   // Party Mode
   'party.title': { it: 'Party Tournament', en: 'Party Tournament' },
@@ -79,6 +92,10 @@ export const DICTIONARY: Translations = {
   },
   'party.nextDuel': { it: 'PROSSIMO DUELLO', en: 'NEXT DUEL' },
   'party.champion': { it: '👑 CAMPIONE DEL TORNEO PARTY!', en: '👑 PARTY TOURNAMENT CHAMPION!' },
+  'party.standingsDesc': {
+    it: 'Vittorie accumulate e duelli disputati nel torneo',
+    en: 'Total wins and duels played in the tournament',
+  },
 
   // Lobby Screen
   'lobby.duelSettings': { it: 'Impostazioni Duello', en: 'Match Settings' },
@@ -101,6 +118,33 @@ export const DICTIONARY: Translations = {
   'lobby.customCategories': { it: 'Categorie Personalizzate', en: 'Custom Categories' },
   'lobby.p1Default': { it: 'Giocatore 1', en: 'Player 1' },
   'lobby.p2Default': { it: 'Giocatore 2', en: 'Player 2' },
+  'lobby.p1': { it: 'Giocatore 1', en: 'Player 1' },
+  'lobby.p2': { it: 'Giocatore 2', en: 'Player 2' },
+  'lobby.p1Placeholder': { it: 'Il tuo nome...', en: 'Your name...' },
+  'lobby.p2Placeholder': { it: 'Nome sfidante...', en: 'Opponent name...' },
+  'lobby.playerName': { it: 'Nome del giocatore:', en: 'Player name:' },
+  'lobby.howToPlay': { it: 'Come giocate?', en: 'How do you play?' },
+  'lobby.sameRoom': { it: 'Stessa stanza', en: 'Same room' },
+  'lobby.sameRoomDesc': {
+    it: 'Usate un solo microfono per entrambi parlando a turno davanti allo schermo.',
+    en: 'Both players share one microphone, taking turns speaking in front of the screen.',
+  },
+  'lobby.onDiscord': { it: 'Su Discord', en: 'On Discord' },
+  'lobby.onDiscordDesc': {
+    it: 'Condividi lo schermo su Discord e manda un link rapido a {p2} per il suo microfono.',
+    en: 'Share your screen on Discord and send a quick mic link to {p2}.',
+  },
+  'lobby.micLinkFor': { it: 'Link microfono per {p2}:', en: 'Microphone link for {p2}:' },
+  'lobby.connected': { it: '✓ {p2} collegato!', en: '✓ {p2} connected!' },
+  'lobby.waitingConnection': { it: 'In attesa che apra il link...', en: 'Waiting for connection...' },
+  'lobby.copyLink': { it: 'Copia link', en: 'Copy link' },
+  'lobby.copied': { it: 'Copiato!', en: 'Copied!' },
+  'lobby.testVoicePrompt': {
+    it: 'Vuoi fare una prova veloce del microfono?',
+    en: 'Want to do a quick mic test?',
+  },
+  'lobby.testVoiceBtn': { it: 'Prova voce', en: 'Test mic' },
+  'lobby.closeVoiceBtn': { it: 'Chiudi prova', en: 'Close test' },
   'lobby.testMic': { it: 'Prova microfono', en: 'Test microphone' },
   'lobby.testingMic': { it: 'In ascolto...', en: 'Listening...' },
   'lobby.micSaySomething': { it: 'Di’ qualcosa...', en: 'Say something...' },
@@ -108,12 +152,53 @@ export const DICTIONARY: Translations = {
     it: 'Microfono non supportato in questo browser. Consigliato Google Chrome o Safari.',
     en: 'Microphone not supported in this browser. Please use Chrome or Safari.',
   },
+  'lobby.micBrowserNotice': {
+    it: 'Per giocare con la voce consenti l’accesso al microfono su Chrome, Safari, Edge o Brave (anche su mobile).',
+    en: 'To play with voice, allow microphone access on Chrome, Safari, Edge or Brave (including mobile).',
+  },
   'lobby.totalCatalog': {
     it: '{categories} categorie • oltre {photos} fotografie HD',
     en: '{categories} categories • over {photos} HD photos',
   },
+  'lobby.partySub': {
+    it: 'Configura da 3 a 8 partecipanti per il torneo. A ogni round, chi sfida sceglie l’avversario e la categoria!',
+    en: 'Configure 3 to 8 players for the tournament. Each round, the challenger picks the opponent and category!',
+  },
+  'lobby.timeInDuels': { it: 'nei Duelli', en: 'in Duels' },
+  'lobby.startParty': { it: 'INIZIA IL PARTY ARENA', en: 'START PARTY ARENA' },
+  'lobby.footerSolo': {
+    it: 'Modalità Allenamento: riconosci più soggetti possibili nel tempo stabilito e batti il tuo record!',
+    en: 'Practice Mode: recognize as many items as possible within the time limit and beat your record!',
+  },
+  'lobby.footerDuel': {
+    it: 'A turno si sceglie una categoria tra 4 carte proposte • Di’ “Passo” per cambiare foto con 3 secondi di penalità',
+    en: 'Take turns choosing a category from 4 cards • Say “Pass” to skip a photo with a 3-second penalty',
+  },
+  'lobby.iosInstallTitle': { it: 'Installa su iPhone / iPad', en: 'Install on iPhone / iPad' },
+  'lobby.iosInstallDesc': {
+    it: 'Gioca a tutto schermo senza barre del browser in 2 semplici tocchi:',
+    en: 'Play full-screen without browser bars in 2 easy steps:',
+  },
+  'lobby.iosStep1': {
+    it: 'Tocca il tasto Condividi 📤 nella barra inferiore di Safari',
+    en: 'Tap the Share button 📤 in Safari’s bottom bar',
+  },
+  'lobby.iosStep2': {
+    it: 'Scorri in basso e scegli “Aggiungi alla schermata Home” ➕',
+    en: 'Scroll down and choose “Add to Home Screen” ➕',
+  },
+  'lobby.iosUnderstood': { it: 'Ho capito!', en: 'Got it!' },
 
   // Category Draft Screen
+  'draft.menu': { it: 'Menu', en: 'Menu' },
+  'draft.firstTo': { it: 'A {n}', en: 'First to {n}' },
+  'draft.finishEarly': { it: 'Concludi', en: 'End Match' },
+  'draft.pointTo': {
+    it: 'Punto a {winner} ({icon} {category}) con {time}s!',
+    en: 'Point to {winner} ({icon} {category}) with {time}s left!',
+  },
+  'draft.categoryDraft': { it: 'Scelta categoria', en: 'Category Draft' },
+  'draft.partyRound': { it: 'Round {round} • Party Arena', en: 'Round {round} • Party Arena' },
   'draft.title': { it: 'Scegli la tua Categoria', en: 'Choose Your Category' },
   'draft.subtitle': {
     it: 'Tocca la categoria con cui vuoi sfidare il tuo avversario',
@@ -123,6 +208,13 @@ export const DICTIONARY: Translations = {
   'draft.exploreAll': { it: 'Esplora tutte le categorie ({n})', en: 'Browse all categories ({n})' },
   'draft.searchPlaceholder': { it: 'Cerca categoria...', en: 'Search categories...' },
   'draft.select': { it: 'Scegli questa categoria →', en: 'Select this category →' },
+  'draft.selectCard': { it: 'Scegli questa →', en: 'Select this →' },
+  'draft.startSoloCard': { it: 'Inizia Allenamento 🎯', en: 'Start Practice 🎯' },
+  'draft.recordBadge': { it: 'Record: {n}', en: 'Record: {n}' },
+  'draft.reroll': { it: 'Altre 4 proposte', en: 'Shuffle (Reroll)' },
+  'draft.closeModal': { it: 'Chiudi', en: 'Close' },
+  'draft.countdownReady': { it: 'VIA!', en: 'GO!' },
+  'draft.chosenBy': { it: 'Scelta di {name}', en: 'Chosen by {name}' },
   'draft.photosCount': { it: '{n} foto', en: '{n} photos' },
   'draft.subjectsCount': { it: '{n} soggetti', en: '{n} items' },
   'draft.alreadyPlayed': { it: 'Già giocata', en: 'Already played' },
@@ -156,6 +248,33 @@ export const DICTIONARY: Translations = {
     it: 'Vuoi davvero abbandonare il duello in corso?',
     en: 'Do you really want to abandon the current duel?',
   },
+  'arena.keyboardHelp': {
+    it: 'Spazio = Passo • Invio = Buona • P = Pausa',
+    en: 'Space = Pass • Enter = Correct • P = Pause',
+  },
+  'arena.loadingPhoto': { it: 'Caricamento foto...', en: 'Loading photo...' },
+  'arena.pointScoredAnnounce': {
+    it: 'Ha vinto {name}! Punto conquistato!',
+    en: '{name} won! Point scored!',
+  },
+  'arena.pointScoredTitle': { it: 'Punto Conquistato!', en: 'Round Won!' },
+  'arena.hasWon': { it: 'Ha vinto {name}!', en: '{name} Won!' },
+  'arena.pausedTitle': { it: 'Gioco in pausa', en: 'Game Paused' },
+  'arena.pausedDesc': {
+    it: 'Il tempo è fermo. Clicca qui sotto quando siete pronti a ripartire!',
+    en: 'Timer is paused. Click below when you are ready to resume!',
+  },
+  'arena.chooseNextCategory': {
+    it: 'Scegli la Prossima Categoria',
+    en: 'Choose Next Category',
+  },
+  'arena.timeRanOutOn': {
+    it: '{loser} ha esaurito il tempo su “{category}”',
+    en: '{loser} ran out of time on “{category}”',
+  },
+  'arena.timeLeft': { it: 'Tempo Rimasto', en: 'Time Left' },
+  'arena.correctPhotos': { it: 'Foto Indovinate', en: 'Correct Photos' },
+  'arena.photos': { it: 'foto', en: 'photos' },
 
   // Victory Screen
   'victory.champion': { it: 'CAMPIONE DELL\'ARENA!', en: 'ARENA CHAMPION!' },
@@ -165,6 +284,13 @@ export const DICTIONARY: Translations = {
   },
   'victory.playAgain': { it: 'NUOVA PARTITA', en: 'PLAY AGAIN' },
   'victory.backLobby': { it: 'Torna alla Lobby', en: 'Back to Lobby' },
+  'victory.tieMatch': { it: 'Pareggio!', en: 'Tie Match!' },
+  'victory.equalPoints': { it: 'Pari merito!', en: 'Equal Points!' },
+  'victory.finalScore': { it: 'Punteggio finale:', en: 'Final Score:' },
+  'victory.rounds': { it: 'Rounds', en: 'Rounds' },
+  'victory.playerPhotos': { it: 'Foto {name}', en: '{name} Photos' },
+  'victory.rematch': { it: 'Rivincita', en: 'Play Again' },
+  'victory.backMenu': { it: 'Torna al Menu', en: 'Back to Menu' },
 
   // Category Editor Modal
   'editor.title': { it: 'Editor Categorie', en: 'Category Editor' },
@@ -183,8 +309,30 @@ export const DICTIONARY: Translations = {
   'editor.saveBtn': { it: 'Salva categoria ({n}/3 min)', en: 'Save category ({n}/3 min)' },
   'editor.export': { it: 'Esporta JSON', en: 'Export JSON' },
   'editor.import': { it: 'Importa JSON', en: 'Import JSON' },
+  'editor.exportBtn': { it: 'Esporta', en: 'Export' },
+  'editor.importBtn': { it: 'Importa', en: 'Import' },
+  'editor.close': { it: 'Chiudi', en: 'Close' },
+  'editor.cancel': { it: 'Annulla', en: 'Cancel' },
   'editor.photosCount': { it: '{n} foto', en: '{n} photos' },
 };
+
+/**
+ * Traduce i nomi predefiniti dei giocatori (es. "Giocatore 1" -> "Player 1", "Giocatore 2" -> "Player 2")
+ * senza alterare i nomi personalizzati scelti dall'utente.
+ */
+export function localizePlayerName(name: string, lang: AppLanguage = 'it'): string {
+  if (!name) return name;
+  if (lang === 'en') {
+    if (name.startsWith('Giocatore ')) {
+      return name.replace('Giocatore ', 'Player ');
+    }
+  } else {
+    if (name.startsWith('Player ')) {
+      return name.replace('Player ', 'Giocatore ');
+    }
+  }
+  return name;
+}
 
 /**
  * Traduce una chiave del dizionario nella lingua specificata.
