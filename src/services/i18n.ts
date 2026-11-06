@@ -9,10 +9,10 @@ export interface Translations {
 
 export const DICTIONARY = {
   // App & Header
-  'app.title': { it: 'THE FLOOR', en: 'THE FLOOR' },
+  'app.title': { it: 'YAPPIK', en: 'YAPPIK' },
   'app.subtitle': {
-    it: 'Il gioco vocale ispirato a The Floor',
-    en: 'The voice duel game inspired by The Floor',
+    it: 'Sfida vocale fotografica a tempo',
+    en: 'Fast-paced voice photo duel',
   },
   'app.install': { it: 'Installa App', en: 'Install App' },
   'app.installed': { it: 'App Installata', en: 'App Installed' },
@@ -24,16 +24,16 @@ export const DICTIONARY = {
 
   // Homepage Hero & Showcase
   'home.heroTagline': {
-    it: 'IL GAME SHOW VOCALE DEFINITIVO',
-    en: 'THE DEFINITIVE VOICE GAME SHOW',
+    it: 'LA SFIDA VOCALE FOTOGRAFICA A TEMPO',
+    en: 'THE FAST-PACED VOICE PHOTO DUEL',
   },
   'home.heroTitle': {
-    it: 'THE FLOOR',
-    en: 'THE FLOOR',
+    it: 'YAPPIK',
+    en: 'YAPPIK',
   },
   'home.heroSubtitle': {
-    it: 'Riconosci le immagini al volo, rispondi con la voce prima del tuo rivale e domina il tabellone luminoso!',
-    en: 'Identify photos on the fly, answer with your voice before your rival, and dominate the LED floor!',
+    it: 'Riconosci le immagini al volo, rispondi con la voce prima che scada il tempo e domina la sfida!',
+    en: 'See the photo, shout the answer before your clock runs dry, and dominate the duel!',
   },
   'home.selectMode': {
     it: 'SCEGLI LA TUA MODALITÀ',
@@ -47,7 +47,7 @@ export const DICTIONARY = {
   'home.partyFeature': { it: 'Torneo 3-8 giocatori con podio finale', en: '3-8 player tournament with championship podium' },
   'home.exploreCategories': { it: 'Sfoglia categorie', en: 'Browse Categories' },
   'home.launchArena': { it: 'ENTRA NELL\'ARENA', en: 'ENTER THE ARENA' },
-  'home.stageFloorTitle': { it: 'IL GRANDE FLOOR LUMINOSO', en: 'THE ICONIC LED FLOOR' },
+  'home.stageFloorTitle': { it: 'LA SFIDA FOTOGRAFICA A TEMPO', en: 'THE FAST-PACED PHOTO DUEL' },
   'home.stageFloorDesc': {
     it: '56 categorie tematiche con oltre 3.400 fotografie HD scattate per veri appassionati.',
     en: '56 themed categories with over 3,400 HD photos crafted for true trivia masters.',

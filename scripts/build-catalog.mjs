@@ -11,7 +11,7 @@ const OUT_FILE = path.resolve(__dirname, '../src/data/generatedCatalog.json');
 const PUBLIC_CAT_DIR = path.resolve(__dirname, '../public/categories');
 
 const USER_AGENT =
-  'TheFloorCatalogBuilder/3.0 (https://github.com/albertorosati/my-floor; educational trivia game)';
+  'YappikCatalogBuilder/3.0 (https://github.com/albertorosati/yappik; educational trivia game)';
 
 const FORBIDDEN_KEYWORDS = [
   '.svg',

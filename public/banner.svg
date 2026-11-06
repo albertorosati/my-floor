@@ -104,25 +104,25 @@
     </text>
   </g>
 
-  <!-- Central 3D Logo: THE FLOOR -->
+  <!-- Central 3D Logo: YAPPIK -->
   <g filter="url(#shadow3d)" transform="translate(480, 150)">
     <!-- 3D Extrusion Shadows (Layered for tactile depth) -->
-    <g font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="106" letter-spacing="6" text-anchor="middle">
-      <text x="0" y="16" fill="#150600">THE FLOOR</text>
-      <text x="0" y="14" fill="#300d00">THE FLOOR</text>
-      <text x="0" y="12" fill="#521600">THE FLOOR</text>
-      <text x="0" y="10" fill="#7a2100">THE FLOOR</text>
-      <text x="0" y="8" fill="#a82d00">THE FLOOR</text>
-      <text x="0" y="6" fill="#cc3700">THE FLOOR</text>
-      <text x="0" y="4" fill="#e64200">THE FLOOR</text>
-      <text x="0" y="2" fill="#ff5e00">THE FLOOR</text>
+    <g font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="108" letter-spacing="8" text-anchor="middle">
+      <text x="0" y="16" fill="#150600">YAPPIK</text>
+      <text x="0" y="14" fill="#300d00">YAPPIK</text>
+      <text x="0" y="12" fill="#521600">YAPPIK</text>
+      <text x="0" y="10" fill="#7a2100">YAPPIK</text>
+      <text x="0" y="8" fill="#a82d00">YAPPIK</text>
+      <text x="0" y="6" fill="#cc3700">YAPPIK</text>
+      <text x="0" y="4" fill="#e64200">YAPPIK</text>
+      <text x="0" y="2" fill="#ff5e00">YAPPIK</text>
 
       <!-- Main Glowing Gold Face -->
-      <text x="0" y="0" fill="url(#goldFace)" stroke="#181226" stroke-width="4">THE FLOOR</text>
+      <text x="0" y="0" fill="url(#goldFace)" stroke="#181226" stroke-width="4">YAPPIK</text>
     </g>
 
     <!-- Electric Lightning Bolt (Center Overlap) -->
-    <g transform="translate(-155, -78) scale(1.15)" filter="url(#neonGlow)">
+    <g transform="translate(-130, -78) scale(1.15)" filter="url(#neonGlow)">
       <!-- Bolt Shadow -->
       <polygon points="26,0 4,36 18,36 6,66 40,24 24,24" fill="#181226" transform="translate(2, 3)"/>
       <!-- Bolt Face -->

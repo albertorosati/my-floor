@@ -1,6 +1,6 @@
 {
-  "appTitle": "The Floor",
-  "appSubtitle": "Sfida a Voce",
+  "appTitle": "Yappik",
+  "appSubtitle": "Voice Photo Duel",
   "defaults": {
     "mode": "duel",
     "targetWins": 3,

@@ -32,7 +32,9 @@ import { VictoryScreen } from './components/VictoryScreen';
 
 function getInitialLanguage(): AppLanguage {
   if (typeof window !== 'undefined') {
-    const saved = localStorage.getItem('the_floor_lang');
+    const saved =
+      localStorage.getItem('yappik_lang') ||
+      localStorage.getItem('the_floor_lang');
     if (saved === 'it' || saved === 'en') {
       return saved;
     } else if (navigator.language && !navigator.language.startsWith('it')) {
@@ -267,6 +269,7 @@ export const App: React.FC = () => {
     setSettings((prev) => {
       const updated = { ...prev, ...partial };
       if (partial.language && typeof window !== 'undefined') {
+        localStorage.setItem('yappik_lang', partial.language);
         localStorage.setItem('the_floor_lang', partial.language);
       }
       return updated;

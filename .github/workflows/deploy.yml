@@ -1,4 +1,4 @@
-name: Deploy The Floor to GitHub Pages
+name: Deploy Yappik to GitHub Pages
 
 on:
   push:

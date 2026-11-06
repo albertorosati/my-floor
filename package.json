@@ -1,8 +1,13 @@
 {
-  "name": "floor-arena",
+  "name": "yappik",
   "private": true,
   "version": "1.0.0",
-  "description": "FLOOR ARENA - Il gioco vocale 1v1 ispirato a The Floor per Discord e In Presenza",
+  "description": "Yappik - A fast-paced, voice-driven photo guessing duel. See the photo, shout the answer before your clock runs dry.",
+  "homepage": "https://albertorosati.github.io/yappik/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/albertorosati/yappik.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",

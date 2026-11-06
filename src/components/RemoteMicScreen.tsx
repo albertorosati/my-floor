@@ -97,7 +97,7 @@ export const RemoteMicScreen: React.FC<RemoteMicScreenProps> = ({
     <div className="h-[100dvh] max-h-[100dvh] w-full party-stage-bg flex flex-col items-center justify-between p-4 sm:p-6 text-center select-none overflow-hidden touch-none">
       <header className="w-full max-w-md flex items-center justify-between">
         <span className="font-display font-bold text-xl text-cream">
-          The Floor
+          Yappik
         </span>
         <span className="px-3 py-1 rounded-xl bg-cream text-ink border-2 border-ink font-mono font-bold text-xs">
           Stanza {roomCode}

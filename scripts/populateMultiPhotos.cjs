@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const HEADERS = {
-  'User-Agent': 'FloorArenaCelebrityBot/1.0 (https://github.com/albertorosati/my-floor; info@floorarena.app)',
+  'User-Agent': 'YappikCelebrityBot/1.0 (https://github.com/albertorosati/yappik; info@yappik.app)',
 };
 
 function sleep(ms) {
