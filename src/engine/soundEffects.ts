@@ -88,29 +88,37 @@ class SoundEngine {
     osc.stop(now + duration + 0.02);
   }
 
-  /** Jingle cristallino di RISPOSTA ESATTA (sale di tono con la streak!) */
+  /** Jingle cristallino di RISPOSTA ESATTA (sale di tono con la streak e aggiunge armoniche arcade su combo!) */
   public playCorrectAnswer(streak = 1): void {
     const ctx = this.getContext();
     if (!ctx) return;
 
     const now = ctx.currentTime;
-    const boost = Math.min(streak - 1, 6) * 35;
-    const notes = [523.25 + boost, 659.25 + boost, 783.99 + boost, 1046.5 + boost];
+    const boost = Math.min(streak - 1, 8) * 45;
+    const notes = [
+      523.25 + boost,
+      659.25 + boost,
+      783.99 + boost,
+      1046.5 + boost,
+      ...(streak >= 3 ? [1318.51 + boost] : []),
+      ...(streak >= 5 ? [1567.98 + boost] : []),
+    ];
 
     notes.forEach((freq, i) => {
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
-      osc.type = 'triangle';
-      const start = now + i * 0.055;
+      osc.type = streak >= 3 ? 'sine' : 'triangle';
+      const start = now + i * 0.048;
       osc.frequency.setValueAtTime(freq, start);
 
-      gain.gain.setValueAtTime(0.22, start);
-      gain.gain.exponentialRampToValueAtTime(0.001, start + 0.24);
+      const vol = streak >= 5 ? 0.28 : streak >= 3 ? 0.24 : 0.2;
+      gain.gain.setValueAtTime(vol, start);
+      gain.gain.exponentialRampToValueAtTime(0.001, start + 0.28);
 
       osc.connect(gain);
       gain.connect(ctx.destination);
       osc.start(start);
-      osc.stop(start + 0.25);
+      osc.stop(start + 0.3);
     });
   }
 

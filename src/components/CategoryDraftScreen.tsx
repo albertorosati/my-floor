@@ -239,8 +239,8 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
         </p>
       </div>
 
-      {/* Le 4 Carte Categoria Proposte (Griglia 2x2 su mobile per visualizzare tutto senza scroll!) */}
-      <main className="max-w-6xl w-full mx-auto my-1 flex-1 min-h-0 grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 items-stretch">
+      {/* Le 4 Carte Categoria Proposte (Griglia 2x2 su mobile con foto dominanti, zero spazio bianco vuoto!) */}
+      <main className="max-w-6xl w-full mx-auto my-1 flex-1 min-h-0 grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 items-stretch">
         {offered.map((cat) => {
           const cover = cat.coverImage || cat.items[0]?.imageUrl;
           return (
@@ -248,10 +248,10 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
               key={cat.id}
               onClick={() => handleChooseCard(cat)}
               disabled={countdown !== null}
-              className="group card-cream rounded-2xl sm:rounded-3xl overflow-hidden text-left flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 hover:shadow-card-hover active:translate-y-1 animate-pop-in min-h-0"
+              className="group relative rounded-2xl sm:rounded-3xl border-2 sm:border-[3px] border-ink bg-[#1a1329] overflow-hidden text-left flex flex-col justify-between shadow-chunky transition-all duration-200 hover:-translate-y-1 hover:shadow-card-hover active:translate-y-1 animate-pop-in min-h-0"
             >
-              {/* Copertina fotografica reale */}
-              <div className="relative h-20 sm:h-36 lg:h-44 w-full bg-[#181226] overflow-hidden border-b-2 sm:border-b-[3px] border-ink flex items-center justify-center shrink-0">
+              {/* Copertina fotografica reale ad alto impatto (occupa tutto lo spazio libero in altezza!) */}
+              <div className="relative flex-1 min-h-0 w-full bg-[#140e22] overflow-hidden flex items-center justify-center p-2">
                 {cover && (
                   <>
                     <img
@@ -259,7 +259,7 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
                       alt=""
                       aria-hidden="true"
                       decoding="async"
-                      className="absolute inset-0 w-full h-full object-cover blur-md scale-110 opacity-35 pointer-events-none"
+                      className="absolute inset-0 w-full h-full object-cover blur-md scale-110 opacity-30 pointer-events-none"
                     />
                     <img
                       src={cover}
@@ -277,42 +277,42 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
                           img.src = getBackupImageUrl(cover);
                         }
                       }}
-                      className="relative z-10 max-h-full max-w-full w-auto h-full object-contain p-1.5 sm:p-2 group-hover:scale-105 transition-all duration-300 drop-shadow-md opacity-0"
+                      className="relative z-10 max-h-full max-w-full w-auto h-auto object-contain rounded-xl group-hover:scale-105 transition-all duration-300 drop-shadow-md opacity-0"
                     />
                   </>
                 )}
-                <div className="absolute inset-x-0 bottom-0 h-8 sm:h-16 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#140e22] to-transparent pointer-events-none z-10" />
 
                 {/* Icona giocosa nell'angolo */}
-                <div className="absolute top-1.5 left-1.5 sm:top-2.5 sm:left-2.5 w-6 h-6 sm:w-9 sm:h-9 rounded-xl bg-cream border-2 border-ink shadow-chunky-sm flex items-center justify-center text-xs sm:text-lg z-20">
+                <div className="absolute top-2 left-2 w-7 h-7 sm:w-9 sm:h-9 rounded-xl bg-cream border-2 border-ink shadow-sm flex items-center justify-center text-sm sm:text-lg z-20">
                   {cat.icon}
                 </div>
 
                 {/* Conteggio foto */}
-                <span className="absolute bottom-1 right-1.5 sm:bottom-2 sm:right-2.5 px-1.5 sm:px-2 py-0.5 rounded-full bg-ink/90 text-cream text-[9px] sm:text-[10px] font-bold z-20 border border-cream/20 shadow-sm">
+                <span className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-ink/85 text-cream text-[9px] sm:text-[10px] font-bold z-20 border border-cream/20 shadow-sm backdrop-blur-xs">
                   {cat.items.length} foto
                 </span>
               </div>
 
-              {/* Testo Carta */}
-              <div className="p-2 sm:p-3 flex-1 flex flex-col justify-between gap-1 sm:gap-2 min-h-0">
+              {/* Striscia Dati Compatta Elegante (Nessuno spazio bianco vuoto, proporzioni perfette) */}
+              <div className="p-2 sm:p-2.5 shrink-0 bg-[#fffdf7] border-t-2 border-ink flex flex-col justify-between gap-1">
                 <div>
-                  <h2 className="font-display font-bold text-xs sm:text-base lg:text-lg text-ink leading-tight truncate sm:line-clamp-2 group-hover:text-p1 transition-colors">
+                  <h2 className="font-display font-bold text-xs sm:text-base text-ink leading-tight truncate group-hover:text-p1 transition-colors">
                     {cat.name}
                   </h2>
-                  <p className="text-[10px] sm:text-xs text-ink/70 mt-0.5 line-clamp-1 sm:line-clamp-2 leading-tight">
+                  <p className="text-[10px] sm:text-xs text-ink/70 mt-0.5 line-clamp-1 leading-tight">
                     {cat.subtitle}
                   </p>
                 </div>
 
                 <div
-                  className={`w-full py-1 sm:py-1.5 px-1.5 sm:px-2.5 rounded-lg sm:rounded-xl font-display font-bold text-[10px] sm:text-xs text-center border border-ink sm:border-2 transition-colors leading-tight ${
+                  className={`w-full py-1 sm:py-1.5 px-2 rounded-lg sm:rounded-xl font-display font-bold text-[10px] sm:text-xs text-center border border-ink sm:border-2 transition-all leading-tight shadow-sm ${
                     chooserId === 'p1'
-                      ? 'bg-p1Light text-ink group-hover:bg-p1 group-hover:text-white'
-                      : 'bg-p2Light text-ink group-hover:bg-p2 group-hover:text-white'
+                      ? 'bg-p1 text-white group-hover:bg-blue-600'
+                      : 'bg-p2 text-white group-hover:bg-red-600'
                   }`}
                 >
-                  Scegli →
+                  Scegli questa →
                 </div>
               </div>
             </button>

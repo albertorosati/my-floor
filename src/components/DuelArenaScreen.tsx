@@ -81,6 +81,8 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
   const [correctFlash, setCorrectFlash] = useState<{
     answer: string;
     byPlayer: PlayerId;
+    isClutch?: boolean;
+    streak?: number;
   } | null>(null);
 
   const [p1Correct, setP1Correct] = useState(0);
@@ -252,9 +254,14 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         setLiveTranscript(heardText);
       }
 
+      const timeLeft = st.activePlayer === 'p1' ? st.timeP1 : st.timeP2;
+      const isClutch = timeLeft <= 3.2;
+
       setCorrectFlash({
         answer: st.currentItem.answer,
         byPlayer: st.activePlayer,
+        isClutch,
+        streak: newStreak,
       });
 
       setTimeout(() => {
@@ -627,6 +634,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
   const urgentLimit = gameConfig.options.urgentThresholdSeconds;
   const p1Urgent = activePlayer === 'p1' && timeP1 <= urgentLimit;
   const p2Urgent = activePlayer === 'p2' && timeP2 <= urgentLimit;
+  const isUrgentNow = p1Urgent || p2Urgent;
 
   return (
     <div
@@ -634,6 +642,11 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         screenShake ? 'animate-screen-shake' : ''
       }`}
     >
+      {/* Vignettatura Arcade Rosso Emergenza negli Ultimi 5 Secondi */}
+      {isUrgentNow && !duelFinishPhase && (
+        <div className="fixed inset-0 pointer-events-none z-30 ring-inset ring-[10px] sm:ring-[18px] ring-p2/50 animate-emergency" />
+      )}
+
       {/* Barra Superiore: Categoria & Pausa */}
       <header className="max-w-6xl w-full mx-auto flex items-center justify-between gap-3 shrink-0">
         <div className="flex items-center gap-2.5 min-w-0">
@@ -764,9 +777,35 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         </div>
 
         {/* Cornice Centrale della Fotografia Vera (Occupa tutto lo spazio libero in altezza senza scroll!) */}
-        <div className="flex-1 min-h-0 w-full lg:col-span-6 flex flex-col h-full justify-center">
+        <div className="flex-1 min-h-0 w-full lg:col-span-6 flex flex-col h-full justify-center relative">
+          {/* Badge Arcade Combo Multiplier Fluttuante */}
+          {streak >= 2 && !correctFlash && passPenaltyLeft === 0 && !duelFinishPhase && (
+            <div className="absolute top-2.5 left-1/2 -translate-x-1/2 z-30 animate-combo-pop pointer-events-none">
+              <div
+                className={`px-3.5 py-1 rounded-full border-2 border-ink font-display font-black text-xs sm:text-sm tracking-wide shadow-chunky-sm flex items-center gap-1.5 ${
+                  streak >= 5
+                    ? 'bg-gradient-to-r from-gold via-mint to-gold text-ink animate-bounce'
+                    : streak >= 3
+                    ? 'bg-gradient-to-r from-gold to-p2 text-white animate-pulse'
+                    : 'bg-gold text-ink'
+                }`}
+              >
+                <span>{streak >= 5 ? '👑' : streak >= 3 ? '⚡' : '🔥'}</span>
+                <span>
+                  {streak >= 5
+                    ? `GOD MODE x${streak}!`
+                    : streak >= 3
+                    ? `ON FIRE x${streak}!`
+                    : `COMBO x${streak}`}
+                </span>
+              </div>
+            </div>
+          )}
+
           <div
-            className={`relative w-full flex-1 min-h-0 rounded-2xl sm:rounded-3xl border-[3px] sm:border-[4px] border-ink shadow-chunky-lg overflow-hidden flex items-center justify-center transition-colors duration-150 ${
+            className={`relative w-full flex-1 min-h-0 rounded-2xl sm:rounded-3xl border-[3px] sm:border-[4px] border-ink shadow-chunky-lg overflow-hidden flex items-center justify-center transition-all duration-200 ${
+              streak >= 3 ? 'animate-fire-aura' : ''
+            } ${
               correctFlash
                 ? 'bg-mint'
                 : passPenaltyLeft > 0
@@ -793,12 +832,22 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
               </div>
             )}
 
-            {/* Flash Risposta Indovinata */}
+            {/* Flash Risposta Indovinata con Badge Clutch e Streak */}
             {correctFlash && (
-              <div className="p-4 sm:p-6 text-center text-ink flex flex-col items-center gap-2 sm:gap-3 animate-pop-in z-20">
+              <div className="p-4 sm:p-6 text-center text-ink flex flex-col items-center gap-2 sm:gap-2.5 animate-pop-in z-20">
                 <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-cream border-[3px] border-ink flex items-center justify-center shadow-chunky-sm">
                   <Check className="w-8 h-8 sm:w-9 sm:h-9 text-mint stroke-[3]" />
                 </div>
+                {correctFlash.isClutch && (
+                  <span className="px-3 py-0.5 rounded-full bg-p2 text-white border-2 border-ink font-display font-black text-xs uppercase tracking-wider animate-bounce shadow-sm">
+                    🎯 CLUTCH GUESS! SUL FILO DEL RASOIO!
+                  </span>
+                )}
+                {correctFlash.streak && correctFlash.streak >= 2 && !correctFlash.isClutch && (
+                  <span className="px-3 py-0.5 rounded-full bg-gold text-ink border-2 border-ink font-display font-black text-xs uppercase tracking-wider shadow-sm">
+                    🔥 COMBO x{correctFlash.streak}!
+                  </span>
+                )}
                 <span className="font-display font-bold text-xs sm:text-sm uppercase tracking-wider">
                   Esatto!
                 </span>
