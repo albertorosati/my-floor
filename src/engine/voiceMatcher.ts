@@ -45,13 +45,19 @@ const PASS_KEYWORDS = new Set([
 
 export function normalizeText(raw: string): string {
   if (!raw) return '';
-  const text = raw
+  let text = raw
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/['’`\-_.,!?;:()/\\"+]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
+
+  if (voiceConfig.romanNumeralsMap) {
+    for (const [roman, num] of Object.entries(voiceConfig.romanNumeralsMap)) {
+      text = text.replace(new RegExp(`\\b${roman}\\b`, 'g'), num);
+    }
+  }
 
   const tokens = text
     .split(' ')
@@ -65,14 +71,72 @@ export function phoneticSkeleton(normalized: string): string {
   if (!normalized) return '';
   let out = normalized;
   for (const [from, to] of voiceConfig.phoneticReplacements) {
-    out = out.replace(new RegExp(from, 'g'), to);
+    try {
+      out = out.replace(new RegExp(from, 'g'), to);
+    } catch {
+      // Fallback per caratteri speciali
+      out = out.split(from).join(to);
+    }
   }
-  return out.replace(/([a-z])\1+/g, '$1');
+  return out.replace(/([a-z0-9])\1+/g, '$1');
 }
 
 export function italianStem(word: string): string {
   if (word.length < 4) return word;
   return word.replace(/[aeio]$/, '');
+}
+
+export function expandItemCandidates(item: DuelItem): string[] {
+  const set = new Set<string>();
+  const rawList = [
+    item.answer,
+    ...(item.aliases || []),
+    ...(item.answerEn ? [item.answerEn] : []),
+    ...(item.aliasesEn || []),
+  ];
+
+  for (const raw of rawList) {
+    if (!raw) continue;
+    set.add(raw);
+
+    // Sottotitoli delimitati da ":", "-", "–"
+    const subParts = raw
+      .split(/[:\-–]/)
+      .map((s) => s.trim())
+      .filter((s) => s.length > 2);
+    for (const p of subParts) {
+      set.add(p);
+    }
+
+    // Rimozione numeri o numeri romani in coda (es. "Titolo 3" -> "Titolo")
+    const strippedTail = raw.replace(/\s+(?:[0-9]+|[ivxIVX]+)$/, '').trim();
+    if (strippedTail && strippedTail !== raw && strippedTail.length >= 3) {
+      set.add(strippedTail);
+    }
+
+    // Singole parole distintive con lunghezza >= 4 caratteri e non stopword
+    const cleanWords = raw
+      .split(/\s+/)
+      .map((w) => w.replace(/[^a-zA-Z0-9]/g, ''))
+      .filter((w) => w.length >= 4 && !STOPWORDS.has(w.toLowerCase()));
+    for (const w of cleanWords) {
+      set.add(w);
+    }
+  }
+
+  // Generazione automatica acronimi se la risposta principale è composta da 3+ parole significative
+  const mainTokens = item.answer
+    .split(/\s+/)
+    .map((w) => w.replace(/[^a-zA-Z0-9]/g, ''))
+    .filter((w) => w.length > 1 && !STOPWORDS.has(w.toLowerCase()));
+  if (mainTokens.length >= 3) {
+    const acronym = mainTokens.map((w) => w[0].toLowerCase()).join('');
+    if (acronym.length >= 3) {
+      set.add(acronym);
+    }
+  }
+
+  return Array.from(set);
 }
 
 export function damerauLevenshtein(a: string, b: string): number {
@@ -134,13 +198,13 @@ function scoreCandidateMatch(spokenChunk: string, targetNorm: string): number {
   const spokenPhon = phoneticSkeleton(spokenCompact);
   const targetPhon = phoneticSkeleton(targetCompact);
   if (spokenPhon === targetPhon && targetPhon.length >= 4) {
-    return 0.93;
+    return 0.95;
   }
   if (
     targetPhon.length >= 5 &&
     italianStem(spokenPhon) === italianStem(targetPhon)
   ) {
-    return 0.9;
+    return 0.92;
   }
 
   const distCompact = damerauLevenshtein(spokenCompact, targetCompact);
@@ -148,23 +212,27 @@ function scoreCandidateMatch(spokenChunk: string, targetNorm: string): number {
   const minLen = Math.min(spokenCompact.length, targetCompact.length);
   const maxLen = Math.max(spokenCompact.length, targetCompact.length);
 
-  if (
-    Math.abs(spokenCompact.length - targetCompact.length) >
-    voiceConfig.thresholds.maxLengthDifference
-  ) {
+  const relativeRatio = voiceConfig.thresholds.relativeLengthRatio ?? 0.35;
+  const maxDiff = Math.max(
+    voiceConfig.thresholds.maxLengthDifference,
+    Math.floor(maxLen * relativeRatio)
+  );
+
+  if (Math.abs(spokenCompact.length - targetCompact.length) > maxDiff) {
     return 0;
   }
 
   if (
-    targetCompact.length >= 5 &&
+    targetCompact.length >= 4 &&
     targetCompact.length <= voiceConfig.thresholds.mediumWordMaxLength
   ) {
-    if (distCompact <= 1 || (distPhon <= 1 && minLen >= 5)) {
-      return 0.85;
+    if (distCompact <= 1 || (distPhon <= 1 && minLen >= 4)) {
+      return 0.88;
     }
   } else if (targetCompact.length > voiceConfig.thresholds.mediumWordMaxLength) {
-    if (distCompact <= 2 || distPhon <= 1) {
-      return 1 - distCompact / maxLen;
+    if (distCompact <= 2 || distPhon <= 2) {
+      const bestDist = Math.min(distCompact, distPhon);
+      return 1 - bestDist / maxLen;
     }
   }
 
@@ -175,14 +243,11 @@ export function evaluateVoiceInput(
   transcripts: string[],
   item: DuelItem
 ): VoiceMatchResult {
-  const allRaw = [
-    item.answer,
-    ...(item.aliases || []),
-    ...(item.answerEn ? [item.answerEn] : []),
-    ...(item.aliasesEn || []),
-  ];
+  const rawCandidates = expandItemCandidates(item);
   const candidates = Array.from(
-    new Set(allRaw.map((c) => normalizeText(c)).filter((c) => c.length > 0))
+    new Set(
+      rawCandidates.map((c) => normalizeText(c)).filter((c) => c.length > 0)
+    )
   );
 
   let bestScore = 0;
@@ -220,14 +285,24 @@ export function evaluateVoiceInput(
     }
 
     const normSpoken = normalizeText(raw);
-    if (!normSpoken) continue;
+    const spokenWords = normSpoken ? normSpoken.split(' ') : [];
+    const rawCleanWords = cleanTokens;
 
-    const spokenWords = normSpoken.split(' ');
     const windows = new Set<string>();
-    windows.add(normSpoken);
-    for (let wSize = 1; wSize <= Math.min(4, spokenWords.length); wSize++) {
+    if (normSpoken) windows.add(normSpoken);
+    if (primaryNormalized) windows.add(primaryNormalized);
+
+    // Finestre dai token normalizzati
+    for (let wSize = 1; wSize <= Math.min(5, spokenWords.length); wSize++) {
       for (let start = 0; start <= spokenWords.length - wSize; start++) {
         windows.add(spokenWords.slice(start, start + wSize).join(' '));
+      }
+    }
+
+    // Finestre dai token raw prima del drop delle stopwords (es. "il the ring")
+    for (let wSize = 1; wSize <= Math.min(5, rawCleanWords.length); wSize++) {
+      for (let start = 0; start <= rawCleanWords.length - wSize; start++) {
+        windows.add(rawCleanWords.slice(start, start + wSize).join(' '));
       }
     }
 

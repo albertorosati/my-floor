@@ -17,7 +17,8 @@
       "answer": "Leonardo DiCaprio",
       "aliases": [
         "dicaprio",
-        "di caprio"
+        "di caprio",
+        "leonardo"
       ],
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2d/LeoPTABFI191125-28_%28cropped%29.jpg",
       "imageUrls": [
@@ -31,7 +32,8 @@
       "id": "attori-hollywood-2",
       "answer": "Brad Pitt",
       "aliases": [
-        "pitt"
+        "pitt",
+        "brad"
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Brad_Pitt-69858.jpg/960px-Brad_Pitt-69858.jpg",
       "imageUrls": [
@@ -46,7 +48,8 @@
       "answer": "Margot Robbie",
       "aliases": [
         "robbie",
-        "barbie"
+        "barbie",
+        "margot"
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Margot_Robbie_Wuthering_Heights_premiere_%28cropped%29.jpg/960px-Margot_Robbie_Wuthering_Heights_premiere_%28cropped%29.jpg",
       "imageUrls": [
@@ -91,7 +94,9 @@
       "aliases": [
         "murphy",
         "oppenheimer",
-        "thomas shelby"
+        "thomas shelby",
+        "killian marfi",
+        "cillian"
       ],
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Cillian_Murphy_at_the_London_premier_of_Steve_in_September_2025_%28cropped%29.jpg",
       "imageUrls": [
@@ -106,7 +111,8 @@
       "answer": "Ryan Gosling",
       "aliases": [
         "gosling",
-        "ken"
+        "ken",
+        "raian gosling"
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/GoslingBFI081223_%2822_of_30%29_%2853388157347%29_%28cropped%29.jpg/960px-GoslingBFI081223_%2822_of_30%29_%2853388157347%29_%28cropped%29.jpg",
       "imageUrls": [
@@ -121,7 +127,8 @@
       "answer": "Johnny Depp",
       "aliases": [
         "depp",
-        "jack sparrow"
+        "jack sparrow",
+        "johnny"
       ],
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/Johnny_Depp_2020.jpg",
       "imageUrls": [
@@ -135,7 +142,8 @@
       "id": "attori-hollywood-9",
       "answer": "Tom Holland",
       "aliases": [
-        "holland"
+        "holland",
+        "tom"
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/TomHolland-byPhilipRomano.jpg/960px-TomHolland-byPhilipRomano.jpg",
       "imageUrls": [
@@ -149,7 +157,8 @@
       "id": "attori-hollywood-10",
       "answer": "Emma Stone",
       "aliases": [
-        "stone"
+        "stone",
+        "emma"
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Emma_Stone_at_the_2025_Venice_Film_Festival-6313_%28cropped%29.jpg/960px-Emma_Stone_at_the_2025_Venice_Film_Festival-6313_%28cropped%29.jpg",
       "imageUrls": [
@@ -165,7 +174,8 @@
       "aliases": [
         "robert downey",
         "downey",
-        "tony stark"
+        "tony stark",
+        "iron man"
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/RobertDowneyJr-byPhilipRomano7_%28cropped%29.jpg/960px-RobertDowneyJr-byPhilipRomano7_%28cropped%29.jpg",
       "imageUrls": [
@@ -181,7 +191,10 @@
       "aliases": [
         "reeves",
         "john wick",
-        "neo"
+        "neo",
+        "chianu rivs",
+        "kianu",
+        "keanu"
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Keanu_Reeves_at_TIFF_2025_02_%28Cropped%29.jpg/960px-Keanu_Reeves_at_TIFF_2025_02_%28Cropped%29.jpg",
       "imageUrls": [
@@ -195,7 +208,9 @@
       "id": "attori-hollywood-13",
       "answer": "Will Smith",
       "aliases": [
-        "smith"
+        "smith",
+        "will",
+        "will smith"
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/TechCrunch_Disrupt_San_Francisco_2019_-_Day_1_%2848834070763%29_%28cropped%29.jpg/960px-TechCrunch_Disrupt_San_Francisco_2019_-_Day_1_%2848834070763%29_%28cropped%29.jpg",
       "imageUrls": [
@@ -210,7 +225,10 @@
       "answer": "Dwayne Johnson",
       "aliases": [
         "the rock",
-        "la roccia"
+        "la roccia",
+        "duein gionson",
+        "duein",
+        "johnson"
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Dwayne_Johnson-1764_%284x5_cropped_with_moderate_headroom%29.jpg/960px-Dwayne_Johnson-1764_%284x5_cropped_with_moderate_headroom%29.jpg",
       "imageUrls": [
@@ -225,7 +243,9 @@
       "answer": "Scarlett Johansson",
       "aliases": [
         "johansson",
-        "scarlett"
+        "scarlett",
+        "scarlet gioanson",
+        "gioanson"
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Scarlett_Johansson-8588.jpg/960px-Scarlett_Johansson-8588.jpg",
       "imageUrls": [
@@ -452,7 +472,10 @@
       "answer": "Arnold Schwarzenegger",
       "aliases": [
         "schwarzenegger",
-        "arnold"
+        "arnold",
+        "arnold svarzeneggher",
+        "svarznegger",
+        "schwarznegger"
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Arnold_Schwarzenegger_-_Austrian_World_Summit_2026_BHO-2906.jpg/960px-Arnold_Schwarzenegger_-_Austrian_World_Summit_2026_BHO-2906.jpg",
       "imageUrls": [

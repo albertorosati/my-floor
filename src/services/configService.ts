@@ -34,6 +34,7 @@ export interface AppVoiceConfig {
   maxAlternatives: number;
   stopwords: string[];
   numberMap: Record<string, string>;
+  romanNumeralsMap?: Record<string, string>;
   passKeywords: string[];
   phoneticReplacements: [string, string][];
   thresholds: {
@@ -42,6 +43,7 @@ export interface AppVoiceConfig {
     shortWordMaxLength: number;
     mediumWordMaxLength: number;
     maxLengthDifference: number;
+    relativeLengthRatio?: number;
   };
 }
 

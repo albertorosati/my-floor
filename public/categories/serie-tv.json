@@ -17,7 +17,8 @@
       "answer": "Breaking Bad",
       "aliases": [
         "walter white",
-        "heisenberg"
+        "heisenberg",
+        "breaking"
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Walter_Francis_White_by_Clara_Sipprell.jpg/960px-Walter_Francis_White_by_Clara_Sipprell.jpg"
     },
@@ -26,7 +27,9 @@
       "answer": "Stranger Things",
       "aliases": [
         "undici",
-        "sottosopra"
+        "sottosopra",
+        "strenger tings",
+        "stranger"
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/e/ea/Stranger_Things_-_Storie_dal_1985.jpg/960px-Stranger_Things_-_Storie_dal_1985.jpg"
     },
@@ -71,7 +74,9 @@
       "id": "serie-tv-7",
       "answer": "Peaky Blinders",
       "aliases": [
-        "thomas shelby"
+        "thomas shelby",
+        "pichi blinders",
+        "blinders"
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/8/81/ThomasShelby.jpg/960px-ThomasShelby.jpg"
     },
@@ -79,7 +84,8 @@
       "id": "serie-tv-8",
       "answer": "The Office",
       "aliases": [
-        "michael scott"
+        "michael scott",
+        "the office"
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/4/4b/The_Office_US_sigla.png/960px-The_Office_US_sigla.png"
     },
@@ -98,7 +104,8 @@
       "answer": "How I Met Your Mother",
       "aliases": [
         "barney stinson",
-        "e alla fine arriva mamma"
+        "e alla fine arriva mamma",
+        "how i met your mother"
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/2/22/Barney_Stinson_%28HIMYM%29.png/960px-Barney_Stinson_%28HIMYM%29.png"
     },
@@ -107,7 +114,9 @@
       "answer": "The Big Bang Theory",
       "aliases": [
         "sheldon cooper",
-        "bazinga"
+        "bazinga",
+        "big bang theory",
+        "big bang"
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/6/65/Big_Bang_Theory%2C_Sheldon_Cooper%2C_5x20.png/960px-Big_Bang_Theory%2C_Sheldon_Cooper%2C_5x20.png"
     },
@@ -141,7 +150,8 @@
       "id": "serie-tv-15",
       "answer": "The Boys",
       "aliases": [
-        "patriota"
+        "patriota",
+        "the boys"
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Antony_Starr_by_Gage_Skidmore.jpg/960px-Antony_Starr_by_Gage_Skidmore.jpg"
     },

@@ -771,7 +771,8 @@
         "aliases": [
           "weeknd",
           "abel tesfaye",
-          "the weekend"
+          "the weekend",
+          "weekend"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/The_Weeknd_Portrait_by_Brian_Ziff.jpg/960px-The_Weeknd_Portrait_by_Brian_Ziff.jpg",
         "imageUrls": [
@@ -901,7 +902,8 @@
         "answer": "Ed Sheeran",
         "aliases": [
           "sheeran",
-          "ed sciran"
+          "ed sciran",
+          "ed sheeran"
         ],
         "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/03/Ed_Sheeran_2022_%283x4_crop%29.jpg",
         "imageUrls": [
@@ -930,7 +932,8 @@
         "id": "artisti-pop-13",
         "answer": "Shakira",
         "aliases": [
-          "sciacchira"
+          "sciacchira",
+          "shakira"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/2023-11-16_Gala_de_los_Latin_Grammy%2C_03_%28cropped%2902.jpg/960px-2023-11-16_Gala_de_los_Latin_Grammy%2C_03_%28cropped%2902.jpg",
         "imageUrls": [
@@ -1419,7 +1422,8 @@
         "answer": "Leonardo DiCaprio",
         "aliases": [
           "dicaprio",
-          "di caprio"
+          "di caprio",
+          "leonardo"
         ],
         "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2d/LeoPTABFI191125-28_%28cropped%29.jpg",
         "imageUrls": [
@@ -1433,7 +1437,8 @@
         "id": "attori-hollywood-2",
         "answer": "Brad Pitt",
         "aliases": [
-          "pitt"
+          "pitt",
+          "brad"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Brad_Pitt-69858.jpg/960px-Brad_Pitt-69858.jpg",
         "imageUrls": [
@@ -1448,7 +1453,8 @@
         "answer": "Margot Robbie",
         "aliases": [
           "robbie",
-          "barbie"
+          "barbie",
+          "margot"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Margot_Robbie_Wuthering_Heights_premiere_%28cropped%29.jpg/960px-Margot_Robbie_Wuthering_Heights_premiere_%28cropped%29.jpg",
         "imageUrls": [
@@ -1493,7 +1499,9 @@
         "aliases": [
           "murphy",
           "oppenheimer",
-          "thomas shelby"
+          "thomas shelby",
+          "killian marfi",
+          "cillian"
         ],
         "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Cillian_Murphy_at_the_London_premier_of_Steve_in_September_2025_%28cropped%29.jpg",
         "imageUrls": [
@@ -1508,7 +1516,8 @@
         "answer": "Ryan Gosling",
         "aliases": [
           "gosling",
-          "ken"
+          "ken",
+          "raian gosling"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/GoslingBFI081223_%2822_of_30%29_%2853388157347%29_%28cropped%29.jpg/960px-GoslingBFI081223_%2822_of_30%29_%2853388157347%29_%28cropped%29.jpg",
         "imageUrls": [
@@ -1523,7 +1532,8 @@
         "answer": "Johnny Depp",
         "aliases": [
           "depp",
-          "jack sparrow"
+          "jack sparrow",
+          "johnny"
         ],
         "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/Johnny_Depp_2020.jpg",
         "imageUrls": [
@@ -1537,7 +1547,8 @@
         "id": "attori-hollywood-9",
         "answer": "Tom Holland",
         "aliases": [
-          "holland"
+          "holland",
+          "tom"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/TomHolland-byPhilipRomano.jpg/960px-TomHolland-byPhilipRomano.jpg",
         "imageUrls": [
@@ -1551,7 +1562,8 @@
         "id": "attori-hollywood-10",
         "answer": "Emma Stone",
         "aliases": [
-          "stone"
+          "stone",
+          "emma"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Emma_Stone_at_the_2025_Venice_Film_Festival-6313_%28cropped%29.jpg/960px-Emma_Stone_at_the_2025_Venice_Film_Festival-6313_%28cropped%29.jpg",
         "imageUrls": [
@@ -1567,7 +1579,8 @@
         "aliases": [
           "robert downey",
           "downey",
-          "tony stark"
+          "tony stark",
+          "iron man"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/RobertDowneyJr-byPhilipRomano7_%28cropped%29.jpg/960px-RobertDowneyJr-byPhilipRomano7_%28cropped%29.jpg",
         "imageUrls": [
@@ -1583,7 +1596,10 @@
         "aliases": [
           "reeves",
           "john wick",
-          "neo"
+          "neo",
+          "chianu rivs",
+          "kianu",
+          "keanu"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Keanu_Reeves_at_TIFF_2025_02_%28Cropped%29.jpg/960px-Keanu_Reeves_at_TIFF_2025_02_%28Cropped%29.jpg",
         "imageUrls": [
@@ -1597,7 +1613,9 @@
         "id": "attori-hollywood-13",
         "answer": "Will Smith",
         "aliases": [
-          "smith"
+          "smith",
+          "will",
+          "will smith"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/TechCrunch_Disrupt_San_Francisco_2019_-_Day_1_%2848834070763%29_%28cropped%29.jpg/960px-TechCrunch_Disrupt_San_Francisco_2019_-_Day_1_%2848834070763%29_%28cropped%29.jpg",
         "imageUrls": [
@@ -1612,7 +1630,10 @@
         "answer": "Dwayne Johnson",
         "aliases": [
           "the rock",
-          "la roccia"
+          "la roccia",
+          "duein gionson",
+          "duein",
+          "johnson"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Dwayne_Johnson-1764_%284x5_cropped_with_moderate_headroom%29.jpg/960px-Dwayne_Johnson-1764_%284x5_cropped_with_moderate_headroom%29.jpg",
         "imageUrls": [
@@ -1627,7 +1648,9 @@
         "answer": "Scarlett Johansson",
         "aliases": [
           "johansson",
-          "scarlett"
+          "scarlett",
+          "scarlet gioanson",
+          "gioanson"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Scarlett_Johansson-8588.jpg/960px-Scarlett_Johansson-8588.jpg",
         "imageUrls": [
@@ -1854,7 +1877,10 @@
         "answer": "Arnold Schwarzenegger",
         "aliases": [
           "schwarzenegger",
-          "arnold"
+          "arnold",
+          "arnold svarzeneggher",
+          "svarznegger",
+          "schwarznegger"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Arnold_Schwarzenegger_-_Austrian_World_Summit_2026_BHO-2906.jpg/960px-Arnold_Schwarzenegger_-_Austrian_World_Summit_2026_BHO-2906.jpg",
         "imageUrls": [
@@ -16807,7 +16833,8 @@
         "answer": "Breaking Bad",
         "aliases": [
           "walter white",
-          "heisenberg"
+          "heisenberg",
+          "breaking"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Walter_Francis_White_by_Clara_Sipprell.jpg/960px-Walter_Francis_White_by_Clara_Sipprell.jpg"
       },
@@ -16816,7 +16843,9 @@
         "answer": "Stranger Things",
         "aliases": [
           "undici",
-          "sottosopra"
+          "sottosopra",
+          "strenger tings",
+          "stranger"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/e/ea/Stranger_Things_-_Storie_dal_1985.jpg/960px-Stranger_Things_-_Storie_dal_1985.jpg"
       },
@@ -16861,7 +16890,9 @@
         "id": "serie-tv-7",
         "answer": "Peaky Blinders",
         "aliases": [
-          "thomas shelby"
+          "thomas shelby",
+          "pichi blinders",
+          "blinders"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/8/81/ThomasShelby.jpg/960px-ThomasShelby.jpg"
       },
@@ -16869,7 +16900,8 @@
         "id": "serie-tv-8",
         "answer": "The Office",
         "aliases": [
-          "michael scott"
+          "michael scott",
+          "the office"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/4/4b/The_Office_US_sigla.png/960px-The_Office_US_sigla.png"
       },
@@ -16888,7 +16920,8 @@
         "answer": "How I Met Your Mother",
         "aliases": [
           "barney stinson",
-          "e alla fine arriva mamma"
+          "e alla fine arriva mamma",
+          "how i met your mother"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/2/22/Barney_Stinson_%28HIMYM%29.png/960px-Barney_Stinson_%28HIMYM%29.png"
       },
@@ -16897,7 +16930,9 @@
         "answer": "The Big Bang Theory",
         "aliases": [
           "sheldon cooper",
-          "bazinga"
+          "bazinga",
+          "big bang theory",
+          "big bang"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/6/65/Big_Bang_Theory%2C_Sheldon_Cooper%2C_5x20.png/960px-Big_Bang_Theory%2C_Sheldon_Cooper%2C_5x20.png"
       },
@@ -16931,7 +16966,8 @@
         "id": "serie-tv-15",
         "answer": "The Boys",
         "aliases": [
-          "patriota"
+          "patriota",
+          "the boys"
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Antony_Starr_by_Gage_Skidmore.jpg/960px-Antony_Starr_by_Gage_Skidmore.jpg"
       },
@@ -20015,7 +20051,8 @@
           "gta",
           "gta 5",
           "gta v",
-          "grand theft auto"
+          "grand theft auto",
+          "gran teft auto"
         ],
         "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_32aa18ab3175e3002217862dd5917646d298ab6b.1920x1080.jpg",
         "imageUrls": [
@@ -20031,7 +20068,9 @@
         "aliases": [
           "red dead",
           "red dead redemption",
-          "arthur morgan"
+          "arthur morgan",
+          "red ded",
+          "red de ed"
         ],
         "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_66b553f4c209476d3e4ce25fa4714002cc914c4f.1920x1080.jpg",
         "imageUrls": [
@@ -20045,7 +20084,10 @@
         "id": "videogiochi-3",
         "answer": "Elden Ring",
         "aliases": [
-          "elden"
+          "elden",
+          "il the ring",
+          "elder ring",
+          "el den ring"
         ],
         "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/ss_943bf6fe62352757d9070c1d33e50b92fe8539f1.1920x1080.jpg",
         "imageUrls": [
@@ -20059,7 +20101,9 @@
         "id": "videogiochi-4",
         "answer": "Cyberpunk 2077",
         "aliases": [
-          "cyberpunk"
+          "cyberpunk",
+          "saiber pank",
+          "saiberpank"
         ],
         "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/ss_2f649b68d579bf87011487d29bc4ccbfdd97d34f.1920x1080.jpg",
         "imageUrls": [
@@ -20075,7 +20119,10 @@
         "aliases": [
           "the witcher",
           "geralt",
-          "witcher"
+          "witcher",
+          "uiccer",
+          "wicher",
+          "de wicher"
         ],
         "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/f7f564ecedd09b3e503b071a637aeefdedbeedd8/ss_f7f564ecedd09b3e503b071a637aeefdedbeedd8.1920x1080.jpg",
         "imageUrls": [
@@ -20190,7 +20237,10 @@
         "id": "videogiochi-13",
         "answer": "Hollow Knight",
         "aliases": [
-          "hollow"
+          "hollow",
+          "ollo nait",
+          "olo nait",
+          "knight"
         ],
         "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_5384f9f8b96a0b9934b2bc35a4058376211636d2.1920x1080.jpg",
         "imageUrls": [
@@ -20233,7 +20283,9 @@
         "id": "videogiochi-16",
         "answer": "Dead by Daylight",
         "aliases": [
-          "dbd"
+          "dbd",
+          "dead by daylight",
+          "ded bai deilait"
         ],
         "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/381210/5355ac410e985cac27f04b877280a984be4d28a6/ss_5355ac410e985cac27f04b877280a984be4d28a6.1920x1080.jpg",
         "imageUrls": [
@@ -20248,7 +20300,8 @@
         "answer": "Baldur’s Gate 3",
         "aliases": [
           "baldurs gate",
-          "baldur gate"
+          "baldur gate",
+          "baldur"
         ],
         "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/ss_c73bc54415178c07fef85f54ee26621728c77504.1920x1080.jpg",
         "imageUrls": [
@@ -20277,7 +20330,11 @@
         "id": "videogiochi-19",
         "answer": "God of War",
         "aliases": [
-          "kratos"
+          "kratos",
+          "god of vor",
+          "goddo vor",
+          "god of uor",
+          "god of war"
         ],
         "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1593500/ss_6eccc970b5de2943546d93d319be1b5c0618f21b.1920x1080.jpg",
         "imageUrls": [
@@ -20426,7 +20483,8 @@
         "id": "videogiochi-29",
         "answer": "Sea of Thieves",
         "aliases": [
-          "pirati gioco"
+          "pirati gioco",
+          "sea of thieves"
         ],
         "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1172620/ss_ec623c77d75dfa098c622b547b1ab21ad4cae0a8.1920x1080.jpg",
         "imageUrls": [
@@ -20511,7 +20569,8 @@
         "answer": "Dark Souls III",
         "aliases": [
           "dark souls",
-          "souls"
+          "souls",
+          "darksols"
         ],
         "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/374320/ss_5efd318b85a3917d1c6e717f4cb813b47547cd6f.1920x1080.jpg",
         "imageUrls": [
@@ -20525,7 +20584,8 @@
         "id": "videogiochi-36",
         "answer": "Sekiro",
         "aliases": [
-          "sekiro shadows die twice"
+          "sekiro shadows die twice",
+          "sekiro"
         ],
         "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/814380/ss_0f7b0f8ed9ffc49aba26f9328caa9a1d59ad60f0.1920x1080.jpg",
         "imageUrls": [
@@ -20599,7 +20659,11 @@
         "answer": "Minecraft",
         "aliases": [
           "steve minecraft",
-          "blocchi"
+          "blocchi",
+          "main craft",
+          "mine craft",
+          "maincraft",
+          "minecraft"
         ],
         "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/Minecraft_Creeper.jpg",
         "imageUrls": [

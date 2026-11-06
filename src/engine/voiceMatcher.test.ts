@@ -93,6 +93,159 @@ describe('voiceMatcher Engine & Real-Photo Catalog', () => {
     expect(phoneticSkeleton('smartphone')).toBe('smartfone');
   });
 
+  it('riconosce con precisione titoli di videogiochi con fonetica italo-inglese e sub-token', () => {
+    const videogames: DuelItem[] = [
+      {
+        id: 'vg-hollow',
+        answer: 'Hollow Knight',
+        aliases: ['ollo nait', 'olo nait', 'hollow', 'knight'],
+        imageUrl: 'https://sample.com/hk.jpg',
+      },
+      {
+        id: 'vg-witcher',
+        answer: 'The Witcher 3',
+        aliases: ['uiccer', 'wicher', 'de wicher', 'the witcher', 'geralt'],
+        imageUrl: 'https://sample.com/w3.jpg',
+      },
+      {
+        id: 'vg-cyberpunk',
+        answer: 'Cyberpunk 2077',
+        aliases: ['saiber pank', 'saiberpank', 'cyberpunk'],
+        imageUrl: 'https://sample.com/cp.jpg',
+      },
+      {
+        id: 'vg-minecraft',
+        answer: 'Minecraft',
+        aliases: ['main craft', 'mine craft', 'maincraft'],
+        imageUrl: 'https://sample.com/mc.jpg',
+      },
+      {
+        id: 'vg-gta',
+        answer: 'Grand Theft Auto V',
+        aliases: ['grand theft auto', 'gran teft auto', 'gta', 'gta 5'],
+        imageUrl: 'https://sample.com/gta.jpg',
+      },
+      {
+        id: 'vg-elden',
+        answer: 'Elden Ring',
+        aliases: ['il the ring', 'elder ring', 'el den ring', 'elden'],
+        imageUrl: 'https://sample.com/er.jpg',
+      },
+      {
+        id: 'vg-godofwar',
+        answer: 'God of War',
+        aliases: ['god of vor', 'goddo vor', 'god of uor', 'kratos'],
+        imageUrl: 'https://sample.com/gow.jpg',
+      },
+      {
+        id: 'vg-rdr2',
+        answer: 'Red Dead Redemption 2',
+        aliases: ['red dead', 'red ded', 'red de ed', 'arthur morgan'],
+        imageUrl: 'https://sample.com/rdr2.jpg',
+      },
+      {
+        id: 'vg-dbd',
+        answer: 'Dead by Daylight',
+        aliases: ['dead by daylight', 'ded bai deilait', 'dbd'],
+        imageUrl: 'https://sample.com/dbd.jpg',
+      },
+    ];
+
+    // Trascrizioni fonetiche ASR reali per videogiochi
+    expect(evaluateVoiceInput(['ollo nait'], videogames[0]).matched).toBe(true);
+    expect(evaluateVoiceInput(['olo nait'], videogames[0]).matched).toBe(true);
+    expect(evaluateVoiceInput(['uiccer'], videogames[1]).matched).toBe(true);
+    expect(evaluateVoiceInput(['de wicher'], videogames[1]).matched).toBe(true);
+    expect(evaluateVoiceInput(['witcher'], videogames[1]).matched).toBe(true);
+    expect(evaluateVoiceInput(['saiber pank'], videogames[2]).matched).toBe(true);
+    expect(evaluateVoiceInput(['cyberpunk'], videogames[2]).matched).toBe(true);
+    expect(evaluateVoiceInput(['main craft'], videogames[3]).matched).toBe(true);
+    expect(evaluateVoiceInput(['mine craft'], videogames[3]).matched).toBe(true);
+    expect(evaluateVoiceInput(['gran teft auto'], videogames[4]).matched).toBe(true);
+    expect(evaluateVoiceInput(['gta'], videogames[4]).matched).toBe(true);
+    expect(evaluateVoiceInput(['il the ring'], videogames[5]).matched).toBe(true);
+    expect(evaluateVoiceInput(['elder ring'], videogames[5]).matched).toBe(true);
+    expect(evaluateVoiceInput(['elden'], videogames[5]).matched).toBe(true);
+    expect(evaluateVoiceInput(['goddo vor'], videogames[6]).matched).toBe(true);
+    expect(evaluateVoiceInput(['god of uor'], videogames[6]).matched).toBe(true);
+    expect(evaluateVoiceInput(['kratos'], videogames[6]).matched).toBe(true);
+    expect(evaluateVoiceInput(['red ded'], videogames[7]).matched).toBe(true);
+    expect(evaluateVoiceInput(['red dead'], videogames[7]).matched).toBe(true);
+    expect(evaluateVoiceInput(['ded bai deilait'], videogames[8]).matched).toBe(true);
+  });
+
+  it('riconosce celebrità e attori pronunciati all italiana o gridando solo il nome/cognome', () => {
+    const keanu: DuelItem = {
+      id: 'keanu',
+      answer: 'Keanu Reeves',
+      aliases: ['chianu rivs', 'kianu', 'keanu', 'reeves', 'john wick', 'neo'],
+      imageUrl: 'https://sample.com/keanu.jpg',
+    };
+    expect(evaluateVoiceInput(['chianu rivs'], keanu).matched).toBe(true);
+    expect(evaluateVoiceInput(['keanu'], keanu).matched).toBe(true);
+    expect(evaluateVoiceInput(['reeves'], keanu).matched).toBe(true);
+
+    const dwayne: DuelItem = {
+      id: 'dwayne',
+      answer: 'Dwayne Johnson',
+      aliases: ['duein gionson', 'duein', 'johnson', 'the rock', 'la roccia'],
+      imageUrl: 'https://sample.com/rock.jpg',
+    };
+    expect(evaluateVoiceInput(['duein gionson'], dwayne).matched).toBe(true);
+    expect(evaluateVoiceInput(['the rock'], dwayne).matched).toBe(true);
+    expect(evaluateVoiceInput(['johnson'], dwayne).matched).toBe(true);
+
+    const scarlett: DuelItem = {
+      id: 'scarlett',
+      answer: 'Scarlett Johansson',
+      aliases: ['scarlet gioanson', 'gioanson', 'johansson', 'scarlett'],
+      imageUrl: 'https://sample.com/scarlett.jpg',
+    };
+    expect(evaluateVoiceInput(['scarlet gioanson'], scarlett).matched).toBe(true);
+    expect(evaluateVoiceInput(['gioanson'], scarlett).matched).toBe(true);
+    expect(evaluateVoiceInput(['scarlett'], scarlett).matched).toBe(true);
+
+    const cillian: DuelItem = {
+      id: 'cillian',
+      answer: 'Cillian Murphy',
+      aliases: ['killian marfi', 'cillian', 'murphy', 'oppenheimer'],
+      imageUrl: 'https://sample.com/cillian.jpg',
+    };
+    expect(evaluateVoiceInput(['killian marfi'], cillian).matched).toBe(true);
+    expect(evaluateVoiceInput(['cillian'], cillian).matched).toBe(true);
+    expect(evaluateVoiceInput(['murphy'], cillian).matched).toBe(true);
+
+    const leo: DuelItem = {
+      id: 'leo',
+      answer: 'Leonardo DiCaprio',
+      aliases: ['leonardo', 'dicaprio', 'di caprio'],
+      imageUrl: 'https://sample.com/leo.jpg',
+    };
+    expect(evaluateVoiceInput(['dicaprio'], leo).matched).toBe(true);
+    expect(evaluateVoiceInput(['leonardo'], leo).matched).toBe(true);
+  });
+
+  it('rispetta la separazione di responsabilità: nessun dato di dominio cablato in voiceMatcher.ts', async () => {
+    const fs = await import('node:fs');
+    const path = await import('node:path');
+    const code = fs.readFileSync(path.resolve('src/engine/voiceMatcher.ts'), 'utf8');
+
+    // Il codice TypeScript del motore deve essere 100% data-agnostic
+    const forbiddenDomainTerms = [
+      'keanu',
+      'witcher',
+      'minecraft',
+      'elden',
+      'cyberpunk',
+      'dicaprio',
+      'kratos',
+      'stranger',
+    ];
+    for (const term of forbiddenDomainTerms) {
+      expect(code.toLowerCase()).not.toContain(term);
+    }
+  });
+
   it('contiene 56 categorie modulari con oltre 2100 fotografie HD validate e zero emoji-svg nei duelli', () => {
     expect(DEFAULT_CATEGORIES.length).toBe(56);
     let totalPhotos = 0;

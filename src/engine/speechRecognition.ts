@@ -5,6 +5,8 @@ type VolumeCallback = (level: number) => void;
 interface IWindowSpeech extends Window {
   SpeechRecognition?: any;
   webkitSpeechRecognition?: any;
+  SpeechGrammarList?: any;
+  webkitSpeechGrammarList?: any;
 }
 
 export class SmartSpeechRecognizer {
@@ -22,6 +24,7 @@ export class SmartSpeechRecognizer {
   private consumedCharLength = 0;
   private latestRawTranscript = '';
   private language: 'it' | 'en' = 'it';
+  private vocabulary: string[] = [];
 
   constructor(
     onSpeech: SpeechCallback,
@@ -43,6 +46,10 @@ export class SmartSpeechRecognizer {
         this.start();
       }
     }
+  }
+
+  public setVocabulary(phrases: string[]): void {
+    this.vocabulary = phrases;
   }
 
   public static isSupported(): boolean {
@@ -106,6 +113,32 @@ export class SmartSpeechRecognizer {
       rec.continuous = !isIOS;
       rec.interimResults = true;
       rec.maxAlternatives = 5;
+
+      if (this.vocabulary.length > 0) {
+        try {
+          const GrammarConstructor =
+            win.SpeechGrammarList || win.webkitSpeechGrammarList;
+          if (GrammarConstructor) {
+            const speechList = new GrammarConstructor();
+            const cleanPhrases = Array.from(
+              new Set(
+                this.vocabulary
+                  .map((p) => p.replace(/[^a-zA-Z0-9\s]/g, '').trim())
+                  .filter((p) => p.length >= 2)
+              )
+            );
+            if (cleanPhrases.length > 0) {
+              const grammar = `#JSGF V1.0; grammar items; public <item> = ${cleanPhrases.join(
+                ' | '
+              )} ;`;
+              speechList.addFromString(grammar, 1);
+              rec.grammars = speechList;
+            }
+          }
+        } catch {
+          // Fallback trasparente se non supportato
+        }
+      }
 
       rec.onstart = () => {
         this.isListening = true;

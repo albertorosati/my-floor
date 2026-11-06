@@ -470,6 +470,11 @@ export const SoloTrainingScreen: React.FC<SoloTrainingScreenProps> = ({
       settings.language || 'it'
     );
 
+    const vocab = category.items.flatMap((i) => [
+      i.answer,
+      ...(i.aliases || []),
+    ]);
+    rec.setVocabulary(vocab);
     recognizerRef.current = rec;
     rec.start();
 

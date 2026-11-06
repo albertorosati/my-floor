@@ -47,7 +47,15 @@
     "quello",
     "quella",
     "sono",
-    "ecco"
+    "ecco",
+    "the",
+    "of",
+    "and",
+    "is",
+    "at",
+    "by",
+    "for",
+    "with"
   ],
   "numberMap": {
     "0": "zero",
@@ -62,6 +70,17 @@
     "9": "nove",
     "10": "dieci"
   },
+  "romanNumeralsMap": {
+    "viii": "8",
+    "vii": "7",
+    "vi": "6",
+    "iv": "4",
+    "v": "5",
+    "iii": "3",
+    "ii": "2",
+    "ix": "9",
+    "x": "10"
+  },
   "passKeywords": [
     "passo",
     "passa",
@@ -71,20 +90,42 @@
     "avanti"
   ],
   "phoneticReplacements": [
+    ["\\bkn", "n"],
+    ["\\bwr", "r"],
+    ["ight", "ait"],
+    ["igh", "ai"],
+    ["\\bwh", "v"],
     ["ph", "f"],
     ["sh", "sc"],
-    ["th", "t"],
+    ["tch", "c"],
     ["ck", "c"],
     ["k", "c"],
-    ["y", "i"],
+    ["q", "c"],
+    ["th", "t"],
+    ["\\bu(?=[aeio])", "v"],
+    ["\\bdu(?=[aeio])", "dv"],
     ["w", "v"],
-    ["x", "cs"]
+    ["x", "cs"],
+    ["y", "i"],
+    ["j", "gi"],
+    ["ea", "i"],
+    ["ee", "i"],
+    ["oo", "u"],
+    ["ou", "o"],
+    ["ow", "o"],
+    ["ay", "ei"],
+    ["ey", "ei"],
+    ["ai", "ei"],
+    ["ch(?=[ei])", "c"],
+    ["(?<![sc])h", ""],
+    ["h", ""]
   ],
   "thresholds": {
-    "acceptConfidence": 0.82,
+    "acceptConfidence": 0.80,
     "instantConfidence": 0.95,
     "shortWordMaxLength": 3,
     "mediumWordMaxLength": 7,
-    "maxLengthDifference": 2
+    "maxLengthDifference": 2,
+    "relativeLengthRatio": 0.35
   }
 }

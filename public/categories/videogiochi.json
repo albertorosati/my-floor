@@ -19,7 +19,8 @@
         "gta",
         "gta 5",
         "gta v",
-        "grand theft auto"
+        "grand theft auto",
+        "gran teft auto"
       ],
       "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/ss_32aa18ab3175e3002217862dd5917646d298ab6b.1920x1080.jpg",
       "imageUrls": [
@@ -35,7 +36,9 @@
       "aliases": [
         "red dead",
         "red dead redemption",
-        "arthur morgan"
+        "arthur morgan",
+        "red ded",
+        "red de ed"
       ],
       "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_66b553f4c209476d3e4ce25fa4714002cc914c4f.1920x1080.jpg",
       "imageUrls": [
@@ -49,7 +52,10 @@
       "id": "videogiochi-3",
       "answer": "Elden Ring",
       "aliases": [
-        "elden"
+        "elden",
+        "il the ring",
+        "elder ring",
+        "el den ring"
       ],
       "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/ss_943bf6fe62352757d9070c1d33e50b92fe8539f1.1920x1080.jpg",
       "imageUrls": [
@@ -63,7 +69,9 @@
       "id": "videogiochi-4",
       "answer": "Cyberpunk 2077",
       "aliases": [
-        "cyberpunk"
+        "cyberpunk",
+        "saiber pank",
+        "saiberpank"
       ],
       "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/ss_2f649b68d579bf87011487d29bc4ccbfdd97d34f.1920x1080.jpg",
       "imageUrls": [
@@ -79,7 +87,10 @@
       "aliases": [
         "the witcher",
         "geralt",
-        "witcher"
+        "witcher",
+        "uiccer",
+        "wicher",
+        "de wicher"
       ],
       "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/f7f564ecedd09b3e503b071a637aeefdedbeedd8/ss_f7f564ecedd09b3e503b071a637aeefdedbeedd8.1920x1080.jpg",
       "imageUrls": [
@@ -194,7 +205,10 @@
       "id": "videogiochi-13",
       "answer": "Hollow Knight",
       "aliases": [
-        "hollow"
+        "hollow",
+        "ollo nait",
+        "olo nait",
+        "knight"
       ],
       "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_5384f9f8b96a0b9934b2bc35a4058376211636d2.1920x1080.jpg",
       "imageUrls": [
@@ -237,7 +251,9 @@
       "id": "videogiochi-16",
       "answer": "Dead by Daylight",
       "aliases": [
-        "dbd"
+        "dbd",
+        "dead by daylight",
+        "ded bai deilait"
       ],
       "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/381210/5355ac410e985cac27f04b877280a984be4d28a6/ss_5355ac410e985cac27f04b877280a984be4d28a6.1920x1080.jpg",
       "imageUrls": [
@@ -252,7 +268,8 @@
       "answer": "Baldur’s Gate 3",
       "aliases": [
         "baldurs gate",
-        "baldur gate"
+        "baldur gate",
+        "baldur"
       ],
       "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/ss_c73bc54415178c07fef85f54ee26621728c77504.1920x1080.jpg",
       "imageUrls": [
@@ -281,7 +298,11 @@
       "id": "videogiochi-19",
       "answer": "God of War",
       "aliases": [
-        "kratos"
+        "kratos",
+        "god of vor",
+        "goddo vor",
+        "god of uor",
+        "god of war"
       ],
       "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1593500/ss_6eccc970b5de2943546d93d319be1b5c0618f21b.1920x1080.jpg",
       "imageUrls": [
@@ -430,7 +451,8 @@
       "id": "videogiochi-29",
       "answer": "Sea of Thieves",
       "aliases": [
-        "pirati gioco"
+        "pirati gioco",
+        "sea of thieves"
       ],
       "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1172620/ss_ec623c77d75dfa098c622b547b1ab21ad4cae0a8.1920x1080.jpg",
       "imageUrls": [
@@ -515,7 +537,8 @@
       "answer": "Dark Souls III",
       "aliases": [
         "dark souls",
-        "souls"
+        "souls",
+        "darksols"
       ],
       "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/374320/ss_5efd318b85a3917d1c6e717f4cb813b47547cd6f.1920x1080.jpg",
       "imageUrls": [
@@ -529,7 +552,8 @@
       "id": "videogiochi-36",
       "answer": "Sekiro",
       "aliases": [
-        "sekiro shadows die twice"
+        "sekiro shadows die twice",
+        "sekiro"
       ],
       "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/814380/ss_0f7b0f8ed9ffc49aba26f9328caa9a1d59ad60f0.1920x1080.jpg",
       "imageUrls": [
@@ -603,7 +627,11 @@
       "answer": "Minecraft",
       "aliases": [
         "steve minecraft",
-        "blocchi"
+        "blocchi",
+        "main craft",
+        "mine craft",
+        "maincraft",
+        "minecraft"
       ],
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/Minecraft_Creeper.jpg",
       "imageUrls": [
