@@ -66,6 +66,28 @@ describe('voiceMatcher Engine & Real-Photo Catalog', () => {
     expect(res.matched).toBe(true);
   });
 
+  it('riconosce comandi PASSO e risposte sia in italiano che in inglese', () => {
+    const animalItem: DuelItem = {
+      id: 'leone',
+      answer: 'Leone',
+      aliases: ['re della savana'],
+      answerEn: 'Lion',
+      aliasesEn: ['lions', 'king of the jungle'],
+      imageUrl: 'https://upload.wikimedia.org/sample.jpg',
+    };
+
+    // Risposta in italiano
+    expect(evaluateVoiceInput(['è un leone'], animalItem).matched).toBe(true);
+    // Risposta in inglese
+    expect(evaluateVoiceInput(['it is a lion'], animalItem).matched).toBe(true);
+    expect(evaluateVoiceInput(['the lions'], animalItem).matched).toBe(true);
+
+    // Comandi vocali di passo in inglese
+    expect(evaluateVoiceInput(['pass'], animalItem).isPassCommand).toBe(true);
+    expect(evaluateVoiceInput(['skip'], animalItem).isPassCommand).toBe(true);
+    expect(evaluateVoiceInput(['i do not know skip'], animalItem).isPassCommand).toBe(true);
+  });
+
   it('genera correttamente lo scheletro fonetico', () => {
     expect(phoneticSkeleton('ippopotamo')).toBe('ipopotamo');
     expect(phoneticSkeleton('smartphone')).toBe('smartfone');

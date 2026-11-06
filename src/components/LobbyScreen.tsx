@@ -24,6 +24,7 @@ import { gameConfig } from '../services/configService';
 import { pwaInstallService } from '../services/pwaInstallService';
 import { hapticsService } from '../services/hapticsService';
 import { APP_VERSION } from '../config/version';
+import { t } from '../services/i18n';
 
 interface LobbyScreenProps {
   p1: PlayerConfig;
@@ -94,7 +95,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
     }
 
     setMicError(null);
-    setTestTranscript('Di’ qualcosa...');
+    setTestTranscript(t('lobby.micSaySomething', settings.language));
     const rec = new SmartSpeechRecognizer(
       (alternatives) => {
         setTestTranscript(alternatives[0] || '');
@@ -103,7 +104,8 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
         setTestingMic(listening);
         if (err) setMicError(err);
       },
-      (vol) => setTestVolume(vol)
+      (vol) => setTestVolume(vol),
+      settings.language || 'it'
     );
     recognizerRef.current = rec;
     rec.start();
@@ -141,14 +143,29 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
         </div>
 
         <div className="flex items-center gap-2">
+          {/* Selettore Lingua Rapido IT / EN */}
+          <button
+            onClick={() => {
+              hapticsService.vibrateTap();
+              onUpdateSettings({
+                language: settings.language === 'it' ? 'en' : 'it',
+              });
+            }}
+            className="btn-push px-3 py-2 rounded-xl bg-cream text-ink font-display font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-sm"
+            title={settings.language === 'it' ? 'Switch to English' : 'Passa alla lingua Italiana'}
+          >
+            <span className="text-sm">{settings.language === 'it' ? '🇮🇹' : '🇬🇧'}</span>
+            <span className="font-extrabold uppercase">{settings.language}</span>
+          </button>
+
           {!isStandalone && canInstallPwa && (
             <button
               onClick={handleInstallClick}
               className="btn-push px-3 py-2 rounded-xl bg-gold text-ink font-display font-bold text-xs flex items-center gap-1.5 shadow-sm"
-              title="Installa The Floor come app sul tuo dispositivo"
+              title={t('app.install', settings.language)}
             >
               <Download className="w-3.5 h-3.5" />
-              <span>Installa App</span>
+              <span>{t('app.install', settings.language)}</span>
             </button>
           )}
 
@@ -157,7 +174,9 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
             className="btn-push px-3 sm:px-4 py-2 rounded-xl bg-cream text-ink font-display font-semibold text-xs sm:text-sm flex items-center gap-1.5"
           >
             <Layers className="w-4 h-4 text-p1" />
-            <span className="hidden sm:inline">Categorie ({categories.length})</span>
+            <span className="hidden sm:inline">
+              {settings.language === 'en' ? 'Categories' : 'Categorie'} ({categories.length})
+            </span>
             <span className="sm:hidden">{categories.length}</span>
           </button>
 
@@ -379,11 +398,11 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
             )}
           </div>
 
-          {/* Traguardo & Secondi */}
+          {/* Traguardo, Secondi & Lingua */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <h3 className="font-display font-bold text-sm text-ink/80 mb-2">
-                Traguardo vittoria
+                {t('lobby.pointsToWin', settings.language)}
               </h3>
               <div className="grid grid-cols-4 gap-1.5">
                 {gameConfig.options.targetWins.map((pts) => (
@@ -392,13 +411,17 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                     onClick={() =>
                       onUpdateSettings({ targetWins: pts as TargetWinsOption })
                     }
-                    className={`py-2.5 px-2 rounded-xl font-display font-bold text-sm border-2 transition-all ${
+                    className={`py-2.5 px-2 rounded-xl font-display font-bold text-xs sm:text-sm border-2 transition-all ${
                       settings.targetWins === pts
                         ? 'bg-ink text-cream border-ink'
                         : 'bg-paper text-ink border-ink/20 hover:border-ink/50'
                     }`}
                   >
-                    {pts === 0 ? 'Libera' : `A ${pts}`}
+                    {pts === 0
+                      ? settings.language === 'en'
+                        ? 'Free'
+                        : 'Libera'
+                      : `${pts} ${settings.language === 'en' ? 'pts' : 'pt'}`}
                   </button>
                 ))}
               </div>
@@ -406,7 +429,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
 
             <div>
               <h3 className="font-display font-bold text-sm text-ink/80 mb-2">
-                Tempo per giocatore
+                {t('lobby.timePerPlayer', settings.language)}
               </h3>
               <div className="grid grid-cols-3 gap-2">
                 {gameConfig.options.duelDurations.map((sec) => (
@@ -421,7 +444,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
                         : 'bg-paper text-ink border-ink/20 hover:border-ink/50'
                     }`}
                   >
-                    {sec} sec
+                    {sec}s
                   </button>
                 ))}
               </div>
@@ -473,7 +496,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({
             className="btn-push w-full py-4 px-6 rounded-2xl bg-gold text-ink font-display font-bold text-2xl flex items-center justify-center gap-3"
           >
             <Play className="w-6 h-6 fill-current" />
-            <span>Inizia la Sfida!</span>
+            <span>{t('lobby.startDuel', settings.language)}</span>
             <Sparkles className="w-5 h-5" />
           </button>
         </div>

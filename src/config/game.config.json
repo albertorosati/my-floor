@@ -7,7 +7,8 @@
     "passPenaltySeconds": 3,
     "micMode": "local-shared",
     "soundEnabled": true,
-    "announcerEnabled": true
+    "announcerEnabled": true,
+    "language": "it"
   },
   "options": {
     "targetWins": [3, 5, 7, 0],

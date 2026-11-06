@@ -300,5 +300,8 @@
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/3-BerneseMountainDogInGrass.jpg/960px-3-BerneseMountainDogInGrass.jpg"
     }
-  ]
+  ],
+  "scope": "intl",
+  "nameEn": "Dog Breeds",
+  "subtitleEn": "Man’s best friends of every shape and size"
 }

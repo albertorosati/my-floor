@@ -297,5 +297,8 @@
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Horse_riding_in_coca_cola_arena_-_melbourne_show_2005.jpg/960px-Horse_riding_in_coca_cola_arena_-_melbourne_show_2005.jpg"
     }
-  ]
+  ],
+  "scope": "intl",
+  "nameEn": "Sports & Disciplines",
+  "subtitleEn": "Olympic sports, team games, and athletics"
 }

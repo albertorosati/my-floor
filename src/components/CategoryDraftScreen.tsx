@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import {
   Shuffle,
   Grid,
@@ -14,6 +14,7 @@ import {
   PlayerConfig,
   PlayerId,
   TargetWinsOption,
+  AppLanguage,
 } from '../types/game';
 import {
   getBackupImageUrl,
@@ -23,6 +24,12 @@ import {
 import { gameConfig } from '../services/configService';
 import { APP_VERSION } from '../config/version';
 import { soundEngine } from '../engine/soundEffects';
+import {
+  t,
+  getCategoryTitle,
+  getCategorySubtitle,
+  filterCategories,
+} from '../services/i18n';
 
 interface CategoryDraftScreenProps {
   categories: Category[];
@@ -34,6 +41,7 @@ interface CategoryDraftScreenProps {
   targetWins: TargetWinsOption;
   chooserId: PlayerId;
   roundNumber: number;
+  language?: AppLanguage;
   lastSummary: DuelSummary | null;
   onSelectCategory: (category: Category) => void;
   onFinishMatchEarly: () => void;
@@ -77,18 +85,25 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
   targetWins,
   chooserId,
   roundNumber,
+  language = 'it',
   lastSummary,
   onSelectCategory,
   onFinishMatchEarly,
   onBackToLobby,
 }) => {
+  // Filtro prioritario: in lingua inglese NESSUNA categoria con scope 'it-only' è mai ammessa!
+  const availableCategories = useMemo(() => {
+    return filterCategories(categories, language);
+  }, [categories, language]);
+
   const [offered, setOffered] = useState<Category[]>(() =>
-    pickFourRandom(categories, playedCategoryIds)
+    pickFourRandom(filterCategories(categories, language), playedCategoryIds)
   );
   const [selectedCat, setSelectedCat] = useState<Category | null>(null);
   const [countdown, setCountdown] = useState<number | null>(null);
   const [showAllModal, setShowAllModal] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [tabFilter, setTabFilter] = useState<'all' | 'intl' | 'it-only'>('all');
 
   const chooser = chooserId === 'p1' ? p1 : p2;
   const opponent = chooserId === 'p1' ? p2 : p1;
@@ -128,26 +143,37 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
     soundEngine.playRandomizerStep(1.15);
     setOffered((prev) =>
       pickFourRandom(
-        categories,
+        availableCategories,
         playedCategoryIds,
         prev.map((c) => c.id)
       )
     );
-  }, [categories, playedCategoryIds, countdown]);
+  }, [availableCategories, playedCategoryIds, countdown]);
 
   const handleChooseCard = (cat: Category) => {
     if (countdown !== null) return;
     setShowAllModal(false);
     preloadCategoryImages(cat, 20);
     soundEngine.playChallengeLocked();
-    soundEngine.speakAnnouncement(`${cat.name}! Pronti al via!`);
+    const catName = getCategoryTitle(cat, language);
+    soundEngine.speakAnnouncement(
+      language === 'en' ? `${catName}! Ready, set, go!` : `${catName}! Pronti al via!`
+    );
     setSelectedCat(cat);
     setCountdown(3);
   };
 
-  const filteredCatalog = categories.filter((c) =>
-    c.name.toLowerCase().includes(searchQuery.toLowerCase().trim())
-  );
+  const modalCatalog: Category[] = useMemo(() => {
+    return filterCategories(categories, language, tabFilter);
+  }, [categories, language, tabFilter]);
+
+  const filteredCatalog: Category[] = modalCatalog.filter((c: Category) => {
+    const q = searchQuery.toLowerCase().trim();
+    if (!q) return true;
+    const title = getCategoryTitle(c, language).toLowerCase();
+    const sub = getCategorySubtitle(c, language).toLowerCase();
+    return title.includes(q) || sub.includes(q) || c.name.toLowerCase().includes(q);
+  });
 
   return (
     <div className="h-[100dvh] max-h-[100dvh] w-full party-stage-bg flex flex-col justify-between p-2.5 sm:p-4 md:p-6 select-none overflow-hidden touch-none">
@@ -228,14 +254,20 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
         >
           <span>Round {roundNumber}</span>
           <span>•</span>
-          <span>Scelta categoria</span>
+          <span>{language === 'en' ? 'Category Draft' : 'Scelta categoria'}</span>
         </div>
 
         <h1 className="font-display text-lg sm:text-2xl lg:text-3xl font-bold text-cream leading-tight">
-          Tocca a <span className="text-gold">{chooser.avatar} {chooser.name}</span> scegliere!
+          {language === 'en' ? (
+            <>It’s <span className="text-gold">{chooser.avatar} {chooser.name}</span>’s turn to pick!</>
+          ) : (
+            <>Tocca a <span className="text-gold">{chooser.avatar} {chooser.name}</span> scegliere!</>
+          )}
         </h1>
         <p className="text-[10px] sm:text-xs text-cream/70 mt-0.5 line-clamp-1">
-          Scegli una delle 4 categorie qui sotto per sfidare {opponent.name}
+          {language === 'en'
+            ? `Choose one of the 4 categories below to challenge ${opponent.name}`
+            : `Scegli una delle 4 categorie qui sotto per sfidare ${opponent.name}`}
         </p>
       </div>
 
@@ -298,10 +330,10 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
               <div className="p-2 sm:p-2.5 shrink-0 bg-[#fffdf7] border-t-2 border-ink flex flex-col justify-between gap-1">
                 <div>
                   <h2 className="font-display font-bold text-xs sm:text-base text-ink leading-tight truncate group-hover:text-p1 transition-colors">
-                    {cat.name}
+                    {getCategoryTitle(cat, language)}
                   </h2>
                   <p className="text-[10px] sm:text-xs text-ink/70 mt-0.5 line-clamp-1 leading-tight">
-                    {cat.subtitle}
+                    {getCategorySubtitle(cat, language)}
                   </p>
                 </div>
 
@@ -312,7 +344,7 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
                       : 'bg-p2 text-white group-hover:bg-red-600'
                   }`}
                 >
-                  Scegli questa →
+                  {language === 'en' ? 'Select this →' : 'Scegli questa →'}
                 </div>
               </div>
             </button>
@@ -329,7 +361,7 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
             className="btn-push px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-2xl bg-gold text-ink font-display font-bold text-xs sm:text-sm flex items-center gap-1.5"
           >
             <Shuffle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <span>Altre 4 proposte</span>
+            <span>{language === 'en' ? 'Shuffle (Reroll)' : 'Altre 4 proposte'}</span>
           </button>
 
           <button
@@ -338,7 +370,11 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
             className="btn-push px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-2xl bg-cream text-ink font-display font-bold text-xs sm:text-sm flex items-center gap-1.5"
           >
             <Grid className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-p1" />
-            <span>Tutte le {categories.length}</span>
+            <span>
+              {language === 'en'
+                ? `All Categories (${availableCategories.length})`
+                : `Tutte le ${categories.length}`}
+            </span>
           </button>
         </div>
 
@@ -347,32 +383,72 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
         </span>
       </footer>
 
-      {/* Finestra Scelta Libera da tutte le 36 categorie */}
+      {/* Finestra Scelta Libera da tutte le categorie */}
       {showAllModal && (
         <div className="fixed inset-0 z-40 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="card-cream max-w-4xl w-full max-h-[85vh] rounded-3xl flex flex-col overflow-hidden">
-            <div className="p-4 sm:p-5 bg-paper border-b-[3px] border-ink flex items-center justify-between gap-3">
-              <h2 className="font-display font-bold text-xl text-ink">
-                Tutte le Categorie ({categories.length})
-              </h2>
-              <div className="flex items-center gap-2">
-                <div className="relative">
-                  <Search className="w-4 h-4 text-ink/50 absolute left-3 top-1/2 -translate-y-1/2" />
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Cerca..."
-                    className="pl-9 pr-3 py-1.5 rounded-xl bg-white border-2 border-ink/25 text-sm text-ink focus:outline-none focus:border-p1"
-                  />
+            <div className="p-4 sm:p-5 bg-paper border-b-[3px] border-ink flex flex-col gap-2.5">
+              <div className="flex items-center justify-between gap-3">
+                <h2 className="font-display font-bold text-lg sm:text-xl text-ink">
+                  {language === 'en'
+                    ? `All Categories (${modalCatalog.length})`
+                    : `Tutte le Categorie (${modalCatalog.length})`}
+                </h2>
+                <div className="flex items-center gap-2">
+                  <div className="relative">
+                    <Search className="w-4 h-4 text-ink/50 absolute left-3 top-1/2 -translate-y-1/2" />
+                    <input
+                      type="text"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder={t('draft.searchPlaceholder', language)}
+                      className="pl-9 pr-3 py-1.5 rounded-xl bg-white border-2 border-ink/25 text-sm text-ink focus:outline-none focus:border-p1"
+                    />
+                  </div>
+                  <button
+                    onClick={() => setShowAllModal(false)}
+                    className="p-2 rounded-xl bg-white border-2 border-ink text-ink hover:bg-p2 hover:text-white"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
                 </div>
-                <button
-                  onClick={() => setShowAllModal(false)}
-                  className="p-2 rounded-xl bg-white border-2 border-ink text-ink hover:bg-p2 hover:text-white"
-                >
-                  <X className="w-4 h-4" />
-                </button>
               </div>
+
+              {/* Filtri a schede per la lingua italiana (Tutte vs Internazionali vs Esclusive Italiane) */}
+              {language === 'it' && (
+                <div className="flex items-center gap-1.5 overflow-x-auto pt-1">
+                  <button
+                    onClick={() => setTabFilter('all')}
+                    className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                      tabFilter === 'all'
+                        ? 'bg-ink text-cream shadow-sm'
+                        : 'bg-white text-ink/70 border border-ink/20 hover:text-ink'
+                    }`}
+                  >
+                    Tutte ({categories.length})
+                  </button>
+                  <button
+                    onClick={() => setTabFilter('intl')}
+                    className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                      tabFilter === 'intl'
+                        ? 'bg-ink text-cream shadow-sm'
+                        : 'bg-white text-ink/70 border border-ink/20 hover:text-ink'
+                    }`}
+                  >
+                    Internazionali 🌍 ({categories.filter((c) => c.scope !== 'it-only').length})
+                  </button>
+                  <button
+                    onClick={() => setTabFilter('it-only')}
+                    className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                      tabFilter === 'it-only'
+                        ? 'bg-ink text-cream shadow-sm'
+                        : 'bg-white text-ink/70 border border-ink/20 hover:text-ink'
+                    }`}
+                  >
+                    Esclusive Italiane 🇮🇹 ({categories.filter((c) => c.scope === 'it-only').length})
+                  </button>
+                </div>
+              )}
             </div>
 
             <div className="p-5 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 max-h-[70vh]">
@@ -426,21 +502,26 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
                       </div>
                     </div>
 
-                    {/* Dettagli tematici della categoria (zero spoiler sul nome dell'immagine) */}
+                    {/* Dettagli tematici della categoria */}
                     <div className="min-w-0 flex-1">
                       <div className="font-display font-bold text-sm text-ink truncate group-hover:text-p1 transition-colors">
-                        {cat.name}
+                        {getCategoryTitle(cat, language)}
                       </div>
                       <div className="text-[11px] text-ink/65 line-clamp-1 font-medium mt-0.5">
-                        {cat.subtitle}
+                        {getCategorySubtitle(cat, language)}
                       </div>
                       <div className="flex items-center gap-1.5 mt-1.5">
                         <span className="px-2 py-0.5 rounded-full bg-paper border border-ink/20 text-[10px] font-bold text-ink/75">
-                          {cat.items.length} soggetti ({cat.items.reduce((acc, it) => acc + (it.imageUrls?.length || 1), 0)} foto)
+                          {cat.items.length} {language === 'en' ? 'items' : 'soggetti'} ({cat.items.reduce((acc: number, it) => acc + (it.imageUrls?.length || 1), 0)} {language === 'en' ? 'photos' : 'foto'})
                         </span>
                         {alreadyPlayed && (
                           <span className="text-[10px] font-bold text-p2">
-                            • Già giocata
+                            • {language === 'en' ? 'Already played' : 'Già giocata'}
+                          </span>
+                        )}
+                        {cat.scope === 'it-only' && (
+                          <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded border border-emerald-300">
+                            🇮🇹 Solo IT
                           </span>
                         )}
                       </div>
@@ -463,12 +544,12 @@ export const CategoryDraftScreen: React.FC<CategoryDraftScreenProps> = ({
 
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-ink/60">
-                Scelta di {chooser.name}
+                {language === 'en' ? `Chosen by ${chooser.name}` : `Scelta di ${chooser.name}`}
               </span>
               <h2 className="font-display font-bold text-3xl sm:text-4xl text-ink mt-1">
-                {selectedCat.name}
+                {getCategoryTitle(selectedCat, language)}
               </h2>
-              <p className="text-sm text-ink/70 mt-1">{selectedCat.subtitle}</p>
+              <p className="text-sm text-ink/70 mt-1">{getCategorySubtitle(selectedCat, language)}</p>
             </div>
 
             <div className="w-full py-3 px-4 rounded-2xl bg-paper border-2 border-ink/15 flex items-center justify-around">

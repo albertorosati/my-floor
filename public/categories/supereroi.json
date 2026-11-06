@@ -336,5 +336,8 @@
       ],
       "imageUrl": "https://upload.wikimedia.org/wikipedia/it/6/66/Tartarughe_Ninja.png"
     }
-  ]
+  ],
+  "scope": "intl",
+  "nameEn": "Superheroes & Villains",
+  "subtitleEn": "Marvel, DC, and comic book legends"
 }

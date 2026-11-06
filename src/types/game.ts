@@ -1,4 +1,6 @@
 export type PlayerId = 'p1' | 'p2';
+export type AppLanguage = 'it' | 'en';
+export type CategoryScope = 'all' | 'intl' | 'it-only';
 
 export interface PlayerConfig {
   id: PlayerId;
@@ -13,18 +15,26 @@ export interface DuelItem {
   imageUrl: string;
   /** Pool di foto alternative per lo stesso soggetto (anti-memorizzazione del singolo scatto) */
   imageUrls?: string[];
+  /** Risposta in inglese per duelli in lingua inglese */
+  answerEn?: string;
+  /** Sinonimi in lingua inglese */
+  aliasesEn?: string[];
 }
 
 export interface Category {
   id: string;
   name: string;
   subtitle: string;
+  nameEn?: string;
+  subtitleEn?: string;
   icon: string;
   themeHex: string;
   coverImage?: string;
   previewImages?: string[];
   items: DuelItem[];
   isCustom?: boolean;
+  /** 'intl' = internazionale disponibile in tutte le lingue; 'it-only' = esclusiva italiana (esclusa in inglese) */
+  scope?: CategoryScope;
 }
 
 export type MicMode = 'local-shared' | 'discord-p2p';
@@ -40,6 +50,7 @@ export interface GameSettings {
   soundEnabled: boolean;
   announcerEnabled: boolean;
   hapticsEnabled: boolean;
+  language: AppLanguage;
 }
 
 export interface DuelSummary {

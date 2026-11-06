@@ -547,5 +547,6 @@
         "https://upload.wikimedia.org/wikipedia/commons/b/bd/Tomas_Milian.jpg"
       ]
     }
-  ]
+  ],
+  "scope": "it-only"
 }

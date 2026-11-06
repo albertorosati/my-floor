@@ -362,7 +362,8 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
       },
       (vol) => {
         setMicVolume(vol);
-      }
+      },
+      settings.language || 'it'
     );
     recognizerRef.current = rec;
     rec.start();
@@ -991,20 +992,20 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
 
           <div className="min-w-0 flex-1">
             <div className="text-[10px] sm:text-[11px] font-bold text-ink/60 truncate flex items-center gap-1.5">
-              <span>{activePlayer === 'p1' ? p1.name : p2.name} al mic</span>
+              <span>{activePlayer === 'p1' ? p1.name : p2.name} {settings.language === 'en' ? 'speaking' : 'al mic'}</span>
               {!micListening && (
-                <span className="text-p2 font-bold">(Tocca il mic)</span>
+                <span className="text-p2 font-bold">{settings.language === 'en' ? '(Tap mic)' : '(Tocca il mic)'}</span>
               )}
             </div>
             <div className="text-xs sm:text-sm font-display font-bold text-ink truncate leading-tight">
               {liveTranscript ? (
                 <span className="text-p1 font-extrabold">“{liveTranscript}”</span>
               ) : micListening ? (
-                'Di’ cos’è o di’ “Passo”...'
+                settings.language === 'en' ? 'Say what you see or "Pass"...' : 'Di’ cos’è o di’ “Passo”...'
               ) : micErrorMsg ? (
                 <span className="text-p2">{micErrorMsg}</span>
               ) : (
-                'Tocca l’icona mic per iniziare'
+                settings.language === 'en' ? 'Tap mic icon to start' : 'Tocca l’icona mic per iniziare'
               )}
             </div>
           </div>
@@ -1018,17 +1019,17 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
             className="btn-push px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-gold text-ink font-display font-black text-xs flex items-center gap-1 shadow-sm active:translate-y-1"
           >
             <FastForward className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <span>Passo (-3s)</span>
+            <span>{settings.language === 'en' ? 'Pass (-3s)' : 'Passo (-3s)'}</span>
           </button>
 
           <button
             onClick={() => triggerCorrectGuess(currentItem.answer)}
             disabled={passPenaltyLeft > 0 || correctFlash !== null}
-            title="Segna buona manualmente [Invio]"
+            title={settings.language === 'en' ? 'Mark correct manually [Enter]' : 'Segna buona manualmente [Invio]'}
             className="btn-push px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-xl bg-mint text-ink font-display font-black text-xs flex items-center gap-1 shadow-sm active:translate-y-1"
           >
             <Check className="w-4 h-4 stroke-[3]" />
-            <span>Buona</span>
+            <span>{settings.language === 'en' ? 'Correct' : 'Buona'}</span>
           </button>
         </div>
       </div>
@@ -1061,14 +1062,17 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
             <div>
               <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gold text-ink font-display font-bold text-xs uppercase tracking-wider border-2 border-ink shadow-chunky-sm mb-2">
                 <Trophy className="w-3.5 h-3.5" />
-                <span>Punto Conquistato!</span>
+                <span>{settings.language === 'en' ? 'Round Won!' : 'Punto Conquistato!'}</span>
               </div>
               <h2 className="font-display font-bold text-3xl sm:text-5xl text-ink leading-tight">
-                Ha vinto {duelFinishData.winner === 'p1' ? p1.name : p2.name}!
+                {settings.language === 'en'
+                  ? `${duelFinishData.winner === 'p1' ? p1.name : p2.name} Won!`
+                  : `Ha vinto ${duelFinishData.winner === 'p1' ? p1.name : p2.name}!`}
               </h2>
               <p className="text-sm font-semibold text-ink/70 mt-1">
-                {duelFinishData.loser === 'p1' ? p1.name : p2.name} ha esaurito il
-                tempo su &ldquo;{category.name}&rdquo;
+                {settings.language === 'en'
+                  ? `${duelFinishData.loser === 'p1' ? p1.name : p2.name} ran out of time on “${category.name}”`
+                  : `${duelFinishData.loser === 'p1' ? p1.name : p2.name} ha esaurito il tempo su “${category.name}”`}
               </p>
             </div>
 
@@ -1076,7 +1080,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
             <div className="w-full grid grid-cols-2 gap-3 bg-paper p-3.5 rounded-2xl border-2 border-ink">
               <div>
                 <span className="text-[11px] font-bold text-ink/60 uppercase block">
-                  Tempo Rimasto
+                  {settings.language === 'en' ? 'Time Left' : 'Tempo Rimasto'}
                 </span>
                 <span className="font-mono font-extrabold text-2xl text-mint">
                   {duelFinishData.summary.winnerTimeLeft.toFixed(1)}s
@@ -1084,13 +1088,13 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
               </div>
               <div>
                 <span className="text-[11px] font-bold text-ink/60 uppercase block">
-                  Foto Indovinate
+                  {settings.language === 'en' ? 'Correct Photos' : 'Foto Indovinate'}
                 </span>
                 <span className="font-display font-bold text-2xl text-ink">
                   {duelFinishData.winner === 'p1'
                     ? duelFinishData.summary.p1Correct
                     : duelFinishData.summary.p2Correct}{' '}
-                  foto
+                  {settings.language === 'en' ? 'photos' : 'foto'}
                 </span>
               </div>
             </div>
@@ -1101,7 +1105,7 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
               className="btn-push w-full py-4 px-6 rounded-2xl bg-gold text-ink font-display font-bold text-lg flex items-center justify-center gap-2 mt-1 animate-bounce-soft"
             >
               <Sparkles className="w-5 h-5 text-ink" />
-              <span>Scegli la Prossima Categoria</span>
+              <span>{settings.language === 'en' ? 'Choose Next Category' : 'Scegli la Prossima Categoria'}</span>
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
@@ -1113,16 +1117,18 @@ export const DuelArenaScreen: React.FC<DuelArenaScreenProps> = ({
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-6">
           <div className="card-cream max-w-sm w-full rounded-3xl p-8 text-center flex flex-col items-center gap-4">
             <h2 className="font-display font-bold text-3xl text-ink">
-              Gioco in pausa
+              {settings.language === 'en' ? 'Game Paused' : 'Gioco in pausa'}
             </h2>
             <p className="text-sm text-ink/70">
-              Il tempo è fermo. Clicca qui sotto quando siete pronti a ripartire!
+              {settings.language === 'en'
+                ? 'Timer is paused. Click below when you are ready to resume!'
+                : 'Il tempo è fermo. Clicca qui sotto quando siete pronti a ripartire!'}
             </p>
             <button
               onClick={() => setIsPaused(false)}
               className="btn-push w-full py-3.5 rounded-2xl bg-gold text-ink font-display font-bold text-lg"
             >
-              Riprendi
+              {settings.language === 'en' ? 'Resume' : 'Riprendi'}
             </button>
           </div>
         </div>

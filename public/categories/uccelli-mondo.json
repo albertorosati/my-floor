@@ -30,7 +30,11 @@
       "aliases": [
         "flamingo"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/010_Greater_flamingos_male_and_female_in_the_Camargue_during_mating_season_Photo_by_Giles_Laurent.jpg/960px-010_Greater_flamingos_male_and_female_in_the_Camargue_during_mating_season_Photo_by_Giles_Laurent.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/010_Greater_flamingos_male_and_female_in_the_Camargue_during_mating_season_Photo_by_Giles_Laurent.jpg/960px-010_Greater_flamingos_male_and_female_in_the_Camargue_during_mating_season_Photo_by_Giles_Laurent.jpg",
+      "answerEn": "Flamingo",
+      "aliasesEn": [
+        "flamingos"
+      ]
     },
     {
       "id": "uccelli-mondo-4",
@@ -262,7 +266,11 @@
       "aliases": [
         "uccello kiwi"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/TeTuatahianui.jpg/960px-TeTuatahianui.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/TeTuatahianui.jpg/960px-TeTuatahianui.jpg",
+      "answerEn": "Kiwi",
+      "aliasesEn": [
+        "kiwifruit"
+      ]
     },
     {
       "id": "uccelli-mondo-35",
@@ -286,5 +294,8 @@
       ],
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg"
     }
-  ]
+  ],
+  "scope": "intl",
+  "nameEn": "Spectacular Birds",
+  "subtitleEn": "Feathered species from tropical forests to skies"
 }

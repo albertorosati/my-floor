@@ -401,5 +401,8 @@
       ],
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Pac-Man_ingame_and_2D_alternative_design.png"
     }
-  ]
+  ],
+  "scope": "intl",
+  "nameEn": "Famous Video Games",
+  "subtitleEn": "Legendary games from arcade to modern hits"
 }

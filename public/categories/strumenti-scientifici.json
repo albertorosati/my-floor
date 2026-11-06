@@ -260,5 +260,8 @@
       "aliases": [],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Geiger_counter.jpg/960px-Geiger_counter.jpg"
     }
-  ]
+  ],
+  "scope": "intl",
+  "nameEn": "Science & Medical Tools",
+  "subtitleEn": "Laboratory instruments and medical devices"
 }

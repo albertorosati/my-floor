@@ -282,5 +282,8 @@
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Meteor_shower_in_the_Chilean_Desert_%28annotated%29_%28potw2227b%29.jpg/960px-Meteor_shower_in_the_Chilean_Desert_%28annotated%29_%28potw2227b%29.jpg"
     }
-  ]
+  ],
+  "scope": "intl",
+  "nameEn": "Space, Science & Nature",
+  "subtitleEn": "Planets, galaxies, and celestial phenomena"
 }

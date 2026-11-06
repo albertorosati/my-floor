@@ -658,7 +658,10 @@
           "https://upload.wikimedia.org/wikipedia/commons/e/e4/Robbie_Williams_2012.jpg"
         ]
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "World Pop Artists",
+    "subtitleEn": "Global superstars and timeless hitmakers"
   },
   {
     "id": "musica-italiana",
@@ -1318,7 +1321,8 @@
           "https://upload.wikimedia.org/wikipedia/commons/8/8a/Egor_Kahotkin_With_Al_Bano.JPG"
         ]
       }
-    ]
+    ],
+    "scope": "it-only"
   },
   {
     "id": "attori-hollywood",
@@ -1984,7 +1988,10 @@
           "https://upload.wikimedia.org/wikipedia/commons/f/fb/Tom_Hanks_2016.jpg"
         ]
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Hollywood Actors",
+    "subtitleEn": "The biggest stars of the silver screen"
   },
   {
     "id": "cinema-cult",
@@ -2358,7 +2365,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/0/09/Silenzio_gip.jpg/960px-Silenzio_gip.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Cult & Classic Movies",
+    "subtitleEn": "Unforgettable cinematic masterpieces"
   },
   {
     "id": "serie-tv",
@@ -2706,7 +2716,10 @@
         ],
         "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/54/Claudio_Amendola_D%C3%A9luge.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Famous TV Series",
+    "subtitleEn": "Binge-worthy shows that made TV history"
   },
   {
     "id": "youtuber-streamer",
@@ -3203,7 +3216,10 @@
           "https://upload.wikimedia.org/wikipedia/commons/1/19/Asmongold_in_2020_%282%29.png"
         ]
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "YouTubers & Streamers",
+    "subtitleEn": "The most popular web creators and gamers"
   },
   {
     "id": "meme-tiktok",
@@ -3516,7 +3532,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Dogecoin_gold_coin_black_background_1_-_tails.jpg/960px-Dogecoin_gold_coin_black_background_1_-_tails.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Viral Memes & Trends",
+    "subtitleEn": "Internet culture, trends, and iconic memes"
   },
   {
     "id": "gen-z",
@@ -3844,7 +3863,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Mama_instant_noodle_block.jpg/960px-Mama_instant_noodle_block.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Gen Z Starter Pack",
+    "subtitleEn": "Aesthetics, trends, and modern culture"
   },
   {
     "id": "videogiochi",
@@ -4249,7 +4271,10 @@
         ],
         "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Pac-Man_ingame_and_2D_alternative_design.png"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Famous Video Games",
+    "subtitleEn": "Legendary games from arcade to modern hits"
   },
   {
     "id": "pokemon",
@@ -4648,7 +4673,10 @@
         "aliases": [],
         "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Pokémon",
+    "subtitleEn": "Gotta catch ’em all! Iconic Pokémon species"
   },
   {
     "id": "anime-manga",
@@ -4967,7 +4995,10 @@
         ],
         "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Eoperipatus_totoro.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Anime & Manga Icons",
+    "subtitleEn": "Beloved heroes and villains of Japanese animation"
   },
   {
     "id": "cartoni-animati",
@@ -5290,7 +5321,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/it/thumb/b/be/Un_uomo_chiamato_Flintstone.png/960px-Un_uomo_chiamato_Flintstone.png"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Cartoons & Animation",
+    "subtitleEn": "Classic Disney, Pixar, and animation characters"
   },
   {
     "id": "calciatori",
@@ -5955,7 +5989,10 @@
           "https://upload.wikimedia.org/wikipedia/commons/d/de/Harry_Kane_2018-07-03_1.jpg"
         ]
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Elite Footballers",
+    "subtitleEn": "Soccer legends and current world superstars"
   },
   {
     "id": "leggende-sport",
@@ -6540,7 +6577,10 @@
           "https://upload.wikimedia.org/wikipedia/commons/c/c3/Rey_mysterio_is_back.jpg"
         ]
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Sports Legends",
+    "subtitleEn": "The greatest athletes in sporting history"
   },
   {
     "id": "tv-italiana",
@@ -7113,7 +7153,8 @@
           "https://upload.wikimedia.org/wikipedia/commons/0/0e/Simona_Ventura_-_nicogenin_-_66%C3%A8me_Festival_de_Venise_%28Mostra%29.jpg"
         ]
       }
-    ]
+    ],
+    "scope": "it-only"
   },
   {
     "id": "supereroi",
@@ -7453,7 +7494,10 @@
         ],
         "imageUrl": "https://upload.wikimedia.org/wikipedia/it/6/66/Tartarughe_Ninja.png"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Superheroes & Villains",
+    "subtitleEn": "Marvel, DC, and comic book legends"
   },
   {
     "id": "nostalgia-90-00",
@@ -7795,7 +7839,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Munich_-_Deutsches_Museum_-_07-0647.jpg/960px-Munich_-_Deutsches_Museum_-_07-0647.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "’90s & 2000s Nostalgia",
+    "subtitleEn": "Retro gadgets, toys, and childhood memories"
   },
   {
     "id": "cucina-italiana",
@@ -8142,7 +8189,8 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Prosciutto_di_Parma%2C_ham_producing.jpg/960px-Prosciutto_di_Parma%2C_ham_producing.jpg"
       }
-    ]
+    ],
+    "scope": "it-only"
   },
   {
     "id": "cucina-mondo",
@@ -8492,7 +8540,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/MussakasMeMelitsanesKePatates01.JPG/960px-MussakasMeMelitsanesKePatates01.JPG"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "World Street Food & Cuisine",
+    "subtitleEn": "Iconic dishes and delicacies around the globe"
   },
   {
     "id": "snack-bibite",
@@ -8812,7 +8863,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Cappuccino_in_original.jpg/960px-Cappuccino_in_original.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Snacks, Treats & Sodas",
+    "subtitleEn": "Famous sweet treats, chips, and refreshing drinks"
   },
   {
     "id": "auto-moto",
@@ -9157,7 +9211,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Dodge-based_recreational_vehicle_in_Munich.JPG/960px-Dodge-based_recreational_vehicle_in_Munich.JPG"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Supercars, Cars & Bikes",
+    "subtitleEn": "Legendary cars, motorcycles, and speed icons"
   },
   {
     "id": "monumenti",
@@ -9500,7 +9557,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg/960px-Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Monuments & World Wonders",
+    "subtitleEn": "Architectural wonders and ancient landmarks"
   },
   {
     "id": "citta-mondo",
@@ -9807,7 +9867,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Alberobello_con_il_drone.jpg/960px-Alberobello_con_il_drone.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Major World Cities",
+    "subtitleEn": "Skylines, world capitals, and famous metropolises"
   },
   {
     "id": "bandiere",
@@ -9829,25 +9892,41 @@
         "aliases": [
           "repubblica italiana"
         ],
-        "imageUrl": "https://flagcdn.com/w640/it.png"
+        "imageUrl": "https://flagcdn.com/w640/it.png",
+        "answerEn": "Italy",
+        "aliasesEn": [
+          "italian republic"
+        ]
       },
       {
         "id": "bandiere-2",
         "answer": "Francia",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/fr.png"
+        "imageUrl": "https://flagcdn.com/w640/fr.png",
+        "answerEn": "France",
+        "aliasesEn": [
+          "french republic"
+        ]
       },
       {
         "id": "bandiere-3",
         "answer": "Germania",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/de.png"
+        "imageUrl": "https://flagcdn.com/w640/de.png",
+        "answerEn": "Germany",
+        "aliasesEn": [
+          "deutschland"
+        ]
       },
       {
         "id": "bandiere-4",
         "answer": "Spagna",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/es.png"
+        "imageUrl": "https://flagcdn.com/w640/es.png",
+        "answerEn": "Spain",
+        "aliasesEn": [
+          "kingdom of spain"
+        ]
       },
       {
         "id": "bandiere-5",
@@ -9857,7 +9936,13 @@
           "inghilterra",
           "uk"
         ],
-        "imageUrl": "https://flagcdn.com/w640/gb.png"
+        "imageUrl": "https://flagcdn.com/w640/gb.png",
+        "answerEn": "United Kingdom",
+        "aliasesEn": [
+          "uk",
+          "britain",
+          "great britain"
+        ]
       },
       {
         "id": "bandiere-6",
@@ -9866,55 +9951,87 @@
           "usa",
           "america"
         ],
-        "imageUrl": "https://flagcdn.com/w640/us.png"
+        "imageUrl": "https://flagcdn.com/w640/us.png",
+        "answerEn": "United States",
+        "aliasesEn": [
+          "usa",
+          "us",
+          "america"
+        ]
       },
       {
         "id": "bandiere-7",
         "answer": "Giappone",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/jp.png"
+        "imageUrl": "https://flagcdn.com/w640/jp.png",
+        "answerEn": "Japan",
+        "aliasesEn": [
+          "nippon"
+        ]
       },
       {
         "id": "bandiere-8",
         "answer": "Brasile",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/br.png"
+        "imageUrl": "https://flagcdn.com/w640/br.png",
+        "answerEn": "Brazil",
+        "aliasesEn": [
+          "brasil"
+        ]
       },
       {
         "id": "bandiere-9",
         "answer": "Argentina",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/ar.png"
+        "imageUrl": "https://flagcdn.com/w640/ar.png",
+        "answerEn": "Argentina",
+        "aliasesEn": []
       },
       {
         "id": "bandiere-10",
         "answer": "Canada",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/ca.png"
+        "imageUrl": "https://flagcdn.com/w640/ca.png",
+        "answerEn": "Canada",
+        "aliasesEn": []
       },
       {
         "id": "bandiere-11",
         "answer": "Svizzera",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/ch.png"
+        "imageUrl": "https://flagcdn.com/w640/ch.png",
+        "answerEn": "Switzerland",
+        "aliasesEn": [
+          "swiss"
+        ]
       },
       {
         "id": "bandiere-12",
         "answer": "Grecia",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/gr.png"
+        "imageUrl": "https://flagcdn.com/w640/gr.png",
+        "answerEn": "Greece",
+        "aliasesEn": [
+          "hellas"
+        ]
       },
       {
         "id": "bandiere-13",
         "answer": "Portogallo",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/pt.png"
+        "imageUrl": "https://flagcdn.com/w640/pt.png",
+        "answerEn": "Portugal",
+        "aliasesEn": []
       },
       {
         "id": "bandiere-14",
         "answer": "Cina",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/cn.png"
+        "imageUrl": "https://flagcdn.com/w640/cn.png",
+        "answerEn": "China",
+        "aliasesEn": [
+          "prc"
+        ]
       },
       {
         "id": "bandiere-15",
@@ -9923,49 +10040,71 @@
           "corea",
           "sud corea"
         ],
-        "imageUrl": "https://flagcdn.com/w640/kr.png"
+        "imageUrl": "https://flagcdn.com/w640/kr.png",
+        "answerEn": "South Korea",
+        "aliasesEn": [
+          "korea"
+        ]
       },
       {
         "id": "bandiere-16",
         "answer": "Australia",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/au.png"
+        "imageUrl": "https://flagcdn.com/w640/au.png",
+        "answerEn": "Australia",
+        "aliasesEn": [
+          "aussie"
+        ]
       },
       {
         "id": "bandiere-17",
         "answer": "Messico",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/mx.png"
+        "imageUrl": "https://flagcdn.com/w640/mx.png",
+        "answerEn": "Mexico",
+        "aliasesEn": [
+          "mejico"
+        ]
       },
       {
         "id": "bandiere-18",
         "answer": "Egitto",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/eg.png"
+        "imageUrl": "https://flagcdn.com/w640/eg.png",
+        "answerEn": "Egypt",
+        "aliasesEn": []
       },
       {
         "id": "bandiere-19",
         "answer": "Svezia",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/se.png"
+        "imageUrl": "https://flagcdn.com/w640/se.png",
+        "answerEn": "Sweden",
+        "aliasesEn": []
       },
       {
         "id": "bandiere-20",
         "answer": "Norvegia",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/no.png"
+        "imageUrl": "https://flagcdn.com/w640/no.png",
+        "answerEn": "Norway",
+        "aliasesEn": []
       },
       {
         "id": "bandiere-21",
         "answer": "Finlandia",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/fi.png"
+        "imageUrl": "https://flagcdn.com/w640/fi.png",
+        "answerEn": "Finland",
+        "aliasesEn": []
       },
       {
         "id": "bandiere-22",
         "answer": "Danimarca",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/dk.png"
+        "imageUrl": "https://flagcdn.com/w640/dk.png",
+        "answerEn": "Denmark",
+        "aliasesEn": []
       },
       {
         "id": "bandiere-23",
@@ -9977,7 +10116,11 @@
         "id": "bandiere-24",
         "answer": "Irlanda",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/ie.png"
+        "imageUrl": "https://flagcdn.com/w640/ie.png",
+        "answerEn": "Ireland",
+        "aliasesEn": [
+          "eire"
+        ]
       },
       {
         "id": "bandiere-25",
@@ -9985,13 +10128,19 @@
         "aliases": [
           "olanda"
         ],
-        "imageUrl": "https://flagcdn.com/w640/nl.png"
+        "imageUrl": "https://flagcdn.com/w640/nl.png",
+        "answerEn": "Netherlands",
+        "aliasesEn": [
+          "holland"
+        ]
       },
       {
         "id": "bandiere-26",
         "answer": "Belgio",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/be.png"
+        "imageUrl": "https://flagcdn.com/w640/be.png",
+        "answerEn": "Belgium",
+        "aliasesEn": []
       },
       {
         "id": "bandiere-27",
@@ -10015,13 +10164,21 @@
         "id": "bandiere-30",
         "answer": "Turchia",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/tr.png"
+        "imageUrl": "https://flagcdn.com/w640/tr.png",
+        "answerEn": "Turkey",
+        "aliasesEn": [
+          "turkiye"
+        ]
       },
       {
         "id": "bandiere-31",
         "answer": "India",
         "aliases": [],
-        "imageUrl": "https://flagcdn.com/w640/in.png"
+        "imageUrl": "https://flagcdn.com/w640/in.png",
+        "answerEn": "India",
+        "aliasesEn": [
+          "bharat"
+        ]
       },
       {
         "id": "bandiere-32",
@@ -10029,7 +10186,9 @@
         "aliases": [
           "sud africa"
         ],
-        "imageUrl": "https://flagcdn.com/w640/za.png"
+        "imageUrl": "https://flagcdn.com/w640/za.png",
+        "answerEn": "South Africa",
+        "aliasesEn": []
       },
       {
         "id": "bandiere-33",
@@ -10177,7 +10336,10 @@
         "aliases": [],
         "imageUrl": "https://flagcdn.com/w640/sn.png"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "World Flags",
+    "subtitleEn": "National flags from countries across the globe"
   },
   {
     "id": "razze-cani",
@@ -10481,7 +10643,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/3-BerneseMountainDogInGrass.jpg/960px-3-BerneseMountainDogInGrass.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Dog Breeds",
+    "subtitleEn": "Man’s best friends of every shape and size"
   },
   {
     "id": "animali-selvatici",
@@ -10503,25 +10668,41 @@
         "aliases": [
           "leonessa"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/020_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg/960px-020_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/020_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg/960px-020_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg",
+        "answerEn": "Lion",
+        "aliasesEn": [
+          "lions"
+        ]
       },
       {
         "id": "animali-selvatici-2",
         "answer": "Tigre",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/960px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/960px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
+        "answerEn": "Tiger",
+        "aliasesEn": [
+          "tigers"
+        ]
       },
       {
         "id": "animali-selvatici-3",
         "answer": "Ghepardo",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Male_cheetah_facing_left_in_South_Africa.jpg/960px-Male_cheetah_facing_left_in_South_Africa.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Male_cheetah_facing_left_in_South_Africa.jpg/960px-Male_cheetah_facing_left_in_South_Africa.jpg",
+        "answerEn": "Cheetah",
+        "aliasesEn": [
+          "cheetahs"
+        ]
       },
       {
         "id": "animali-selvatici-4",
         "answer": "Leopardo",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/African_leopard_male_%28cropped%29.jpg/960px-African_leopard_male_%28cropped%29.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/African_leopard_male_%28cropped%29.jpg/960px-African_leopard_male_%28cropped%29.jpg",
+        "answerEn": "Leopard",
+        "aliasesEn": [
+          "leopards"
+        ]
       },
       {
         "id": "animali-selvatici-5",
@@ -10529,25 +10710,42 @@
         "aliases": [
           "elefante africano"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/178_Male_African_bush_elephant_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg/960px-178_Male_African_bush_elephant_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/178_Male_African_bush_elephant_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg/960px-178_Male_African_bush_elephant_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg",
+        "answerEn": "Elephant",
+        "aliasesEn": [
+          "elephants"
+        ]
       },
       {
         "id": "animali-selvatici-6",
         "answer": "Giraffa",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Giraffe_Mikumi_National_Park.jpg/960px-Giraffe_Mikumi_National_Park.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Giraffe_Mikumi_National_Park.jpg/960px-Giraffe_Mikumi_National_Park.jpg",
+        "answerEn": "Giraffe",
+        "aliasesEn": [
+          "giraffes"
+        ]
       },
       {
         "id": "animali-selvatici-7",
         "answer": "Zebra",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Equus_quagga_burchellii_-_Etosha%2C_2014.jpg/960px-Equus_quagga_burchellii_-_Etosha%2C_2014.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Equus_quagga_burchellii_-_Etosha%2C_2014.jpg/960px-Equus_quagga_burchellii_-_Etosha%2C_2014.jpg",
+        "answerEn": "Zebra",
+        "aliasesEn": [
+          "zebras"
+        ]
       },
       {
         "id": "animali-selvatici-8",
         "answer": "Rinoceronte",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/109_Male_White_rhinoceros_walking_in_the_Kalahari_Desert_of_Namibia_Photo_by_Giles_Laurent.jpg/960px-109_Male_White_rhinoceros_walking_in_the_Kalahari_Desert_of_Namibia_Photo_by_Giles_Laurent.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/109_Male_White_rhinoceros_walking_in_the_Kalahari_Desert_of_Namibia_Photo_by_Giles_Laurent.jpg/960px-109_Male_White_rhinoceros_walking_in_the_Kalahari_Desert_of_Namibia_Photo_by_Giles_Laurent.jpg",
+        "answerEn": "Rhinoceros",
+        "aliasesEn": [
+          "rhino",
+          "rhinos"
+        ]
       },
       {
         "id": "animali-selvatici-9",
@@ -10555,13 +10753,22 @@
         "aliases": [
           "ipopotamo"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Portrait_Hippopotamus_in_the_water.jpg/960px-Portrait_Hippopotamus_in_the_water.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Portrait_Hippopotamus_in_the_water.jpg/960px-Portrait_Hippopotamus_in_the_water.jpg",
+        "answerEn": "Hippopotamus",
+        "aliasesEn": [
+          "hippo",
+          "hippos"
+        ]
       },
       {
         "id": "animali-selvatici-10",
         "answer": "Gorilla",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Gorille_des_plaines_de_l%27ouest_%C3%A0_l%27Espace_Zoologique.jpg/960px-Gorille_des_plaines_de_l%27ouest_%C3%A0_l%27Espace_Zoologique.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Gorille_des_plaines_de_l%27ouest_%C3%A0_l%27Espace_Zoologique.jpg/960px-Gorille_des_plaines_de_l%27ouest_%C3%A0_l%27Espace_Zoologique.jpg",
+        "answerEn": "Gorilla",
+        "aliasesEn": [
+          "gorillas"
+        ]
       },
       {
         "id": "animali-selvatici-11",
@@ -10615,13 +10822,21 @@
         "aliases": [
           "coala"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/960px-Koala_climbing_tree.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/960px-Koala_climbing_tree.jpg",
+        "answerEn": "Koala",
+        "aliasesEn": [
+          "koala bear"
+        ]
       },
       {
         "id": "animali-selvatici-18",
         "answer": "Canguro",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Red_kangaroo_-_melbourne_zoo.jpg/960px-Red_kangaroo_-_melbourne_zoo.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Red_kangaroo_-_melbourne_zoo.jpg/960px-Red_kangaroo_-_melbourne_zoo.jpg",
+        "answerEn": "Kangaroo",
+        "aliasesEn": [
+          "roos"
+        ]
       },
       {
         "id": "animali-selvatici-19",
@@ -10637,7 +10852,11 @@
         "aliases": [
           "orso bianco"
         ],
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/66/Polar_Bear_-_Alaska_%28cropped%29.jpg"
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/66/Polar_Bear_-_Alaska_%28cropped%29.jpg",
+        "answerEn": "Polar Bear",
+        "aliasesEn": [
+          "polar bears"
+        ]
       },
       {
         "id": "animali-selvatici-21",
@@ -10652,13 +10871,21 @@
         "id": "animali-selvatici-22",
         "answer": "Lupo",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Eurasian_wolf_2.jpg/960px-Eurasian_wolf_2.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Eurasian_wolf_2.jpg/960px-Eurasian_wolf_2.jpg",
+        "answerEn": "Wolf",
+        "aliasesEn": [
+          "wolves"
+        ]
       },
       {
         "id": "animali-selvatici-23",
         "answer": "Volpe",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Portrait_of_a_red_fox_in_Rautas_fj%C3%A4llurskog_%28cropped%29.jpg/960px-Portrait_of_a_red_fox_in_Rautas_fj%C3%A4llurskog_%28cropped%29.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Portrait_of_a_red_fox_in_Rautas_fj%C3%A4llurskog_%28cropped%29.jpg/960px-Portrait_of_a_red_fox_in_Rautas_fj%C3%A4llurskog_%28cropped%29.jpg",
+        "answerEn": "Fox",
+        "aliasesEn": [
+          "foxes"
+        ]
       },
       {
         "id": "animali-selvatici-24",
@@ -10700,7 +10927,11 @@
         "id": "animali-selvatici-29",
         "answer": "Delfino",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Tursiops_truncatus_01.jpg/960px-Tursiops_truncatus_01.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Tursiops_truncatus_01.jpg/960px-Tursiops_truncatus_01.jpg",
+        "answerEn": "Dolphin",
+        "aliasesEn": [
+          "dolphins"
+        ]
       },
       {
         "id": "animali-selvatici-30",
@@ -10778,7 +11009,11 @@
         "id": "animali-selvatici-40",
         "answer": "Fenicottero",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Flamingos_Laguna_Colorada.jpg/960px-Flamingos_Laguna_Colorada.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Flamingos_Laguna_Colorada.jpg/960px-Flamingos_Laguna_Colorada.jpg",
+        "answerEn": "Flamingo",
+        "aliasesEn": [
+          "flamingos"
+        ]
       },
       {
         "id": "animali-selvatici-41",
@@ -10795,7 +11030,11 @@
         "aliases": [
           "aquila di mare"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/960px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/960px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
+        "answerEn": "Eagle",
+        "aliasesEn": [
+          "eagles"
+        ]
       },
       {
         "id": "animali-selvatici-43",
@@ -10819,7 +11058,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Llamas%2C_Vernagt-Stausee%2C_Italy.jpg/960px-Llamas%2C_Vernagt-Stausee%2C_Italy.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Wild & Exotic Animals",
+    "subtitleEn": "Incredible wildlife from all seven continents"
   },
   {
     "id": "personaggi-storici",
@@ -11368,7 +11610,10 @@
           "https://upload.wikimedia.org/wikipedia/commons/6/6c/Donald_Trump_swearing_in_ceremony.jpg"
         ]
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Historical Figures & Geniuses",
+    "subtitleEn": "Visionaries, rulers, and world changers"
   },
   {
     "id": "capolavori-arte",
@@ -11664,7 +11909,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/La_ronda_de_noche%2C_por_Rembrandt_van_Rijn.jpg/960px-La_ronda_de_noche%2C_por_Rembrandt_van_Rijn.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Masterpieces of Art",
+    "subtitleEn": "World-famous paintings, sculptures, and art"
   },
   {
     "id": "strumenti-musicali",
@@ -11712,13 +11960,21 @@
         "aliases": [
           "viola"
         ],
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Violin_VL100.png"
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Violin_VL100.png",
+        "answerEn": "Violin",
+        "aliasesEn": [
+          "fiddle"
+        ]
       },
       {
         "id": "strumenti-musicali-5",
         "answer": "Violoncello",
         "aliases": [],
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Cello_front_side.png"
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Cello_front_side.png",
+        "answerEn": "Cello",
+        "aliasesEn": [
+          "violoncello"
+        ]
       },
       {
         "id": "strumenti-musicali-6",
@@ -11730,7 +11986,9 @@
         "id": "strumenti-musicali-7",
         "answer": "Arpa",
         "aliases": [],
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Harp.png"
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Harp.png",
+        "answerEn": "Harp",
+        "aliasesEn": []
       },
       {
         "id": "strumenti-musicali-8",
@@ -11739,7 +11997,11 @@
           "pianoforte a coda",
           "piano"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/960px-Steinway_Vienna_002.JPG"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/960px-Steinway_Vienna_002.JPG",
+        "answerEn": "Piano",
+        "aliasesEn": [
+          "grand piano"
+        ]
       },
       {
         "id": "strumenti-musicali-9",
@@ -11747,7 +12009,9 @@
         "aliases": [
           "organetto"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/A_converter_free-bass_piano-accordion_and_a_Russian_bayan.jpg/960px-A_converter_free-bass_piano-accordion_and_a_Russian_bayan.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/A_converter_free-bass_piano-accordion_and_a_Russian_bayan.jpg/960px-A_converter_free-bass_piano-accordion_and_a_Russian_bayan.jpg",
+        "answerEn": "Accordion",
+        "aliasesEn": []
       },
       {
         "id": "strumenti-musicali-10",
@@ -11772,7 +12036,12 @@
         "aliases": [
           "tamburi"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/2006-07-06_drum_set.jpg/960px-2006-07-06_drum_set.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/2006-07-06_drum_set.jpg/960px-2006-07-06_drum_set.jpg",
+        "answerEn": "Drums",
+        "aliasesEn": [
+          "drum kit",
+          "drum set"
+        ]
       },
       {
         "id": "strumenti-musicali-13",
@@ -11823,7 +12092,9 @@
         "id": "strumenti-musicali-19",
         "answer": "Tromba",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/960px-Yamaha_Trumpet_YTR-8335LA_crop.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/960px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
+        "answerEn": "Trumpet",
+        "aliasesEn": []
       },
       {
         "id": "strumenti-musicali-20",
@@ -11855,7 +12126,11 @@
         "aliases": [
           "sax"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Eight_saxophone_sizes_smaller.png/960px-Eight_saxophone_sizes_smaller.png"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Eight_saxophone_sizes_smaller.png/960px-Eight_saxophone_sizes_smaller.png",
+        "answerEn": "Saxophone",
+        "aliasesEn": [
+          "sax"
+        ]
       },
       {
         "id": "strumenti-musicali-24",
@@ -11959,7 +12234,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/960px-ZildjianCustomRide.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Musical Instruments",
+    "subtitleEn": "Acoustic, electric, and traditional instruments"
   },
   {
     "id": "oggetti-casa",
@@ -12276,7 +12554,10 @@
         "aliases": [],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Energiesparlampe_01_retouched.jpg/960px-Energiesparlampe_01_retouched.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Household Objects & Tools",
+    "subtitleEn": "Everyday household items and DIY gear"
   },
   {
     "id": "mestieri",
@@ -12299,7 +12580,11 @@
           "pompiere",
           "pompieri"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/FiremenFightBurningBarn.jpg/960px-FiremenFightBurningBarn.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/FiremenFightBurningBarn.jpg/960px-FiremenFightBurningBarn.jpg",
+        "answerEn": "Firefighter",
+        "aliasesEn": [
+          "fireman"
+        ]
       },
       {
         "id": "mestieri-2",
@@ -12307,7 +12592,12 @@
         "aliases": [
           "cosmonauta"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Bruce_McCandless_II_during_EVA_in_1984.jpg/960px-Bruce_McCandless_II_during_EVA_in_1984.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Bruce_McCandless_II_during_EVA_in_1984.jpg/960px-Bruce_McCandless_II_during_EVA_in_1984.jpg",
+        "answerEn": "Astronaut",
+        "aliasesEn": [
+          "cosmonaut",
+          "spaceman"
+        ]
       },
       {
         "id": "mestieri-3",
@@ -12373,7 +12663,11 @@
         "aliases": [
           "carpentiere"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/PalmercarpenterA.jpg/960px-PalmercarpenterA.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/PalmercarpenterA.jpg/960px-PalmercarpenterA.jpg",
+        "answerEn": "Carpenter",
+        "aliasesEn": [
+          "woodworker"
+        ]
       },
       {
         "id": "mestieri-11",
@@ -12381,7 +12675,9 @@
         "aliases": [
           "autoriparatore"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/2008-04-17_1989_Saab_900_Turbo_getting_new_tyres.jpg/960px-2008-04-17_1989_Saab_900_Turbo_getting_new_tyres.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/2008-04-17_1989_Saab_900_Turbo_getting_new_tyres.jpg/960px-2008-04-17_1989_Saab_900_Turbo_getting_new_tyres.jpg",
+        "answerEn": "Mechanic",
+        "aliasesEn": []
       },
       {
         "id": "mestieri-12",
@@ -12433,13 +12729,19 @@
         "aliases": [
           "odontoiatra"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/US_Navy_030124-N-1328C-510_Navy_dentist_treats_patients_aboard_ship.jpg/960px-US_Navy_030124-N-1328C-510_Navy_dentist_treats_patients_aboard_ship.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/US_Navy_030124-N-1328C-510_Navy_dentist_treats_patients_aboard_ship.jpg/960px-US_Navy_030124-N-1328C-510_Navy_dentist_treats_patients_aboard_ship.jpg",
+        "answerEn": "Dentist",
+        "aliasesEn": []
       },
       {
         "id": "mestieri-19",
         "answer": "Veterinario",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Surgery_performed_on_a_domestic_cat.jpg/960px-Surgery_performed_on_a_domestic_cat.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Surgery_performed_on_a_domestic_cat.jpg/960px-Surgery_performed_on_a_domestic_cat.jpg",
+        "answerEn": "Veterinarian",
+        "aliasesEn": [
+          "vet"
+        ]
       },
       {
         "id": "mestieri-20",
@@ -12564,7 +12866,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Guards_at_Buckingham_Palace_%2832629261244%29.jpg/960px-Guards_at_Buckingham_Palace_%2832629261244%29.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Jobs & Professions",
+    "subtitleEn": "Everyday careers and essential trades"
   },
   {
     "id": "frutta-verdura",
@@ -12586,7 +12891,11 @@
         "aliases": [
           "fragole"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Garden_strawberry_%28Fragaria_%C3%97_ananassa%29_single2.jpg/960px-Garden_strawberry_%28Fragaria_%C3%97_ananassa%29_single2.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Garden_strawberry_%28Fragaria_%C3%97_ananassa%29_single2.jpg/960px-Garden_strawberry_%28Fragaria_%C3%97_ananassa%29_single2.jpg",
+        "answerEn": "Strawberry",
+        "aliasesEn": [
+          "strawberries"
+        ]
       },
       {
         "id": "frutta-verdura-2",
@@ -12618,7 +12927,11 @@
         "aliases": [
           "ciliegie"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Cherry_season_%2848216568227%29.jpg/960px-Cherry_season_%2848216568227%29.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Cherry_season_%2848216568227%29.jpg/960px-Cherry_season_%2848216568227%29.jpg",
+        "answerEn": "Cherry",
+        "aliasesEn": [
+          "cherries"
+        ]
       },
       {
         "id": "frutta-verdura-6",
@@ -12626,19 +12939,31 @@
         "aliases": [
           "cocomero"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Taiwan_2009_Tainan_City_Organic_Farm_Watermelon_FRD_7962.jpg/960px-Taiwan_2009_Tainan_City_Organic_Farm_Watermelon_FRD_7962.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Taiwan_2009_Tainan_City_Organic_Farm_Watermelon_FRD_7962.jpg/960px-Taiwan_2009_Tainan_City_Organic_Farm_Watermelon_FRD_7962.jpg",
+        "answerEn": "Watermelon",
+        "aliasesEn": [
+          "melons"
+        ]
       },
       {
         "id": "frutta-verdura-7",
         "answer": "Melone",
         "aliases": [],
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Meloen_vrucht_met_bloem.jpg"
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Meloen_vrucht_met_bloem.jpg",
+        "answerEn": "Melon",
+        "aliasesEn": [
+          "cantaloupe"
+        ]
       },
       {
         "id": "frutta-verdura-8",
         "answer": "Ananas",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/%E0%B4%95%E0%B5%88%E0%B4%A4%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B4%95%E0%B5%8D%E0%B4%95.jpg/960px-%E0%B4%95%E0%B5%88%E0%B4%A4%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B4%95%E0%B5%8D%E0%B4%95.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/%E0%B4%95%E0%B5%88%E0%B4%A4%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B4%95%E0%B5%8D%E0%B4%95.jpg/960px-%E0%B4%95%E0%B5%88%E0%B4%A4%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B4%95%E0%B5%8D%E0%B4%95.jpg",
+        "answerEn": "Pineapple",
+        "aliasesEn": [
+          "pineapples"
+        ]
       },
       {
         "id": "frutta-verdura-9",
@@ -12705,7 +13030,11 @@
         "id": "frutta-verdura-17",
         "answer": "Kiwi",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Actinidia_fruits.jpg/960px-Actinidia_fruits.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Actinidia_fruits.jpg/960px-Actinidia_fruits.jpg",
+        "answerEn": "Kiwi",
+        "aliasesEn": [
+          "kiwifruit"
+        ]
       },
       {
         "id": "frutta-verdura-18",
@@ -12751,7 +13080,9 @@
         "aliases": [
           "broccoli"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Broccoli_and_cross_section_edit.jpg/960px-Broccoli_and_cross_section_edit.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Broccoli_and_cross_section_edit.jpg/960px-Broccoli_and_cross_section_edit.jpg",
+        "answerEn": "Broccoli",
+        "aliasesEn": []
       },
       {
         "id": "frutta-verdura-24",
@@ -12793,7 +13124,11 @@
         "id": "frutta-verdura-29",
         "answer": "Zucca",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/FrenchMarketPumpkinsB.jpg/960px-FrenchMarketPumpkinsB.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/FrenchMarketPumpkinsB.jpg/960px-FrenchMarketPumpkinsB.jpg",
+        "answerEn": "Pumpkin",
+        "aliasesEn": [
+          "squash"
+        ]
       },
       {
         "id": "frutta-verdura-30",
@@ -12845,7 +13180,9 @@
         "id": "frutta-verdura-37",
         "answer": "Aglio",
         "aliases": [],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Black_garlic.jpg/960px-Black_garlic.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Black_garlic.jpg/960px-Black_garlic.jpg",
+        "answerEn": "Garlic",
+        "aliasesEn": []
       },
       {
         "id": "frutta-verdura-38",
@@ -12853,7 +13190,11 @@
         "aliases": [
           "cipolla rossa"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Mixed_onions.jpg/960px-Mixed_onions.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Mixed_onions.jpg/960px-Mixed_onions.jpg",
+        "answerEn": "Onion",
+        "aliasesEn": [
+          "onions"
+        ]
       },
       {
         "id": "frutta-verdura-39",
@@ -12889,7 +13230,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Ch%C3%A2taignier_120807_1.jpg/960px-Ch%C3%A2taignier_120807_1.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Fruit, Veggies & Spices",
+    "subtitleEn": "Fresh garden produce, herbs, and exotic fruit"
   },
   {
     "id": "discipline-sportive",
@@ -13190,7 +13534,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Horse_riding_in_coca_cola_arena_-_melbourne_show_2005.jpg/960px-Horse_riding_in_coca_cola_arena_-_melbourne_show_2005.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Sports & Disciplines",
+    "subtitleEn": "Olympic sports, team games, and athletics"
   },
   {
     "id": "spazio-natura",
@@ -13476,7 +13823,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Meteor_shower_in_the_Chilean_Desert_%28annotated%29_%28potw2227b%29.jpg/960px-Meteor_shower_in_the_Chilean_Desert_%28annotated%29_%28potw2227b%29.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Space, Science & Nature",
+    "subtitleEn": "Planets, galaxies, and celestial phenomena"
   },
   {
     "id": "moda-accessori",
@@ -13776,7 +14126,10 @@
         "aliases": [],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Lastminute.com_hotel_room_photo_shoot_-_51_Buckingham_Gate%2C_London.jpg/960px-Lastminute.com_hotel_room_photo_shoot_-_51_Buckingham_Gate%2C_London.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Fashion & Luxury Brands",
+    "subtitleEn": "Iconic designers, sneakers, and accessories"
   },
   {
     "id": "fiori-piante",
@@ -14025,7 +14378,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Pinus_coulteri_MHNT_Cone.jpg/960px-Pinus_coulteri_MHNT_Cone.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Flowers, Plants & Trees",
+    "subtitleEn": "Botanical beauties and nature’s flora"
   },
   {
     "id": "razze-gatti",
@@ -14269,7 +14625,10 @@
         "aliases": [],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/RoyalNefertt_Serket_of_AchetAton.jpg/960px-RoyalNefertt_Serket_of_AchetAton.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Cat Breeds",
+    "subtitleEn": "Feline pedigree breeds and domestic companions"
   },
   {
     "id": "attori-italiani",
@@ -14820,7 +15179,8 @@
           "https://upload.wikimedia.org/wikipedia/commons/b/bd/Tomas_Milian.jpg"
         ]
       }
-    ]
+    ],
+    "scope": "it-only"
   },
   {
     "id": "icone-musica-70-80-90",
@@ -15360,7 +15720,10 @@
           "https://upload.wikimedia.org/wikipedia/commons/1/16/Notorious_B.I.G._MetroCards_%2852089125116%29.jpg"
         ]
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "’70s, ’80s & ’90s Music Icons",
+    "subtitleEn": "Rock, pop, and disco legends of past decades"
   },
   {
     "id": "registi-cinema",
@@ -15879,7 +16242,10 @@
           "https://upload.wikimedia.org/wikipedia/commons/6/6c/Nanni_Moretti_%282007%29.jpg"
         ]
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Legendary Film Directors",
+    "subtitleEn": "The visionary creators behind cinema history"
   },
   {
     "id": "giochi-tavolo",
@@ -16163,7 +16529,10 @@
         "aliases": [],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Modern_croquet_equipment.JPG/960px-Modern_croquet_equipment.JPG"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Board Games & Tabletop",
+    "subtitleEn": "Classic parlor games and modern tabletop hits"
   },
   {
     "id": "formaggi-salumi",
@@ -16456,7 +16825,8 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/%C5%A0v%C3%A9dsk%C3%BD_kol%C3%A1%C4%8D_naruby_904_%28cropped%29.JPG/960px-%C5%A0v%C3%A9dsk%C3%BD_kol%C3%A1%C4%8D_naruby_904_%28cropped%29.JPG"
       }
-    ]
+    ],
+    "scope": "it-only"
   },
   {
     "id": "cocktail-bevande",
@@ -16739,7 +17109,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Lemonade_-_27682817724.jpg/960px-Lemonade_-_27682817724.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Cocktails, Drinks & Spirits",
+    "subtitleEn": "Classic mixed drinks, spirits, and aperitifs"
   },
   {
     "id": "dolci-pasticceria",
@@ -17027,7 +17400,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Bacon_and_Cheddar_Cheese_Souffl%C3%A9.jpg/960px-Bacon_and_Cheddar_Cheese_Souffl%C3%A9.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Cakes, Pastries & Desserts",
+    "subtitleEn": "Sweet baked goods and international desserts"
   },
   {
     "id": "insetti-artropodi",
@@ -17287,7 +17663,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/California_spiny_lobster.JPG/960px-California_spiny_lobster.JPG"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Insects & Arthropods",
+    "subtitleEn": "Butterflies, beetles, spiders, and bugs"
   },
   {
     "id": "uccelli-mondo",
@@ -17321,7 +17700,11 @@
         "aliases": [
           "flamingo"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/010_Greater_flamingos_male_and_female_in_the_Camargue_during_mating_season_Photo_by_Giles_Laurent.jpg/960px-010_Greater_flamingos_male_and_female_in_the_Camargue_during_mating_season_Photo_by_Giles_Laurent.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/010_Greater_flamingos_male_and_female_in_the_Camargue_during_mating_season_Photo_by_Giles_Laurent.jpg/960px-010_Greater_flamingos_male_and_female_in_the_Camargue_during_mating_season_Photo_by_Giles_Laurent.jpg",
+        "answerEn": "Flamingo",
+        "aliasesEn": [
+          "flamingos"
+        ]
       },
       {
         "id": "uccelli-mondo-4",
@@ -17553,7 +17936,11 @@
         "aliases": [
           "uccello kiwi"
         ],
-        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/TeTuatahianui.jpg/960px-TeTuatahianui.jpg"
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/TeTuatahianui.jpg/960px-TeTuatahianui.jpg",
+        "answerEn": "Kiwi",
+        "aliasesEn": [
+          "kiwifruit"
+        ]
       },
       {
         "id": "uccelli-mondo-35",
@@ -17577,7 +17964,10 @@
         ],
         "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Spectacular Birds",
+    "subtitleEn": "Feathered species from tropical forests to skies"
   },
   {
     "id": "rettili-abissi",
@@ -17855,7 +18245,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Underwater_photography_on_endangered_mammal_manatee.jpg/960px-Underwater_photography_on_endangered_mammal_manatee.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Reptiles & Deep Sea Creatures",
+    "subtitleEn": "Lizards, snakes, turtles, and deep-sea life"
   },
   {
     "id": "minerali-gemme",
@@ -18104,7 +18497,10 @@
         "aliases": [],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/TamentitMeteorite.JPG/960px-TamentitMeteorite.JPG"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Minerals, Gems & Crystals",
+    "subtitleEn": "Precious jewels, stones, and sparkling minerals"
   },
   {
     "id": "mezzi-lavoro-soccorso",
@@ -18385,7 +18781,10 @@
         "aliases": [],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/2006_Ojiya_balloon_festival_011.jpg/960px-2006_Ojiya_balloon_festival_011.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Work & Rescue Vehicles",
+    "subtitleEn": "Heavy machinery, trucks, and emergency vehicles"
   },
   {
     "id": "ponti-architetture",
@@ -18661,7 +19060,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Palazzo_della_civilt%C3%A0_del_lavoro_%28EUR%2C_Rome%29_%285904657870%29.jpg/960px-Palazzo_della_civilt%C3%A0_del_lavoro_%28EUR%2C_Rome%29_%285904657870%29.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Bridges & Modern Wonders",
+    "subtitleEn": "Iconic bridges, towering skyscrapers, and arches"
   },
   {
     "id": "meraviglie-natura",
@@ -18928,7 +19330,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Realmonte_-_Scala_dei_Turchi_0950.jpg/960px-Realmonte_-_Scala_dei_Turchi_0950.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Natural Wonders",
+    "subtitleEn": "Breathtaking canyons, waterfalls, and landscapes"
   },
   {
     "id": "strumenti-scientifici",
@@ -19192,7 +19597,10 @@
         "aliases": [],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Geiger_counter.jpg/960px-Geiger_counter.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Science & Medical Tools",
+    "subtitleEn": "Laboratory instruments and medical devices"
   },
   {
     "id": "maschere-costumi",
@@ -19458,7 +19866,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/LinusPaulingGraduation1922.jpg/960px-LinusPaulingGraduation1922.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Masks, Helmets & Armor",
+    "subtitleEn": "Historical disguises, helmets, and iconic suits"
   },
   {
     "id": "sport-invernali-estremi",
@@ -19722,7 +20133,10 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Petter_Solberg_-_2006_Cyprus_Rally.jpg/960px-Petter_Solberg_-_2006_Cyprus_Rally.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Winter & Action Sports",
+    "subtitleEn": "Adrenaline sports on snow, waves, and sky"
   },
   {
     "id": "personaggi-disney",
@@ -20006,7 +20420,10 @@
         "aliases": [],
         "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/84/Mary_Poppins_screen_2_%28cropped%29.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Disney & Pixar Characters",
+    "subtitleEn": "Magical heroes and villains of Disney lore"
   },
   {
     "id": "creature-mitologiche",
@@ -20287,6 +20704,9 @@
         ],
         "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Loch_Ness_Monster_Surgeon%27s_photograph.jpg/960px-Loch_Ness_Monster_Surgeon%27s_photograph.jpg"
       }
-    ]
+    ],
+    "scope": "intl",
+    "nameEn": "Mythical Beasts & Gods",
+    "subtitleEn": "Legendary deities, monsters, and mythical lore"
   }
 ]

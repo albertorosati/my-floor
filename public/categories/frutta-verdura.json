@@ -18,7 +18,11 @@
       "aliases": [
         "fragole"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Garden_strawberry_%28Fragaria_%C3%97_ananassa%29_single2.jpg/960px-Garden_strawberry_%28Fragaria_%C3%97_ananassa%29_single2.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Garden_strawberry_%28Fragaria_%C3%97_ananassa%29_single2.jpg/960px-Garden_strawberry_%28Fragaria_%C3%97_ananassa%29_single2.jpg",
+      "answerEn": "Strawberry",
+      "aliasesEn": [
+        "strawberries"
+      ]
     },
     {
       "id": "frutta-verdura-2",
@@ -50,7 +54,11 @@
       "aliases": [
         "ciliegie"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Cherry_season_%2848216568227%29.jpg/960px-Cherry_season_%2848216568227%29.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Cherry_season_%2848216568227%29.jpg/960px-Cherry_season_%2848216568227%29.jpg",
+      "answerEn": "Cherry",
+      "aliasesEn": [
+        "cherries"
+      ]
     },
     {
       "id": "frutta-verdura-6",
@@ -58,19 +66,31 @@
       "aliases": [
         "cocomero"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Taiwan_2009_Tainan_City_Organic_Farm_Watermelon_FRD_7962.jpg/960px-Taiwan_2009_Tainan_City_Organic_Farm_Watermelon_FRD_7962.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Taiwan_2009_Tainan_City_Organic_Farm_Watermelon_FRD_7962.jpg/960px-Taiwan_2009_Tainan_City_Organic_Farm_Watermelon_FRD_7962.jpg",
+      "answerEn": "Watermelon",
+      "aliasesEn": [
+        "melons"
+      ]
     },
     {
       "id": "frutta-verdura-7",
       "answer": "Melone",
       "aliases": [],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Meloen_vrucht_met_bloem.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Meloen_vrucht_met_bloem.jpg",
+      "answerEn": "Melon",
+      "aliasesEn": [
+        "cantaloupe"
+      ]
     },
     {
       "id": "frutta-verdura-8",
       "answer": "Ananas",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/%E0%B4%95%E0%B5%88%E0%B4%A4%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B4%95%E0%B5%8D%E0%B4%95.jpg/960px-%E0%B4%95%E0%B5%88%E0%B4%A4%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B4%95%E0%B5%8D%E0%B4%95.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/%E0%B4%95%E0%B5%88%E0%B4%A4%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B4%95%E0%B5%8D%E0%B4%95.jpg/960px-%E0%B4%95%E0%B5%88%E0%B4%A4%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B4%95%E0%B5%8D%E0%B4%95.jpg",
+      "answerEn": "Pineapple",
+      "aliasesEn": [
+        "pineapples"
+      ]
     },
     {
       "id": "frutta-verdura-9",
@@ -137,7 +157,11 @@
       "id": "frutta-verdura-17",
       "answer": "Kiwi",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Actinidia_fruits.jpg/960px-Actinidia_fruits.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Actinidia_fruits.jpg/960px-Actinidia_fruits.jpg",
+      "answerEn": "Kiwi",
+      "aliasesEn": [
+        "kiwifruit"
+      ]
     },
     {
       "id": "frutta-verdura-18",
@@ -183,7 +207,9 @@
       "aliases": [
         "broccoli"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Broccoli_and_cross_section_edit.jpg/960px-Broccoli_and_cross_section_edit.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Broccoli_and_cross_section_edit.jpg/960px-Broccoli_and_cross_section_edit.jpg",
+      "answerEn": "Broccoli",
+      "aliasesEn": []
     },
     {
       "id": "frutta-verdura-24",
@@ -225,7 +251,11 @@
       "id": "frutta-verdura-29",
       "answer": "Zucca",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/FrenchMarketPumpkinsB.jpg/960px-FrenchMarketPumpkinsB.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/FrenchMarketPumpkinsB.jpg/960px-FrenchMarketPumpkinsB.jpg",
+      "answerEn": "Pumpkin",
+      "aliasesEn": [
+        "squash"
+      ]
     },
     {
       "id": "frutta-verdura-30",
@@ -277,7 +307,9 @@
       "id": "frutta-verdura-37",
       "answer": "Aglio",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Black_garlic.jpg/960px-Black_garlic.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Black_garlic.jpg/960px-Black_garlic.jpg",
+      "answerEn": "Garlic",
+      "aliasesEn": []
     },
     {
       "id": "frutta-verdura-38",
@@ -285,7 +317,11 @@
       "aliases": [
         "cipolla rossa"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Mixed_onions.jpg/960px-Mixed_onions.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Mixed_onions.jpg/960px-Mixed_onions.jpg",
+      "answerEn": "Onion",
+      "aliasesEn": [
+        "onions"
+      ]
     },
     {
       "id": "frutta-verdura-39",
@@ -321,5 +357,8 @@
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Ch%C3%A2taignier_120807_1.jpg/960px-Ch%C3%A2taignier_120807_1.jpg"
     }
-  ]
+  ],
+  "scope": "intl",
+  "nameEn": "Fruit, Veggies & Spices",
+  "subtitleEn": "Fresh garden produce, herbs, and exotic fruit"
 }

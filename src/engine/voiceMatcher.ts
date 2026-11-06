@@ -1,9 +1,47 @@
 import { DuelItem, VoiceMatchResult } from '../types/game';
 import { voiceConfig } from '../services/configService';
 
-const ITALIAN_STOPWORDS = new Set(voiceConfig.stopwords);
-const NUMBER_MAP: Record<string, string> = voiceConfig.numberMap;
-const PASS_KEYWORDS = new Set(voiceConfig.passKeywords);
+const STOPWORDS = new Set([
+  ...voiceConfig.stopwords,
+  'the',
+  'a',
+  'an',
+  'of',
+  'in',
+  'on',
+  'at',
+  'to',
+  'for',
+  'with',
+  'by',
+  'it',
+  'is',
+  'and',
+  'this',
+  'that',
+]);
+
+const NUMBER_MAP: Record<string, string> = {
+  ...voiceConfig.numberMap,
+  zero: '0',
+  one: '1',
+  two: '2',
+  three: '3',
+  four: '4',
+  five: '5',
+  six: '6',
+  seven: '7',
+  eight: '8',
+  nine: '9',
+  ten: '10',
+};
+
+const PASS_KEYWORDS = new Set([
+  ...voiceConfig.passKeywords,
+  'pass',
+  'skip',
+  'next',
+]);
 
 export function normalizeText(raw: string): string {
   if (!raw) return '';
@@ -18,7 +56,7 @@ export function normalizeText(raw: string): string {
   const tokens = text
     .split(' ')
     .map((t) => NUMBER_MAP[t] ?? t)
-    .filter((t) => t.length > 0 && t !== 'l' && !ITALIAN_STOPWORDS.has(t));
+    .filter((t) => t.length > 0 && t !== 'l' && !STOPWORDS.has(t));
 
   return tokens.join(' ');
 }
@@ -137,9 +175,15 @@ export function evaluateVoiceInput(
   transcripts: string[],
   item: DuelItem
 ): VoiceMatchResult {
-  const candidates = [item.answer, ...(item.aliases || [])]
-    .map((c) => normalizeText(c))
-    .filter((c) => c.length > 0);
+  const allRaw = [
+    item.answer,
+    ...(item.aliases || []),
+    ...(item.answerEn ? [item.answerEn] : []),
+    ...(item.aliasesEn || []),
+  ];
+  const candidates = Array.from(
+    new Set(allRaw.map((c) => normalizeText(c)).filter((c) => c.length > 0))
+  );
 
   let bestScore = 0;
   let bestAlias: string | undefined;

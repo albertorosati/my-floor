@@ -313,5 +313,8 @@
       "aliases": [],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Energiesparlampe_01_retouched.jpg/960px-Energiesparlampe_01_retouched.jpg"
     }
-  ]
+  ],
+  "scope": "intl",
+  "nameEn": "Household Objects & Tools",
+  "subtitleEn": "Everyday household items and DIY gear"
 }

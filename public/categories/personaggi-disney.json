@@ -280,5 +280,8 @@
       "aliases": [],
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/84/Mary_Poppins_screen_2_%28cropped%29.jpg"
     }
-  ]
+  ],
+  "scope": "intl",
+  "nameEn": "Disney & Pixar Characters",
+  "subtitleEn": "Magical heroes and villains of Disney lore"
 }

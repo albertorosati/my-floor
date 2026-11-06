@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { RotateCcw, Home, Trophy } from 'lucide-react';
-import { DuelSummary, PlayerConfig, PlayerId } from '../types/game';
+import { DuelSummary, PlayerConfig, PlayerId, AppLanguage } from '../types/game';
 import { soundEngine } from '../engine/soundEffects';
 import { APP_VERSION } from '../config/version';
 
@@ -12,6 +12,7 @@ interface VictoryScreenProps {
   p1Score: number;
   p2Score: number;
   history: DuelSummary[];
+  language?: AppLanguage;
   onPlayAgain: () => void;
   onBackToLobby: () => void;
 }
@@ -23,6 +24,7 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
   p1Score,
   p2Score,
   history,
+  language = 'it',
   onPlayAgain,
   onBackToLobby,
 }) => {
@@ -32,7 +34,11 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
   useEffect(() => {
     soundEngine.playDuelVictory();
     if (!isDraw) {
-      soundEngine.speakAnnouncement(`Vince la sfida ${winner.name}!`);
+      soundEngine.speakAnnouncement(
+        language === 'en'
+          ? `${winner.name} won the match!`
+          : `Vince la sfida ${winner.name}!`
+      );
     }
 
     const end = Date.now() + 3000;
@@ -54,7 +60,7 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
       }
     };
     frame();
-  }, [winner.name, isDraw]);
+  }, [winner.name, isDraw, language]);
 
   const totalP1Correct = history.reduce((acc, h) => acc + h.p1Correct, 0);
   const totalP2Correct = history.reduce((acc, h) => acc + h.p2Correct, 0);
@@ -68,29 +74,42 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
 
         <div>
           <span className="px-3.5 py-1 rounded-full bg-paper border-2 border-ink font-display font-bold text-xs uppercase text-ink">
-            {isDraw ? 'Pareggio!' : 'Campione della partita'}
+            {isDraw
+              ? language === 'en'
+                ? 'Tie Match!'
+                : 'Pareggio!'
+              : language === 'en'
+              ? 'Arena Champion'
+              : 'Campione della partita'}
           </span>
           <h1 className="font-display font-bold text-4xl sm:text-5xl text-ink mt-3">
             {isDraw
-              ? `${p1.avatar} Pari merito! ${p2.avatar}`
+              ? `${p1.avatar} ${language === 'en' ? 'Equal Points!' : 'Pari merito!'} ${p2.avatar}`
               : `${winner.avatar} ${winner.name}`}
           </h1>
           <p className="text-ink/70 font-semibold mt-1">
-            Punteggio finale: <strong>{p1.name} {p1Score}</strong> — <strong>{p2Score} {p2.name}</strong>
+            {language === 'en' ? 'Final Score:' : 'Punteggio finale:'}{' '}
+            <strong>
+              {p1.name} {p1Score}
+            </strong>{' '}
+            —{' '}
+            <strong>
+              {p2Score} {p2.name}
+            </strong>
           </p>
         </div>
 
         {/* Statistiche veloci */}
         <div className="w-full grid grid-cols-3 gap-3 bg-paper p-4 rounded-2xl border-2 border-ink">
           <div>
-            <span className="text-xs font-bold text-ink/60 block">Round</span>
+            <span className="text-xs font-bold text-ink/60 block">Rounds</span>
             <span className="font-display font-bold text-2xl text-ink">
               {history.length}
             </span>
           </div>
           <div>
             <span className="text-xs font-bold text-p1 block">
-              Foto {p1.name}
+              {language === 'en' ? `${p1.name} Photos` : `Foto ${p1.name}`}
             </span>
             <span className="font-display font-bold text-2xl text-ink">
               {totalP1Correct}
@@ -98,7 +117,7 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
           </div>
           <div>
             <span className="text-xs font-bold text-p2 block">
-              Foto {p2.name}
+              {language === 'en' ? `${p2.name} Photos` : `Foto ${p2.name}`}
             </span>
             <span className="font-display font-bold text-2xl text-ink">
               {totalP2Correct}
@@ -135,14 +154,14 @@ export const VictoryScreen: React.FC<VictoryScreenProps> = ({
             className="btn-push py-3.5 px-5 rounded-2xl bg-gold text-ink font-display font-bold text-lg flex items-center justify-center gap-2"
           >
             <RotateCcw className="w-5 h-5" />
-            <span>Rivincita</span>
+            <span>{language === 'en' ? 'Play Again' : 'Rivincita'}</span>
           </button>
           <button
             onClick={onBackToLobby}
             className="btn-push py-3.5 px-5 rounded-2xl bg-white text-ink font-display font-bold text-lg flex items-center justify-center gap-2"
           >
             <Home className="w-5 h-5" />
-            <span>Torna al Menu</span>
+            <span>{language === 'en' ? 'Back to Lobby' : 'Torna al Menu'}</span>
           </button>
         </div>
 

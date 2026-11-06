@@ -662,5 +662,8 @@
         "https://upload.wikimedia.org/wikipedia/commons/f/fb/Tom_Hanks_2016.jpg"
       ]
     }
-  ]
+  ],
+  "scope": "intl",
+  "nameEn": "Hollywood Actors",
+  "subtitleEn": "The biggest stars of the silver screen"
 }

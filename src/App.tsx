@@ -6,6 +6,7 @@ import {
   PlayerConfig,
   PlayerId,
   RemoteMicPacket,
+  AppLanguage,
 } from './types/game';
 import { loadAllCategories } from './data/categories';
 import { gameConfig } from './services/configService';
@@ -13,6 +14,7 @@ import { CategoryRepository } from './services/categoryRepository';
 import { DiscordHostPeer, generateRoomCode } from './engine/discordMicSync';
 import { soundEngine } from './engine/soundEffects';
 import { hapticsService } from './services/hapticsService';
+import { localizeCategoryForGame } from './services/i18n';
 import { LobbyScreen } from './components/LobbyScreen';
 import { CategoryDraftScreen } from './components/CategoryDraftScreen';
 import { DuelArenaScreen } from './components/DuelArenaScreen';
@@ -47,14 +49,26 @@ export const App: React.FC = () => {
     avatar: gameConfig.players.defaultP2.avatar,
   });
 
-  const [settings, setSettings] = useState<GameSettings>({
-    targetWins: gameConfig.defaults.targetWins,
-    duelDurationSeconds: gameConfig.defaults.duelDurationSeconds,
-    passPenaltySeconds: gameConfig.defaults.passPenaltySeconds,
-    micMode: gameConfig.defaults.micMode,
-    soundEnabled: gameConfig.defaults.soundEnabled,
-    announcerEnabled: gameConfig.defaults.announcerEnabled,
-    hapticsEnabled: true,
+  const [settings, setSettings] = useState<GameSettings>(() => {
+    let initialLang: AppLanguage = 'it';
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('the_floor_lang');
+      if (saved === 'it' || saved === 'en') {
+        initialLang = saved;
+      } else if (navigator.language && !navigator.language.startsWith('it')) {
+        initialLang = 'en';
+      }
+    }
+    return {
+      targetWins: gameConfig.defaults.targetWins,
+      duelDurationSeconds: gameConfig.defaults.duelDurationSeconds,
+      passPenaltySeconds: gameConfig.defaults.passPenaltySeconds,
+      micMode: gameConfig.defaults.micMode,
+      soundEnabled: gameConfig.defaults.soundEnabled,
+      announcerEnabled: gameConfig.defaults.announcerEnabled,
+      hapticsEnabled: true,
+      language: initialLang,
+    };
   });
 
   // Stato Match a Round con scelta categoria alternata
@@ -130,7 +144,13 @@ export const App: React.FC = () => {
   };
 
   const handleUpdateSettings = (partial: Partial<GameSettings>) => {
-    setSettings((prev) => ({ ...prev, ...partial }));
+    setSettings((prev) => {
+      const updated = { ...prev, ...partial };
+      if (partial.language && typeof window !== 'undefined') {
+        localStorage.setItem('the_floor_lang', partial.language);
+      }
+      return updated;
+    });
   };
 
   const handleStartNewGame = () => {
@@ -146,7 +166,9 @@ export const App: React.FC = () => {
 
   const handleSelectCategory = async (cat: Category) => {
     const freshCat = await CategoryRepository.fetchCategoryById(cat.id);
-    setActiveCategory(freshCat || cat);
+    const chosen = freshCat || cat;
+    const localized = localizeCategoryForGame(chosen, settings.language);
+    setActiveCategory(localized);
     setPlayedCategoryIds((prev) => [...prev, cat.id]);
     setScreen('duel');
   };
@@ -210,6 +232,7 @@ export const App: React.FC = () => {
           targetWins={settings.targetWins}
           chooserId={chooserId}
           roundNumber={currentRound}
+          language={settings.language}
           lastSummary={
             duelHistory.length > 0
               ? duelHistory[duelHistory.length - 1]
@@ -244,6 +267,7 @@ export const App: React.FC = () => {
           p1Score={p1Score}
           p2Score={p2Score}
           history={duelHistory}
+          language={settings.language}
           onPlayAgain={handleStartNewGame}
           onBackToLobby={() => setScreen('lobby')}
         />
@@ -252,6 +276,7 @@ export const App: React.FC = () => {
       {editorOpen && (
         <CategoryEditorModal
           allCategories={categories}
+          language={settings.language}
           onClose={() => setEditorOpen(false)}
           onCategoriesUpdated={() => setCategories(loadAllCategories())}
         />

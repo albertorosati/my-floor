@@ -7,7 +7,7 @@ import {
   Upload,
   Image as ImageIcon,
 } from 'lucide-react';
-import { Category, DuelItem } from '../types/game';
+import { Category, DuelItem, AppLanguage } from '../types/game';
 import {
   getCustomCategoriesOnly,
   saveCustomCategories,
@@ -16,12 +16,14 @@ import {
 
 interface CategoryEditorModalProps {
   allCategories: Category[];
+  language?: AppLanguage;
   onClose: () => void;
   onCategoriesUpdated: () => void;
 }
 
 export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
   allCategories,
+  language = 'it',
   onClose,
   onCategoriesUpdated,
 }) => {
@@ -88,6 +90,7 @@ export const CategoryEditorModal: React.FC<CategoryEditorModalProps> = ({
       coverImage: items[0]?.imageUrl,
       items,
       isCustom: true,
+      scope: 'intl',
     };
     saveCustomCategories([newCat, ...customList]);
     onCategoriesUpdated();

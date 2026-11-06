@@ -21,15 +21,28 @@ export class SmartSpeechRecognizer {
   private activeResultIndex = 0;
   private consumedCharLength = 0;
   private latestRawTranscript = '';
+  private language: 'it' | 'en' = 'it';
 
   constructor(
     onSpeech: SpeechCallback,
     onStatus: StatusCallback,
-    onVolume?: VolumeCallback
+    onVolume?: VolumeCallback,
+    language: 'it' | 'en' = 'it'
   ) {
     this.onSpeech = onSpeech;
     this.onStatus = onStatus;
     this.onVolume = onVolume;
+    this.language = language;
+  }
+
+  public setLanguage(lang: 'it' | 'en'): void {
+    if (this.language !== lang) {
+      this.language = lang;
+      if (this.isListening) {
+        this.stop();
+        this.start();
+      }
+    }
   }
 
   public static isSupported(): boolean {
@@ -81,7 +94,7 @@ export class SmartSpeechRecognizer {
 
     try {
       const rec = new SpeechConstructor();
-      rec.lang = 'it-IT';
+      rec.lang = this.language === 'en' ? 'en-US' : 'it-IT';
 
       // Su iOS Safari il flag continuous: true provoca spesso l'abort immediato dell'audio engine
       const isIOS =

@@ -19,7 +19,11 @@
         "pompiere",
         "pompieri"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/FiremenFightBurningBarn.jpg/960px-FiremenFightBurningBarn.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/FiremenFightBurningBarn.jpg/960px-FiremenFightBurningBarn.jpg",
+      "answerEn": "Firefighter",
+      "aliasesEn": [
+        "fireman"
+      ]
     },
     {
       "id": "mestieri-2",
@@ -27,7 +31,12 @@
       "aliases": [
         "cosmonauta"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Bruce_McCandless_II_during_EVA_in_1984.jpg/960px-Bruce_McCandless_II_during_EVA_in_1984.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Bruce_McCandless_II_during_EVA_in_1984.jpg/960px-Bruce_McCandless_II_during_EVA_in_1984.jpg",
+      "answerEn": "Astronaut",
+      "aliasesEn": [
+        "cosmonaut",
+        "spaceman"
+      ]
     },
     {
       "id": "mestieri-3",
@@ -93,7 +102,11 @@
       "aliases": [
         "carpentiere"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/PalmercarpenterA.jpg/960px-PalmercarpenterA.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/PalmercarpenterA.jpg/960px-PalmercarpenterA.jpg",
+      "answerEn": "Carpenter",
+      "aliasesEn": [
+        "woodworker"
+      ]
     },
     {
       "id": "mestieri-11",
@@ -101,7 +114,9 @@
       "aliases": [
         "autoriparatore"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/2008-04-17_1989_Saab_900_Turbo_getting_new_tyres.jpg/960px-2008-04-17_1989_Saab_900_Turbo_getting_new_tyres.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/2008-04-17_1989_Saab_900_Turbo_getting_new_tyres.jpg/960px-2008-04-17_1989_Saab_900_Turbo_getting_new_tyres.jpg",
+      "answerEn": "Mechanic",
+      "aliasesEn": []
     },
     {
       "id": "mestieri-12",
@@ -153,13 +168,19 @@
       "aliases": [
         "odontoiatra"
       ],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/US_Navy_030124-N-1328C-510_Navy_dentist_treats_patients_aboard_ship.jpg/960px-US_Navy_030124-N-1328C-510_Navy_dentist_treats_patients_aboard_ship.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/US_Navy_030124-N-1328C-510_Navy_dentist_treats_patients_aboard_ship.jpg/960px-US_Navy_030124-N-1328C-510_Navy_dentist_treats_patients_aboard_ship.jpg",
+      "answerEn": "Dentist",
+      "aliasesEn": []
     },
     {
       "id": "mestieri-19",
       "answer": "Veterinario",
       "aliases": [],
-      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Surgery_performed_on_a_domestic_cat.jpg/960px-Surgery_performed_on_a_domestic_cat.jpg"
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Surgery_performed_on_a_domestic_cat.jpg/960px-Surgery_performed_on_a_domestic_cat.jpg",
+      "answerEn": "Veterinarian",
+      "aliasesEn": [
+        "vet"
+      ]
     },
     {
       "id": "mestieri-20",
@@ -284,5 +305,8 @@
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Guards_at_Buckingham_Palace_%2832629261244%29.jpg/960px-Guards_at_Buckingham_Palace_%2832629261244%29.jpg"
     }
-  ]
+  ],
+  "scope": "intl",
+  "nameEn": "Jobs & Professions",
+  "subtitleEn": "Everyday careers and essential trades"
 }

@@ -292,5 +292,8 @@
       ],
       "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/La_ronda_de_noche%2C_por_Rembrandt_van_Rijn.jpg/960px-La_ronda_de_noche%2C_por_Rembrandt_van_Rijn.jpg"
     }
-  ]
+  ],
+  "scope": "intl",
+  "nameEn": "Masterpieces of Art",
+  "subtitleEn": "World-famous paintings, sculptures, and art"
 }
